@@ -11,7 +11,6 @@
 \usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
 \usepackage[nameinlink,capitalize,noabbrev]{cleveref}
 
-\mathtoolsset{showonlyrefs}
 \numberwithin{equation}{section}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -284,8 +283,9 @@ Serre duality and $\kappa^2=K_C$ give, for $M\in P$,
  h^0(C,\kappa\otimes M)=h^0(C,\kappa\otimes M^{-1}),
 \]
 and therefore
-\begin{equation}\label{eq:symmetry}
+\begin{equation}
  X=-X
+\label{eq:symmetry}
 \end{equation}
 with centre the origin.  The uniqueness of this centre will follow from
 \eqref{eq:stabilizer}.
@@ -380,8 +380,9 @@ The tangent incidences in this table are distinct: a line through a branch
 point $b_i$ and tangent at $q$ satisfies $2q=-b_i$, and multiplication by
 two on $E$ is \'etale of degree four.  No nonzero two-torsion point is a flex.
 Together with the critical-point calculation above, this proves
-\begin{equation}\label{eq:euler-chain}
+\begin{equation}
  e(N)=10,\qquad e(T)=9,\qquad e(S)=8.
+\label{eq:euler-chain}
 \end{equation}
 
 The canonical map of $C$ is birational: on the affine chart it is
@@ -395,8 +396,9 @@ Consequently $\kappa$ is the unique $g^1_3$ on $C$.  Riemann--Kempf
 locus.  The corresponding points of $N$ are smooth by the critical-point
 calculation above, so their images in $X$ are smooth.  The pencil
 $|\kappa|$ is the only positive-dimensional Abel fibre.  It follows that
-\begin{equation}\label{eq:singular-locus}
+\begin{equation}
  \Sing(X)=\{0\}.
+\label{eq:singular-locus}
 \end{equation}
 The smooth dense open $X\setminus\{0\}$ shows that the Cartier divisor $X$
 is generically reduced; since a Cartier divisor on the smooth variety $P$ is
@@ -408,18 +410,21 @@ The map $\rho:S\to X$ is semismall, with the single relevant exceptional
 fibre $E_{\exc}$.  Its one-dimensional top intersection form is the
 nondegenerate matrix $(-2)$.  The semismall decomposition theorem
 \cite{deCataldoMigliorini2002} gives
-\begin{equation}\label{eq:semismall}
+\begin{equation}
  R\rho_*\QQ_S[2]\simeq\IC_X\oplus\delta_0.
+\label{eq:semismall}
 \end{equation}
 Taking Euler characteristics in \eqref{eq:semismall} and using
 \eqref{eq:euler-chain}, we obtain
-\begin{equation}\label{eq:chi-seven}
+\begin{equation}
  \chi(\IC_X)=7.
+\label{eq:chi-seven}
 \end{equation}
 
 The unique singular point also gives
-\begin{equation}\label{eq:stabilizer}
+\begin{equation}
  \Stab_P(X)=\{0\},
+\label{eq:stabilizer}
 \end{equation}
 because a translation preserving $X$ must preserve its singular locus.
 In particular, the origin is the unique centre of the symmetry
@@ -440,8 +445,9 @@ Dubson--Kashiwara local index formula
 \]
 The Franecki--Kapranov index theorem \cite{FraneckiKapranov2000}, together
 with \eqref{eq:chi-seven}, yields
-\begin{equation}\label{eq:gauss-degree}
+\begin{equation}
  \deg(\Lambda_X\to\PP(T_0^*P))=6.
+\label{eq:gauss-degree}
 \end{equation}
 
 \subsection{The generic-twist Hodge vector}
@@ -453,8 +459,9 @@ The blowup of the $\wt E_6$ vertex gives
  K_T^2=K_N^2+E_0^2=15,
 \]
 and $T\to S$ is the blowup of a smooth point.  Hence
-\begin{equation}\label{eq:surface-invariants}
+\begin{equation}
  K_S^2=16,\qquad e(S)=8,\qquad \chi(\mathcal O_S)=2,
+\label{eq:surface-invariants}
 \end{equation}
 where the last equality is Noether's formula.
 
@@ -504,7 +511,7 @@ refinement of \eqref{eq:semismall}, extended to $P$, is
 The point summand has type $(1,1)$ and removes one middle Tate class.  We
 have proved:
 
-\begin{proposition}\label{prop:hodge-vector}
+\begin{proposition}\label[proposition]{prop:hodge-vector}
 The generic-twist Hodge vector of $\IC_X^H$ is
 \[
  h(\IC_X^H)=(2,3,2).
@@ -576,8 +583,9 @@ where
 \end{aligned}
 \]
 Since $w^3=y$, its cyclic norm is
-\begin{equation}\label{eq:cyclic-norm}
+\begin{equation}
  \Nm(s)=\alpha^3+\beta^3y+\gamma^3y^2-3\alpha\beta\gamma y.
+\label{eq:cyclic-norm}
 \end{equation}
 The section \eqref{eq:cyclic-norm} is divisible on $E$ by the fixed line
 $y-x$.  The quotient belongs to $H^0(E,6O)$ and is represented by a conic
@@ -587,7 +595,7 @@ $y-x$.  The quotient belongs to $H^0(E,6O)$ and is represented by a conic
 Let $M_s$ be its symmetric $3\times3$ matrix.
 
 \begin{proposition}[Universal norm identity]
-\label{prop:universal-identity}
+\label[proposition]{prop:universal-identity}
 Over $\QQ(\lambda,e_1,e_2,e_3)$ one has
 \[
  \det(M_s)=L_{\mathrm{str}}F_8,
@@ -602,8 +610,9 @@ and put
 \]
 There exist polynomials $A,B\in\QQ(\lambda,e_2,e_3,u)[z]$ of degrees three
 and at most two such that
-\begin{equation}\label{eq:norm-square-identity}
+\begin{equation}
  F=A^2+3\Delta B^2.
+\label{eq:norm-square-identity}
 \end{equation}
 In particular, the intrinsic double cover ordering the two factors of a
 rank-two conic splits over the function field of $F_8$ after base change to
@@ -652,7 +661,7 @@ We isolate the relative argument that turns ordered conic factors into
 ordered components of the Abel incidence.
 
 \begin{lemma}[Relative ordered-zero construction]
-\label{lem:scheme-abel-inverse}
+\label[lemma]{lem:scheme-abel-inverse}
 Let $S$ be a nonempty open of the unordered distinct rank-two incidence.
 Let $\mathcal I_{\mathrm{fac}}\to S$ be the finite \'etale double cover that
 orders the two conic factors.  Let $\mathcal I_{\mathrm{div}}\to S$ be the
@@ -702,8 +711,9 @@ $B_i$, split $U_i=B_i\sqcup B_i\sqcup B_i$ and trivialize the restriction
 of $3\kappa$, using the induced trivialization of its norm line.  If
 $a_1,a_2,a_3\in\mathcal O_{B_i}$ are the three values of $s$, compatibility
 of the finite locally free norm with base change gives
-\begin{equation}\label{eq:split-norm-zero}
+\begin{equation}
  a_1a_2a_3=\Nm_\pi(s)|_{B_i}=0
+\label{eq:split-norm-zero}
 \end{equation}
 as an equality in the structure sheaf, not merely at geometric points.
 The collision exclusions imply that locally two values, say $a_2,a_3$, are
@@ -732,8 +742,9 @@ relative degree nine, equal to $\deg(3\kappa)$.  After dividing by their
 Cartier equations, the residual section has degree zero and is nonvanishing
 on every geometric fibre.  Nakayama's lemma makes it a trivialization, so
 there is no vertical or nilpotent residual contribution and
-\begin{equation}\label{eq:relative-zero-sum}
+\begin{equation}
  Z(s)=D+D_1+D_2
+\label{eq:relative-zero-sum}
 \end{equation}
 as relative Cartier divisors.  Conversely, an ordered divisor datum
 determines the unique projective section $[s]$ with zero divisor
@@ -892,7 +903,7 @@ and let $\sigma(p,q)=(q,p)$.  We use the minus sign to denote the
 anti-invariant direct summand under $\sigma$.
 
 \begin{proposition}[Alternating support detector]
-\label{prop:alt-support}
+\label[proposition]{prop:alt-support}
 Under the conclusion of \cref{thm:pair-splitting}, one has a direct summand
 \[
  K\subset{}^pH^0\bigl(Rm_*(K\bo K)\bigr)_-.
@@ -926,8 +937,9 @@ The top cohomology of a proper complex curve is freely generated by the
 fundamental classes of the irreducible components of its reduction.
 Holomorphic transposition preserves complex orientation.  The two exchanged
 pairs therefore give
-\begin{equation}\label{eq:total-alt-rank}
+\begin{equation}
  \dim\cH^{-2}(L*L)_{-,t}=2.
+\label{eq:total-alt-rank}
 \end{equation}
 
 Expand the decomposition $L=K\oplus\delta_0$:
@@ -939,8 +951,9 @@ At $t\ne0$, the last term has zero stalk.  The two middle terms are both
 canonically $K$, and transposition exchanges them.  Since $t$ is a smooth
 point of the surface $X$, their anti-invariant stalk in degree $-2$ has
 dimension one.  Subtracting this from \eqref{eq:total-alt-rank} gives
-\begin{equation}\label{eq:principal-alt-rank}
+\begin{equation}
  \dim\cH^{-2}(K*K)_{-,t}=1.
+\label{eq:principal-alt-rank}
 \end{equation}
 There is no Koszul sign: $K$ has geometric shift $[2]$, and
 $(-1)^{2\cdot2}=1$.
@@ -956,9 +969,10 @@ connected curve $X\cap(t-X)$.  It is connected because it is the
 intersection of two ample divisors in the smooth projective threefold $P$.
 The involution $p\mapsto t-p$ preserves its complex orientation and hence
 acts by $+1$ on its one-dimensional top cohomology.  Therefore
-\begin{equation}\label{eq:generic-alt-vanishing}
+\begin{equation}
  \cH^{-2}(K*K)_-=0
  \quad\text{on a dense open subset of }P.
+\label{eq:generic-alt-vanishing}
 \end{equation}
 
 The complex $(K*K)_-$ is a direct summand of the projective direct image of
@@ -1019,15 +1033,17 @@ evaluation pairing
 \]
 It takes values in the actual tensor unit because the centre of the symmetry
 is zero.  Therefore the full group embeds faithfully as
-\begin{equation}\label{eq:orthogonal}
+\begin{equation}
  G\hookrightarrow O(V).
+\label{eq:orthogonal}
 \end{equation}
 
 The simple perverse sheaf $K$ is nondivisible: a translation fixing it must
 fix its support, and \eqref{eq:stabilizer} then makes the translation zero.
 By \cite[Proposition~3.3]{JKLM2025},
-\begin{equation}\label{eq:connected-irreducible}
+\begin{equation}
  V|_{G^0}\quad\text{is irreducible}.
+\label{eq:connected-irreducible}
 \end{equation}
 This result does not require the ambient abelian variety to be simple.
 
@@ -1064,16 +1080,18 @@ Consequently
  \rho(\GGm)\subset G^*,
 \]
 the common Hodge and perverse derived group.  Its weights on $V$ are
-\begin{equation}\label{eq:hodge-weights}
+\begin{equation}
  -2,0,2\quad\text{with multiplicities }2,3,2.
+\label{eq:hodge-weights}
 \end{equation}
 
 Applying the fibre functor to \cref{prop:alt-support} gives
-\begin{equation}\label{eq:hom-exterior}
+\begin{equation}
  \operatorname{Hom}_G(V,\Lambda^2V)\ne0.
+\label{eq:hom-exterior}
 \end{equation}
 
-\begin{proposition}\label{prop:connected-g2}
+\begin{proposition}\label[proposition]{prop:connected-g2}
 The identity component of $G$ is $G_2$ in its standard representation.
 \end{proposition}
 
