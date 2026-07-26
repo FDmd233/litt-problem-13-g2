@@ -108,6 +108,22 @@ def assert_identity(label: str, left: sp.Expr, right: sp.Expr) -> None:
     print(label, True)
 
 
+def polynomial_power_mod(
+    base: sp.Poly,
+    exponent: int,
+    modulus: sp.Poly,
+) -> sp.Poly:
+    """Return base**exponent modulo a monic finite-field polynomial."""
+    result = sp.Poly(1, *modulus.gens, modulus=modulus.get_modulus())
+    current = base.rem(modulus)
+    while exponent:
+        if exponent & 1:
+            result = (result * current).rem(modulus)
+        current = (current * current).rem(modulus)
+        exponent >>= 1
+    return result
+
+
 def cover_source(
     *,
     ring: str,
@@ -253,9 +269,15 @@ def main(*, write_inputs: bool = False) -> None:
         raise RuntimeError("u-v does not divide the norm-conic determinant")
     if determinant_polynomial.total_degree() != 9 or residual_octic.total_degree() != 8:
         raise RuntimeError("unexpected determinant or residual degree")
+    if residual_octic.rem(structural_line).is_zero:
+        raise RuntimeError("the structural factor u-v has multiplicity greater than one")
+    if any(sum(monomial) != 8 for monomial, _coefficient in residual_octic.terms()):
+        raise RuntimeError("the residual factor is not homogeneous of degree eight")
     print("DETERMINANT_DEGREE", determinant_polynomial.total_degree())
     print("STRUCTURAL_FACTOR_REMAINDER", 0)
+    print("STRUCTURAL_FACTOR_MULTIPLICITY", 1)
     print("RESIDUAL_FACTOR_DEGREE", residual_octic.total_degree())
+    print("RESIDUAL_FACTOR_HOMOGENEOUS", True)
     monic_residual_octic = residual_octic.monic().as_expr()
 
     e1one_vone_substitution = {e1: 1, v: 1}
@@ -271,6 +293,56 @@ def main(*, write_inputs: bool = False) -> None:
         determinant.subs(special_substitution) / (8910 * (u - v))
     )
     special_delta = sp.factor(delta.subs(special_substitution))
+
+    # A small independent irreducibility certificate for the special octic.
+    # Clear the constant denominator, reduce modulo 13, set u=1, and normalize.
+    special_denominator, special_integer_curve = sp.Poly(
+        special_curve, u, v, domain=sp.QQ
+    ).clear_denoms(convert=True)
+    denominator_mod13 = int(special_denominator) % 13
+    if denominator_mod13 == 0:
+        raise RuntimeError("the special octic denominator vanishes modulo 13")
+    denominator_inverse = pow(denominator_mod13, -1, 13)
+    coefficient_ring = sp.GF(13).poly_ring(u)
+    special_as_polynomial_in_v = sp.Poly(
+        denominator_inverse * special_integer_curve.as_expr(),
+        v,
+        domain=coefficient_ring,
+    )
+    if special_as_polynomial_in_v.degree() != 8:
+        raise RuntimeError("the special octic does not have full v-degree")
+    if special_as_polynomial_in_v.LC() != coefficient_ring.convert(-5):
+        raise RuntimeError("unexpected leading v-coefficient in the special octic")
+
+    h = sp.Poly(
+        special_integer_curve.as_expr().subs(u, 1), v, modulus=13
+    ).monic()
+    expected_h = sp.Poly(
+        v**8
+        + 3 * v**7
+        - 4 * v**6
+        - 3 * v**5
+        - 4 * v**4
+        - 5 * v**3
+        + 5 * v**2
+        - 2 * v
+        - 1,
+        v,
+        modulus=13,
+    )
+    if h != expected_h:
+        raise RuntimeError("the reconstructed Rabin slice differs from the certificate")
+    variable = sp.Poly(v, v, modulus=13)
+    q4_difference = polynomial_power_mod(variable, 13**4, h) - variable
+    q4_gcd = sp.gcd(h, q4_difference).monic()
+    q8_remainder = (polynomial_power_mod(variable, 13**8, h) - variable).rem(h)
+    if q4_gcd.degree() != 0 or not q8_remainder.is_zero:
+        raise RuntimeError("the Rabin irreducibility certificate failed")
+    print("RABIN_SLICE_H", h.as_expr())
+    print("RABIN_PARENT_V_DEGREE", special_as_polynomial_in_v.degree())
+    print("RABIN_PARENT_V_LEADING_COEFFICIENT_MOD13", -5)
+    print("RABIN_Q4_GCD", q4_gcd.as_expr())
+    print("RABIN_Q8_REMAINDER", 0)
     assert_identity(
         "E1ONE_VONE_NORMALIZATION_FROM_MONIC_OCTIC",
         e1one_vone_curve,

@@ -188,6 +188,74 @@ def build_sample() -> dict[str, object]:
     }
 
 
+def open_witness(data: dict[str, object]) -> dict[str, object]:
+    """Express the finite-field open witness in both coordinate bases."""
+    _x, _y, u, v, z = data["symbols"]
+    parameters = (u, v, z)
+    kernel_point = {u: 1, v: 0, z: 9}
+    kernel_section = sp.Matrix(
+        [
+            sp.expand(
+                sum(parameters[i] * data["kernel"][i][j] for i in range(3))
+            ).subs(kernel_point)
+            for j in range(6)
+        ]
+    )
+
+    # Coefficient order: 1,x,y,w,xw,w^2.  These are the three sections
+    # s_0,s_1,s_2 displayed in the paper for (a,b,c)=(1,2,-2).
+    paper_basis = sp.Matrix.hstack(
+        sp.Matrix([0, 1, -1, 0, 0, 0]),
+        sp.Matrix([4, 0, 1, -4, 0, -1]),
+        sp.Matrix([0, 0, -1, 4, 1, -4]),
+    )
+    coordinate_solutions = sp.linsolve((paper_basis, kernel_section))
+    if len(coordinate_solutions) != 1:
+        raise RuntimeError("the witness section has no unique paper-basis coordinates")
+    paper_point = tuple(next(iter(coordinate_solutions)))
+    if paper_point != (sp.Integer(10), sp.Integer(9), sp.Integer(0)):
+        raise RuntimeError(f"unexpected paper-basis witness point: {paper_point}")
+
+    kernel_to_paper = sp.Matrix(
+        [
+            [1, 5, 1],
+            [0, 4, 1],
+            [0, -1, 0],
+        ]
+    )
+    if paper_basis * kernel_to_paper != sp.Matrix.hstack(
+        *[sp.Matrix(vector) for vector in data["kernel"]]
+    ):
+        raise RuntimeError("the kernel-to-paper basis conversion failed")
+
+    conic_coefficients = [
+        sp.expand(coefficient.subs(kernel_point))
+        for coefficient in data["conic_coefficients"]
+    ]
+    q00, q01, q02, q11, q12, q22 = conic_coefficients
+    conic_matrix = sp.Matrix(
+        [
+            [q00, q01 / 2, q02 / 2],
+            [q01 / 2, q11, q12 / 2],
+            [q02 / 2, q12 / 2, q22],
+        ]
+    )
+    determinant_mod13 = int(conic_matrix.det()) % 13
+    rank_two_minor_mod13 = int(4 * q00 * q11 - q01**2) % 13
+    if determinant_mod13 != 0 or rank_two_minor_mod13 == 0:
+        raise RuntimeError("the converted witness conic does not have rank two modulo 13")
+
+    return {
+        "kernel_point": (1, 0, 9),
+        "paper_point": tuple(map(int, paper_point)),
+        "kernel_to_paper": kernel_to_paper,
+        "section_vector": tuple(map(int, kernel_section)),
+        "conic_coefficients": conic_coefficients,
+        "determinant_mod13": determinant_mod13,
+        "rank_two_minor_mod13": rank_two_minor_mod13,
+    }
+
+
 def write_singular_inputs(data: dict[str, object]) -> tuple[pathlib.Path, pathlib.Path]:
     _x, _y, u, v, z = data["symbols"]
     generated = pathlib.Path(__file__).resolve().parent / "generated"
@@ -283,11 +351,8 @@ def write_modular_checks(data: dict[str, object]) -> pathlib.Path:
     if len(octics) != 1:
         raise RuntimeError("expected one residual octic")
     octic = octics[0].as_expr()
-    point = {u: 1, v: 0, z: 9}
-    conic_coefficients = [
-        sp.expand(coefficient.subs(point))
-        for coefficient in data["conic_coefficients"]
-    ]
+    witness = open_witness(data)
+    conic_coefficients = witness["conic_coefficients"]
     q00, q01, q02, q11, q12, q22 = conic_coefficients
     conic = q00 + q01 * x + q02 * y + q11 * x**2 + q12 * x * y + q22 * y**2
 
@@ -311,6 +376,10 @@ ring opencheck=13,(x,y),dp;
 poly conic={singular(conic)};
 poly line1=4*x+y-6;
 poly line2=6*x+y+5;
+"KERNEL_BASIS_PARAMETER_POINT",{','.join(map(str, witness['kernel_point']))};
+"PAPER_BASIS_PARAMETER_POINT",{','.join(map(str, witness['paper_point']))};
+"CONIC_DETERMINANT",{witness['determinant_mod13']};
+"RANK_TWO_MINOR",{witness['rank_two_minor_mod13']};
 "PARAMETER_POINT_CONIC_COEFFICIENTS",
   {','.join(singular(entry) for entry in conic_coefficients)};
 "CONIC_FACTOR_IDENTITY",conic+line1*line2;
@@ -339,6 +408,7 @@ quit;
 
 def main() -> None:
     data = build_sample()
+    witness = open_witness(data)
     print("FIELD QQ")
     print(f"ELLIPTIC_CUBIC {data['elliptic_cubic']}")
     print(f"BRANCH_DISCRIMINANT {data['branch_discriminant']}")
@@ -348,6 +418,12 @@ def main() -> None:
     print(f"EVAL_3K_RANK {data['evaluation_3k'].rank()}")
     print(f"EVAL_2K_RANK {data['evaluation_2k'].rank()}")
     print(f"KERNEL {data['kernel']}")
+    print(f"KERNEL_TO_PAPER_MATRIX {witness['kernel_to_paper'].tolist()}")
+    print(f"WITNESS_KERNEL_BASIS_POINT {witness['kernel_point']}")
+    print(f"WITNESS_PAPER_BASIS_POINT {witness['paper_point']}")
+    print(f"WITNESS_SECTION_VECTOR {witness['section_vector']}")
+    print(f"WITNESS_CONIC_DETERMINANT_MOD13 {witness['determinant_mod13']}")
+    print(f"WITNESS_RANK_TWO_MINOR_MOD13 {witness['rank_two_minor_mod13']}")
     print(f"MULTIPLICATION_BY_LINE_RANK {data['multiplication_rank']}")
     print(f"DETERMINANT_DENOMINATOR {data['determinant_denominator']}")
     print(f"DETERMINANT_DEGREE {data['determinant'].total_degree()}")

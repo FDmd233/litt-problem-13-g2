@@ -12,9 +12,16 @@ python code/g2_mu6_direct_numerator_verify.py
 The provenance verifier starts from the normalized elliptic cubic and the
 three sections used in the paper.  It computes their cyclic cubic norm,
 divides by the fixed line `y-x`, constructs the residual conic determinant
-and ordering discriminant, and then verifies both saved Singular inputs
-formula by formula and as complete files.  Thus the large saved polynomials
-are derived inputs, not unverified fixtures.
+and ordering discriminant, verifies that the structural factor has
+multiplicity one and the residual octic is homogeneous, and checks a Rabin
+irreducibility certificate for the finite-field slice.  It then verifies both
+saved Singular inputs formula by formula and as complete files.  Thus the
+large saved polynomials are derived inputs, not unverified fixtures.
+
+`g2_mu6_nonsimple_norm_conic_Q.py` uses an automatically generated kernel
+basis.  It verifies the exact change of basis before identifying its internal
+point `(1:0:9)` with the paper's universal-basis point `(10:9:0)`; changing
+one coordinate triple without the other is invalid.
 
 These three commands are read-only by default.  The explicit maintenance
 options

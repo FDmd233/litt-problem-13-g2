@@ -54,7 +54,7 @@
 \title[A realization of $G_2$ for Litt Problem No. 13]
       {A Realization of $G_2$ for Litt Problem No. 13}
 \author{OpenAI}
-\date{July 26, 2026}
+\date{July 27, 2026}
 
 \hypersetup{
   pdftitle={A Realization of G2 for Litt Problem No. 13},
@@ -337,12 +337,18 @@ point of $N$.
 
 Blowing up its vertex now gives a smooth surface $T$ with exceptional
 elliptic curve $E_0$ satisfying $E_0^2=-3$.  The strict transform
-$\wt\Gamma$ meets $E_0$ transversely once.
+$\wt\Gamma$ meets $E_0$ transversely once.  Indeed, locally along the pencil
+$\Gamma$, a moving member is $\operatorname{div}(w-t)$.  At $t=0$ the three
+local coordinates at the ramification points depend linearly and
+nontrivially on $t$.  Thus $\Gamma$ has multiplicity one at $D_0$, and its
+strict transform meets the exceptional cubic in one reduced point.
 
 The symmetric-product canonical formula
-\cite{Macdonald1962} gives $K_{C^{(3)}}=a_C^*\Theta_C$, and adjunction on the
-norm fibre gives $K_N\cdot\Gamma=0$.  Since the singularity has multiplicity
-three,
+\cite{Macdonald1962} gives $K_{C^{(3)}}=a_C^*\Theta_C$.  The norm fibre has
+trivial normal bundle, so adjunction and restriction to the Prym translate
+give $K_N\equiv a^*L$.  Since $a$ contracts $\Gamma$, one has
+$K_N\cdot\Gamma=0$.  The cone has multiplicity three, and its discrepancy is
+$-1$; hence
 \[
  K_T=\sigma^*K_N-E_0.
 \]
@@ -352,14 +358,39 @@ satisfies
 \[
  E_{\exc}^2=-2.
 \]
-Finally, $S\to X$ contracts $E_{\exc}$ and is the minimal resolution.  The
-standard classification of simple elliptic singularities therefore identifies
-the singularity of $X$ at the origin as type $\wt E_7$
-\cite{Laufer1977,Pinkham1977}.
+The composite $T\to N\to X$ is constant on $\wt\Gamma$, so it factors through
+a proper morphism $\rho:S\to X$; the curve $E_{\exc}$ maps to the origin.  We
+identify this morphism as the minimal resolution below.
 
 For completeness, the Euler characteristic of $N$ can be computed by the
 finite map $N\to|\eta^3|\simeq\PP^2$.  Stratifying a line section of the
-plane cubic by its multiplicity pattern gives the following table.
+plane cubic by its multiplicity pattern gives the following table.  Here
+$B_{\mathrm{br}}=\{b_1,b_2,b_3\}$ is the branch divisor.  Let
+$\mathfrak D\subset|3O|$ be the dual sextic parametrizing tangent lines.  Its
+normalization is the Gauss map $E\to\mathfrak D$.  A smooth plane cubic has no
+bitangent line by B\'ezout, so this map is bijective and
+$e(\mathfrak D)=e(E)=0$.
+
+For each $i$, let $L_i\simeq\PP^1$ be the pencil of lines through $b_i$.
+Set-theoretically, $L_i\cap\mathfrak D$ consists of the tangent at $b_i$ and
+the four tangents at the solutions of $2q=-b_i$.  These five points are
+distinct.  Hence $e(L_i\setminus\mathfrak D)=-3$.  The three pencils have the
+branch line as their common point, and therefore
+\[
+ e\left(\bigcup_i(L_i\setminus\mathfrak D)\right)
+ =3(-3)-3+1=-11.
+\]
+Removing the branch line gives Euler characteristic $-12$ for transverse
+sections containing exactly one branch point.  Since
+$e(|3O|\setminus\mathfrak D)=3$, the transverse stratum avoiding the branch
+divisor has Euler characteristic $3-(-11)=14$.
+
+Under the Gauss normalization, the tangent strata are the nine flexes, the
+three points $q=b_i$, the twelve solutions of $2q=-b_i$, and their complement.
+Their Euler characteristics are $9,3,12,-24$, respectively.  The sets are
+disjoint: the flexes are $E[3]$, the $b_i$ are nonzero points of $E[2]$, and
+multiplication by two is \'etale of degree four.  Thus the displayed tangent
+lines are all distinct.
 \[
 \begin{array}{lrrr}
 \toprule
@@ -368,7 +399,7 @@ plane cubic by its multiplicity pattern gives the following table.
 \text{three distinct points, no branch point}&14&27&378\\
 \text{three distinct points, one branch point}&-12&9&-108\\
 \text{the branch divisor}&1&1&1\\
-2q+r,\ q,r\notin B&-24&18&-432\\
+2q+r,\ q,r\notin B_{\mathrm{br}}&-24&18&-432\\
 2b_i+r&3&3&9\\
 2q+b_i&12&6&72\\
 3q\ \text{at a flex}&9&10&90\\
@@ -376,12 +407,18 @@ plane cubic by its multiplicity pattern gives the following table.
 &&&10
 \end{array}
 \]
-The tangent incidences in this table are distinct: a line through a branch
-point $b_i$ and tangent at $q$ satisfies $2q=-b_i$, and multiplication by
-two on $E$ is \'etale of degree four.  No nonzero two-torsion point is a flex.
-Together with the critical-point calculation above, this proves
+For an unramified point occurring with multiplicity $m$, the number of
+effective lifts is $\binom{m+2}{2}$; at a branch point there is only one lift.
+This gives, in the order of the table, the fibre cardinalities
+$27,9,1,18,3,6,10$.  Blowing up $D_0$ replaces a point by the elliptic curve
+$E_0$, while contracting $\wt\Gamma\simeq\PP^1$ replaces that curve by a
+point.  Together with the critical-point calculation above, this proves
 \begin{equation}
- e(N)=10,\qquad e(T)=9,\qquad e(S)=8.
+ \begin{aligned}
+ e(N)&=10,\\
+ e(T)&=e(N)-1+e(E_0)=9,\\
+ e(S)&=e(T)-e(\PP^1)+1=8.
+ \end{aligned}
 \label{eq:euler-chain}
 \end{equation}
 
@@ -406,10 +443,19 @@ Cohen--Macaulay, $X$ is reduced.  An ample divisor on an abelian variety is
 connected.  If $X$ were reducible, two components would meet in a curve,
 which would lie in $\Sing(X)$.  Thus $X$ is integral.
 
+The reduced Cartier divisor $X$ is Cohen--Macaulay and hence satisfies $S_2$;
+by \eqref{eq:singular-locus} it is regular in codimension one.  Serre's
+criterion therefore makes $X$ normal.  The uniqueness of the $g^1_3$ shows
+that the Abel map is an isomorphism away from $\Gamma$.  Consequently
+$\rho:S\to X$ is a resolution whose only exceptional curve is $E_{\exc}$.
+Since this curve is elliptic with self-intersection $-2$, the resolution is
+minimal, and the simple-elliptic classification identifies $(X,0)$ as type
+$\wt E_7$ \cite{Laufer1977,Pinkham1977}.
+
 The map $\rho:S\to X$ is semismall, with the single relevant exceptional
 fibre $E_{\exc}$.  Its one-dimensional top intersection form is the
 nondegenerate matrix $(-2)$.  The semismall decomposition theorem
-\cite{deCataldoMigliorini2002} gives
+\cite[Theorem~3.4.1]{deCataldoMigliorini2002} gives
 \begin{equation}
  R\rho_*\QQ_S[2]\simeq\IC_X\oplus\delta_0.
 \label{eq:semismall}
@@ -441,10 +487,16 @@ the local Euler obstruction is $1-3=-2$
 Dubson--Kashiwara local index formula
 \cite{KashiwaraSchapira1990} therefore gives
 \[
- CC(\IC_X)=\Lambda_X+\Lambda_0.
+ CC(\IC_X)=\Lambda_X+m\Lambda_0,
+ \qquad -1=(-2)+m,
 \]
-The Franecki--Kapranov index theorem \cite{FraneckiKapranov2000}, together
-with \eqref{eq:chi-seven}, yields
+so $m=1$.  The Franecki--Kapranov index theorem
+\cite[Theorem~1.3]{FraneckiKapranov2000}, together with
+\eqref{eq:chi-seven}, now gives
+\[
+ 7=\deg\Lambda_X+\deg\Lambda_0=\deg\Lambda_X+1,
+\]
+and hence
 \begin{equation}
  \deg(\Lambda_X\to\PP(T_0^*P))=6.
 \label{eq:gauss-degree}
@@ -453,7 +505,11 @@ with \eqref{eq:chi-seven}, yields
 \subsection{The generic-twist Hodge vector}
 
 We next determine the Hodge cocharacter needed in the group-theoretic step.
-The canonical divisor of $N$ is the pullback of $L$, so $K_N^2=L^3=18$.
+Numerically, $K_N\equiv a^*(L|_X)$.  Since $a:N\to X$ is birational and
+$X\in|L|$, the projection formula gives
+\[
+ K_N^2=(a^*L)^2=L^2\cdot a_*[N]=L^2\cdot[X]=L^3=18.
+\]
 The blowup of the $\wt E_6$ vertex gives
 \[
  K_T^2=K_N^2+E_0^2=15,
@@ -475,9 +531,12 @@ Thus $q(S)=3$ and $\operatorname{Pic}^0(P)\to\operatorname{Pic}^0(S)$ is an
 isogeny.  The morphism $S\to P$ has a two-dimensional image, so $S$ has
 maximal Albanese dimension.
 
-Choose a general unitary rank-one local system $\mathcal L_\alpha$ on $P$,
-with associated line bundle $\alpha\in\operatorname{Pic}^0(P)$.  Coherent
-generic vanishing \cite{GreenLazarsfeld1987} gives
+Choose a unitary rank-one local system $\mathcal L_\alpha$ on $P$ whose
+associated line bundle $\alpha\in\operatorname{Pic}^0(P)$ lies in the
+intersection of the coherent generic-vanishing opens for $\alpha$ and
+$\alpha^{-1}$ and the perverse generic-vanishing open below.  This
+intersection is nonempty.  Coherent generic vanishing
+\cite{GreenLazarsfeld1987} gives
 \[
  H^i(S,K_S\otimes\alpha|_S)=0\qquad(i>0).
 \]
@@ -491,7 +550,7 @@ Let $j:S\to P$ be the proper morphism used below.  The complex
 $Rj_*\QQ_S[2]$ is perverse: first $R\rho_*\QQ_S[2]$ is perverse because
 $\rho$ is semismall, and then extension along $X\hookrightarrow P$ is
 perverse $t$-exact.  Generic vanishing for perverse sheaves on abelian
-varieties \cite{KraemerWeissauer2015,Schnell2015} therefore gives
+ varieties \cite[Theorem~1.1]{KraemerWeissauer2015} therefore gives
 \[
  H^k(S,j^*\mathcal L_\alpha)=0\qquad(k\ne2).
 \]
@@ -502,8 +561,13 @@ decomposition
  =H^q(S,\Omega_S^p\otimes\alpha|_S),
  \qquad p+q=2.
 \]
-The total dimension is $e(S)=8$; the two extreme dimensions are both $2$,
-so the Hodge vector of $Rj_*\QQ_S^H[2]$ is $(2,4,2)$.  The Hodge-module
+The total dimension is $e(S)=8$, and explicitly
+\[
+ h^{2,0}=h^0(S,K_S\otimes\alpha|_S)=2,
+ \qquad h^{0,2}=h^2(S,\alpha|_S)=2,
+ \qquad h^{1,1}=8-2-2=4.
+\]
+Thus the Hodge vector of $Rj_*\QQ_S^H[2]$ is $(2,4,2)$.  The Hodge-module
 refinement of \eqref{eq:semismall}, extended to $P$, is
 \[
  Rj_*\QQ_S^H[2]\simeq \IC_X^H\oplus\QQ_0^H(-1).
@@ -529,35 +593,69 @@ displayed divisors are reduced and all Abel points have $h^0=1$.
 \subsection{A dominant normalized chart}
 
 Let $D$ be the unique reduced degree-three divisor representing a general
-point $x\in X$.  Its norm is a general line section of the plane cubic $E$.
-After an affine coordinate change, the line can be written $y=x$.  If the
-three selected lifts have $w$-coordinates $a,b,c$, then
+point $x\in X$.  In the original short-Weierstrass coordinates, its norm is
+a general line $y=mx+n$, with $m\ne0$.  Put
 \[
- f(x)-x^2=\lambda(x-a^3)(x-b^3)(x-c^3),\qquad \lambda\ne0.
+ x'=mx+n,\qquad y'=y,\qquad w'=w.
+\]
+The norm line is then $y'=x'$.  If the three selected lifts have
+$w'$-coordinates $a,b,c$, then
+\[
+ g(x')-(x')^2=\lambda(x'-a^3)(x'-b^3)(x'-c^3),
+ \qquad \lambda=m^{-3}.
 \]
 Put $e_i=e_i(a,b,c)$ and
 \[
  p(W)=W^3-e_1W^2+e_2W-e_3.
 \]
-Conversely, these formulas reconstruct the curve and the divisor
+Write
 \[
- D:\quad x=y=w^3,\qquad p(w)=0.
+ \Sigma_1=e_1^3-3e_1e_2+3e_3,
+ \qquad
+ \Sigma_2=e_2^3-3e_1e_2e_3+3e_3^2.
 \]
-Thus $(\lambda,e_1,e_2,e_3)$ is a dominant rational chart of the actual
-space of pairs $(C,D)$.
-
-There is a scaling redundancy
+Conversely, the parameters reconstruct the curve and the divisor in the
+primed coordinates as
 \[
- (x,y,w)\longmapsto(r^3x,r^3y,rw),
+ \begin{aligned}
+ g(x')&=(x')^2+\lambda\bigl((x')^3-\Sigma_1(x')^2
+               +\Sigma_2x'-e_3^3\bigr),\\
+ D&:\quad x'=y'=(w')^3,\qquad p(w')=0.
+ \end{aligned}
+\]
+To make the map to the fixed short-Weierstrass family explicit, set
+\[
+ c_2=1-\lambda\Sigma_1,\qquad c_1=\lambda\Sigma_2,
+ \qquad c_0=-\lambda e_3^3,\qquad
+ n=-\frac{c_2}{3\lambda}.
+\]
+On the integral finite \'etale cubic cover defined by $m^3\lambda=1$, the
+change $x'=mx+n$ gives
+\[
+ y^2=x^3+Ax+B,\qquad
+ A=m\left(c_1-\frac{c_2^2}{3\lambda}\right),\qquad B=g(n).
+\]
+Conversely, a general pair whose norm line is $y=mx+n$ recovers these
+parameters by the first coordinate change.  Thus
+$(m,e_1,e_2,e_3)$ is a dominant four-parameter chart of the actual pair
+space.  The calculation below is made before adjoining $m$; the cubic
+extension has odd degree and therefore cannot split a nontrivial quadratic
+factor-ordering cover.
+
+There is a scaling redundancy in the primed coordinates
+\[
+ (x',y',w')\longmapsto(r^3x',r^3y',rw'),
 \]
 under which
 \[
  (\lambda,e_1,e_2,e_3)
- \longmapsto(r^{-3}\lambda,re_1,r^2e_2,r^3e_3).
+ \longmapsto(r^{-3}\lambda,re_1,r^2e_2,r^3e_3),
+ \qquad m\longmapsto rm.
 \]
 On $e_1\ne0$ the rational choice $r=e_1^{-1}$ gives the gauge $e_1=1$.
 No root is adjoined, so this normalization does not split a quadratic cover
 artificially.
+We henceforth drop the primes when referring to the normalized chart.
 
 \subsection{The norm conic}
 
@@ -631,13 +729,37 @@ specialization
  (\lambda,e_1,e_2,e_3)=(1,6,11,6),
  \qquad (a,b,c)=(1,2,3),
 \]
-its reduction modulo $13$ is irreducible of degree eight
-and has the smooth rational point $(u,v)=(0,2)$ on the chart used in the
-certificate.  If an irreducible curve over a finite field were geometrically
-reducible, Frobenius would permute its geometric components transitively;
-every rational point would lie on every component and would be singular.
-Thus this fibre is geometrically integral.  Openness of geometric
-integrality in a flat projective family proves the generic assertion.
+dehomogenize by $z=1$ and denote the resulting polynomial by $H(u,v)$.
+Modulo $13$, it has $v$-degree eight with constant leading coefficient
+$-5$, and its monic slice at $u=1$ is
+\[
+ h(v)=v^8+3v^7-4v^6-3v^5-4v^4-5v^3+5v^2-2v-1.
+\]
+Exact polynomial arithmetic gives
+\[
+ \gcd\bigl(h,v^{13^4}-v\bigr)=1,
+ \qquad v^{13^8}-v\equiv0\pmod h.
+\]
+Rabin's criterion therefore makes $h$ irreducible over $\mathbf F_{13}$.
+If $H=H_1H_2$ with both factors nonconstant, their leading
+$v$-coefficients in $\mathbf F_{13}[u]$ would have product $-5$.  Both are
+therefore units.  A factor of $v$-degree zero would then itself be a unit,
+while every factor of positive $v$-degree retains that degree after $u=1$.
+Thus a nontrivial factorization of $H$ would specialize to a nontrivial
+factorization of $h$, a contradiction.  Hence $H$ is irreducible.  Its total
+degree remains eight after dehomogenization, so the homogeneous octic is not
+divisible by the homogenizing variable.  Any nontrivial homogeneous
+factorization would therefore dehomogenize to a nontrivial factorization of
+$H$.  Hence the homogeneous octic is irreducible as well.
+
+The same certificate gives the rational point $(u,v)=(0,2)$ with gradient
+$(-2,0)$.  If this irreducible finite-field curve were geometrically
+reducible, Frobenius would permute its geometric components transitively.
+A rational point is Frobenius-fixed, so it would lie on every component and
+would be singular.  The displayed smooth point excludes this, proving that
+the projective octic is geometrically integral.  Openness of geometric
+integrality in the flat projective family constructed in
+\cref{sec:open-family} proves the generic assertion.
 
 The exact coefficient formulas and two independent checks of
 \eqref{eq:norm-square-identity} are given in \cref{app:certificate}.  On the
@@ -791,16 +913,26 @@ is involved.
 \end{proof}
 
 The open in \cref{lem:scheme-abel-inverse} is nonempty.  After reduction
-modulo $13$, an exact witness is provided by
+modulo $13$, an exact witness in the displayed universal basis
+$(s_0,s_1,s_2)$ is provided by
 \[
  E:y^2=x^3-64x+64,
  \quad (a,b,c)=(1,2,-2),
- \quad (u:v:z)=(1:0:9)\pmod {13}.
+ \quad (u:v:z)=(10:9:0)\pmod {13}.
 \]
-At this point the conic factors over $\mathbf F_{13}$ as
+At this point the conic has rank two and factors over $\mathbf F_{13}$ as
 \[
- -(4x+y-6)(6x+y+5).
+ Q_s=4+3x+y+2x^2+3xy+12y^2
+ =-(4x+y-6)(6x+y+5).
 \]
+The sample script uses an auxiliary kernel basis.  If $(U,V,Z)$ are its
+coordinates, then
+\[
+ (u,v,z)=(U+5V+Z,\,4V+Z,\,-V).
+\]
+Thus its internal point $(U:V:Z)=(1:0:9)$ is exactly the displayed universal
+point $(u:v:z)=(10:9:0)$; the verifier checks this change of basis before
+emitting the certificate.
 The two line-section discriminants, the branch resultants, the pair
 resultant, and the six evaluations on the fixed divisor are all nonzero;
 see \cref{app:certificate}.  The unique $g^1_3$ is $|\kappa|$.  In the
@@ -965,8 +1097,16 @@ constant local subsystem.  Hence the rank-one local system in
 \eqref{eq:principal-alt-rank} is constant.
 
 For general $t\in P\setminus X$, the fibre of pair addition is the smooth
-connected curve $X\cap(t-X)$.  It is connected because it is the
-intersection of two ample divisors in the smooth projective threefold $P$.
+connected curve $X\cap(t-X)$.  Indeed, the difference map
+$X\times X\to P$ is surjective because two translates of the ample divisor
+$X$ always meet.  Generic smoothness on $X_{\reg}\times X_{\reg}$, together
+with avoidance of the two loci involving the isolated singular point, gives
+smoothness of the general fibre.  Since $t\notin X$ and
+$\Stab_P(X)=\{0\}$, the translate $t-X$ does not contain $X$; its restriction
+to the integral Cohen--Macaulay surface $X$ is therefore an effective ample
+Cartier divisor.  Hartshorne's connectedness theorem, applied on $X$, shows
+that this divisor, namely $X\cap(t-X)$, is connected
+\cite[Corollary~III.7.9]{Hartshorne1977}.
 The involution $p\mapsto t-p$ preserves its complex orientation and hence
 acts by $+1$ on its one-dimensional top cohomology.  Therefore
 \begin{equation}
@@ -1112,10 +1252,15 @@ representations leaves exactly
 \end{gathered}
 \]
 Passing to the simply connected cover and consulting the low-dimensional
-highest weights gives this list directly
-\cite{Dynkin1957,FultonHarris1991}: type $A_6$ also has a seven-dimensional
-standard module, but it is not self-dual, and the remaining simple types
-have no irreducible module of dimension seven.  For $SO_7$, the exterior
+highest weights gives, before imposing self-duality, precisely
+\[
+ A_1:6\omega_1,\qquad A_6:\omega_1,\omega_6,
+ \qquad B_3:\omega_1,\qquad G_2:\omega_1
+\]
+\cite{Dynkin1957,FultonHarris1991}.  The two $A_6$ modules are dual to each
+other and are not self-dual; the remaining simple types have no irreducible
+module of dimension seven.  Faithfulness then gives the three group forms
+displayed above.  For $SO_7$, the exterior
 square of the
 standard module is the irreducible adjoint module, so
 $\operatorname{Hom}_{SO_7}(V,\Lambda^2V)=0$, contrary to
@@ -1137,7 +1282,9 @@ representation,
 \]
 Indeed, $G_2$ has no outer automorphisms, and its centralizer on the
 irreducible standard module consists of scalars.  If $G$ met the second
-coset, it would contain $-I$.  But $-I$ acts by $-1$ on $V$ and by $+1$ on
+coset, take $g\in G\cap(-G_2)$ and write $g=(-I)h$ with
+$h\in G_2=G^0\subset G$.  Then $-I=gh^{-1}\in G$.  But $-I$ acts by $-1$ on
+$V$ and by $+1$ on
 $\Lambda^2V$, forcing every morphism in \eqref{eq:hom-exterior} to vanish.
 This contradiction proves $G=G_2$.
 
@@ -1168,15 +1315,16 @@ Let $\cN$ be the relative norm fibre in $\cC^{(3)}$.  On $\cM$ every Abel
 class has $h^0=1$, so the relative Abel isomorphism used in
 \cref{lem:scheme-abel-inverse} identifies $\cN\times_{\cX}\cM$ with $\cM$.
 The universal divisor on the relative symmetric cube therefore supplies the
-universal effective divisor over $\cM$.  The unnormalized four-parameter
-chart $(\lambda,e_1,e_2,e_3)$ of \cref{sec:pair-splitting}, before imposing
-the gauge $e_1=1$, maps dominantly to $\cM$.  After restricting its domain,
-let $T\to\cM$ be an integral dominant chart.  Equivalently, one may
-reintroduce the scaling parameter $r\in\GGm$ into the slice $e_1=1$; that
-slice is used only for the function-field calculation and does not lower the
-dimension of the dominant chart.  After the standard local-freeness
-shrinking, write $p:\cC_T\to T$ for the relative curve and $D$ for its
-universal degree-three divisor.  Then
+universal effective divisor over $\cM$.  Use the integral four-parameter
+chart $(m,e_1,e_2,e_3)$ constructed in \cref{sec:pair-splitting}; equivalently,
+it is the cubic cover $m^3\lambda=1$ of the unnormalized
+$(\lambda,e_1,e_2,e_3)$ space.  The explicit inverse obtained from the norm
+line $y=mx+n$ proves that this chart maps dominantly to $\cM$.  After
+restricting its domain, let $T\to\cM$ be this integral dominant chart.  The
+slice $e_1=1$ is used only for the function-field calculation and does not
+lower the dimension of $T$.  After the local-freeness shrinking, write
+$p:\cC_T\to T$ for the relative curve and $D$ for its universal degree-three
+divisor.  Then
 $p_*\mathcal O_{\cC_T}(3\kappa-D)$ is a rank-three vector bundle.
 
 All charts, the residual equation, and the excluded-locus functions are
@@ -1184,7 +1332,7 @@ defined over an integral localization
 \[
  R_0=\mathbf Z[1/N],
 \]
-where $13\nmid N$ and every displayed denominator is invertible at the two
+where $3\mid N$, $13\nmid N$, and every displayed denominator is invertible at the two
 modulo-$13$ witnesses.  Denote the resulting integral model of $T$ and its
 relative curve by $T_{R_0}$ and
 $p_{R_0}:\cC_{T_{R_0}}\to T_{R_0}$.  After shrinking around the relevant
@@ -1197,9 +1345,19 @@ residual degree-eight Cartier divisor
  \PP_{T_{R_0}}\bigl(
  p_{R_0*}\mathcal O_{\cC_{T_{R_0}}}(3\kappa-D)\bigr)
 \]
-is projective and flat over $T_{R_0}$.  The first modulo-$13$ certificate in
+is projective and flat over $T_{R_0}$.  Indeed, after deleting the closed
+locus where its defining octic is identically zero on a projective-space
+fibre, $F_8$ is a fibrewise non-zero-divisor.  The sequence
+\[
+ 0\longrightarrow\mathcal O(-8)\xrightarrow{F_8}\mathcal O
+ \longrightarrow\mathcal O_{\cR_{R_0}}\longrightarrow0
+\]
+remains exact after base change.  The local criterion for flatness therefore
+shows that $\cR_{R_0}\to T_{R_0}$ is flat and of finite presentation.  The
+first modulo-$13$ certificate in
 \cref{prop:universal-identity} is a geometrically integral fibre of this
-family.  Geometric integrality is open for a flat projective family; the
+family.  Geometric integrality is open for a flat projective family
+\cite[IV$_3$, Th\'eor\`eme~12.2.4\textup{(viii)}]{EGA4}; the
 corresponding nonempty open of the integral scheme $T_{R_0}$ contains its
 generic point.  After base change to $\CC$ and a further shrinking of $T$,
 it follows that $\cR=\cR_{R_0}\times_{R_0}\CC$ is integral with
@@ -1227,14 +1385,50 @@ $\CC(\cM)$-rational section $x\mapsto(\tau x,\tau^2x)$ is a smooth point of
 that generic fibre and hence lies on exactly one geometric component.  Galois
 fixes this component and, since there are exactly two, also fixes the other.
 Thus both components descend to the function field of $\cM$.  Take their
-closures $\cA_1,\cA_2\subset\cI$.  By generic flatness and openness of geometric
-integrality and reducedness, after replacing $\cM$ by a nonempty open
-$\cM^\circ$, the two closures are flat with geometrically integral reduced
-curve fibres, transposition exchanges them, and their union is the full
-nonexceptional pair fibre.  Shrinking also removes every vertical component.
+closures $\cA_1,\cA_2\subset\cI$.  Factor transposition exchanges these
+closures because it exchanges their generic fibres.  The pair-incidence
+morphism is projective, hence proper and of finite presentation.  Generic flatness
+(Stacks Project, Tag~\href{https://stacks.math.columbia.edu/tag/052A}{052A})
+and generic spreading of geometric reducedness and irreducibility
+(Tags~\href{https://stacks.math.columbia.edu/tag/0578}{0578} and
+\href{https://stacks.math.columbia.edu/tag/0559}{0559}) show that, after
+replacing $\cM$ by a nonempty open $\cM^\circ$, the two closures are flat with
+geometrically integral curve fibres.  The boundary-exhaustion argument also
+shows that the entire geometric generic fibre of $\cI\to\cM$ is reduced.
+Applying Tag~\href{https://stacks.math.columbia.edu/tag/0578}{0578} once more
+and shrinking $\cM^\circ$ makes every geometric fibre of $\cI$ reduced.
+
+Because $\cI\to\cM^\circ$ is projective and the $\cA_i$ are flat, their closed
+immersions define two sections of the relative Hilbert scheme
+$\operatorname{Hilb}_{\cI/\cM^\circ}$.  This Hilbert scheme is separated over
+$\cM^\circ$, so the equalizer of the two sections is closed.  It omits the
+generic point because the two generic components are distinct.  Delete this
+equalizer; then $(\cA_1)_x$ and $(\cA_2)_x$ are distinct for every geometric
+$x\in\cM^\circ$.
+
+Let $\cI^{\mathrm{ne}}$ be the complement in $\cI$ of the two exceptional
+sections $y=0$ and $y=-x$.
+Give $\cA=\cA_1\cup\cA_2$ its scheme-theoretic union structure, and let
+$\mathcal J$ be the ideal sheaf of
+$\cA\cap\cI^{\mathrm{ne}}$ in $\cI^{\mathrm{ne}}$.  The geometric generic
+fibre of $\cI^{\mathrm{ne}}$ is reduced and is exactly the union of the two
+generic components, so $\mathcal J$ vanishes there.  By Chevalley's theorem,
+the image of $\operatorname{Supp}(\mathcal J)$ in the noetherian integral
+scheme $\cM^\circ$ is constructible and omits the generic point; its closure is
+therefore a proper closed subset.  Removing this closure makes
+$\mathcal J=0$.  Thus, after this final shrinking,
+\[
+ \cI^{\mathrm{ne}}=\cA\cap\cI^{\mathrm{ne}}
+\]
+scheme-theoretically.  In particular, there is no additional, embedded, or
+vertical nonexceptional component in any fibre over $\cM^\circ$.  Since those
+fibres are reduced and the two displayed integral curve fibres are distinct,
+they are exactly the two nonexceptional irreducible components in every
+geometric fibre.
 
 The morphism $\cM^\circ\to\cB$ is the restriction of a smooth morphism and is
-therefore open.  Its image
+therefore open (Stacks Project,
+Tag~\href{https://stacks.math.columbia.edu/tag/056G}{056G}).  Its image
 \[
  \cB^\circ=\operatorname{im}(\cM^\circ\to\cB)
 \]
@@ -1292,7 +1486,18 @@ denominator $4\lambda^2L^2$ and obtains the zero polynomial, with output
 \end{array}
 \]
 No random specialization or floating-point operation enters either identity
-check.
+check.  Starting again from the cyclic norm, the provenance verifier also
+reports
+\[
+ \begin{gathered}
+ \texttt{DETERMINANT\_DEGREE}=9,
+ \qquad \texttt{STRUCTURAL\_FACTOR\_MULTIPLICITY}=1,\\
+ \texttt{RESIDUAL\_FACTOR\_DEGREE}=8,
+ \qquad \texttt{RESIDUAL\_FACTOR\_HOMOGENEOUS}=\texttt{True},\\
+ \texttt{RABIN\_Q4\_GCD}=1,
+ \qquad \texttt{RABIN\_Q8\_REMAINDER}=0.
+ \end{gathered}
+\]
 
 The geometric-integrality certificate at $(a,b,c)=(1,2,3)$, modulo $13$,
 reports one nonconstant factor of degree eight and exponent one, together
@@ -1302,22 +1507,32 @@ with
  \qquad
  \texttt{POINT\_GRADIENT}=(-2,0).
 \]
-The genuine-open certificate for the second sample reports
+The second sample uses a kernel basis $(K_0,K_1,K_2)$ related to the universal
+basis by
+\[
+ K_0=s_0,\qquad K_1=5s_0+4s_1-s_2,\qquad K_2=s_0+s_1.
+\]
+It checks exactly that the internal point $(1:0:9)$ is the universal point
+$(10:9:0)$ and that the corresponding conic has coefficient vector
+$(4,3,1,2,3,12)$ modulo $13$.  The genuine-open certificate then reports the
+following nonzero residues:
 \[
 \begin{aligned}
 \texttt{FIXED\_POINT\_LINE\_VALUES}
- &=(-1,34,19,12,61,40),\\
-\texttt{LINE\_SECTION\_DERIVATIVE\_RESULTANTS}&=(-3,6),\\
-\texttt{LINE\_BRANCH\_RESULTANTS}&=(-1,1),\\
-\texttt{LINE\_PAIR\_RESULTANT}&=-1,
+ &=(12,8,6,12,9,1),\\
+\texttt{LINE\_SECTION\_DERIVATIVE\_RESULTANTS}&=(10,6),\\
+\texttt{LINE\_BRANCH\_RESULTANTS}&=(12,1),\\
+\texttt{LINE\_PAIR\_RESULTANT}&=12
 \end{aligned}
 \]
- all in $\mathbf F_{13}$ and hence all nonzero.  The source equations,
-coefficient formulas, and verification scripts are the supplementary files
-\path{code/g2_mu6_source_provenance_verify.py},
-\path{code/g2_mu6_lowmem_certificate_fast.py},
-\path{code/g2_mu6_direct_numerator_verify.py}, and their inputs in
-\path{code/generated/}.  The provenance verifier derives the saved Singular
+in $\mathbf F_{13}$.  The source equations, coefficient formulas, and
+verification scripts are the supplementary files
+\begin{itemize}[nosep,leftmargin=2em]
+\item \path{code/g2_mu6_source_provenance_verify.py};
+\item \path{code/g2_mu6_lowmem_certificate_fast.py};
+\item \path{code/g2_mu6_direct_numerator_verify.py}.
+\end{itemize}
+Their generated inputs are in \path{code/generated/}.  The provenance verifier derives the saved Singular
 inputs from the normalized elliptic cubic and the three sections used above,
 then compares the resulting formulas and complete files.  The scripts use
 exact SymPy arithmetic and can be run with
