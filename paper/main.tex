@@ -75,9 +75,10 @@ I construct a nonempty family of complex abelian threefolds $P$ with integral
 symmetric ample divisors $X\subset P$ for which the full convolution Tannaka
 group is the simple group of type $G_2$.  The family comes from cyclic triple
 covers $C\to E$ of elliptic curves, written as $C:w^6=f_3(x)$.  The induced
-Prym polarization has type $(1,1,3)$.  Each theta section $X$ is normal and
-has one simple elliptic singularity of type $\wt E_7$; its intersection
-complex $K=\IC_X$ satisfies
+Prym polarization has type $(1,1,3)$.  After a finite \'etale base change,
+the ambient polarized Prym is a fixed CM abelian threefold.  Each theta
+section $X$ is normal and has one simple elliptic singularity of type
+$\wt E_7$; its intersection complex $K=\IC_X$ satisfies
 \[
   \chi(K)=7,
   \qquad
@@ -85,12 +86,15 @@ complex $K=\IC_X$ satisfies
 \]
 The second assertion is in the convolution Tannakian category.  I prove it by
 spreading two components of a generic pair-incidence curve and extracting the
-resulting divisor-supported summand.  Their calculation rests on an exact
-norm--conic identity over a rational function field.  Finally, the Hodge
-cocharacter has weight multiplicities $(2,3,2)$; together with the
-exterior-square summand, this identifies the full group with $G_2$ on its
-standard seven-dimensional module.  Thus Litt Problem No.~13 has an
-affirmative answer for $G_2$.
+resulting divisor-supported summand.  The calculation rests on an exact
+norm--conic identity over a rational function field.  The same identity shows
+that the arithmetic character ordering the two residual lines is the
+quadratic character attached to $\QQ(\zeta_3)/\QQ$, equivalently the pullback
+of the mod-$3$ cyclotomic character.  Finally, the Hodge cocharacter
+has weight multiplicities $(2,3,2)$; together with the exterior-square
+summand, this identifies the full group with $G_2$ on its standard
+seven-dimensional module.  Thus Litt Problem No.~13 has an affirmative answer
+for $G_2$.
 \end{abstract}
 
 \maketitle
@@ -138,6 +142,9 @@ restriction of the centred theta section,
 \[
  X_b=\{M\in P_b:h^0(C_b,\kappa_b\otimes M)>0\}.
 \]
+Write $\cP\to\cB$ and $\cX\subset\cP$ for the corresponding relative
+families, and let $\lambda_{\cP}$ be the polarization induced by the centred
+theta divisor.
 
 \begin{theorem}[Main theorem]\label{thm:main}
 There is a nonempty Zariski-open subset $\cB^\circ\subset\cB$ such that,
@@ -150,7 +157,16 @@ algebraic groups and faithful modules
 \]
 where $G_2$ is the connected simple complex group of type $G_2$ and $V_7$ is
 its standard seven-dimensional representation.  Thus the group on the left is
-the full convolution Tannaka group.
+the full convolution Tannaka group.  Moreover, there are a fixed
+$(1,1,3)$-polarized CM abelian threefold $(P_0,\lambda_0)$ and a finite
+\'etale surjection $T\to\cB^\circ$ such that
+\[
+ (\cP,\lambda_{\cP})\times_{\cB}T
+ \simeq (P_0,\lambda_0)\times_{\CC}T
+\]
+ as polarized abelian schemes.  Under this identification, $\cX_T$ is a
+ symmetric relatively ample effective Cartier divisor, flat over $T$ and
+ with geometrically integral fibres.
 \end{theorem}
 
 \paragraph{Proof outline.}
@@ -173,9 +189,10 @@ geometric generic fibre, consider the pair-incidence curve
 The norm of a section of $H^0(C,3\kappa-D_x)$ is the fixed norm line times a
 conic.  The determinant of that conic factors as a structural line and an
 integral residual octic.  An exact identity over a rational function field
-splits the double cover that orders the two line factors.  A relative Abel
-inverse identifies those ordered factors with two components of $C_x$, and a
-boundary argument shows that there are no further nonexceptional components.
+identifies the double cover that orders the two line factors with the constant
+cyclotomic cover; in particular, it splits over $\CC$.  A relative Abel inverse
+identifies those ordered factors with two components of $C_x$, and a boundary
+argument shows that there are no further nonexceptional components.
 
 These two generic components extend over a nonempty open
 $\cM^\circ\subset\cX\setminus0$.  Since $\cM^\circ\to\cB$ is open, its image
@@ -242,8 +259,9 @@ two finite-field nonemptiness witnesses.  They do not replace the
 characteristic-zero openness arguments, the decomposition-theorem argument,
 or the representation-theoretic classification.
 
-All varieties are defined over $\CC$.  Intersection complexes, cohomology, and
-Hodge modules retain their canonical $\QQ$-structures.  For the Tannakian
+Unless a rational model or reduction is explicitly indicated, the geometric
+construction is over $\CC$.  Intersection complexes, cohomology, and Hodge
+modules retain their canonical $\QQ$-structures.  For the Tannakian
 construction the underlying perverse sheaves are first extended from $\QQ$ to
 $\CC$, as required by the analytic form of the results cited below.
 Accordingly, every Tannaka group and tautological module in this paper is over
@@ -389,13 +407,124 @@ As a determinantal divisor, the theta divisor is preserved as a closed
 subscheme by the Serre-duality involution
 $L'\mapsto K_C\otimes(L')^{-1}$ on $\operatorname{Pic}^3(C)$.  Since
 $\kappa^2=K_C$, its expression in the above centred coordinates is
-$M\mapsto M^{-1}$.  Pulling back to $P$ therefore gives, as closed subschemes,
+$M\mapsto M^{-1}$.  More explicitly, a local equal-rank two-term presentation
+$[E^0\xrightarrow{d}E^1]$ of the determinant-of-cohomology complex defines
+theta by $\det(d)$.  Relative Serre duality replaces $d$ by its transpose up
+to a unit.  Thus the determinantal ideal is preserved, compatibly with base
+change.  Pulling back to $P$ therefore gives, as closed subschemes,
 \begin{equation}
  X=-X.
 \label{eq:symmetry}
 \end{equation}
 This symmetry is centred at the origin.  The uniqueness of this centre will follow from
 \eqref{eq:stabilizer}.
+
+\begin{proposition}[The constant polarized Prym]
+\label[proposition]{prop:constant-prym}
+There are a fixed complex abelian threefold $P_0$, a polarization
+$\lambda_0$ of type $(1,1,3)$, and a finite \emph{\'etale} surjection
+$T_0\to\cB$ such that
+\[
+ (\cP,\lambda_{\cP})\times_{\cB}T_0
+ \simeq (P_0,\lambda_0)\times_{\CC}T_0
+\]
+as polarized abelian schemes.  The abelian variety $P_0$ is of CM type.
+\end{proposition}
+
+\begin{proof}
+First I compare the curves with the standard genus-four cyclic-cover family.
+Over the finite \emph{\'etale} cover of $\cB$ that orders the three roots
+$r_1,r_2,r_3$ of $x^3+Ax+B$, put
+\[
+ d=r_2-r_1,
+ \qquad t=\frac{r_3-r_1}{d}.
+\]
+The discriminant hypothesis makes $d$, $t$, and $t-1$ invertible.  After the
+further finite \emph{\'etale} Kummer cover on which $c^2=d$, the change of
+variables
+\[
+ q=\frac{x-r_1}{d},
+ \qquad W=\frac{w}{c}
+\]
+satisfies
+\[
+ x^3+Ax+B=d^3q(q-1)(q-t),
+ \qquad c^6=d^3,
+\]
+and hence gives
+\begin{equation}
+ W^6=q(q-1)(q-t),
+ \qquad t\in\PP^1\setminus\{0,1,\infty\}.
+\label{eq:standard-cyclic-family}
+\end{equation}
+This affine change fixes the point at infinity and commutes with the
+$\mu_6$-action.  It therefore identifies the elliptic quotient, the
+theta characteristic $\kappa$, and the induced Prym polarization.  Notice
+that the construction keeps the scaling parameter on $\cB$; it does not
+identify the two-dimensional Weierstrass base with the $t$-line.  The map to
+that line is nevertheless surjective: for any
+$t\in\PP^1\setminus\{0,1,\infty\}$ and any $d\ne0$, the choices
+\[
+ r_1=-\frac{d(1+t)}3,\qquad r_2=r_1+d,\qquad r_3=r_1+dt
+\]
+are distinct and have sum zero, so they are the roots of a unique polynomial
+$x^3+Ax+B$ represented by a point of $\cB$.
+
+M\"oller proves that the family in
+\eqref{eq:standard-cyclic-family} is the $N=6$ Shimura--Teichm\"uller cyclic
+cover.  Let $\mathbb L_i$ denote the character-$i$ eigensystem in the complex
+weight-one local system of this family, and use the same notation for its
+pullback to the ordered-root and Kummer covers.  In the proof, the systems
+$\mathbb L_i$ for $i=1,2,4,5$ are unitary with zero Higgs field, while
+$\mathbb L_3$ is the maximal-Higgs system pulled back from the elliptic
+quotient $Y^2=q(q-1)(q-t)$, where $Y=W^3$; see
+\cite[Theorems~1.2 and~3.1 and the proof of Theorem~3.1]{Moeller2011}.
+The $i=0$ eigensystem vanishes because the quotient by $\mu_6$ is $\PP^1$.
+Writing $\tau(W)=\zeta_6^2W$, the $\tau$-invariant part is precisely
+$\mathbb L_3$.  Thus, if $p_P$ denotes the pulled-back Prym family, then
+\begin{equation}
+ (R^1p_{P*}\mathbf Z)\otimes_{\mathbf Z}\CC
+ \simeq \bigoplus_{i\in\{1,2,4,5\}}\mathbb L_i.
+\label{eq:prym-unitary-decomposition}
+\end{equation}
+
+Let $H_{\mathbf Z}$ be the integral local system on the left before complexifying.
+The direct sum on the right carries a positive-definite monodromy-invariant
+Hermitian form $h$.  Its monodromy representation therefore satisfies
+\[
+ \rho(\pi_1)\subset \operatorname{GL}(H_{\mathbf Z})\cap U(h).
+\]
+The right-hand side is finite: the integral group is discrete and the unitary
+group is compact.  Passing to the connected finite \emph{\'etale} cover
+associated with $\ker\rho$ kills the monodromy.  For the eigensystems in
+\eqref{eq:prym-unitary-decomposition}, the vanishing of the Higgs field says
+that $F^1$ is parallel; after the monodromy has been killed, the polarized
+period map is consequently constant.  Choose $n\ge3$ with $(n,3)=1$.  A
+further finite \emph{\'etale} cover supplies a full polarization-compatible
+level-$n$ structure, so the family is classified by a constant map to the
+fine moduli space $\mathcal A_{3,(1,1,3)}[n]$.  Pulling back its universal
+family gives the asserted isomorphism of polarized abelian schemes.  At each
+stage a connected component of the cover may be chosen: because $\cB$ is
+connected, that component still maps surjectively to $\cB$.
+
+It remains to identify the fixed fibre as CM.  M\"oller's Theorem~3.1
+identifies the moduli image in this case as a Shimura curve, which in his
+definition contains a CM point \cite[p.~1]{Moeller2011}.  At the corresponding
+parameter the Jacobian of the curve in \eqref{eq:standard-cyclic-family} is a
+CM abelian variety.  Its Prym is an abelian subvariety.  By semisimplicity of
+polarizable rational Hodge structures, the Mumford--Tate group on the Prym
+factor is an algebraic quotient of the Mumford--Tate torus of the Jacobian;
+it is therefore a torus.  Thus this Prym is CM.  The finite cover above is
+surjective, so the CM parameter lifts to it; since the polarized Prym family
+there is constant, I may take this fibre for $(P_0,\lambda_0)$.  Its
+polarization type is the one computed above.
+\end{proof}
+
+\begin{remark}
+The proposition fixes the ambient polarized abelian threefold.  It does not
+assert that the theta sections define a nonconstant map to a fixed complete
+linear system, and no such assertion is used below.
+\end{remark}
 
 \subsection{The norm fibre and the resolution}
 
@@ -411,6 +540,12 @@ and put
  a:N\longrightarrow X,
  \quad D\longmapsto\mathcal O_C(D)\otimes\kappa^{-1}.
 \]
+Scheme-theoretically, for the centred Abel map
+$D\mapsto\mathcal O_C(D)\otimes\kappa^{-1}$ one has
+\[
+ N=C^{(3)}\times_{J(C)}P,
+\]
+so $a$ is its base change to $P$.
 The map $a$ is surjective on closed points.  Indeed, if $M\in X$, a nonzero
 section of $\kappa\otimes M$ has an effective divisor $D$ of degree three, and
 \[
@@ -419,7 +554,8 @@ section of $\kappa\otimes M$ has an effective divisor $D$ of degree three, and
    =\eta^3,
 \]
 because $M\in P$ and $\Nm_\pi(\pi^*\eta)=\eta^3$.  Hence $D\in N$ and
-$a(D)=M$.  The finite morphism $\pi$ induces a finite morphism
+$a(D)=M$.  Since $a$ is proper, it is therefore surjective.  The finite
+morphism $\pi$ induces a finite morphism
 $C^{(3)}\to E^{(3)}$; its base change over
 $|\eta^3|\subset E^{(3)}$ is the finite surjection
 $N\to|\eta^3|\simeq\PP^2$.  In particular
@@ -605,11 +741,12 @@ quadric.  Consequently $\kappa$ is the unique $g^1_3$ on $C$.  Riemann--Kempf
  that $\Sing(X)\subset\{0\}$.
 
  The Riemann singularity theorem \cite{Kempf1973} also gives
- $\operatorname{mult}_0(\Theta_\kappa)=h^0(C,\kappa)=2$.  Thus a local
- equation of $\Theta_\kappa$ at the origin has no linear term.  Its restriction
- to the smooth threefold $P$ is nonzero by the paragraph following the
- definition of $a:N\to X$, and it still has no linear term.  The restricted
- divisor $X$ is therefore singular at the origin.  Consequently
+ $\operatorname{mult}_0(\Theta_\kappa)=h^0(C,\kappa)=2$.  If $f$ is a local
+ theta equation, the preceding dimension argument shows that its image
+ $f_P\in\mathcal O_{P,0}$ is a nonzero element of $\mathfrak m_{P,0}^2$.
+ The ring $\mathcal O_{P,0}$ is regular of dimension three, so
+ $\mathcal O_{P,0}/(f_P)$ has dimension two and embedding dimension three.
+ Thus $X$ is singular at the origin.  Consequently
 \begin{equation}
  \Sing(X)=\{0\}.
 \label{eq:singular-locus}
@@ -845,7 +982,10 @@ be the relative cyclic cover and its distinguished theta characteristic.
 Let $\cP\to\cB$ be the relative Prym abelian scheme and let
 $\cX\subset\cP$ be the relative centred theta section.  For any
 $Y\to\cB$, undecorated symbols $E_Y,C_Y,P_Y,X_Y,\eta$ and $\kappa$ denote
-the corresponding base changes.  The divisor $\cX$ is
+the corresponding base changes.  The divisor $\cX$ is symmetric by the
+base-change-compatible determinantal argument above, and
+$\mathcal O_{\cP}(\cX)$ represents the relatively ample polarization
+$\lambda_{\cP}$.  Moreover, $\cX$ is
 flat over $\cB$: it is a relative effective Cartier divisor in the smooth
 scheme $\cP$, and its defining section is a non-zero-divisor on every fibre.
 For every closed point of $\cB$, \cref{prop:theta-resolution} identifies the
@@ -1199,7 +1339,7 @@ a rank-two conic commute with field extension, which proves the final
 assertion.
 \end{proof}
 
-\begin{proposition}[Triviality of the ordering cover]
+\begin{proposition}[Cyclotomic ordering cover]
 \label[proposition]{prop:ordering-cover}
 On the normalized chart $e_1=v=1$, write
 $(\Lambda,E_2,E_3,U,\zeta)$ again as $(\lambda,e_2,e_3,u,z)$, put
@@ -1213,34 +1353,53 @@ $F=\ell^{-1}\widetilde F$.  Then $F$ is monic of degree six.  If
 \[
  \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
 \]
-there are $A,B\in K_1[z]$ with $\deg A=3$, $\deg B\le2$, and
+there are $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
+$\deg A_{\mathrm c}=3$, $\deg B_{\mathrm c}\le2$, and
 \begin{equation}
- F=A^2+3\Delta B^2.
+ F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
 \label{eq:norm-square-identity}
 \end{equation}
-After extending scalars from $\QQ$ to $\CC$, the finite \emph{\'etale}
-double cover that orders the two distinct line factors of the generic
-rank-two conic on $\mathscr R$ is split.
+If
+\[
+ L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
+\]
+then
+\begin{equation}
+ [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
+ \qquad L(\sqrt{\Delta})=L(\sqrt{-3}).
+\label{eq:cyclotomic-square-class}
+\end{equation}
+There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
+locus such that its intrinsic factor-ordering cover is
+\begin{equation}
+ \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
+ \simeq
+ \mathscr R_{\mathrm n}^\circ\times_{\QQ}
+       \operatorname{Spec}\QQ(\sqrt{-3}).
+\label{eq:cyclotomic-ordering-cover}
+\end{equation}
+The same statement holds on a dense normal open of the full rational residual
+curve $\mathscr R_{T_{\QQ}}$.  In particular, after extending scalars to
+$\CC$, the ordering cover is split.
 \end{proposition}
 
 \begin{proof}
 The exact coefficient formulas and two algebraically different checks of
-\eqref{eq:norm-square-identity} are given in \cref{app:certificate}.  On the
-cover $t^2+3\Delta=0$, the identity becomes
+\eqref{eq:norm-square-identity} are given in \cref{app:certificate}.  The
+normalized residual curve is geometrically integral by
+\cref{lem:normalized-function-field}; hence $F$ is irreducible in $K_1[z]$
+and $L$ is a field.  The polynomial $A_{\mathrm c}$ is monic of degree three.
+The formula for $B_{\mathrm c}$ in \cref{app:certificate} has nonzero
+$z^2$-coefficient, so $B_{\mathrm c}$ has
+degree two.  Since both degrees are less than $\deg F=6$, their images in $L$
+are nonzero.  Reducing \eqref{eq:norm-square-identity} modulo $F$ gives
 \[
- F=(A+tB)(A-tB).
+ \frac{\Delta}{-3}=\left(\frac{A_{\mathrm c}}{3B_{\mathrm c}}\right)^2,
+ \qquad
+ -3\Delta=(A_{\mathrm c}/B_{\mathrm c})^2\ne0,
 \]
-The formula for $B$ in \cref{app:certificate} has nonzero $z^2$-coefficient.
-Since
-$\deg_z(B)\le2<6=\deg_z(F)$ and $F$ is irreducible by
-\cref{lem:normalized-function-field}, $B$ remains nonzero in the function
-field of $F=0$.  Likewise, $A$ has degree three and is nonzero there.  Thus
-$A/B\ne0$, while \eqref{eq:norm-square-identity} gives
-\[
- -3\Delta=(A/B)^2\ne0.
-\]
-The ordering algebra is therefore \'etale at the generic point, and its two
-rational roots $t=\pm A/B$ are distinct.
+which proves \eqref{eq:cyclotomic-square-class} and shows that the generic
+conic has rank exactly two.
 
 It remains to identify this double cover with the intrinsic ordering cover.
 The quantity $\Delta$ is the discriminant of the restriction of $Q_s$ to a
@@ -1250,10 +1409,55 @@ $c$.  Hence any two nonzero principal cofactors are $ca_i^2$ and $ca_j^2$;
 their ratio is a square.  The square class obtained from any nonzero
 principal minor is consequently independent of the coordinate line and is
 the discriminant character that orders the two factors of the conic.  Thus
-$\Delta$ defines the intrinsic ordering cover.  The constant $-3$ is a
-square over $\CC$, and \cref{lem:normalized-function-field} carries this
-splitting to the full generic residual curve and then to $T$.
+$L[s]/(s^2-\Delta)$ is the intrinsic generic ordering algebra.
+
+Shrink the rank-two locus to a dense open on which the displayed formulas are
+regular and $B_{\mathrm c}$ and $\Delta$ are units, and intersect it with the
+normal locus.  On this open, write $\varrho^2=-3$.  The formulas
+\[
+ s\longmapsto\frac{A_{\mathrm c}}{\varrho B_{\mathrm c}},
+ \qquad
+ \varrho\longmapsto\frac{A_{\mathrm c}}{B_{\mathrm c}s}
+\]
+are mutually inverse isomorphisms between the intrinsic ordering algebra
+$\mathcal O[s]/(s^2-\Delta)$ and the constant algebra
+$\mathcal O[\varrho]/(\varrho^2+3)$.  This proves
+\eqref{eq:cyclotomic-ordering-cover}.  The function-field extensions in
+\eqref{eq:residual-function-fields} are obtained by adjoining the
+transcendental parameter $e_1$ and then $q_0$ with
+$q_0^3=\Lambda^{-1}$.  Formation of the ordering cover commutes with these
+base changes, so the same isomorphism holds after shrinking the full rational
+residual curve.  Finally, $\varrho$ exists over $\CC$, where the two sections
+are $s=\pm A_{\mathrm c}/(\varrho B_{\mathrm c})$.
 \end{proof}
+
+\begin{remark}[Arithmetic and finite-field fibres]
+The equality $\QQ(\sqrt{-3})=\QQ(\zeta_3)$ accounts for the term
+``cyclotomic.''
+The geometric integrality of $\mathscr R_{\mathrm n}$ shows that
+$\sqrt{-3}\notin L$: the rational function field
+$\QQ(\Lambda,E_2,E_3)$ is algebraically closed in $L$ and does not contain
+$\sqrt{-3}$.  Adjoining $e_1$ and then an extension of degree three does not
+introduce a quadratic subfield.  Thus the cover in
+\eqref{eq:cyclotomic-ordering-cover} is connected over the rational generic
+point.  Its nontrivial arithmetic involution exchanges the two orderings,
+whereas after base change to $\CC$ the two copies are separate.
+
+After spreading the open set and
+\eqref{eq:cyclotomic-ordering-cover} over $\mathbf Z[1/N]$ for some $N$
+divisible by $6$, let $q$ be a prime power whose characteristic does not
+divide $N$.  At every $\mathbf F_q$-point of
+this rank-two open, the two geometric line factors are individually defined
+over $\mathbf F_q$ if and only if $-3$ is a square in $\mathbf F_q$.  Since
+$X^2+X+1$ has discriminant $-3$, this is equivalent to
+$\mu_3\subset\mathbf F_q^\times$, or
+\[
+ q\equiv1\pmod3.
+\]
+If $q\equiv2\pmod3$, the two factors are defined over $\mathbf F_{q^2}$ and
+are exchanged by Frobenius.  The condition is on $q$, not merely on its prime
+characteristic.
+\end{remark}
 
 \subsection{The scheme-theoretic Abel inverse}
 
@@ -1645,8 +1849,11 @@ fibre over $T$, each copy is a dense open of a geometrically integral curve.
 
 \begin{proof}
 By \cref{prop:ordering-cover,lem:normalized-function-field}, the finite
-\'etale factor-ordering cover has two rational sections at the generic point
-of $\mathscr G$, given on the principal-minor chart by $t=\pm A/B$.
+\'etale factor-ordering cover has two rational sections over $\CC$ at the
+generic point of $\mathscr G$.  On the principal-minor chart, after fixing
+$\varrho\in\CC$ with $\varrho^2=-3$, they are given by
+$s=\pm A_{\mathrm c}/(\varrho B_{\mathrm c})$ for the intrinsic coordinate
+$s^2=\Delta$.
 They extend to two disjoint sections after shrinking $\mathscr G$, so
 $\operatorname{Ord}_{\mathrm{fac},\mathscr G}
  \simeq\mathscr G\sqcup\mathscr G$.
@@ -2255,7 +2462,14 @@ $\Lambda^2V$, contradicting \eqref{eq:hom-exterior}.  Hence $G=G^0=G_2$.
 
 \begin{proof}[Proof of \cref{thm:main}]
 Take $\cB^\circ$ to be the nonempty open subset constructed in
-\cref{thm:uniform-pair-splitting}, and fix $b\in\cB^\circ(\CC)$.  The
+\cref{thm:uniform-pair-splitting}.  Restricting the finite \emph{\'etale}
+cover in \cref{prop:constant-prym} to $\cB^\circ$ gives the asserted fixed
+polarized CM threefold and the relative divisor $\cX_T$ on its product.  Its
+symmetry, relative ampleness, effective Cartier property, flatness, and
+geometrically integral fibres were established at the beginning of
+\cref{sec:pair-splitting}; all are preserved by this \emph{\'etale} base
+change.
+Now fix $b\in\cB^\circ(\CC)$.  The
 geometric assertions about $(P_b,X_b)$ follow from
 \cref{prop:theta-resolution}.  For this fixed $b$, the common
 generic-vanishing locus $\Omega_b$ used in \cref{prop:hodge-vector} is
@@ -2294,7 +2508,10 @@ coefficient formulas:
 \item \path{code/g2_mu6_direct_numerator_verify.py}.
 \end{itemize}
 The first works in the exact fraction field; the second uses a separate
-numerator-clearing reduction.
+numerator-clearing reduction.  The first also asserts, rather than merely
+infers from the displayed formulas, that $F$ is monic of degree six, that
+$\deg A_{\mathrm c}=3$, and that $B_{\mathrm c}$ has degree two with nonzero
+leading coefficient.
 
 \noindent\textit{Finite-field nonemptiness checks.}\par\noindent
 The provenance verifier applies Rabin's criterion and checks a smooth rational
@@ -2332,8 +2549,8 @@ L_0={}&e_2^6\lambda^2(u^2+u+1)
 \]
 Set
 \[
- A=z^3+a_2z^2+a_1z+a_0,
- \qquad B=b_2z^2+b_1z+b_0,
+ A_{\mathrm c}=z^3+a_2z^2+a_1z+a_0,
+ \qquad B_{\mathrm c}=b_2z^2+b_1z+b_0,
 \]
 where
 \[
@@ -2353,8 +2570,9 @@ and
  a_1=\frac{c_4-a_2^2-kb_2^2}{2},\qquad
  a_0=\frac{c_3}{2}-a_2a_1-kb_2b_1.
 \]
-The leading coefficients agree because $F$ and $A$ are monic.  The identity
-$F=A^2+kB^2$ is therefore equivalent to the remaining six coefficient
+The leading coefficients agree because $F$ and $A_{\mathrm c}$ are monic.
+The identity $F=A_{\mathrm c}^2+kB_{\mathrm c}^2$ is therefore equivalent to
+the remaining six coefficient
 equalities:
 \[
 \begin{aligned}
@@ -2372,7 +2590,8 @@ the exact fraction field
  \QQ(\lambda,e_2,e_3,u).
 \]
 The second clears the common denominator
-$4\lambda^2L_0^2$ from $F-A^2-kB^2$ and obtains the zero polynomial.  These
+$4\lambda^2L_0^2$ from $F-A_{\mathrm c}^2-kB_{\mathrm c}^2$ and obtains the
+zero polynomial.  These
 are exact symbolic calculations, not numerical sampling.
 
 Starting directly from the cyclic norm, the provenance calculation

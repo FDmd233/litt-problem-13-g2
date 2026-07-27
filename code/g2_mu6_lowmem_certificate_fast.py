@@ -58,11 +58,16 @@ def main(*, write_formulas: bool = False) -> None:
     curve = sp.sympify(read_assignment("curve"), locals=local_dict)
     four_s = sp.sympify(read_assignment("fourS"), locals=local_dict)
     curve_poly = sp.Poly(curve, z, domain=coefficient_field)
+    if curve_poly.degree() != 6:
+        raise RuntimeError(f"expected a sextic residual equation, got degree {curve_poly.degree()}")
     leading = coefficient_field.from_sympy(curve_poly.LC())
     coefficients = [
         coefficient_field.from_sympy(curve_poly.nth(degree)) / leading
         for degree in range(7)
     ]
+    if coefficients[6] != coefficient_field.one:
+        raise RuntimeError("the normalized residual equation is not monic")
+    print("MONIC_CURVE_DEGREE", curve_poly.degree())
     k = coefficient_field.from_sympy(3 * four_s)
     leading_numerator = sp.fraction(
         sp.cancel(coefficient_field.to_sympy(leading))
@@ -89,6 +94,8 @@ def main(*, write_formulas: bool = False) -> None:
     )
     b2 = coefficient_field.from_sympy(b2_numerator / (2 * leading_numerator))
     b1 = coefficient_field.from_sympy(b1_numerator / (2 * leading_numerator))
+    if b2 == coefficient_field.zero:
+        raise RuntimeError("the proposed quadratic B has zero leading coefficient")
 
     a2 = coefficients[5] / 2
     a1 = (coefficients[4] - a2**2 - k * b2**2) / 2
@@ -99,6 +106,9 @@ def main(*, write_formulas: bool = False) -> None:
 
     a_coefficients = (a0, a1, a2, coefficient_field.one)
     b_coefficients = (b0, b1, b2)
+    print("A_DEGREE", len(a_coefficients) - 1)
+    print("B_DEGREE", len(b_coefficients) - 1)
+    print("B_LEADING_COEFFICIENT_NONZERO", b2 != coefficient_field.zero)
     product_coefficients = [coefficient_field.zero for _ in range(7)]
     for left_degree, left in enumerate(a_coefficients):
         for right_degree, right in enumerate(a_coefficients):
