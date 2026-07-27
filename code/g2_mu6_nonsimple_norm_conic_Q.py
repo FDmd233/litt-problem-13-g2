@@ -15,13 +15,17 @@ The fixed divisor is cut out by y=x and consists of
 
     (1,1,1), (8,8,2), (-8,-8,-2).
 
-This script only computes the exact characteristic-zero norm-conic
-determinant and emits Singular inputs for factor/genus and ordering-cover
-checks.  It does not infer generic behavior from one fiber.
+This script computes the exact characteristic-zero norm-conic determinant.
+It also recomputes, with exact SymPy arithmetic, every modulo-13 value in the
+finite-field open witness printed in the paper.  The emitted Singular inputs
+are optional cross-checks; they are not needed for the Python assertions.
+No generic behavior is inferred from one fiber.
 """
 
 from __future__ import annotations
 
+import argparse
+from collections.abc import Iterable
 import pathlib
 
 import sympy as sp
@@ -29,6 +33,7 @@ import sympy as sp
 
 A = -64
 B = 64
+OPEN_WITNESS_PRIME = 13
 
 
 def reduce_on_elliptic(
@@ -91,6 +96,27 @@ def primitive_integer_vector(vector: sp.Matrix) -> list[int]:
 
 def singular(expression: sp.Expr) -> str:
     return str(sp.expand(expression)).replace("**", "^")
+
+
+def residue_mod_prime(value: sp.Expr, prime: int) -> int:
+    """Reduce an exact rational value modulo prime."""
+    rational = sp.Rational(sp.cancel(value))
+    numerator = int(sp.numer(rational))
+    denominator = int(sp.denom(rational))
+    if denominator % prime == 0:
+        raise ZeroDivisionError(
+            f"denominator {denominator} is zero modulo {prime}"
+        )
+    return numerator * pow(denominator, -1, prime) % prime
+
+
+def residue_tuple(values: Iterable[sp.Expr], prime: int) -> tuple[int, ...]:
+    return tuple(residue_mod_prime(value, prime) for value in values)
+
+
+def assert_equal(label: str, actual: object, expected: object) -> None:
+    if actual != expected:
+        raise AssertionError(f"{label}: expected {expected}, got {actual}")
 
 
 def build_sample() -> dict[str, object]:
@@ -240,10 +266,13 @@ def open_witness(data: dict[str, object]) -> dict[str, object]:
             [q02 / 2, q12 / 2, q22],
         ]
     )
-    determinant_mod13 = int(conic_matrix.det()) % 13
-    rank_two_minor_mod13 = int(4 * q00 * q11 - q01**2) % 13
-    if determinant_mod13 != 0 or rank_two_minor_mod13 == 0:
-        raise RuntimeError("the converted witness conic does not have rank two modulo 13")
+    conic_determinant = sp.factor(conic_matrix.det())
+    rank_two_minor = sp.expand(4 * q00 * q11 - q01**2)
+    determinant_mod13 = residue_mod_prime(conic_determinant, OPEN_WITNESS_PRIME)
+    rank_two_minor_mod13 = residue_mod_prime(rank_two_minor, OPEN_WITNESS_PRIME)
+    assert_equal("universal-basis witness point", paper_point, (10, 9, 0))
+    assert_equal("witness conic determinant modulo 13", determinant_mod13, 0)
+    assert_equal("witness rank-two minor modulo 13", rank_two_minor_mod13, 10)
 
     return {
         "kernel_point": (1, 0, 9),
@@ -251,8 +280,114 @@ def open_witness(data: dict[str, object]) -> dict[str, object]:
         "kernel_to_paper": kernel_to_paper,
         "section_vector": tuple(map(int, kernel_section)),
         "conic_coefficients": conic_coefficients,
+        "conic_determinant": conic_determinant,
+        "rank_two_minor": rank_two_minor,
         "determinant_mod13": determinant_mod13,
         "rank_two_minor_mod13": rank_two_minor_mod13,
+    }
+
+
+def finite_field_open_checks(
+    data: dict[str, object], witness: dict[str, object]
+) -> dict[str, object]:
+    """Recompute and assert the complete F_13 open-locus witness."""
+    x, y, _u, _v, _z = data["symbols"]
+    prime = OPEN_WITNESS_PRIME
+
+    branch_discriminant_mod13 = residue_mod_prime(
+        data["branch_discriminant"], prime
+    )
+    evaluation_3k_minor_mod13 = residue_mod_prime(
+        data["evaluation_3k"].extract([0, 1, 2], [0, 1, 3]).det(), prime
+    )
+    evaluation_2k_minor_mod13 = residue_mod_prime(
+        data["evaluation_2k"].extract([0, 1, 2], [0, 1, 2]).det(), prime
+    )
+    assert_equal(
+        "elliptic branch discriminant modulo 13", branch_discriminant_mod13, 8
+    )
+    assert_equal(
+        "3-kappa evaluation minor modulo 13", evaluation_3k_minor_mod13, 1
+    )
+    assert_equal(
+        "2-kappa evaluation minor modulo 13", evaluation_2k_minor_mod13, 1
+    )
+
+    conic_coefficients_mod13 = residue_tuple(
+        witness["conic_coefficients"], prime
+    )
+    assert_equal(
+        "witness conic coefficients modulo 13",
+        conic_coefficients_mod13,
+        (4, 3, 1, 2, 3, 12),
+    )
+
+    q00, q01, q02, q11, q12, q22 = witness["conic_coefficients"]
+    conic = sp.expand(
+        q00 + q01 * x + q02 * y + q11 * x**2 + q12 * x * y + q22 * y**2
+    )
+    line1 = 4 * x + y - 6
+    line2 = 6 * x + y + 5
+    factor_remainder = sp.Poly(conic + line1 * line2, x, y, modulus=prime)
+    assert_equal(
+        "witness conic factorization modulo 13", factor_remainder.is_zero, True
+    )
+
+    fixed_point_line_values_exact = tuple(
+        line.subs({x: x_value, y: y_value})
+        for line in (line1, line2)
+        for x_value, y_value, _w_value in data["fixed_points"]
+    )
+    fixed_point_line_values = residue_tuple(fixed_point_line_values_exact, prime)
+    assert_equal(
+        "fixed-point line values modulo 13",
+        fixed_point_line_values,
+        (12, 8, 6, 12, 9, 1),
+    )
+
+    elliptic_cubic = data["elliptic_cubic"]
+    line_y_coordinates = (6 - 4 * x, -6 * x - 5)
+    line_sections = tuple(
+        sp.expand(y_coordinate**2 - elliptic_cubic)
+        for y_coordinate in line_y_coordinates
+    )
+    derivative_resultants_exact = tuple(
+        sp.resultant(section, sp.diff(section, x), x)
+        for section in line_sections
+    )
+    branch_resultants_exact = tuple(
+        sp.resultant(section, y_coordinate, x)
+        for section, y_coordinate in zip(line_sections, line_y_coordinates)
+    )
+    pair_resultant_exact = sp.resultant(line_sections[0], line_sections[1], x)
+    derivative_resultants = residue_tuple(derivative_resultants_exact, prime)
+    branch_resultants = residue_tuple(branch_resultants_exact, prime)
+    pair_resultant = residue_mod_prime(pair_resultant_exact, prime)
+    assert_equal(
+        "line-section derivative resultants modulo 13",
+        derivative_resultants,
+        (10, 6),
+    )
+    assert_equal(
+        "line-branch resultants modulo 13", branch_resultants, (12, 1)
+    )
+    assert_equal("line-pair resultant modulo 13", pair_resultant, 12)
+
+    return {
+        "prime": prime,
+        "branch_discriminant_mod13": branch_discriminant_mod13,
+        "evaluation_3k_minor_mod13": evaluation_3k_minor_mod13,
+        "evaluation_2k_minor_mod13": evaluation_2k_minor_mod13,
+        "conic_coefficients_mod13": conic_coefficients_mod13,
+        "conic_factor_remainder_mod13": factor_remainder.as_expr(),
+        "fixed_point_line_values_exact": fixed_point_line_values_exact,
+        "fixed_point_line_values": fixed_point_line_values,
+        "derivative_resultants_exact": derivative_resultants_exact,
+        "derivative_resultants": derivative_resultants,
+        "branch_resultants_exact": branch_resultants_exact,
+        "branch_resultants": branch_resultants,
+        "pair_resultant_exact": pair_resultant_exact,
+        "pair_resultant": pair_resultant,
     }
 
 
@@ -406,9 +541,23 @@ quit;
     return modular_path
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Verify the exact norm-conic and finite-field open witness."
+    )
+    parser.add_argument(
+        "--write-inputs",
+        action="store_true",
+        help="regenerate the optional Singular input files",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = parse_args()
     data = build_sample()
     witness = open_witness(data)
+    open_checks = finite_field_open_checks(data, witness)
     print("FIELD QQ")
     print(f"ELLIPTIC_CUBIC {data['elliptic_cubic']}")
     print(f"BRANCH_DISCRIMINANT {data['branch_discriminant']}")
@@ -422,8 +571,35 @@ def main() -> None:
     print(f"WITNESS_KERNEL_BASIS_POINT {witness['kernel_point']}")
     print(f"WITNESS_PAPER_BASIS_POINT {witness['paper_point']}")
     print(f"WITNESS_SECTION_VECTOR {witness['section_vector']}")
+    print(
+        "BRANCH_DISCRIMINANT_MOD13 "
+        f"{open_checks['branch_discriminant_mod13']}"
+    )
+    print(
+        "EVAL_3K_MINOR_COLUMNS_0_1_3_MOD13 "
+        f"{open_checks['evaluation_3k_minor_mod13']}"
+    )
+    print(
+        "EVAL_2K_MINOR_COLUMNS_0_1_2_MOD13 "
+        f"{open_checks['evaluation_2k_minor_mod13']}"
+    )
+    print(
+        "WITNESS_CONIC_COEFFICIENTS_MOD13 "
+        f"{open_checks['conic_coefficients_mod13']}"
+    )
     print(f"WITNESS_CONIC_DETERMINANT_MOD13 {witness['determinant_mod13']}")
     print(f"WITNESS_RANK_TWO_MINOR_MOD13 {witness['rank_two_minor_mod13']}")
+    print(
+        "WITNESS_CONIC_FACTOR_REMAINDER_MOD13 "
+        f"{open_checks['conic_factor_remainder_mod13']}"
+    )
+    print(f"FIXED_POINT_LINE_VALUES {open_checks['fixed_point_line_values']}")
+    print(
+        "LINE_SECTION_DERIVATIVE_RESULTANTS "
+        f"{open_checks['derivative_resultants']}"
+    )
+    print(f"LINE_BRANCH_RESULTANTS {open_checks['branch_resultants']}")
+    print(f"LINE_PAIR_RESULTANT {open_checks['pair_resultant']}")
     print(f"MULTIPLICATION_BY_LINE_RANK {data['multiplication_rank']}")
     print(f"DETERMINANT_DENOMINATOR {data['determinant_denominator']}")
     print(f"DETERMINANT_DEGREE {data['determinant'].total_degree()}")
@@ -435,11 +611,12 @@ def main() -> None:
             f"DEGREE={polynomial.total_degree()} EXPONENT={exponent} "
             f"TERMS={len(polynomial.terms())} FACTOR={polynomial.as_expr()}"
         )
-    factor_path, cover_path = write_singular_inputs(data)
-    modular_path = write_modular_checks(data)
-    print(f"FACTOR_INPUT {factor_path}")
-    print(f"COVER_INPUT {cover_path}")
-    print(f"MODULAR_INPUT {modular_path}")
+    if args.write_inputs:
+        factor_path, cover_path = write_singular_inputs(data)
+        modular_path = write_modular_checks(data)
+        print(f"FACTOR_INPUT {factor_path}")
+        print(f"COVER_INPUT {cover_path}")
+        print(f"MODULAR_INPUT {modular_path}")
 
 
 if __name__ == "__main__":

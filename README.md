@@ -1,6 +1,6 @@
 # A Realization of G2 for Litt Problem No. 13
 
-This paper constructs a complex abelian threefold and an integral symmetric ample divisor whose full convolution Tannaka group is the simple group of type G2.
+This paper constructs a nonempty family of complex abelian threefolds with integral symmetric ample divisors whose full convolution Tannaka group is the simple group of type G2.
 
 ## Paper
 

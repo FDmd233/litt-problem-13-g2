@@ -14,6 +14,7 @@ verify:
 	python code/g2_mu6_source_provenance_verify.py
 	python code/g2_mu6_lowmem_certificate_fast.py
 	python code/g2_mu6_direct_numerator_verify.py
+	python code/g2_mu6_nonsimple_norm_conic_Q.py
 
 clean:
 	cd paper && latexmk -C main.tex
