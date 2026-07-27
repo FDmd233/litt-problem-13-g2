@@ -1,1 +1,1 @@
-3e43eac017610ef3f72ad0ab88a1ebc38b3627d18a7efb2b9ff026975f37b13c  output/pdf/Litt_Problem_13_G2.pdf
+7fb60427bb57d675b33952f701473b2187d4c005163812ddfc116654b5039692  output/pdf/Litt_Problem_13_G2.pdf
