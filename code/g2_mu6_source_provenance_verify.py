@@ -338,11 +338,30 @@ def main(*, write_inputs: bool = False) -> None:
     q8_remainder = (polynomial_power_mod(variable, 13**8, h) - variable).rem(h)
     if q4_gcd.degree() != 0 or not q8_remainder.is_zero:
         raise RuntimeError("the Rabin irreducibility certificate failed")
+    special_mod13 = sp.Poly(
+        denominator_inverse * special_integer_curve.as_expr(),
+        u,
+        v,
+        modulus=13,
+    )
+    witness_substitution = {u: 0, v: 2}
+    point_value = int(special_mod13.eval(witness_substitution))
+    point_gradient = tuple(
+        int(special_mod13.diff(indeterminate).eval(witness_substitution))
+        for indeterminate in (u, v)
+    )
+    if point_value != 0:
+        raise RuntimeError("the certified F_13 point does not lie on the special octic")
+    if point_gradient == (0, 0):
+        raise RuntimeError("the certified F_13 point is singular on the special octic")
     print("RABIN_SLICE_H", h.as_expr())
     print("RABIN_PARENT_V_DEGREE", special_as_polynomial_in_v.degree())
     print("RABIN_PARENT_V_LEADING_COEFFICIENT_MOD13", -5)
     print("RABIN_Q4_GCD", q4_gcd.as_expr())
     print("RABIN_Q8_REMAINDER", 0)
+    print("RABIN_SMOOTH_POINT", (0, 2))
+    print("RABIN_POINT_VALUE", point_value)
+    print("RABIN_POINT_GRADIENT", point_gradient)
     assert_identity(
         "E1ONE_VONE_NORMALIZATION_FROM_MONIC_OCTIC",
         e1one_vone_curve,

@@ -55,12 +55,12 @@
 
 \title[A realization of $G_2$ for Litt Problem No. 13]
       {A Realization of $G_2$ for Litt Problem No. 13}
-\author{OpenAI}
+\author{Zhijie}
 \date{July 27, 2026}
 
 \hypersetup{
   pdftitle={A Realization of G2 for Litt Problem No. 13},
-  pdfauthor={OpenAI}
+  pdfauthor={Zhijie}
 }
 
 \subjclass[2020]{14K12, 14H40, 18M25, 20G41}
@@ -83,14 +83,14 @@ complex $K=\IC_X$ satisfies
   \qquad
   K\ \text{is a direct summand of }\Alt^2(K).
 \]
-The second assertion is taken in the convolution Tannakian category.  We prove
-it by identifying two components of a generic pair-incidence curve, spreading
-those components over a relative open set, and extracting the divisor-supported
-summand of pair convolution.  The component calculation rests on an exact
+The second assertion is in the convolution Tannakian category.  We prove it by
+spreading two components of a generic pair-incidence curve and extracting the
+resulting divisor-supported summand.  Their calculation rests on an exact
 norm--conic identity over a rational function field.  Finally, the Hodge
-cocharacter has weight multiplicities $(2,3,2)$, which, together with the
-exterior-square direct summand, identifies the full group with $G_2$ on its
-standard seven-dimensional module.
+cocharacter has weight multiplicities $(2,3,2)$; together with the
+exterior-square summand, this identifies the full group with $G_2$ on its
+standard seven-dimensional module.  Thus Litt Problem No.~13 has an
+affirmative answer for $G_2$.
 \end{abstract}
 
 \maketitle
@@ -101,13 +101,15 @@ Let $A$ be a complex abelian variety.  Convolution of constructible
 complexes on $A$ induces a neutral Tannakian structure after quotienting by
 the negligible objects.  Thus an integral subvariety $Z\subset A$ with
 nonzero intersection-cohomology Euler characteristic determines an
-algebraic group $G(\IC_Z)$ and a faithful representation of dimension
-$\chi(\IC_Z)$; see \cite{KraemerWeissauer2015}.  Litt Problem No.~13 asks
-whether the exceptional simple groups
+ algebraic group $G(\IC_Z)$ and a faithful representation of dimension
+ $\chi(\IC_Z)$; see \cite{KraemerWeissauer2015}.  More precisely, Litt Problem
+ No.~13 asks whether, for a simple algebraic group $H$ of one of the types
 \[
   G_2,\qquad E_7,\qquad E_8,\qquad F_4
 \]
-occur in this way \cite{Litt13}.
+ there exist an abelian variety $A$ and a subvariety $X\subset A$ with
+ $G(\IC_X)\simeq H$ \cite{Litt13}.  The theorem below settles precisely the
+ $H=G_2$ instance.  It does not address the $E_7$, $E_8$, or $F_4$ instances.
 
 We give a construction for the $G_2$ case.  Let
 \[
@@ -208,6 +210,37 @@ integrality of one residual-octic fibre and nonemptiness of the admissible
 locus.  The geometric arguments in
 \cref{lem:residual-octic-integral,lem:admissible-nonempty} then pass to the
 generic and relative statements used in the proof.
+
+\paragraph{Verification map.}
+For readers checking the argument, the proof has five interfaces, each with a
+separate output used by the next one.
+\begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
+\item \emph{Geometry of the theta section:}
+  \cref{prop:theta-resolution,cor:theta-ic,lem:conormal-degree} prove that
+  $X$ is an integral normal symmetric ample surface with one
+  $\wt E_7$ singularity, $\chi(\IC_X)=7$, trivial translation stabilizer, and
+  dominant conormal Gauss map.
+\item \emph{Hodge input:} \cref{lem:surface-invariants,prop:hodge-vector}
+  compute the generic-twist Hodge multiplicities $(2,3,2)$.
+\item \emph{Pair-incidence input:}
+  \cref{prop:determinant-factorization,lem:residual-octic-integral,%
+  prop:ordering-cover,prop:abel-incidence,lem:boundary-exhaustion} identify
+  exactly two nonexceptional components of the geometric generic pair fibre;
+  \cref{thm:uniform-pair-splitting} spreads them to a relative open set.
+\item \emph{Tannakian detection:}
+  \cref{lem:split-fibre-top,lem:off-theta-vanishing,lem:extract-ic}
+  isolate an unshifted $\IC_X$ summand in alternating pair convolution, giving
+  \cref{prop:alt-support}.
+\item \emph{Group identification:}
+  \cref{prop:connected-g2,cor:full-g2} combine irreducibility, the Hodge
+  cocharacter, and $\operatorname{Hom}_G(V,\Lambda^2V)\ne0$ to identify first
+  $G^0$ and then the full group with $G_2$.
+\end{enumerate}
+The exact scripts are used only at the three explicitly marked algebraic
+interfaces in (3): determinant derivation, the ordering-cover identity, and
+two finite-field nonemptiness witnesses.  They do not replace the
+characteristic-zero openness arguments, the decomposition-theorem argument,
+or the representation-theoretic classification.
 
 All varieties are defined over $\CC$.  Intersection complexes, cohomology, and
 Hodge modules retain their canonical $\QQ$-structures.  For the Tannakian
@@ -319,6 +352,18 @@ shows that $\ker(\Nm_\pi)$ is connected.  We therefore write
  P=\ker(\Nm_\pi).
 \]
 It has dimension three.
+If $\tau$ generates the deck group, then
+$\pi^*\Nm_\pi=1+\tau+\tau^2$ on $J(C)$.  Hence
+$(1+\tau+\tau^2)(1-\tau)=0$, and the injectivity of $\pi^*$ gives
+$\operatorname{Im}(1-\tau)\subset P$.  The invariant part of
+$H^0(C,\Omega_C^1)$ is $\pi^*H^0(E,\Omega_E^1)$ and has dimension one;
+hence $\operatorname{Im}(1-\tau)$ has dimension three.  It is connected, so
+\begin{equation}
+ P=\operatorname{Im}(1-\tau)=\ker(\Nm_\pi).
+\label{eq:prym-conventions}
+\end{equation}
+This identifies our convention with the Prym used in the polarization formula
+below.
 
 Use the theta characteristic $\kappa$ to centre the theta divisor on
 $J(C)=\operatorname{Pic}^0(C)$:
@@ -326,8 +371,10 @@ $J(C)=\operatorname{Pic}^0(C)$:
  \Theta_\kappa
  =\{M\in J(C):h^0(C,\kappa\otimes M)>0\}.
 \]
-Let $L=\mathcal O_{J(C)}(\Theta_\kappa)|_P$.  The standard polarization
-formula for a degree-three cyclic cover ramified at three points gives
+Let $L=\mathcal O_{J(C)}(\Theta_\kappa)|_P$.  Since
+$\operatorname{div}_E(y)=b_1+b_2+b_3-3O$, the branch divisor is reduced and
+belongs to $|\eta^3|$.  The standard polarization formula for a connected
+degree-three cyclic cover with this branch data gives
 \[
  \operatorname{type}(L)=(1,1,3),
  \qquad L^3=3!\,\chi(L)=18;
@@ -339,17 +386,16 @@ Scheme-theoretically,
  X=\Theta_\kappa\cap P
   =\{M\in P:h^0(C,\kappa\otimes M)>0\}.
 \]
-Thus $X\in|L|$ and is ample.
-Serre duality and $\kappa^2=K_C$ give, for $M\in P$,
-\[
- h^0(C,\kappa\otimes M)=h^0(C,\kappa\otimes M^{-1}),
-\]
-and therefore
+As a determinantal divisor, the theta divisor is preserved as a closed
+subscheme by the Serre-duality involution
+$L'\mapsto K_C\otimes(L')^{-1}$ on $\operatorname{Pic}^3(C)$.  Since
+$\kappa^2=K_C$, its expression in the above centred coordinates is
+$M\mapsto M^{-1}$.  Pulling back to $P$ therefore gives, as closed subschemes,
 \begin{equation}
- X=-X
+ X=-X.
 \label{eq:symmetry}
 \end{equation}
-with centre the origin.  The uniqueness of this centre will follow from
+This symmetry is centred at the origin.  The uniqueness of this centre will follow from
 \eqref{eq:stabilizer}.
 
 \subsection{The norm fibre and the resolution}
@@ -366,6 +412,21 @@ and put
  a:N\longrightarrow X,
  \quad D\longmapsto\mathcal O_C(D)\otimes\kappa^{-1}.
 \]
+The map $a$ is surjective on closed points.  Indeed, if $M\in X$, a nonzero
+section of $\kappa\otimes M$ has an effective divisor $D$ of degree three, and
+\[
+ \Nm_\pi\mathcal O_C(D)
+   =\Nm_\pi(\kappa\otimes M)
+   =\eta^3,
+\]
+because $M\in P$ and $\Nm_\pi(\pi^*\eta)=\eta^3$.  Hence $D\in N$ and
+$a(D)=M$.  The finite morphism $\pi$ induces a finite morphism
+$C^{(3)}\to E^{(3)}$; its base change over
+$|\eta^3|\subset E^{(3)}$ is the finite surjection
+$N\to|\eta^3|\simeq\PP^2$.  In particular
+$\dim X\le\dim N=2<3=\dim P$, and therefore $X\ne P$.  Thus the
+restriction of the centred theta section to $P$ is nonzero; consequently
+$X\in|L|$ is an effective Cartier divisor and is ample.
 
 \begin{lemma}[The norm fibre]\label[lemma]{lem:norm-fibre}
 Let $\Gamma=|\kappa|\simeq\PP^1$ and
@@ -538,10 +599,18 @@ quadric determined by the pencil $|\kappa|$, which has only one ruling.
 Indeed, by geometric Riemann--Roch, the divisors in any $g^1_3$ span lines
 in the canonical embedding, and their union is a ruling of the canonical
 quadric.  Consequently $\kappa$ is the unique $g^1_3$ on $C$.  Riemann--Kempf
-\cite{Kempf1973} shows that the Abel map is an isomorphism over the $h^0=1$
-locus.  The corresponding points of $N$ are smooth by the critical-point
-calculation above, so their images in $X$ are smooth.  The pencil
-$|\kappa|$ is the only positive-dimensional Abel fibre.  It follows that
+ \cite{Kempf1973} shows that the Abel map is an isomorphism over the $h^0=1$
+ locus.  The corresponding points of $N$ are smooth by the critical-point
+ calculation above, so their images in $X$ are smooth.  The pencil
+ $|\kappa|$ is the only positive-dimensional Abel fibre.  It follows so far
+ that $\Sing(X)\subset\{0\}$.
+
+ The Riemann singularity theorem \cite{Kempf1973} also gives
+ $\operatorname{mult}_0(\Theta_\kappa)=h^0(C,\kappa)=2$.  Thus a local
+ equation of $\Theta_\kappa$ at the origin has no linear term.  Its restriction
+ to the smooth threefold $P$ is nonzero by the paragraph following the
+ definition of $a:N\to X$, and it still has no linear term.  The restricted
+ divisor $X$ is therefore singular at the origin.  Consequently
 \begin{equation}
  \Sing(X)=\{0\}.
 \label{eq:singular-locus}
@@ -2204,6 +2273,13 @@ $(G_2,V_7)$.  Since $b$ was arbitrary in $\cB^\circ(\CC)$, all conclusions
 hold with the quantifier stated in the theorem.
 \end{proof}
 
+\section*{Acknowledgements and disclosure}
+The author thanks Daniel Litt for encouraging a more checkable exposition.
+OpenAI language-model tools assisted with drafting, symbolic-code review, and
+proof auditing.  The computer-assisted assertions used in the proof are exact,
+are delimited in the Introduction and Appendix, and can be independently
+reproduced from the accompanying source files.
+
 \appendix
 
 \section{Computer-assisted exact norm certificate}\label{app:certificate}
@@ -2227,10 +2303,11 @@ The first works in the exact fraction field; the second uses a separate
 numerator-clearing reduction.
 
 \noindent\textit{Finite-field nonemptiness checks.}\par\noindent
-The Singular/Rabin wrapper listed below evaluates the specialization at
-$(a,b,c)=(1,2,3)$ and establishes geometric integrality of the residual-octic
-fibre used in
-\cref{lem:residual-octic-integral}.  Exact finite-field checks in
+The provenance verifier applies Rabin's criterion and checks a smooth rational
+point at the specialization $(a,b,c)=(1,2,3)$, establishing geometric
+integrality of the residual-octic fibre used in
+\cref{lem:residual-octic-integral}.  The Singular wrapper independently
+repeats that factorization and smooth-point check.  Exact finite-field checks in
 \path{code/g2_mu6_nonsimple_norm_conic_Q.py} establish the simultaneous
 nonvanishing used in \cref{lem:admissible-nonempty}.
 The first two groups certify identities over $\QQ$; the finite-field
