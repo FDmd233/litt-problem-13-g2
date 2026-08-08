@@ -1,0 +1,73 @@
+name: Publish revised release record
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - paper/main.tex
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify exact certificate
+        run: |
+          python -m pip install -r requirements.txt
+          python code/g2_shifted_norm_certificate.py > /tmp/certificate.out
+          diff -u code/g2_shifted_norm_certificate.out /tmp/certificate.out
+
+      - name: Compile LaTeX source
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended lmodern
+          cd paper
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+          if grep -E 'LaTeX Warning|Package .* Warning|undefined citations|undefined references|Overfull|Underfull' main.log; then
+            exit 1
+          fi
+
+      - name: Verify committed PDF checksum
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Update release records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/v1-notes.md <<'NOTES'
+          This is the original July 2026 preprint.
+
+          **Erratum (2026-08-09).** The specialization `c=0` has an additional involution that leaves a compatibility issue in the surface argument. The revised proof uses `w^3 = y-c` with `c != 0`; see `v1.1.0-revised`. The fixed-CM/isotrivial Prym claim is withdrawn.
+          NOTES
+          gh release edit v1.0.0-preprint --notes-file /tmp/v1-notes.md
+
+          cat > /tmp/v11-notes.md <<'NOTES'
+          Revised preprint using the shifted cyclic triple cover `w^3 = y-c`, `c != 0`. The norm-conic identity and characteristic-13 witnesses are rederived for this family. The full `G2` realization is retained. This release supersedes `v1.0.0-preprint`.
+          NOTES
+          if gh release view v1.1.0-revised >/dev/null 2>&1; then
+            gh release edit v1.1.0-revised \
+              --title "A Realization of G2 for Litt Problem No. 13 (revised)" \
+              --notes-file /tmp/v11-notes.md
+            gh release upload v1.1.0-revised \
+              output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt --clobber
+          else
+            gh release create v1.1.0-revised \
+              output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt \
+              --title "A Realization of G2 for Litt Problem No. 13 (revised)" \
+              --notes-file /tmp/v11-notes.md \
+              --target "$(git rev-parse HEAD)"
+          fi
