@@ -20,6 +20,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # The GitHub text transport inserted exactly two characters in one staged
+          # base64 fragment. Correct that known transport typo, then verify the
+          # complete archive hash before using any reconstructed file.
+          sed -i 's#KMC/trauiDup#KMC/truDup#' .repair/v2.chunk.06a
           cat .repair/v2.chunk.* | base64 -d > /tmp/g2-repair.tar.gz
           echo '66ee3e543a7611adbedd8838ba0b812e189742541d7924f30a7baee7cb833cf1  /tmp/g2-repair.tar.gz' | sha256sum -c -
           tar -xzf /tmp/g2-repair.tar.gz -C .
