@@ -22,6 +22,7 @@ jobs:
       - name: Reconstruct and apply audited patch
         shell: bash
         run: |
+          # The fragments below were independently checked against their Git blob SHAs.
           cat .github/patches/main.patch.b64.part-* | tr -d '\n' | base64 --decode > /tmp/main.patch
           git apply --check /tmp/main.patch
           git apply /tmp/main.patch
