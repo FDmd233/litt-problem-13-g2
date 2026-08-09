@@ -1,0 +1,77 @@
+name: Publish corrected release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - paper/main.tex
+      - README.md
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Verify corrected manuscript markers
+        shell: bash
+        run: |
+          grep -F 'p_g(S)=5' paper/main.tex
+          grep -F 'q(S)=4' paper/main.tex
+          grep -F 'H^1(X,\QQ)\simeq IH^1(X,\QQ)' paper/main.tex
+          test -f output/pdf/Litt_Problem_13_G2.pdf
+          sha256sum -c SHA256SUMS.txt
+
+      - name: Prepare concise release notes
+        shell: bash
+        run: |
+          cat > /tmp/v12.md <<'EOF'
+          Corrected manuscript.
+
+          Section 3.3 contained an incorrect identification of ordinary and intersection cohomology at the simple elliptic singularity. The corrected minimal resolution has $p_g(S)=5$ and $q(S)=4$. The generic-twist proof has been rewritten; the Hodge multiplicities $(2,3,2)$ and the $G_2$ identification are unchanged.
+
+          This release supersedes v1.1.0-revised.
+          EOF
+          cat > /tmp/v11.md <<'EOF'
+          Superseded by v1.2.0-corrected. This release introduced the shifted cover $c\ne0$ and withdrew the earlier isotrivial-CM claim. A later audit found a separate cohomology error in Section 3.3; see v1.2.0-corrected.
+          EOF
+          cat > /tmp/v10.md <<'EOF'
+          Original July 2026 preprint, retained for the record. Superseded by v1.2.0-corrected. The $c=0$ specialization and the later Section 3.3 cohomology calculation were corrected in subsequent versions.
+          EOF
+
+      - name: Update publication record
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh release edit v1.1.0-revised --notes-file /tmp/v11.md
+          gh release edit v1.0.0-preprint --notes-file /tmp/v10.md
+          if gh release view v1.2.0-corrected >/dev/null 2>&1; then
+            gh release edit v1.2.0-corrected \
+              --title 'A Realization of G2 for Litt Problem No. 13 (corrected)' \
+              --notes-file /tmp/v12.md
+            gh release upload v1.2.0-corrected \
+              output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt --clobber
+          else
+            gh release create v1.2.0-corrected \
+              output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt \
+              --target "$GITHUB_SHA" \
+              --title 'A Realization of G2 for Litt Problem No. 13 (corrected)' \
+              --notes-file /tmp/v12.md
+          fi
+
+      - name: Remove one-shot publication workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/publish-v1.2.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'remove one-shot corrected release workflow'
+          git push origin HEAD:main
