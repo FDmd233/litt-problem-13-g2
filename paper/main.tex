@@ -71,29 +71,24 @@ convolution, Tannaka group, exceptional group $G_2$}
 \raggedbottom
 
 \begin{abstract}
-This paper constructs a nonempty family of complex abelian threefolds $P$
-with integral symmetric ample divisors $X\subset P$ whose full convolution
-Tannaka group is the simple group of type $G_2$.  The construction uses
-cyclic triple covers of elliptic curves
+A family of complex abelian threefolds is constructed from the cyclic covers
 \[
   C:\quad w^3=y-c,\qquad c\ne0,
 \]
-with $y^2=x^3+Ax+B$.  The induced Prym polarization has type $(1,1,3)$.
-Each theta section is normal and has one simple elliptic singularity of type
-$\wt E_7$, and $\chi(\IC_X)=7$.  On a nonempty Zariski-open part of the
-parameter space, for $K=\IC_X$ one moreover has
+of elliptic curves $y^2=x^3+Ax+B$.  The associated Prym variety carries a
+polarization of type $(1,1,3)$, and the restricted centred theta divisor
+$X$ is a normal symmetric surface with one simple elliptic singularity of
+type $\wt E_7$.  Its intersection complex has Euler characteristic seven.
+For general parameters, the generic pair-incidence curve
 \[
-  K\ \text{is a direct summand of }\Alt^2(K)
+  X\cap(-x-X)
 \]
-in the convolution Tannakian category.  This summand comes from two
-components of a generic pair-incidence curve.  Their separation is governed
-by an exact norm--conic identity over a rational function field: the double
-cover ordering the two residual lines is the constant quadratic cover
-attached to $\QQ(\zeta_3)/\QQ$.  A generic unitary twist gives Hodge
-multiplicities $(2,3,2)$.  Together with the exterior-square summand, these
-weights identify the full Tannaka group with $G_2$ on its standard
-seven-dimensional representation.  This gives an affirmative answer to the
-$G_2$ case of Litt Problem No.~13.
+has exactly two nonexceptional components.  This yields an unshifted
+summand $\IC_X\mid\Alt^2(\IC_X)$ in the convolution category.  A generic
+unitary twist has Hodge multiplicities $(2,3,2)$.  These two facts rule out
+the other irreducible orthogonal groups in dimension seven and identify the
+full convolution Tannaka group with $G_2$ on its standard representation.
+The result gives the $G_2$ case of Litt Problem No.~13.
 \end{abstract}
 
 \maketitle
@@ -111,9 +106,9 @@ whether each of the exceptional simple types
   G_2,\qquad E_7,\qquad E_8,\qquad F_4
 \]
 occurs in this way \cite{Litt13}.  The result below settles the $G_2$ case.
-No claim is made here for the other three types.  It is worth stressing that
-the singular theta surface is essential to the construction: the exclusion
-results for smooth subvarieties in \cite{KLM2026} do not apply to this case.
+No claim is made here for the other three types.  The singularity of the
+theta surface is essential: the exclusion results for smooth subvarieties in
+\cite{KLM2026} do not apply to the surface constructed below.
 
 The construction is defined over a rational parameter space.  Put
 \[
@@ -180,13 +175,13 @@ divisor, flat over $\cB$, with geometrically integral fibres.
 \end{theorem}
 
 \paragraph{Revision note.}
-The first release used the special equation $w^6=x^3+Ax+B$, corresponding to
-$c=0$.  That specialization carries the additional involution
-$w\mapsto-w$, leaving an unaddressed compatibility issue in the surface
-argument.  The present version excludes that specialization, works with
-$c\ne0$, and rederives the norm--conic and finite-field certificates for the
-shifted family.  The former isotrivial-CM assertion for the ambient Prym
-family is not used and is not retained.
+The present version incorporates two corrections.  The construction is made
+with $c\ne0$, since the specialization $c=0$ has an additional involution.
+It also corrects the first-cohomology calculation at the simple-elliptic
+point: the minimal resolution has $p_g(S)=5$ and $q(S)=4$.  The proof of the
+generic-twist Hodge vector is correspondingly rewritten and no longer uses
+$H^1(X,\QQ)=IH^1(X,\QQ)$.  The earlier isotrivial-CM assertion for the Prym
+family is not used.
 
 \paragraph{Proof outline.}
 Fix $b\in\cB(\CC)$ and write $(P,X)=(P_b,X_b)$.  The norm fibre in $C^{(3)}$
@@ -196,6 +191,10 @@ $\rho:S\to X$ with one exceptional elliptic curve of self-intersection $-2$.
 Adjunction, the simple-elliptic geometric genus, and Noether's formula give
 \[
  K_S^2=16,\qquad \chi(\mathcal O_S)=2,\qquad e(S)=8.
+\]
+A separate theta-group argument gives
+\[
+ p_g(S)=5,\qquad q(S)=4.
 \]
 The semismall decomposition theorem then yields
 \[
@@ -241,14 +240,13 @@ These data exclude $SO_7$ and the seven-dimensional $PGL_2$ module and force
 $G^0=G_2$.  The same exterior-square morphism excludes the only possible
 extra component, hence $G=G_2$.
 
-\paragraph{Exact calculations.}
-Exact polynomial calculations are confined to the pair-incidence analysis.
-The supplementary certificate reconstructs the norm conic from the shifted
-curve, verifies the determinant factorization and the identity governing the
-ordering cover, and checks two characteristic-$13$ witnesses.  The geometric
-arguments pass these explicit calculations to the generic characteristic-zero
-statements; the decomposition-theorem and group-theoretic steps do not depend
-on the certificate.
+\paragraph{Explicit algebra.}
+For clarity, the polynomial identities used in the pair-incidence argument
+are isolated in Appendix~\ref{app:exact-norm}.  The determinant
+factorization, the square-class identity, and the characteristic-$13$
+witnesses are stated there in a form that can be checked directly.  The
+repository contains a short exact-arithmetic script that repeats the same
+calculations; no result depends on running it.
 
 \paragraph{Organization.}
 The proof is arranged so that each input can be checked where it is first
@@ -256,7 +254,8 @@ used.
 \begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
 \item \cref{prop:theta-resolution,lem:surface-invariants,cor:theta-ic,lem:conormal-degree}
       establish the geometry of the theta section and $\chi(\IC_X)=7$.
-\item \cref{prop:hodge-vector} computes the generic-twist Hodge
+\item \cref{prop:resolution-irregularity,prop:hodge-vector} compute the
+      invariants of the resolution and the generic-twist Hodge
       multiplicities $(2,3,2)$.
 \item \cref{prop:determinant-factorization,lem:residual-octic-integral,%
       prop:ordering-cover,prop:abel-incidence,lem:boundary-exhaustion}
@@ -761,51 +760,215 @@ Thus
 \end{equation}
 \end{proof}
 
-\subsection{The generic-twist Hodge vector}
+\subsection{The irregularity and the generic-twist Hodge vector}
 
-Put $U=P\setminus X$.  Since $X$ is ample, $U$ is affine.  Artin vanishing
-for the perverse sheaf $\QQ_U[3]$ \cite[Th\'eor\`eme~4.1.1]{BBD1982} gives
-$H_c^i(U,\QQ)=0$ for $i<3$.  The long exact sequence for $(P,X)$ therefore
-identifies $H^1(P,\QQ)$ with $H^1(X,\QQ)$.
+The exceptional elliptic curve contributes to $H^1(S)$.  We compute this
+contribution before considering twists.
 
-The surface $X$ is normal, is a local complete intersection in $P$, and has
-only the isolated singular point $0$.  Hence $\QQ_X[2]$ and $\IC_X$ are
-perverse, agree on $X_{\reg}$, and their perverse kernel and cokernel are
-supported at $0$.  Point-supported perverse sheaves have hypercohomology only
-in degree zero, so
+\begin{proposition}[Irregularity of the resolution]
+\label[proposition]{prop:resolution-irregularity}
+The minimal resolution $S$ satisfies
 \[
- H^1(X,\QQ)=\mathbb H^{-1}(X,\QQ_X[2])
- \xrightarrow{\sim}\mathbb H^{-1}(X,\IC_X)=IH^1(X,\QQ).
+ p_g(S)=5,\qquad q(S)=4.
 \]
-Taking degree $-1$ hypercohomology in \eqref{eq:semismall} gives
+Consequently
 \[
- H^1(P,\QQ)\xrightarrow{\sim}IH^1(X,\QQ)
- \xrightarrow{\sim}H^1(S,\QQ).
+ b_1(S)=8,\qquad b_2(S)=22,\qquad h^{1,1}(S)=12.
 \]
-Thus $q(S)=3$, and $\operatorname{Pic}^0(P)\to\operatorname{Pic}^0(S)$ is
-an isogeny.  Since the image of $S\to P$ is two-dimensional, $S$ has maximal
-Albanese dimension.
+\end{proposition}
 
-Let $j:S\xrightarrow{\rho}X\hookrightarrow P$.  A unitary rank-one
-character of $\pi_1(P)$ determines, via its unitary flat connection, a point
-$\alpha\in\operatorname{Pic}^0(P)$; write $\mathcal L_\alpha$ for the
-corresponding local system.  Using the isogeny $\operatorname{Pic}^0(P)\to\operatorname{Pic}^0(S)$
-proved above, coherent generic vanishing gives a nonempty Zariski-open
-subset of $\operatorname{Pic}^0(P)$ on which
+\begin{proof}
+Recall from \eqref{eq:prym-polarization} that
 \[
- H^i(S,K_S\otimes\alpha^{\pm1}|_S)=0\qquad(i>0).
+ K(L):=\ker(\varphi_L)=\pi^*E[3]
 \]
+has order nine.  We first show that every point of $K(L)$ lies on $X$.  For
+$\alpha\in E[3]$, the projection formula and
+$\pi_*\mathcal O_C=\mathcal O_E\oplus\eta^{-1}\oplus\eta^{-2}$ give
+\[
+\begin{aligned}
+ h^0(C,\kappa\otimes\pi^*\alpha)
+ &=h^0(E,\eta\otimes\alpha)+h^0(E,\alpha)
+   +h^0(E,\eta^{-1}\otimes\alpha).
+\end{aligned}
+\]
+The first term is one because $\deg\eta=1$; the other two vanish when
+$\alpha\ne\mathcal O_E$.  For $\alpha=\mathcal O_E$ the same expression is
+two.  Thus
+\begin{equation}
+ K(L)\subset X.
+\label{eq:kernel-on-theta}
+\end{equation}
+
+Let $s\in H^0(P,L)$ be a defining section of $X$.  The theta group of $L$
+acts on the three-dimensional space $H^0(P,L)$ through its irreducible
+Schr\"odinger representation; see, for example,
+\cite[Chapter~6]{BirkenhakeLange2004}.  For $a\in K(L)$ choose a lift of
+translation by $a$ to the theta group.  The corresponding translate of $s$
+vanishes at the origin, because its value there is a nonzero scalar multiple
+of $s(a)$ and \eqref{eq:kernel-on-theta} gives $s(a)=0$.  The orbit of the
+nonzero vector $s$ spans $H^0(P,L)$ by irreducibility.  Hence
+\begin{equation}
+ t(0)=0\qquad\text{for every }t\in H^0(P,L).
+\label{eq:basepoint-origin}
+\end{equation}
+In other words, the origin is a base point of the complete linear system
+$|L|$.
+
+Adjunction gives $\omega_X\simeq L|_X$, and the divisor sequence is
+\[
+ 0\longrightarrow\mathcal O_P\xrightarrow{\,s\,}L
+ \longrightarrow\omega_X\longrightarrow0.
+\]
+Since $L$ is ample on the abelian threefold, $H^i(P,L)=0$ for $i>0$.
+Therefore
+\begin{equation}
+ 0\longrightarrow \CC s\longrightarrow H^0(P,L)
+ \longrightarrow H^0(X,\omega_X)
+ \longrightarrow H^1(P,\mathcal O_P)\longrightarrow0,
+\label{eq:canonical-sections-exact}
+\end{equation}
+so $h^0(X,\omega_X)=2+3=5$.
+
+We next check that all five canonical sections vanish at the singular point.
+The two-dimensional subspace coming from $H^0(P,L)/\CC s$ does so by
+\eqref{eq:basepoint-origin}.  For the remaining three directions, let $v$ be
+a translation-invariant vector field on $P$.  Differentiating a local
+equation for $s$ in the direction $v$ and restricting to $X$ gives a section
+$\partial_v s\in H^0(X,L|_X)$.  Under the boundary map in
+\eqref{eq:canonical-sections-exact}, this section maps, up to the usual sign
+convention, to
+\[
+ \iota_v c_1(L)\in H^1(P,\mathcal O_P).
+\]
+Indeed, if $g_{ij}$ are transition functions for $L$, the corresponding
+\v{C}ech cocycle is $v(g_{ij})/g_{ij}$.  This is the differential at the
+origin of the polarization morphism
+$\varphi_L:P\to\operatorname{Pic}^0(P)$.  Since $\varphi_L$ is an isogeny,
+\[
+ H^0(P,T_P)\longrightarrow H^1(P,\mathcal O_P),
+ \qquad v\longmapsto\iota_vc_1(L),
+\]
+is an isomorphism.  The three sections $\partial_v s$ therefore map onto the
+last term of \eqref{eq:canonical-sections-exact}.  They also vanish at the
+origin because $0$ is a singular point of $X$, so $ds(0)=0$.  Thus every
+section of $\omega_X$ vanishes at $0$.
+
+Write $E=E_{\exc}$.  Since $K_X$ is Cartier, one may write
+$K_S=\rho^*K_X+aE$.  Adjunction on the elliptic curve $E$ gives
+$(K_S+E)\cdot E=0$, while $\rho^*K_X\cdot E=0$ and $E^2=-2$; hence
+$a=-1$ and
+\begin{equation}
+ K_S=\rho^*K_X-E.
+\label{eq:canonical-resolution}
+\end{equation}
+For a simple elliptic singularity of type $\wt E_7$, the maximal-ideal
+cycle on the minimal resolution is the reduced exceptional curve $E$; hence
+\[
+ \rho_*\mathcal O_S(-E)=\mathfrak m_0.
+\]
+For completeness, this can be read directly from the standard local form
+$u^2+v^4+w^4+\lambda v^2w^2=0$ of a $\wt E_7$ singularity
+\cite{Laufer1977,Pinkham1977}: its minimal resolution is the weighted blowup
+with weights $(2,1,1)$, and positive $E$-valuation is exactly vanishing at
+the origin.  By the projection formula,
+\[
+ H^0(S,K_S)=H^0(X,\omega_X\otimes\mathfrak m_0).
+\]
+The preceding paragraph shows that the right-hand side is all of
+$H^0(X,\omega_X)$, and therefore $p_g(S)=5$.  Finally
+\cref{lem:surface-invariants} gives $\chi(\mathcal O_S)=2$, so
+\[
+ q(S)=1+p_g(S)-\chi(\mathcal O_S)=4.
+\]
+The remaining Betti and Hodge numbers follow from $e(S)=8$.
+\end{proof}
+
+\begin{remark}[Cohomological check]
+\label{rem:q-correction}
+Artin vanishing for $P\setminus X$ gives
+$H^1(P,\QQ)\simeq H^1(X,\QQ)$.  The identification
+$H^1(X,\QQ)\simeq IH^1(X,\QQ)$ asserted in an earlier revision is false.  Although the kernel and cokernel of
+$\QQ_X[2]\to\IC_X$ are supported at $0$, their degree-zero
+hypercohomology enters the connecting map in the long exact sequence.  In
+fact \eqref{eq:semismall} and \cref{prop:resolution-irregularity} give
+\[
+ \dim H^1(X,\QQ)=6,
+ \qquad
+ \dim IH^1(X,\QQ)=\dim H^1(S,\QQ)=8.
+\]
+
+There is also a useful equivariant check.  After removing the proper closed
+locus on which a branch point is $3$-torsion, the deck transformation
+$\tau$ has eight smooth fixed points on $X$ besides the origin.  Indeed, a
+smooth fixed point has a unique effective divisor, and a $\tau$-invariant
+divisor of degree three is either a free orbit $\pi^{-1}(q)$, with
+$q\in E[3]$, or is supported on ramification points.  The free orbits give
+nine fixed points, one of which is the origin; the remaining ramification
+possibilities are excluded by the distinctness of the three branch points
+and the non-$3$-torsion assumption.  In the local model
+$z_1^3+z_2^3+z_3^3=0$, $\tau$ acts by simultaneous scalar multiplication,
+so the exceptional elliptic curve is fixed pointwise.  Thus the fixed locus
+on $S$ has Euler characteristic eight.  If one incorrectly imposed
+$q(S)=3$, then $b_2(S)=18$, the trace of $\tau$ on $H^1(S)$ would be $-3$,
+and the injection
+$H^2(P,\QQ)\hookrightarrow H^2(S,\QQ)$ from hard Lefschetz would force the
+Lefschetz number to be $14$ or $17$, not $8$.  This is an independent way
+to detect the erroneous $H^1=IH^1$ step.  With the corrected value $q(S)=4$,
+one has $b_2(S)=22$.  The extra two dimensions in $H^1(S)$ come from the
+exceptional elliptic curve, on which $\tau$ acts trivially; hence
+$\operatorname{tr}(\tau\mid H^1(S))=-1$.  Compatibility with the fixed-locus
+formula is then exact: the trace on $H^2(S)$ is $4$, and
+\[
+  L(\tau,S)=1-(-1)+4-(-1)+1=8=\chi(S^\tau).
+\]
+\end{remark}
+
+Let $j:S\xrightarrow{\rho}X\hookrightarrow P$.  A unitary rank-one character
+of $\pi_1(P)$ determines a unitary local system $\mathcal L_\alpha$ and a
+holomorphic line bundle $\alpha\in\operatorname{Pic}^0(P)$.  We use the
+same symbol $\alpha$ for the latter.
+
+For $\alpha\ne\mathcal O_P$, the standard vanishing for a nontrivial
+line bundle in $\operatorname{Pic}^0(P)$ and the divisor sequence give
+\[
+ H^0(X,(L\otimes\alpha)|_X)\simeq H^0(P,L\otimes\alpha),
+ \qquad h^0(P,L\otimes\alpha)=3.
+\]
+Combining this with \eqref{eq:canonical-resolution} and
+$\rho_*\mathcal O_S(-E)=\mathfrak m_0$ yields
+\begin{equation}
+ H^0(S,K_S\otimes j^*\alpha)
+ \simeq
+ \ker\!\left(
+ H^0(P,L\otimes\alpha)\xrightarrow{\operatorname{ev}_0}
+ (L\otimes\alpha)_0\right).
+\label{eq:twisted-canonical-evaluation}
+\end{equation}
+The locus on which the evaluation map in
+\eqref{eq:twisted-canonical-evaluation} is nonzero is a nonempty Zariski-open
+subset of $\operatorname{Pic}^0(P)$.  To see nonemptiness, use the
+surjectivity of $\varphi_L$: every $L\otimes\alpha$ is a translate of $L$,
+and a translate of the defining section by a point outside $X$ does not
+vanish at the origin.  Intersecting this open with its inverse under
+$\alpha\mapsto\alpha^{-1}$ gives a dense open $W\subset\operatorname{Pic}^0(P)$
+on which
+\begin{equation}
+ h^0(S,K_S\otimes j^*\alpha)
+ =h^0(S,K_S\otimes j^*\alpha^{-1})=2.
+\label{eq:twisted-outer-hodge}
+\end{equation}
+
 Perverse generic vanishing gives a nonempty Zariski-open subset of the Betti
 character torus on which
 \[
- H^i(P,Rj_*\QQ_S[2]\otimes\mathcal L_\alpha)=0\qquad(i\ne0).
+ H^k(P,Rj_*\QQ_S[2]\otimes\mathcal L_\alpha)=0\qquad(k\ne0).
 \]
 The compact unitary character torus is Zariski dense in the Betti character
-torus (a Laurent polynomial vanishing on the unitary torus vanishes
-identically), and the unitary-character identification with
-$\operatorname{Pic}^0(P)$ is a real-analytic isomorphism.  Consequently the
-two generic-vanishing conditions cut out Euclidean open dense subsets of the
-same compact unitary torus.  Let $\Omega$ be their nonempty intersection.
+torus, and its unitary-character identification with
+$\operatorname{Pic}^0(P)$ is a real-analytic isomorphism.  Hence the generic
+vanishing locus and $W$ meet in a nonempty Euclidean open subset $\Omega$ of
+the unitary character torus.
 
 \begin{proposition}[Generic-twist Hodge vector]\label[proposition]{prop:hodge-vector}
 For every $\alpha\in\Omega$, the Hodge structure
@@ -818,32 +981,28 @@ $-2,0,2$ on $\omega(\IC_X)$ with multiplicities $2,3,2$, respectively.
 \end{proposition}
 
 \begin{proof}
-For $\alpha\in\Omega$, coherent generic vanishing
-\cite{GreenLazarsfeld1987}, Riemann--Roch, and Serre duality give
-\[
- h^0(S,K_S\otimes\alpha|_S)=2,
- \qquad
- h^2(S,\alpha|_S)=2.
-\]
-The complex $Rj_*\QQ_S[2]$ is perverse, and generic vanishing for perverse
-sheaves on abelian varieties \cite[Theorem~1.1]{KraemerWeissauer2015} gives
+For $\alpha\in\Omega$, perverse generic vanishing
+\cite[Theorem~1.1]{KraemerWeissauer2015} gives
 \[
  H^k(S,j^*\mathcal L_\alpha)=0\qquad(k\ne2).
 \]
-For a unitary local system the twisted Dolbeault decomposition reads
+For a unitary local system, the twisted Hodge decomposition in degree two is
 \[
  H^{p,q}(S,j^*\mathcal L_\alpha)
- =H^q(S,\Omega_S^p\otimes\alpha|_S),
+ =H^q(S,\Omega_S^p\otimes j^*\alpha),
  \qquad p+q=2.
 \]
-Its total dimension is $e(S)=8$.  Thus the Hodge vector of
+Equation \eqref{eq:twisted-outer-hodge}, together with Serre duality, gives
+outer Hodge numbers $2$ and $2$.  Since the Euler characteristic of a
+rank-one local system equals $e(S)=8$ and all cohomology is concentrated in
+degree two, the middle Hodge number is $4$.  Thus the Hodge vector of
 $Rj_*\QQ_S^H[2]$ is $(2,4,2)$.  The Hodge-module refinement of
 \eqref{eq:semismall}, extended to $P$, is
 \[
  Rj_*\QQ_S^H[2]\simeq\IC_X^H\oplus\QQ_0^H(-1).
 \]
-The point summand has type $(1,1)$, so removing it leaves
-$(2,3,2)$ for $\IC_X^H$.
+The point summand has type $(1,1)$, so the Hodge vector for $\IC_X^H$ is
+$(2,3,2)$.
 \end{proof}
 
 
@@ -1078,20 +1237,49 @@ where $F_8$ is homogeneous of degree eight and $u-v\nmid F_8$.
 \end{proposition}
 
 \begin{proof}
-The assertion may be checked on the dense locus $e_1\ne0$.  Apply the
-scaling of \cref{lem:dominant-chart} with $r=e_1^{-1}$; the section
-coordinates transform as in \eqref{eq:section-scaling}, so the determinant
-factorization pulls back from the normalized chart $e_1=1$.  On that chart,
-substitute \eqref{eq:cyclic-norm}, reduce by the shifted elliptic equation,
-and express the quotient in the basis
+Each coefficient $q_{ij}$ is homogeneous of degree three in $(u,v,z)$, so
+$\det(M_s)$ is homogeneous of degree nine.  The structural factor can be
+seen without expanding the determinant.  Put
 \[
- 1,\ x,\ Y,\ x^2,\ xY,\ Y^2
+ h=x-e_1w^2+e_2w-e_3.
 \]
-of $H^0(E,6O)$.  The exact calculation reconstructed in
-\cref{app:certificate} gives a homogeneous determinant of degree nine, with
-$u-v$ as a factor of multiplicity one and a homogeneous degree-eight
-quotient.  Pulling the identity back along the scaling proves it in the
-function field $K_0$.
+The basis above satisfies
+\[
+ s_0+s_1=h,\qquad s_2=wh.
+\]
+Hence on the hyperplane $u=v$ one has
+\[
+ s=h(u+zw).
+\]
+The section $h\in H^0(C,2\kappa)$ vanishes on the fixed divisor $D$.
+Write $\operatorname{div}(h)=D+D'$.  Then
+\[
+ [\mathcal O_C(D')\otimes\kappa^{-1}]=-x,
+ \qquad
+ \Nm\mathcal O_C(D')=\eta^3.
+\]
+Thus $\pi_*D'$ is a line section of $E$, and the norm of $h$ is, up to a
+nonzero scalar, the product of the fixed norm line $Y-x$ and this second
+line.  Moreover
+\[
+ \Nm(u+zw)=u^3+z^3Y.
+\]
+After dividing by the fixed line, $Q_s$ is therefore a product of two lines
+whenever $u=v$.  Its symmetric matrix has rank at most two, and
+$\det(M_s)$ vanishes identically on $u=v$.  Thus $u-v$ divides the
+determinant, and the quotient is homogeneous of degree eight.
+
+It remains only to see that the factor occurs once.  Normalize $e_1=1$ by
+\cref{lem:dominant-chart}.  At
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)
+\]
+modulo $13$, direct substitution in \eqref{eq:cyclic-norm} gives
+\[
+ 4F_8(1,1,1)=12\ne0\quad\text{in }\mathbf F_{13}.
+\]
+Thus $u-v\nmid F_8$.  The same scaling transports the identity back to
+$K_0$.
 \end{proof}
 
 \begin{lemma}[Geometric integrality of the residual octic]
@@ -1262,9 +1450,9 @@ $\CC$.
 \end{proposition}
 
 \begin{proof}
-The formulas in \cref{app:certificate} reconstruct $F$, $\Delta$, and the
-coefficients of $A_{\mathrm c}$ and $B_{\mathrm c}$ from the shifted curve
-and verify \eqref{eq:norm-square-identity} in
+The explicit formulas in Appendix~\ref{app:exact-norm} reconstruct $F$,
+$\Delta$, and the coefficients of $A_{\mathrm c}$ and $B_{\mathrm c}$ from
+the shifted curve.  Substitution gives \eqref{eq:norm-square-identity} in
 $\QQ(c,\lambda,e_2,e_3,u)[z]$.  The normalized residual curve is
 geometrically integral by \cref{lem:normalized-function-field}; hence $F$ is
 irreducible and $L$ is a field.  The displayed formulas give
@@ -2207,9 +2395,9 @@ Thus the connected centre $Z_H^0$ acts by scalar matrices.  As $G_H^0$ is
 reductive, multiplication $Z_H^0\times G^*\to G_H^0$ is surjective with
 finite kernel.
 
-Put $\mu(z)=h(z,z^{-1})$.  This is the antidiagonal reduction used in
-\cite[Section~4.1]{KLM2026}; the short argument is recalled here because the
-passage from the Hodge group to the perverse derived group matters below.
+Put $\mu(z)=h(z,z^{-1})$.  The following short argument places the antidiagonal cocharacter in the
+common derived group; spelling it out avoids any ambiguity between the Hodge
+and perverse Tannaka groups.
 Since $\GGm$ is connected, $\mu(\GGm)\subset G_H^0$.  By \cref{prop:hodge-vector},
 \[
  \det\mu(z)=z^{(-2)\cdot2+0\cdot3+2\cdot2}=1.
@@ -2332,16 +2520,13 @@ follows.
 
 \appendix
 
-\section{Exact shifted norm certificate}\label{app:certificate}
+\section{Explicit norm identities and finite-field witnesses}\label{app:exact-norm}
 
-The polynomial calculations used in \cref{sec:pair-splitting} are contained
-in the single script \path{code/g2_shifted_norm_certificate.py}.
-It starts from the shifted equation and the three sections $s_0,s_1,s_2$;
-the conic coefficients are solved from the cyclic norm rather than supplied
-as input.  The later formulas for the ordering identity are explicit
-certificate data: the script substitutes them and verifies the resulting
-rational-function identities exactly.  All calculations use exact SymPy
-arithmetic.
+This appendix records the algebra used in \cref{sec:pair-splitting}.  The
+identities below are part of the proof: they can be checked by direct
+substitution in the indicated polynomial rings.  The optional repository script
+\path{code/g2_shifted_norm_certificate.py} repeats the same substitutions with
+exact arithmetic and serves only as an independent check.
 
 On the normalized chart $e_1=v=1$, write
 \[
@@ -2350,8 +2535,7 @@ On the normalized chart $e_1=v=1$, write
  k=3\Delta.
 \]
 Let $\ell$ be the leading $z$-coefficient of $F_8(u,1,z)$ and put
-$L_c=4\lambda^2\ell$.  The following explicit formulas form the
-certificate:
+$L_c=4\lambda^2\ell$.  The required coefficients are as follows:
 \[
  \begin{aligned}
  L_c={}&e_2^6\lambda^2(u^2+u+1)
@@ -2402,31 +2586,64 @@ with
  a_1=\frac{c_4-a_2^2-kb_2^2}{2},\qquad
  a_0=\frac{c_3}{2}-a_2a_1-kb_2b_1.
 \]
-The remaining three coefficient identities reduce exactly to zero, giving
+The remaining coefficients satisfy
+\[
+\begin{aligned}
+ c_2&=a_1^2+2a_2a_0+k(b_1^2+2b_2b_0),\\
+ c_1&=2a_1a_0+2kb_1b_0,\\
+ c_0&=a_0^2+kb_0^2.
+\end{aligned}
+\]
+These identities give
 \[
  F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
 \]
-This is the identity used in \cref{prop:ordering-cover}.  The same run
-checks, on the normalized chart,
+This is the identity used in \cref{prop:ordering-cover}.  Direct expansion of the same normalized formulas gives
 \[
  \det(M_s)=(u-v)F_8,
  \qquad
  \deg F_8=8,
 \]
-that $F_8$ is homogeneous and that $u-v$ occurs with multiplicity one.
+with $F_8$ homogeneous.  The structural factor has multiplicity one: at the
+specialization $(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ modulo $13$ one finds
+\[
+ 4F_8(1,1,1)=12\ne0.
+\]
 The scaling in \cref{lem:dominant-chart} then gives the corresponding
 identity over $K_0$.
 
-For \cref{lem:residual-octic-integral}, the script reduces
+For \cref{lem:residual-octic-integral}, reduce
 \[
  (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)
 \]
-modulo $13$.  It verifies the elliptic and branch discriminants $8$ and $4$,
-Rabin's criterion for
+modulo $13$.  The elliptic and branch discriminants are $8$ and $4$.  Put
 \[
- v^8-3v^7-2v^6+3v^5+4v^4+4v^3-3v^2-5v-2,
+ h(v)=v^8-3v^7-2v^6+3v^5+4v^4+4v^3-3v^2-5v-2.
 \]
-and the smooth point $(u,v)=(1,6)$ with gradient $(2,0)$.  For
+Modulo $h$ one has
+\[
+ v^{13^4}-v\equiv
+ r(v):=v^7+4v^6+2v^5+5v^4-4v^3-6v^2-3v+4,
+\]
+and
+\[
+ v^{13^8}-v\equiv0.
+\]
+The first remainder is coprime to $h$; for example, in
+$\mathbf F_{13}[v]$ the explicit B\'ezout identity
+\[
+ a(v)h(v)+b(v)r(v)=1
+\]
+holds with
+\[
+\begin{aligned}
+ a(v)&=5v^6+3v^5-3v^4-v^3-v^2-6v-2,\\
+ b(v)&=-5v^7+6v^6-5v^5+3v^4+2v^3-4v^2-2v-4.
+\end{aligned}
+\]
+Rabin's criterion therefore proves that $h$ is irreducible over
+$\mathbf F_{13}$.  The same specialization has the smooth point
+$(u,v)=(1,6)$ with gradient $(2,0)$.  For
 \cref{lem:admissible-nonempty}, it verifies the section $(u:v:z)=(3:5:1)$,
 the conic factorization
 \[
@@ -2442,12 +2659,10 @@ all in $\mathbf F_{13}$.  These finite-field calculations serve only as
 witnesses for nonempty open conditions; the passage to characteristic zero
 is the geometric argument in the main text.
 
-The certificate is run by
+For reproducibility, the optional verification script can be run with
 \begin{verbatim}
 python code/g2_shifted_norm_certificate.py
 \end{verbatim}
-and its reference output is stored in
-\path{code/g2_shifted_norm_certificate.out}.
 
 \bibliographystyle{amsplain}
 \bibliography{references}
