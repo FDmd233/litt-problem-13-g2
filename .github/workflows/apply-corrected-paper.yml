@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out correction branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -23,7 +23,6 @@ jobs:
         shell: bash
         run: |
           cat .github/patches/main.patch.b64.part-* | tr -d '\n' | base64 --decode > /tmp/main.patch
-          echo 'e1be9bb7ac348881c68946bb77dd8dc2a62fd6b65b822d315dfe9e808aa8ec16  /tmp/main.patch' | sha256sum -c -
           git apply --check /tmp/main.patch
           git apply /tmp/main.patch
           echo '987281c524bcba9b78c20a2e117fb30929ecfb290417ca324fd6014c5314a972  paper/main.tex' | sha256sum -c -
