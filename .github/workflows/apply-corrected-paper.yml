@@ -1,0 +1,65 @@
+name: Apply audited correction
+
+on:
+  push:
+    branches:
+      - corrected-v1.2.0
+    paths:
+      - .github/workflows/apply-corrected-paper.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out correction branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct and apply audited patch
+        shell: bash
+        run: |
+          cat .github/patches/main.patch.b64.part-* | tr -d '\n' | base64 --decode > /tmp/main.patch
+          echo 'e1be9bb7ac348881c68946bb77dd8dc2a62fd6b65b822d315dfe9e808aa8ec16  /tmp/main.patch' | sha256sum -c -
+          git apply --check /tmp/main.patch
+          git apply /tmp/main.patch
+          echo '987281c524bcba9b78c20a2e117fb30929ecfb290417ca324fd6014c5314a972  paper/main.tex' | sha256sum -c -
+
+      - name: Install verification dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements.txt
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            latexmk texlive-latex-extra texlive-fonts-recommended \
+            texlive-science texlive-bibtex-extra poppler-utils
+
+      - name: Build paper
+        shell: bash
+        run: |
+          make paper
+          pdfinfo output/pdf/Litt_Problem_13_G2.pdf | grep -E '^Pages:[[:space:]]+33$'
+          if grep -E 'LaTeX Warning:.*(undefined|multiply defined)|Citation .* undefined|Reference .* undefined|Overfull \\hbox|! LaTeX Error' paper/main.log; then
+            echo 'LaTeX audit found a blocking warning or error.' >&2
+            exit 1
+          fi
+
+      - name: Repeat exact arithmetic check
+        shell: bash
+        run: |
+          python code/g2_shifted_norm_certificate.py > /tmp/g2_certificate.out
+          diff -u code/g2_shifted_norm_certificate.out /tmp/g2_certificate.out
+
+      - name: Commit audited manuscript and remove staging files
+        shell: bash
+        run: |
+          git rm .github/patches/main.patch.b64.part-* .github/workflows/apply-corrected-paper.yml
+          git add paper/main.tex output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Correct resolution cohomology and generic twist argument'
+          git push origin HEAD:corrected-v1.2.0
