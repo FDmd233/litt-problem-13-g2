@@ -1,0 +1,60 @@
+name: Rebuild paper release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.event.head_commit.message == 'rebuild paper release assets'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk \
+            lmodern \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-science
+
+      - name: Compile paper
+        run: make paper
+
+      - name: Verify compiled artifact
+        run: |
+          test -s output/pdf/Litt_Problem_13_G2.pdf
+          pdfinfo output/pdf/Litt_Problem_13_G2.pdf | grep '^Pages:'
+          sha256sum -c SHA256SUMS.txt
+          stat -c '%s bytes' output/pdf/Litt_Problem_13_G2.pdf
+
+      - name: Commit compiled artifact and checksum
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'refresh compiled paper artifacts'
+            git push origin HEAD:main
+          fi
+
+      - name: Replace release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.3.0 \
+            output/pdf/Litt_Problem_13_G2.pdf \
+            SHA256SUMS.txt \
+            --clobber
