@@ -1,0 +1,164 @@
+\subsection*{A.4. An admissible specialization}
+For \cref{lem:admissible-nonempty} use
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),\qquad (u:v:z)=(3:5:1)
+\]
+over $\mathbf F_{13}$.  The shifted elliptic equation is
+\[
+ Y^2+2Y=x^3-6x^2+x+5,
+\]
+and the branch cubic $Y=0$ has discriminant $4$.  The fixed divisor is cut
+out by
+\[
+ p(w)=w^3-w^2-2,
+ \qquad \operatorname{disc}(p)=1,
+\]
+so it is reduced.  The residual conic has coefficient vector
+\[
+ (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
+\]
+and factors as
+\[
+ 5+x+7Y+7x^2+2Y^2
+ =5(1+9x+Y)(1+12x+3Y).
+\]
+Thus the three norm lines are
+\[
+ L_0:Y=x,\qquad L_1:Y=4x-1,\qquad L_2:Y=4-4x.
+\]
+Substitution into the elliptic equation gives the three line-section cubics
+\[
+\begin{array}{c|c|c}
+&\text{cubic in }x&\text{discriminant}\\ \hline
+L_0&x^3+6x^2-x+5&4\\
+L_1&x^3+4x^2+x+6&3\\
+L_2&x^3+4x^2+2x-6&5.
+\end{array}
+\]
+Hence all three intersections with $E$ are transverse.  The residual lines
+avoid the branch divisor: $L_1\cap\{Y=0\}$ has $x=10$ and the elliptic
+residual is $12\ne0$, while $L_2\cap\{Y=0\}$ has $x=1$ and residual
+$1\ne0$.  Their pairwise intersections are
+\[
+ L_1\cap L_2=(12,8),\qquad
+ L_0\cap L_1=(9,9),\qquad
+ L_0\cap L_2=(6,6),
+\]
+and substitution in the elliptic equation gives residuals $5,11,11$,
+respectively.  Thus no two of the three degree-three line sections meet on
+$E$.
+
+The two residual line sections are therefore finite \emph{\'etale} away from
+the branch locus and occur with multiplicity one in the norm divisor.  The
+local product formula for the norm then forces exactly one of the three
+sheets of $C\to E$ to carry a simple zero above each residual point, which is
+condition~(iii) of \cref{def:admissible-locus}.
+
+The remaining canonical-model input can be checked from the same functions
+used in \cref{prop:theta-resolution}.
+Because $\mathbf F_{13}$ contains $\zeta_3$, the nine quadratic
+representatives split into
+\[
+ \langle1,x,Y,x^2\rangle,\qquad
+ \langle w,xw,wY\rangle,\qquad
+ \langle w^2,xw^2\rangle.
+\]
+Their pole orders at a point over $O$ are $(0,2,3,4)$, $(1,3,4)$, and
+$(2,4)$, respectively.  Thus the only canonical quadric is
+$X_0X_2-X_1^2=0$, of rank three, and $|\kappa|$ is the unique $g^1_3$.
+A member of this pencil is cut out by $a+bw$, so
+$\Nm_\pi(a+bw)=a^3+b^3Y$; in particular its norm line has zero
+$x$-coefficient.  By contrast, $L_0,L_1,L_2$ all have nonzero
+$x$-coefficient.  Their inverse degree-three
+divisors are therefore not linearly equivalent to $\kappa$, hence lie in the
+$h^0=1$ Abel locus and map to the smooth theta locus.  This verifies
+condition~(iv) and completes the arithmetic specialization used in
+\cref{lem:admissible-nonempty}.
+
+\begin{thebibliography}{99}
+
+\bibitem{BBD1982}
+A.~A. Beilinson, J. Bernstein, and P. Deligne,
+\emph{Faisceaux pervers}, Ast\'erisque \textbf{100}, Soci\'et\'e Math\'ematique de France, Paris, 1982.
+
+\bibitem{BirkenhakeLange2004}
+Christina Birkenhake and Herbert Lange,
+\emph{Complex abelian varieties}, second ed., Grundlehren der mathematischen Wissenschaften, vol.~302, Springer-Verlag, Berlin, 2004.
+
+\bibitem{BrasseletLeSeade2000}
+Jean-Paul Brasselet, D\~ung Tr\'ang L\^e, and Jos\'e Seade,
+\emph{Euler obstruction and indices of vector fields}, Topology \textbf{39} (2000), no.~6, 1193--1208.
+
+\bibitem{deCataldoMigliorini2002}
+Mark Andrea A. de Cataldo and Luca Migliorini,
+\emph{The hard Lefschetz theorem and the topology of semismall maps}, Ann. Sci. \`Ecole Norm. Sup. (4) \textbf{35} (2002), no.~5, 759--772.
+
+\bibitem{Dynkin1957}
+E.~B. Dynkin,
+\emph{Semisimple subalgebras of semisimple Lie algebras}, Amer. Math. Soc. Transl. Ser.~2 \textbf{6} (1957), 111--244.
+
+\bibitem{FraneckiKapranov2000}
+J. Franecki and M. Kapranov,
+\emph{The Gauss map and a noncompact Riemann--Roch formula for constructible sheaves on semiabelian varieties}, Duke Math. J. \textbf{104} (2000), no.~1, 171--180.
+
+\bibitem{FultonHarris1991}
+William Fulton and Joe Harris,
+\emph{Representation theory: A first course}, Graduate Texts in Mathematics, vol.~129, Springer-Verlag, New York, 1991.
+
+\bibitem{EGA4}
+Alexander Grothendieck and Jean Dieudonn\'e,
+\emph{\'El\'ements de g\'eom\'etrie alg\'ebrique. IV. \'Etude locale des sch\'emas et des morphismes de sch\'emas, troisi\`eme partie}, Publ. Math. Inst. Hautes \'Etudes Sci. \textbf{28} (1966), 5--255.
+
+\bibitem{Hartshorne1977}
+Robin Hartshorne,
+\emph{Algebraic geometry}, Graduate Texts in Mathematics, vol.~52, Springer-Verlag, New York, 1977.
+
+\bibitem{JKLM2025}
+Ariyan Javanpeykar, Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
+\emph{The monodromy of families of subvarieties on abelian varieties}, Duke Math. J. \textbf{174} (2025), no.~6, 1045--1149.
+
+\bibitem{Kashiwara1985}
+Masaki Kashiwara,
+\emph{Index theorem for constructible sheaves}, in \emph{Syst\`emes diff\'erentiels et singularit\'es}, Ast\'erisque \textbf{130} (1985), 193--209.
+
+\bibitem{Kempf1973}
+George Kempf,
+\emph{On the geometry of a theorem of Riemann}, Ann.\ of Math. (2) \textbf{98} (1973), no.~1, 178--185.
+
+\bibitem{KLM2026}
+Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
+\emph{Exceptional Tannaka groups only arise from cubic threefolds}, J. Reine Angew. Math. \textbf{830} (2026), 51--99.
+
+\bibitem{KraemerWeissauer2015}
+Thomas Kr\"amer and Rainer Weissauer,
+\emph{Vanishing theorems for constructible sheaves on abelian varieties}, J. Algebraic Geom. \textbf{24} (2015), no.~3, 531--568.
+
+\bibitem{Laufer1977}
+Henry B. Laufer,
+\emph{On minimally elliptic singularities}, Amer. J. Math. \textbf{99} (1977), no.~6, 1257--1295.
+
+\bibitem{Litt13}
+Daniel Litt,
+\emph{Problem no.~13}, Problems I Like, \url{https://www.problemsilike.com/13}, accessed August 10, 2026.
+
+\bibitem{Macdonald1962}
+I.~G. Macdonald,
+\emph{Symmetric products of an algebraic curve}, Topology \textbf{1} (1962), 319--343.
+
+\bibitem{Pinkham1977}
+Henry C. Pinkham,
+\emph{Simple elliptic singularities, del Pezzo surfaces and Cremona transformations}, Several Complex Variables, Proc. Sympos. Pure Math., vol.~30, American Mathematical Society, Providence, RI, 1977, pp.~69--71.
+
+\bibitem{Saito1988}
+Morihiko Saito,
+\emph{Modules de Hodge polarisables}, Publ. Res. Inst. Math. Sci. \textbf{24} (1988), no.~6, 849--995.
+
+\bibitem{stacks-project}
+The Stacks Project Authors,
+\emph{Stacks Project}, \url{https://stacks.math.columbia.edu}, accessed August 10, 2026.
+
+\end{thebibliography}
+
+\end{document}
+
+

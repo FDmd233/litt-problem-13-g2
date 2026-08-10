@@ -1,0 +1,192 @@
+The factor $u-v$ in \cref{prop:determinant-factorization} was proved there
+geometrically.  Its multiplicity is one.  Indeed, at
+$(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ over $\mathbf F_{13}$, restrict to
+$(u,v,z)=(1+t,1,1)$.  The preceding formulas give
+\[
+\begin{array}{lll}
+q_{00}=t+2,&q_{01}=6t^2-t,&q_{02}=-6t^2-6t+2,\\
+q_{11}=-t^3-3t^2-3t,&q_{12}=2t^3+6t^2+3t,&q_{22}=-t^3-3t^2-3t.
+\end{array}
+\]
+A $3\times3$ determinant now gives
+\begin{equation}
+ 4\det M_{1+t,1,1}=-4t^4-5t^3+t^2-t
+ =t(-4t^3-5t^2+t-1).
+\label{eq:appendix-simple-structural-factor}
+\end{equation}
+The second factor is $-1$ at $t=0$, so the structural factor is simple and
+$4F_8(1,1,1)=12\ne0$ in $\mathbf F_{13}$.
+
+\subsection*{A.2. The square-class identity}
+Keep the normalized chart $e_1=v=1$ and put
+\[
+ r=u-1,\qquad d=\lambda-1,\qquad m=2c+e_2^3\lambda.
+\]
+Let $\widetilde F(z)=F_8(u,1,z)$, let
+$\ell=\operatorname{lc}_z(\widetilde F)$, and set
+$L_c=4\lambda^2\ell$.  Expanding
+\eqref{eq:appendix-determinant-expansion} with the six coefficients in A.1
+and collecting first in $d$ gives the following compact expression:
+\begin{align}
+L_c={}&3d^2e_3^2(3e_2^2r^2+3e_2r+1)\notag\\
+&+3de_3(6e_2^2e_3r^2+3e_2e_3r-2e_2mr^2-3e_2mr-mr-2m)\notag\\
+&+9e_2^2e_3^2r^2-6e_2e_3mr^2-9e_2e_3mr
+  +m^2r^2+3m^2r+3m^2.
+\label{eq:appendix-Lc-compact}
+\end{align}
+Define $N(z)=N_2z^2+N_1z+N_0$ by
+\begin{align*}
+N_2={}&-e_2(d+1)(6de_2e_3r+3de_3+6e_2e_3r-2mr-3m),\\
+N_1={}&-(d+1)(3de_2^2e_3r^2-3de_2e_3r-3de_3
+ +3e_2^2e_3r^2-3e_2e_3r+mr+3m),\\
+N_0={}&r(d+1)(3de_2e_3r+2de_3+3e_2e_3r-m).
+\end{align*}
+Finally put
+\[
+ R(z)=2L_cz^3+R_2z^2+R_1z+R_0,
+\]
+where
+\begin{align*}
+R_2=3e_2\bigl[{}&d^2e_3(6e_2e_3r^3+3e_2+3e_3r^2-1)\\
+&+d(12e_2e_3^2r^3+3e_2e_3-3e_2m+3e_3^2r^2
+      -2e_3mr^3-3e_3mr^2+m)\\
+&+6e_2e_3^2r^3-3e_2m-2e_3mr^3-3e_3mr^2\bigr],
+\end{align*}
+\begin{align*}
+R_1=3\bigl[{}&d^2e_3(6e_2^3r^3+9e_2^3r^2+3e_2^2e_3r^4
+ +3e_2^2r^2+15e_2^2r\\
+&\hspace{5.3em}-3e_2e_3r^3-3e_2r+3e_2-3e_3r^2-1)\\
+&+d(12e_2^3e_3r^3+18e_2^3e_3r^2+6e_2^2e_3^2r^4
+ +3e_2^2e_3r^2+24e_2^2e_3r\\
+&\hspace{3em}-2e_2^2mr^3-6e_2^2mr^2-6e_2^2mr
+ -6e_2e_3^2r^3-3e_2e_3r+3e_2e_3\\
+&\hspace{3em}-3e_2mr-3e_2m-3e_3^2r^2+e_3mr^3+3e_3mr^2+mr+m)\\
+&+6e_2^3e_3r^3+9e_2^3e_3r^2+3e_2^2e_3^2r^4\\
+&\hspace{3em}+9e_2^2e_3r-2e_2^2mr^3-6e_2^2mr^2-6e_2^2mr\\
+&\hspace{3em}-3e_2e_3^2r^3-3e_2mr-3e_2m+e_3mr^3+3e_3mr^2\bigr],
+\end{align*}
+and
+\begin{align*}
+R_0={}&-3d^2e_3(6e_2^2r^3+3e_2^2r^2+3e_2e_3r^4
+ +7e_2r^2+6e_2r+2e_3r^3+2r+2)\\
+&+d(-36e_2^2e_3r^3-18e_2^2e_3r^2-18e_2e_3^2r^4
+ -21e_2e_3r^2-18e_2e_3r\\
+&\hspace{3em}+6e_2mr^3+12e_2mr^2+9e_2mr-6e_3^2r^3\\
+&\hspace{3em}+3e_3mr^3+4mr^2+9mr+6m)\\
+&-3r(6e_2^2e_3r^2+3e_2^2e_3r\\
+&\hspace{3em}+3e_2e_3^2r^3-2e_2mr^2-4e_2mr-3e_2m-e_3mr^2).
+\end{align*}
+Let
+\[
+ \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
+ \qquad
+ \widetilde F(z)=\sum_{k=0}^6 f_kz^k.
+\]
+The remaining identity can be checked without any omitted expansion.  In the
+ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}]$, collecting the seven
+powers of $z$ in \eqref{eq:appendix-determinant-expansion} gives
+\begin{align*}
+16\lambda^2L_cf_6&=4L_c^2,\\
+16\lambda^2L_cf_5&=4L_cR_2,\\
+16\lambda^2L_cf_4&=R_2^2+4L_cR_1+3\Delta N_2^2,\\
+16\lambda^2L_cf_3&=2R_1R_2+4L_cR_0+6\Delta N_1N_2,\\
+16\lambda^2L_cf_2&=R_1^2+2R_0R_2+3\Delta(N_1^2+2N_0N_2),\\
+16\lambda^2L_cf_1&=2R_0R_1+6\Delta N_0N_1,\\
+16\lambda^2L_cf_0&=R_0^2+3\Delta N_0^2.
+\end{align*}
+These seven equalities are precisely the coefficient expansion of
+\begin{equation}
+ 16\lambda^2L_c\,\widetilde F(z)=R(z)^2+3\Delta N(z)^2.
+\label{eq:appendix-primitive-square-identity}
+\end{equation}
+Thus every algebraic equality used in the square-class step is displayed in
+the paper.
+
+Since $\ell=L_c/(4\lambda^2)$, define
+\[
+ A_{\mathrm c}=\frac{R}{2L_c},\qquad
+ B_{\mathrm c}=\frac{N}{2L_c}.
+\]
+Dividing \eqref{eq:appendix-primitive-square-identity} by $4L_c^2$ gives
+\begin{equation}
+ \ell^{-1}\widetilde F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2,
+\label{eq:appendix-square-class-check}
+\end{equation}
+which is exactly \eqref{eq:norm-square-identity}.  Notice also directly from
+the displayed leading terms that $\deg A_{\mathrm c}=3$ and
+$\deg B_{\mathrm c}\le2$.
+
+\subsection*{A.3. Geometric integrality of the residual octic}
+At the same characteristic-$13$ specialization, put
+$H(u,v)=4F_8(u,v,1)$.  Expanding
+\eqref{eq:appendix-determinant-expansion} gives
+\begin{align*}
+H(u,v)={}&6u^3v^5-u^3v^4+6u^3v^3-u^3v^2-u^3v
+ -5u^2v^6+5u^2v^4+3u^2v^3+4u^2\\
+&+5uv^7+3uv^6-3uv^4+3uv^3+4uv\\
+&-6v^8-2v^7+2v^6+v^5-2v^4+4v^2.
+\end{align*}
+Its leading coefficient in $v$ is $-6=7\in\mathbf F_{13}^\times$, and
+\[
+ H(4,v)=7h(v),
+ \qquad
+ h(v)=v^8-3v^7-2v^6+3v^5+4v^4+4v^3-3v^2-5v-2.
+\]
+The irreducibility check can be kept short while remaining exact.  In
+$\mathbf F_{13}[v]/(h)$ all powers are reduced by the single relation
+\begin{equation}
+ v^8=3v^7+2v^6-3v^5-4v^4-4v^3+3v^2+5v+2.
+\label{eq:appendix-h-reduction}
+\end{equation}
+Put $r_j\equiv v^{13^j}\pmod h$, taking the representative of degree
+at most seven.  Repeated use of \eqref{eq:appendix-h-reduction} gives
+\begin{align*}
+r_0={}&v,\\
+r_1={}&-v^7+2v^6+6v^5-v^4+6v^3-2v^2-2v-6,\\
+r_2={}&-4v^7+v^6-5v^5-3v^4+3v^3-3v^2-4v-1,\\
+r_3={}&-3v^7-3v^6+4v^5+6v^3+2v^2+5v-2,\\
+r_4={}&v^7+4v^6+2v^5+5v^4-4v^3-6v^2-2v+4,\\
+r_5={}&-2v^7+4v^6+3v^5-4v^4-3v^3+4v^2-3v-4,\\
+r_6={}&2v^7+5v^6-v^4-5v^3+4v^2+4,\\
+r_7={}&-6v^7+3v^5+4v^4-3v^3+v^2+5v-5,\\
+r_8={}&v.
+\end{align*}
+Thus $h$ divides $v^{13^8}-v$.  Also $r_4-v=r(v)$, where
+\[
+ r(v)=v^7+4v^6+2v^5+5v^4-4v^3-6v^2-3v+4.
+\]
+Moreover,
+\[
+ a(v)h(v)+b(v)r(v)=1
+\]
+with
+\begin{align*}
+a(v)&=5v^6+3v^5-3v^4-v^3-v^2-6v-2,\\
+b(v)&=-5v^7+6v^6-5v^5+3v^4+2v^3-4v^2-2v-4.
+\end{align*}
+Hence $\gcd(h,v^{13^4}-v)=1$.  To conclude, recall the elementary
+factor-degree argument: every monic irreducible factor of
+$v^{13^8}-v$ over $\mathbf F_{13}$ has degree dividing $8$, while the
+factors of $v^{13^4}-v$ are exactly those whose degrees divide $4$.
+Since the divisors of $8$ are $1,2,4,8$, every irreducible factor of $h$
+therefore has degree $8$.  As $\deg h=8$, the polynomial $h$ itself is
+irreducible.
+
+If $H$ factored, the constant nonzero leading $v$-coefficient would force
+each positive-$v$-degree factor to retain its $v$-degree after $u=4$, which
+would factor $h$; a $v$-degree-zero factor would be a unit.  Thus $H$ is
+irreducible.  Since $H$ has total degree eight, its homogenization is
+$4F_8$ at this specialization, so the projective special fibre is
+irreducible.  Finally
+\[
+ H(1,6)=0,
+ \qquad
+ (\partial_uH,\partial_vH)(1,6)=(2,0).
+\]
+Thus it has a smooth $\mathbf F_{13}$-point.  An irreducible projective curve
+over a finite field that is not geometrically irreducible has
+Frobenius-transitive geometric components, and every rational point lies on
+all of them; such a point is singular.  Hence the special octic is
+geometrically integral.  This is the finite-field input in
+\cref{lem:residual-octic-integral}.
+

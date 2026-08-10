@@ -1,0 +1,218 @@
+\begin{proof}
+Each coefficient $q_{ij}$ is homogeneous of degree three in $(u,v,z)$, so
+$\det(M_s)$ is homogeneous of degree nine.  The structural factor can be
+seen without expanding the determinant.  Put
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+The basis above satisfies
+\[
+ s_0+s_1=h,\qquad s_2=wh.
+\]
+Hence on the hyperplane $u=v$ one has
+\[
+ s=h(u+zw).
+\]
+The section $h\in H^0(C,2\kappa)$ vanishes on the fixed divisor $D$.
+Write $\operatorname{div}(h)=D+D'$.  Then
+\[
+ [\mathcal O_C(D')\otimes\kappa^{-1}]=-x,
+ \qquad
+ \Nm\mathcal O_C(D')=\eta^3.
+\]
+Thus $\pi_*D'$ is a line section of $E$, and the norm of $h$ is, up to a
+nonzero scalar, the product of the fixed norm line $Y-x$ and this second
+line.  Moreover
+\[
+ \Nm(u+zw)=u^3+z^3Y.
+\]
+After dividing by the fixed line, $Q_s$ is therefore a product of two lines
+whenever $u=v$.  Its symmetric matrix has rank at most two, and
+$\det(M_s)$ vanishes identically on $u=v$.  Thus $u-v$ divides the
+determinant, and the quotient is homogeneous of degree eight.
+
+It remains to check that the structural factor is simple.  Normalize
+$e_1=1$ by \cref{lem:dominant-chart} and specialize
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)
+\]
+modulo $13$.  On the line $(u,v,z)=(1+t,1,1)$, the six displayed conic
+coefficients give the exact identity
+\eqref{eq:appendix-simple-structural-factor}.  Its second factor is nonzero
+at $t=0$, or equivalently
+\[
+ 4F_8(1,1,1)=12\ne0\quad\text{in }\mathbf F_{13}.
+\]
+Hence $u-v$ occurs with multiplicity one.  The scaling of
+\cref{lem:dominant-chart} carries the conclusion back to $K_0$.
+\end{proof}
+
+\begin{lemma}[Geometric integrality of the residual octic]
+\label[lemma]{lem:residual-octic-integral}
+The projective curve
+\[
+ \mathscr R=V(F_8)\subset\PP^2_{K_0}
+\]
+is geometrically integral.
+\end{lemma}
+
+\begin{proof}
+Reduce the normalized specialization
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)
+\]
+modulo $13$.  The corresponding short-Weierstrass curve is
+\[
+ y^2=x^3+2x+5,
+\]
+whose discriminant is nonzero; the branch cubic obtained from $y=1$ is also
+separable.  Multiplying $F_8$ by the nonzero scalar $4$, set
+\[
+ H(u,v)=4F_8(u,v,1)
+\]
+at this specialization.  It has total degree eight and $v$-degree eight,
+with constant leading coefficient $7$.  At $u=4$ its monic slice is
+\[
+ \begin{aligned}
+ h(v)={}&v^8-3v^7-2v^6+3v^5+4v^4+4v^3\\
+       &-3v^2-5v-2\in\mathbf F_{13}[v].
+ \end{aligned}
+\]
+Appendix~A.3 records the Frobenius reductions
+\[
+ v^{13^8}\equiv v\pmod h,
+ \qquad
+ \gcd(h,v^{13^4}-v)=1,
+\]
+together with an explicit B\'ezout identity for the second relation.  The
+standard factor-degree criterion then makes $h$ irreducible over
+$\mathbf F_{13}$.
+If $H$ factored in $\mathbf F_{13}[u,v]$, the constant leading coefficient in
+$v$ would force the leading $v$-coefficients of the factors to be units.  A
+positive-$v$-degree factor would retain its degree after $u=4$, while a
+$v$-degree-zero factor would itself be a unit.  Both possibilities contradict
+the irreducibility of $h$.  Hence $H$ is irreducible.
+
+The affine curve $H=0$ contains the rational point $(u,v)=(1,6)$, where
+\[
+ (\partial H/\partial u,\partial H/\partial v)=(2,0).
+\]
+Thus the point is smooth.  If the irreducible projective octic were not
+geometrically irreducible, Frobenius would permute its geometric components
+transitively, and a rational point would lie on all of them; it would then be
+singular.  The special fibre is therefore geometrically integral.
+
+Spread the coefficients over a localization $R_0=\mathbf Z[1/N]$ with
+$13\nmid N$, and choose an affine open
+\[
+ \mathscr U\subset\mathbb A^5_{R_0}
+ =\operatorname{Spec}R_0[c,\lambda,e_1,e_2,e_3]
+\]
+containing the displayed characteristic-$13$ point on which the required
+denominators and one coefficient of $F_8$ are units.  After multiplying by a
+unit, $F_8$ defines a flat projective relative Cartier divisor of degree eight
+in $\PP^2_{\mathscr U}$.  Geometric integrality is open in such a family
+\cite[IV$_3$, Th\'eor\`eme~12.2.4\textup{(viii)}]{EGA4}.  Since the displayed
+special fibre is geometrically integral, so is the generic fibre
+$\mathscr R$.
+\end{proof}
+
+\begin{lemma}[Normalized and full function fields]
+\label[lemma]{lem:normalized-function-field}
+Work over $e_1\ne0$ and put
+\[
+ K_{\mathrm n}=\QQ(\delta,\Lambda,E_2,E_3).
+\]
+On the affine section chart $v\ne0$, put
+\[
+ U=u/v,\qquad z_0=z/v,\qquad \zeta=e_1z_0.
+\]
+Let $\mathscr R_{\mathrm n}$ be obtained by setting $e_1=v=1$ and using
+coordinates $(\delta,\Lambda,E_2,E_3;U,\zeta)$.  Under the parameter map of
+\cref{lem:dominant-chart}, let
+\[
+ \mathscr R_{T_{\QQ}}
+ =\mathscr R\times_{\operatorname{Spec}K_0}
+   \operatorname{Spec}\QQ(T_{\QQ}).
+\]
+Then
+\begin{equation}
+ k(\mathscr R)=k(\mathscr R_{\mathrm n})(e_1),
+ \qquad
+ k(\mathscr R_{T_{\QQ}})
+ =k(\mathscr R_{\mathrm n})(e_1,q_0),
+ \quad q_0^3=\Lambda^{-1}.
+\label{eq:residual-function-fields}
+\end{equation}
+The curve $\mathscr R_{\mathrm n}$ is geometrically integral.  After base
+change to $\CC$, the factor-ordering cover on the full chart is the pullback
+of the normalized one through these field extensions.
+\end{lemma}
+
+\begin{proof}
+The scaling in \cref{lem:dominant-chart}, together with
+\eqref{eq:section-scaling}, identifies the locus $e_1v\ne0$ birationally with
+$\GGm\times\mathscr R_{\mathrm n}$.  This gives the first equality in
+\eqref{eq:residual-function-fields}.  The chart $v\ne0$ is dense because
+$\mathscr R$ is a geometrically integral octic.  Geometric integrality of
+$\mathscr R_{\mathrm n}$ follows by faithfully flat descent from
+\cref{lem:residual-octic-integral}.  The second equality is
+\eqref{eq:cubic-chart-field}.  Formation of the two line factors of a
+rank-two conic commutes with field extension, which proves the last assertion.
+\end{proof}
+
+\begin{proposition}[Cyclotomic ordering cover]
+\label[proposition]{prop:ordering-cover}
+On the normalized chart $e_1=v=1$, rename
+\[
+ (\delta,\Lambda,E_2,E_3,U,\zeta)
+ \quad\text{as}\quad
+ (c,\lambda,e_2,e_3,u,z)
+\]
+and put
+\[
+ K_1=\QQ(c,\lambda,e_2,e_3,u).
+\]
+Let
+\[
+ \widetilde F(z)=F_8(u,1,z),
+ \qquad
+ \ell=\operatorname{lc}_z(\widetilde F),
+ \qquad
+ F=\ell^{-1}\widetilde F.
+\]
+Then $F$ is monic of degree six.  If
+\[
+ \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
+\]
+there are polynomials $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
+$\deg A_{\mathrm c}=3$ and $\deg B_{\mathrm c}\le2$ such that
+\begin{equation}
+ F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
+\label{eq:norm-square-identity}
+\end{equation}
+If
+\[
+ L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
+\]
+then
+\begin{equation}
+ [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
+ \qquad
+ L(\sqrt\Delta)=L(\sqrt{-3}).
+\label{eq:cyclotomic-square-class}
+\end{equation}
+There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
+locus for which the intrinsic factor-ordering cover is
+\begin{equation}
+ \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
+ \simeq
+ \mathscr R_{\mathrm n}^\circ\times_{\QQ}
+ \operatorname{Spec}\QQ(\sqrt{-3}).
+\label{eq:cyclotomic-ordering-cover}
+\end{equation}
+The same statement holds after pullback to a dense normal open of
+$\mathscr R_{T_{\QQ}}$.  In particular, the ordering cover splits over
+$\CC$.
+\end{proposition}
+

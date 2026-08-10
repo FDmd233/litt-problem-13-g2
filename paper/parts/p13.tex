@@ -1,0 +1,164 @@
+\begin{proof}
+The sum map $m|_{X\times X}:X\times X\to P$ is surjective because two
+translates of the ample divisor $X$ always meet.  Moreover,
+\[
+ m\bigl((\{0\}\times X)\cup(X\times\{0\})\bigr)=X.
+\]
+Hence, for $t\notin X$, the fibre lies entirely in
+$X_{\reg}\times X_{\reg}$.  Generic smoothness for the restricted sum map
+therefore gives smoothness of the general fibre.  Since $t\notin X$ and
+$\Stab_P(X)=\{0\}$, the translate $t-X$ does not contain $X$; its restriction
+to the integral Cohen--Macaulay surface $X$ is therefore an effective ample
+Cartier divisor.  Hartshorne's connectedness theorem, applied on $X$, shows
+that this divisor, namely $X\cap(t-X)$, is connected
+\cite[Corollary~III.7.9]{Hartshorne1977}.
+The involution $p\mapsto t-p$ preserves its complex orientation and hence
+acts by $+1$ on its one-dimensional top cohomology.  Therefore
+\begin{equation}
+ \cH^{-2}(K*K)_-=0
+ \quad\text{on a dense open subset of }P.
+\label{eq:generic-alt-vanishing}
+\end{equation}
+\end{proof}
+
+\begin{lemma}[Extraction of the divisor-supported summand]
+\label[lemma]{lem:extract-ic}
+In the decomposition-theorem splitting of $(K*K)_-$, the constant rank-one
+local system of \cref{lem:split-fibre-top} is the restriction of an unshifted
+$\IC_X$ summand.  It cannot arise from a shifted simple summand with support
+$P$, or from a summand with any other support.
+\end{lemma}
+
+\begin{proof}
+The complex $(K*K)_-$ is a direct summand of the projective direct image of
+a pure polarizable Hodge module.  By the decomposition theorem and
+semisimplicity \cite{BBD1982,Saito1988}, it is a direct sum of shifted simple
+intersection complexes.  A summand with proper support containing the
+generic point of $U^+$ must have support $X$.  Such a simple summand has the
+form $\IC_X(\mathcal V)[r]$, where $\mathcal V$ is an irreducible local
+system on a dense smooth open $X_{\mathcal V}\subset X_{\reg}$.  Its
+restriction to $U^+\cap X_{\mathcal V}$ is $\mathcal V[2+r]$, so contribution
+to ordinary degree $-2$ forces $r=0$.
+
+A full-support summand cannot account for the line in
+\eqref{eq:principal-alt-rank}.  Choose a general point $a\in U^+$ that lies
+on no singular stratum of any full-support simple summand except the divisor
+stratum $X_{\reg}$.  A small analytic neighbourhood of $a$ is stratified
+homeomorphic to a product of a ball in $X_{\reg}$ with a normal disk
+$\Delta$ to $X$.  Hence a full-support simple perverse summand is locally
+\[
+ \mathcal L[2]\boxtimes j_{\Delta,!*}\mathcal W[1],
+ \qquad j_\Delta:\Delta^*\hookrightarrow\Delta,
+\]
+for local systems $\mathcal L$ and $\mathcal W$.
+
+Write $T$ for the local monodromy of $\mathcal W$.  On a disk the middle
+extension has the explicit stalk
+\[
+ \cH^k\!\left(i_0^*j_{\Delta,!*}\mathcal W[1]\right)
+ =\begin{cases}
+   \ker(T-1),&k=-1,\\
+   0,&k\ne-1,
+  \end{cases}
+ \qquad i_0:\{0\}\hookrightarrow\Delta.
+\]
+Indeed $Rj_{\Delta,*}\mathcal W[1]$ has stalk cohomology
+$\ker(T-1)$ in degree $-1$ and $\operatorname{coker}(T-1)$ in degree $0$;
+the middle extension removes exactly the quotient supported at the origin.
+It follows that an unshifted full-support perverse summand contributes along
+$X$ only in ordinary degree $-3$.  To contribute to ordinary degree $-2$
+it must occur with shift $[-1]$.  But on the dense smooth open of $P$ the
+same shifted summand is a nonzero local system $\mathcal E[3][-1]$, hence
+also contributes to ordinary degree $-2$ there, contradicting
+\eqref{eq:generic-alt-vanishing}.  Thus no full-support summand contributes
+to the rank-one line on $U^+$.
+
+For reference, the degree bookkeeping is
+\[
+\begin{array}{c|c|c}
+\text{full-support summand}&\text{general point of }P&\text{general point of }X\\ \hline
+\IC_P(\mathcal E)&-3&-3\\
+\IC_P(\mathcal E)[-1]&-2&-2.
+\end{array}
+\]
+Supports of dimension at most one do not meet a generic point of $U^+$, and
+a different irreducible divisor cannot contain the nonempty open $U^+\subset
+X$.
+
+The local system $\mathcal V$ has rank one because its contribution to
+\eqref{eq:principal-alt-rank} has rank one.  Replace $U^+$ by
+$U^+\cap X_{\mathcal V}$.  Its restriction there is the constant local
+system found in \cref{lem:split-fibre-top}.  The inclusion
+$U^+\hookrightarrow X_{\mathcal V}$ induces a surjection on fundamental
+groups because both are smooth irreducible complex varieties and $U^+$ is a
+nonempty Zariski-open subset.  The monodromy of $\mathcal V$ is therefore
+trivial, so the summand is $\IC_X$ itself.
+\end{proof}
+
+\begin{proposition}[Alternating support detector]
+\label[proposition]{prop:alt-support}
+In $\operatorname{Perv}(P,\QQ)$, $K=\IC_X$ is a direct summand of
+${}^pH^0((K*K)_-)$.  After tensoring with $\CC$, its image in
+$\overline{\operatorname{Perv}}(P)$ is nonzero and is a direct summand of
+$\Alt^2(K)$.
+\end{proposition}
+
+\begin{proof}
+The first assertion is \cref{lem:extract-ic}.  Apply the quotient functor to
+$K\otimes_{\QQ}\CC$.  It is perverse $t$-exact, convolution is $t$-exact in
+$\overline D(P)$, and all nonzero perverse-cohomological degrees of $K*K$ map
+to zero.  Hence the
+image of ${}^pH^0((K*K)_-)$ is the anti-invariant summand of the tensor square
+of the image of $K$.  Because the support dimension is even, this is
+$\Alt^2(K)$ under the fibre functor.  The exact quotient functor preserves
+the direct summand supplied by \cref{lem:extract-ic}; that summand is nonzero
+because $\chi(K)=7$.
+\end{proof}
+
+\section{Identification of the full Tannaka group}
+
+Let
+\[
+ G=G(K),\qquad V=\omega(K).
+\]
+By \eqref{eq:chi-seven}, $\dim V=7$.  The self-duality
+\eqref{eq:self-duality} gives a perfect evaluation pairing
+$K*K\to\delta_0$.  The chosen symmetry
+is centred at the origin, so no translated skyscraper occurs, and
+$\dim X=2$ makes the pairing symmetric.  Therefore the full group embeds
+faithfully as
+\begin{equation}
+ G\hookrightarrow O(V).
+\label{eq:orthogonal}
+\end{equation}
+
+The simple perverse sheaf $K$ is nondivisible: a translation fixing it must
+fix its support, and \eqref{eq:stabilizer} then makes the translation zero.
+By \cite[Proposition~3.3]{JKLM2025},
+\begin{equation}
+ V|_{G^0}\quad\text{is irreducible}.
+\label{eq:connected-irreducible}
+\end{equation}
+This result does not require the ambient abelian variety to be simple.
+
+Choose $\alpha\in\Omega$ as in \cref{prop:hodge-vector}.  By
+\cref{lem:tensor-compatible-twist}, $H^0(-\otimes\mathcal L_\alpha)$ is a
+tensor fibre functor on the category generated by $K$.  Since any two fibre
+functors over $\CC$ are noncanonically isomorphic, it may be identified
+with $\omega$.  Let $G_P=G$, and let
+$G_H$ be the Tannaka group of the pure Hodge module $\IC_X^H$, acting
+faithfully on the same complex vector space $V$.
+By \cite[Corollary~3.2]{KLM2026}, the Hodge decomposition is defined by a
+cocharacter $h:\GGm^2\to G_H$.  The comparison theorem
+\cite[Corollary~2.5]{KLM2026} gives
+\[
+ G_P\mathrel{\triangleleft}G_H,
+ \qquad
+ [G_P^0,G_P^0]=[G_H^0,G_H^0]=:G^*.
+\]
+Since $G_P^0\subset G_H^0$, equation
+\eqref{eq:connected-irreducible} implies that $V|_{G_H^0}$ is irreducible.
+Thus the connected centre $Z_H^0$ acts by scalar matrices.  As $G_H^0$ is
+reductive, multiplication $Z_H^0\times G^*\to G_H^0$ is surjective with
+finite kernel.
+

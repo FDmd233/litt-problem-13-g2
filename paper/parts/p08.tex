@@ -1,0 +1,152 @@
+\begin{proof}
+Appendix~\ref{app:exact-norm} writes $F$, $\Delta$, $A_{\mathrm c}$, and
+$B_{\mathrm c}$ in the present coordinates.  Section A.2 records
+the seven coefficient identities whose sum is exactly
+\eqref{eq:norm-square-identity}.  This is the only algebraic check needed
+in the square-class argument.
+The normalized residual curve is geometrically integral by
+\cref{lem:normalized-function-field}, so $F$ is irreducible and $L$ is a
+field.  The leading terms in A.2 give $\deg A_{\mathrm c}=3$ and
+$\deg B_{\mathrm c}=2$ generically.  Reducing
+\eqref{eq:norm-square-identity} modulo $F$ gives
+\[
+ -3\Delta=(A_{\mathrm c}/B_{\mathrm c})^2\ne0
+\]
+in $L$, proving \eqref{eq:cyclotomic-square-class} and showing that the
+generic conic has rank exactly two.
+
+For a rank-two symmetric $3\times3$ matrix $M$, one has
+$\operatorname{adj}(M)=c_0aa^t$ for a nonzero vector $a$.  Hence the ratio
+of any two nonzero principal cofactors is a square, so the square class of a
+nonzero principal minor is intrinsic.  To see directly that this is the
+ordering character, restrict the conic to the coordinate line $Y=0$.
+If the two factors have coefficient rows $(a_0,a_1)$ and $(b_0,b_1)$ in
+$(1,x)$, the resulting binary quadratic has discriminant
+$(a_0b_1-a_1b_0)^2$; changing the sign of its square root interchanges the
+two factors.  Thus the intrinsic quadratic algebra is obtained by
+adjoining a square root of $\Delta$.  After shrinking to a normal open on
+which $\Delta$ and $B_{\mathrm c}$ are units,
+write $\varrho^2=-3$.  The maps
+\[
+ s\longmapsto\frac{A_{\mathrm c}}{\varrho B_{\mathrm c}},
+ \qquad
+ \varrho\longmapsto\frac{A_{\mathrm c}}{B_{\mathrm c}s}
+\]
+give inverse isomorphisms between the intrinsic algebra
+$\mathcal O[s]/(s^2-\Delta)$ and the constant algebra
+$\mathcal O[\varrho]/(\varrho^2+3)$.  This proves
+\eqref{eq:cyclotomic-ordering-cover}.  The field extensions in
+\eqref{eq:residual-function-fields} preserve the construction, and over
+$\CC$ the constant quadratic cover is split.
+\end{proof}
+
+\begin{remark}[Arithmetic fibres]
+The quadratic field $\QQ(\sqrt{-3})=\QQ(\zeta_3)$ explains the term
+``cyclotomic.''  After spreading the rank-two open over a suitable
+$\mathbf Z[1/N]$ with $6\mid N$, the two line factors at an
+$\mathbf F_q$-point are
+individually defined over $\mathbf F_q$ precisely when $-3$ is a square in
+$\mathbf F_q$, equivalently when $q\equiv1\pmod3$.  If $q\equiv2\pmod3$,
+they are exchanged by Frobenius and become defined over $\mathbf F_{q^2}$.
+\end{remark}
+
+
+\subsection{The scheme-theoretic Abel inverse}
+
+Over the chart $T$ of \cref{lem:dominant-chart}, let
+$p:C_T\to T$ be the relative curve and let $D$ be its universal divisor.
+After restricting $T$, the sheaf
+$p_*\mathcal O_{C_T}(3\kappa-D)$ is locally free of rank three.  The
+residual equation $F_8=0$ defines a relative octic
+\[
+ \mathscr R_T\subset
+ \PP_T\bigl(p_*\mathcal O_{C_T}(3\kappa-D)\bigr).
+\]
+After a further shrinking of $T$, the section $F_8$ is nonzero on every
+projective-space fibre.  Thus $\mathscr R_T\to T$ is a flat projective
+relative Cartier divisor.  Its generic fibre is geometrically integral by
+\cref{lem:residual-octic-integral,lem:normalized-function-field}.  Flatness
+forces every irreducible component to dominate the integral base $T$, so the
+integral generic fibre gives a single component.  A nilpotent section would
+vanish generically and hence be $\mathcal O_T$-torsion, which flatness
+excludes.  Thus $\mathscr R_T$ is integral.
+
+Let $\mathscr R_T^{(2)}\subset\mathscr R_T$ be the open subset on which the
+residual conic has rank exactly two.  The relative Hilbert scheme of line
+components of the universal conic is then finite \'etale of degree two over
+$\mathscr R_T^{(2)}$.  Choosing one component determines the other and hence
+orders them; denote this cover by
+\[
+ \operatorname{Ord}_{\mathrm{fac}}
+    \longrightarrow\mathscr R_T^{(2)}.
+\]
+Its points will be written $([s],\ell_1,\ell_2)$, with
+$Q_s=\ell_1\ell_2$ up to a unit pulled back from the base.
+
+\begin{definition}[Admissible residual-norm locus]
+\label[definition]{def:admissible-locus}
+Let $\mathscr G\subset\mathscr R_T^{(2)}$ be the open locus on which the
+following conditions hold after pullback to
+$\operatorname{Ord}_{\mathrm{fac}}$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the fixed divisor $D$ is reduced;
+\item the fixed norm line and the two lines $\ell_i=0$ meet $E$ transversely,
+      their degree-three line sections are pairwise disjoint, and the residual
+      line sections avoid the branch divisor of $C\to E$;
+\item above each residual point, $s$ vanishes on exactly one sheet of
+      $C\to E$, and every such zero is simple;
+\item the two resulting degree-three zero divisors have $h^0=1$, and their
+      Abel classes lie in the relative smooth locus of $\cX$.
+\end{enumerate}
+These conditions define an open subset of
+$\operatorname{Ord}_{\mathrm{fac}}$ invariant under interchanging
+$\ell_1$ and $\ell_2$.  Its image is open because the finite \'etale cover is
+open, and invariance makes it the full inverse image of that image.  This
+defines $\mathscr G$.
+\end{definition}
+
+\begin{lemma}[Relative ordered-zero construction]
+\label[lemma]{lem:scheme-abel-inverse}
+Put
+\[
+ \operatorname{Ord}_{\mathrm{fac},\mathscr G}
+ =\operatorname{Ord}_{\mathrm{fac}}
+   \times_{\mathscr R_T^{(2)}}\mathscr G.
+\]
+Let
+$\operatorname{Ord}_{\mathrm{div}}$ be the functor over $\mathscr G$ whose
+$W$-points are ordered pairs of relative effective Cartier divisors
+$(D_1,D_2)$ of degree three on $C_W/W$ such that
+\[
+ \operatorname{div}(s_W)=D_W+D_1+D_2
+\]
+and the unordered pair $\{\pi_*D_1,\pi_*D_2\}$ is the unordered pair of line
+sections of $E_W$ defined by the two components of $Q_{s_W}$.  This functor is
+represented by a finite \'etale double cover of $\mathscr G$.
+The assignment $Q_s=\ell_1\ell_2\mapsto(D_1,D_2)$ is an isomorphism of finite
+\'etale double covers
+\[
+ \operatorname{Ord}_{\mathrm{fac},\mathscr G}
+ \xrightarrow{\sim}\operatorname{Ord}_{\mathrm{div}}.
+\]
+It commutes with arbitrary base change, including nonreduced base change.
+Moreover, each $D_i$ is a relative effective Cartier divisor of degree three,
+and $[\mathcal O(D_i)\otimes\kappa^{-1}]$ lies in $\cX_{\mathrm{sm}/\cB}$.
+\end{lemma}
+
+\begin{proof}
+For the forward construction put
+$T'=\operatorname{Ord}_{\mathrm{fac},\mathscr G}$ and write
+$Q_s=\ell_1\ell_2$ in its universal ordering.  By definition of
+$\mathscr G$, none of the tangency, branch, collision, multiple-zero, or Abel
+speciality loci excluded in \cref{def:admissible-locus} occurs.  For the
+remainder of the forward construction, every object with a subscript $T$ is
+pulled back to $T'$; this base change is suppressed from the notation.
+The line $\ell_i$ then
+cuts out a relative finite \'etale divisor $B_i\subset E_T$ of degree three.
+Moreover
+\[
+ U_i=C_T\times_{E_T}B_i\longrightarrow B_i
+\]
+is finite \'etale of degree three, because $B_i$ avoids the branch divisor.
+

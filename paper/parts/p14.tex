@@ -1,0 +1,185 @@
+Put $\mu(z)=h(z,z^{-1})$.  We need the antidiagonal cocharacter in the
+common derived group, not merely in the Hodge group; the determinant gives a
+short way to see this.  Since $\GGm$ is connected,
+$\mu(\GGm)\subset G_H^0$.  By \cref{prop:hodge-vector},
+\[
+ \det\mu(z)=z^{(-2)\cdot2+0\cdot3+2\cdot2}=1.
+\]
+The determinant is trivial on the semisimple group $G^*$ and therefore
+descends to a character
+\[
+ \overline{\det}:G_H^0/G^*\longrightarrow\GGm.
+\]
+The quotient $G_H^0/G^*$ is the image of $Z_H^0$.  On $Z_H^0$ the
+determinant is $c\mapsto c^7$; since the faithful scalar action embeds
+$Z_H^0$ into $\GGm$, the induced character $\overline{\det}$ has finite
+kernel.  Hence the image of the connected group $\GGm$ under $\mu$ in
+$G_H^0/G^*$ is both connected and finite, and is therefore trivial.
+Consequently
+\[
+ \mu(\GGm)\subset G^*,
+\]
+the common Hodge and perverse derived group.  Its weights on $V$ are
+\begin{equation}
+ -2,0,2\quad\text{with multiplicities }2,3,2.
+\label{eq:hodge-weights}
+\end{equation}
+
+Applying the fibre functor to \cref{prop:alt-support} gives
+\begin{equation}
+ \operatorname{Hom}_G(V,\Lambda^2V)\ne0.
+\label{eq:hom-exterior}
+\end{equation}
+
+\begin{proposition}[Connected Tannaka group]\label[proposition]{prop:connected-g2}
+There is an isomorphism of pairs
+\[
+ (G^0,V|_{G^0})\simeq(G_2,V_7).
+\]
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:orthogonal} and \eqref{eq:connected-irreducible}, the connected
+centre of $G^0$ acts by orthogonal scalars and is therefore trivial.  Thus
+$G^0$ is semisimple.  An irreducible representation of a product of
+semisimple groups is an external tensor product.  Since $7$ is prime and the
+action is faithful, $G^0$ has one simple factor.
+
+For convenience, we record the short highest-weight list rather than leave
+the classification implicit in the tables of
+\cite{Dynkin1957,FultonHarris1991}.  After passage to the simply connected
+cover, the simple modules of dimension seven are
+\[
+\begin{array}{c|c|c}
+\text{type}&\text{highest weight}&\text{self-dual}\\ \hline
+A_1&6\omega_1&\text{yes}\\
+A_6&\omega_1,\ \omega_6&\text{no; the two are dual}\\
+B_3&\omega_1&\text{yes}\\
+G_2&\omega_1&\text{yes}.
+\end{array}
+\]
+No other simple type has an irreducible module of dimension seven.
+Faithfulness therefore leaves exactly $PGL_2$ on $\Sym^6(\CC^2)$, $SO_7$
+on its standard module, and $G_2$ on $V_7$.  For $SO_7$, the exterior
+square of the standard module is the irreducible adjoint module, so
+$\operatorname{Hom}_{SO_7}(V,\Lambda^2V)=0$, contrary to
+\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $PGL_2$, the
+weights on $\Sym^6(\CC^2)$ are seven distinct numbers.  For a primitive
+cocharacter they are
+\[
+ -3,-2,-1,0,1,2,3,
+\]
+and every other nonzero cocharacter multiplies them by a nonzero integer.
+The trivial cocharacter has one weight of multiplicity seven.  Neither
+possibility agrees with \eqref{eq:hodge-weights}.  Hence $G^0=G_2$.
+\end{proof}
+
+\begin{corollary}[The full Tannaka group]\label[corollary]{cor:full-g2}
+There is an isomorphism of pairs
+\[
+ (G,V)\simeq(G_2,V_7).
+\]
+In particular, $G$ is connected; this identifies the full Tannaka group, not
+only its identity component.
+\end{corollary}
+
+\begin{proof}
+By \cref{prop:connected-g2}, $G^0\simeq G_2$ on $V_7$.  Since
+$G^0\mathrel{\triangleleft}G\subset O(V)$,
+\[
+ G\subset N_{O(V)}(G_2)=G_2\times\{\pm I\}.
+\]
+Indeed, conjugation gives a homomorphism from the normalizer to
+$\operatorname{Aut}(G_2)$.  Since $\operatorname{Out}(G_2)=1$, multiplication
+by a suitable element of $G_2$ puts every normalizing element in the
+centralizer.  Schur's lemma makes that centralizer scalar, and its intersection
+with $O(V)$ is $\{\pm I\}$.  If $G\ne G^0$, choose
+$g\in G\cap(-G_2)$ and write $g=(-I)h$ with $h\in G_2=G^0$.  Then
+$-I=gh^{-1}\in G$.  But $-I$ acts by $-1$ on $V$ and by $+1$ on
+$\Lambda^2V$, contradicting \eqref{eq:hom-exterior}.  Hence $G=G^0=G_2$.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+Let $\cB^\circ$ be the nonempty open subset obtained in
+\cref{thm:uniform-pair-splitting}.  The relative divisor $\cX\subset\cP$ is
+symmetric, relatively ample, effective Cartier, flat, and has geometrically
+integral fibres by the construction at the beginning of
+\cref{sec:pair-splitting}.
+
+Fix $b\in\cB^\circ(\CC)$.  The polarization type and the geometric
+properties of $(P_b,X_b)$ follow from \cref{prop:theta-resolution} and the
+construction of $L$.  The locus $\Omega_b$ in \cref{prop:hodge-vector} is
+nonempty; for any $\alpha_b\in\Omega_b$, that proposition gives Hodge
+multiplicities $(2,3,2)$.  The two pair components furnished by
+\cref{thm:uniform-pair-splitting} imply, through \cref{prop:alt-support},
+that $\IC_{X_b}$ is a direct summand of $\Alt^2(\IC_{X_b})$.  Finally,
+\cref{cor:full-g2} identifies the full Tannaka group and tautological module
+with $(G_2,V_7)$.  Since $b$ was arbitrary in $\cB^\circ(\CC)$, the theorem
+follows.
+\end{proof}
+
+\appendix
+
+\section{Exact norm identities and arithmetic specializations}\label{app:exact-norm}
+
+This appendix records the algebra used in \cref{sec:pair-splitting}.
+Rather than expand the residual octic over the full parameter space, we give
+the coefficient formulas and the finite identities at the points where they
+enter the proof.  These formulas determine each calculation uniquely and make
+the required coefficient checks local and finite.
+
+\subsection*{A.1. Normalized conic coefficients}
+On the normalized chart $e_1=v=1$ the shifted curve is
+\begin{equation}
+ Y^2+2cY
+ =\lambda x^3+\bigl(1-\lambda(1-3e_2+3e_3)\bigr)x^2
+ +\bigl(2c+\lambda(e_2^3-3e_2e_3+3e_3^2)\bigr)x
+ -\lambda e_3^3.
+\label{eq:appendix-shifted-curve}
+\end{equation}
+For the section $s=us_0+s_1+zs_2$ one has
+\[
+ \alpha=u(x-Y)+(Y-e_3)-zY,\qquad
+ \beta=e_2+z(x-e_3),\qquad
+ \gamma=-1+e_2z.
+\]
+Substitute these expressions into
+$\operatorname{Nm}(s)=\alpha^3+\beta^3Y+\gamma^3Y^2-3\alpha\beta\gamma Y$,
+reduce $Y^2$ using \eqref{eq:appendix-shifted-curve}, and divide by the fixed
+line $Y-x$.  The quotient
+$Q_s=q_{00}+q_{01}x+q_{02}Y+q_{11}x^2+q_{12}xY+q_{22}Y^2$ has
+\begin{align*}
+q_{00}&=\frac{2c+\lambda(e_2^3-3e_2e_3-3e_3^2u+3e_3^2)}{\lambda},\\
+q_{01}&=\frac{1+\lambda(3e_2+3e_3u^2-3e_3-1)}{\lambda},\\
+q_{11}&=-(u-1)(u^2+u+1),
+\end{align*}
+and
+\begin{align*}
+\lambda q_{02}={}&2cz^3+e_2^3\lambda z^3+3e_2^2\lambda uz-3e_2^2\lambda z
+ -3e_2e_3\lambda uz^2-3e_2e_3\lambda z^3+3e_2e_3\lambda z^2\\
+&-3e_2\lambda u+3e_2\lambda-3e_3\lambda u^2-3e_3\lambda uz
+ +6e_3\lambda u+3e_3\lambda z-3e_3\lambda-\lambda+1,\\
+\lambda q_{12}={}&3e_2\lambda uz^2+3e_2\lambda z^3-3e_2\lambda z^2
+ +2\lambda u^3+3\lambda u^2z-3\lambda u^2-3\lambda uz\\
+&-\lambda z^3+\lambda+z^3,\\
+\lambda q_{22}={}&-\lambda u^3-3\lambda u^2z+3\lambda u^2-3\lambda uz^2
+ +6\lambda uz-3\lambda u\\
+&-\lambda z^3+3\lambda z^2-3\lambda z+\lambda+z^3.
+\end{align*}
+These six coefficients determine $M_s$ and hence $F_8$ without any omitted
+choice.  In particular, for
+\[
+ M_s=\begin{pmatrix}
+ q_{00}&q_{01}/2&q_{02}/2\\
+ q_{01}/2&q_{11}&q_{12}/2\\
+ q_{02}/2&q_{12}/2&q_{22}
+ \end{pmatrix}
+\]
+the only determinant expansion used below is
+\begin{equation}
+ 4\det M_s=
+ 4q_{00}q_{11}q_{22}-q_{00}q_{12}^2-q_{11}q_{02}^2
+ -q_{22}q_{01}^2+q_{01}q_{02}q_{12}.
+\label{eq:appendix-determinant-expansion}
+\end{equation}
+

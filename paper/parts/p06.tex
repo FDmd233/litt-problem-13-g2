@@ -1,0 +1,247 @@
+The fibrewise assertions proved above for
+$b\in\cB(\CC)$ extend to all geometric fibres without an implicit
+genericity step.  The locus of $b\in\cB$ for which $X_b$ is geometrically
+integral is open for this proper flat family
+\cite[IV$_3$, Th\'eor\`eme~12.2.4\textup{(viii)}]{EGA4}; it contains every
+closed point by \cref{prop:theta-resolution}, hence equals $\cB$ because
+$\cB$ is Jacobson.  Likewise, the nonsmooth locus of
+$(\cX\setminus0)\to\cB$ is closed and would contain a closed point if
+nonempty, while smoothness along the zero section would be an open condition
+and would again contain a closed point if it occurred anywhere.  Thus every
+geometric fibre is integral with singular locus exactly the origin, and the
+relative smooth locus is
+\[
+ \cM=(\cX/\cB)_{\mathrm{sm}}=\cX\setminus0.
+\]
+The morphism $\cM\to\cB$ is smooth and surjective with geometrically
+integral fibres.  Since $\cB$ is integral, $\cM$ is integral.
+
+Let $\cN$ be the relative norm fibre in $\cC^{(3)}$.  Every Abel class on
+$\cM$ has $h^0=1$, and the relative Abel map identifies
+$\cN\times_{\cX}\cM$ with $\cM$.  The universal divisor on the relative
+symmetric cube therefore gives a universal effective divisor of degree three
+over $\cM$.
+
+\subsection{A dominant normalized chart}
+
+\begin{lemma}[Dominant normalized chart]\label[lemma]{lem:dominant-chart}
+There is a nonempty open subscheme
+\[
+ T_{\QQ}\subset
+ \operatorname{Spec}\QQ[c,c^{-1},m,m^{-1},e_1,e_2,e_3],
+\]
+hence an integral five-dimensional rational scheme, such that with
+$\lambda=m^{-3}$, after base change to $\CC$ suitable dense opens of
+\[
+ T=T_{\QQ}\times_{\QQ}\CC
+ \qquad\text{and}\qquad
+ \cM
+\]
+are isomorphic.  On these opens the universal divisor is described by
+\eqref{eq:chart-curve-divisor} below.  On $e_1\ne0$, put
+\begin{equation}
+ \delta=\frac{c}{e_1^3},\qquad
+ \Lambda=e_1^3\lambda,\qquad
+ E_2=\frac{e_2}{e_1^2},\qquad
+ E_3=\frac{e_3}{e_1^3},\qquad
+ Z=e_1z.
+\label{eq:normalized-variables}
+\end{equation}
+The residual-octic family and its factor-ordering cover are defined over
+$T_{\QQ}$ and are birationally pulled back from the normalized chart
+$e_1=1$.
+\end{lemma}
+
+\begin{proof}
+Let $D$ be the unique reduced degree-three divisor representing a point of a
+dense open in $\cM$.  Its norm on $E$ is a unique nonvertical line
+\[
+ y=mx+n,
+ \qquad m\ne0.
+\]
+Set
+\[
+ x'=mx+n-c,
+ \qquad
+ Y'=y-c,
+ \qquad
+ w'=w.
+\]
+Then the norm line is $Y'=x'$.  If the three selected lifts have
+$w'$-coordinates $\alpha,\beta,\gamma$, let $e_i$ be their elementary
+symmetric functions and write
+\[
+ p(W)=W^3-e_1W^2+e_2W-e_3.
+\]
+Newton's identities give
+\[
+ \begin{aligned}
+ \alpha^3+\beta^3+\gamma^3
+   &=e_1^3-3e_1e_2+3e_3=: \Sigma_1,\\
+ (\alpha\beta)^3+(\alpha\gamma)^3+(\beta\gamma)^3
+   &=e_2^3-3e_1e_2e_3+3e_3^2=: \Sigma_2.
+ \end{aligned}
+\]
+Consequently
+\[
+ \prod_{\xi\in\{\alpha,\beta,\gamma\}}(x'-\xi^3)
+ =(x')^3-\Sigma_1(x')^2+\Sigma_2x'-e_3^3.
+\]
+Since $\lambda=m^{-3}$, the curve and the selected divisor are reconstructed
+in the primed coordinates by
+\begin{equation}
+ \begin{aligned}
+ (Y'+c)^2
+   &=G(x')\\
+   &:=(x'+c)^2+\lambda\bigl((x')^3-\Sigma_1(x')^2
+                  +\Sigma_2x'-e_3^3\bigr),\\
+ D&:\quad x'=Y'=(w')^3,\qquad p(w')=0.
+ \end{aligned}
+\label{eq:chart-curve-divisor}
+\end{equation}
+Conversely these formulas recover the original short-Weierstrass model.
+Indeed write
+\[
+ g_2=1-\lambda\Sigma_1,
+ \qquad
+ g_1=2c+\lambda\Sigma_2,
+ \qquad
+ g_0=c^2-\lambda e_3^3,
+ \qquad
+ n_0=-\frac{g_2}{3\lambda}.
+\]
+Since $m^3\lambda=1$, the substitution $x'=mx+n_0$ gives
+\[
+ (Y'+c)^2=x^3+Ax+B,
+\]
+where
+\[
+ A=m\left(g_1-\frac{g_2^2}{3\lambda}\right),
+ \qquad
+ B=G(n_0).
+\]
+The original norm line is then $y=mx+n_0+c$.  These constructions are
+inverse on dense opens.  They are defined over $\QQ$, and therefore
+construct $T_{\QQ}$ with
+\begin{equation}
+ \CC(T)=\CC(\cM).
+\label{eq:chart-function-field}
+\end{equation}
+
+The equations are equivariant for
+\[
+ (x',Y',w',c)\longmapsto(r^3x',r^3Y',rw',r^3c),
+\]
+which in the original coordinates is the usual Weierstrass scaling
+\[
+ (x,y,w,c,A,B)
+ \longmapsto
+ (r^2x,r^3y,rw,r^3c,r^4A,r^6B).
+\]
+Thus
+\[
+ (c,\lambda,e_1,e_2,e_3,m)
+ \longmapsto
+ (r^3c,r^{-3}\lambda,re_1,r^2e_2,r^3e_3,rm).
+\]
+The basis of $H^0(C,3\kappa-D)$ used below has weights $3,3,4$, so its
+projective coordinates transform by
+\begin{equation}
+ [u:v:z]\longmapsto[u:v:r^{-1}z].
+\label{eq:section-scaling}
+\end{equation}
+Taking $r=e_1^{-1}$ gives \eqref{eq:normalized-variables} and
+\[
+ \QQ(c,\lambda,e_1,e_2,e_3)
+ =\QQ(\delta,\Lambda,E_2,E_3)(e_1).
+\]
+If $q_0=m/e_1$, then
+\begin{equation}
+ \QQ(T_{\QQ})
+ =\QQ(\delta,\Lambda,E_2,E_3)(q_0,e_1),
+ \qquad q_0^3=\Lambda^{-1}.
+\label{eq:cubic-chart-field}
+\end{equation}
+This is the required normalized description.
+\end{proof}
+
+\subsection{The norm conic}
+
+All formulas in this subsection are first established over the rational
+function fields indicated below.  Put $Y=y-c=w^3$.  Since
+$\deg(3\kappa)=9>2g(C)-2$, Riemann--Roch gives
+$h^0(C,3\kappa)=6$.  For the evaluation map
+\[
+ H^0(C,3\kappa)\longrightarrow H^0(D,(3\kappa)|_D),
+\]
+the kernel has the following basis:
+\[
+ s_0=x-Y,
+ \qquad
+ s_1=Y-e_1w^2+e_2w-e_3,
+ \qquad
+ s_2=(x-e_3)w-e_1Y+e_2w^2.
+\]
+Here is a quick check that no dimension count is hidden in this choice.  On
+$D$ we have $x=Y=w^3$ and
+$p(w)=w^3-e_1w^2+e_2w-e_3=0$, so all three sections vanish on $D$.  Moreover
+$\deg(3\kappa-D)=6$ and $K_C=2\kappa$, hence Riemann--Roch gives
+\[
+ h^0(C,3\kappa-D)-h^0(C,D-\kappa)=3.
+\]
+On the chart under consideration
+$[\mathcal O_C(D)\otimes\kappa^{-1}]\in X_{\mathrm{reg}}=X\setminus\{0\}$,
+so the degree-zero line bundle $\mathcal O_C(D-\kappa)$ is nontrivial and
+has no section.  Thus $h^0(C,3\kappa-D)=3$.  Finally, in the expansion over
+$k(E)$ with basis $1,w,w^2$, the coefficient of $x$ in the $w$-part first
+forces the coefficient of $s_2$ in a constant linear relation to vanish;
+the coefficient of $x$ in the $1$-part then forces that of $s_0$ to vanish,
+and the coefficient of $s_1$ follows.  The three displayed sections are
+therefore a basis.
+
+For $s=us_0+vs_1+zs_2$, write
+\[
+ s=\alpha+\beta w+\gamma w^2,
+\]
+where
+\[
+ \begin{aligned}
+ \alpha&=u(x-Y)+v(Y-e_3)-e_1zY,\\
+ \beta&=e_2v+z(x-e_3),\\
+ \gamma&=-e_1v+e_2z.
+ \end{aligned}
+\]
+Since $w^3=Y$, the cyclic norm is
+\begin{equation}
+ \Nm(s)=\alpha^3+\beta^3Y+\gamma^3Y^2-3\alpha\beta\gamma Y.
+\label{eq:cyclic-norm}
+\end{equation}
+It is divisible on $E$ by the fixed norm line $Y-x$.  The quotient is a
+section of $\mathcal O_E(6O)$ and hence has a unique expression
+\[
+ Q_s=q_{00}+q_{01}x+q_{02}Y+q_{11}x^2+q_{12}xY+q_{22}Y^2.
+\]
+Let
+\[
+ M_s=
+ \begin{pmatrix}
+ q_{00}&q_{01}/2&q_{02}/2\\
+ q_{01}/2&q_{11}&q_{12}/2\\
+ q_{02}/2&q_{12}/2&q_{22}
+ \end{pmatrix}.
+\]
+
+\begin{proposition}[Determinant factorization]
+\label[proposition]{prop:determinant-factorization}
+Put
+\[
+ K_0=\QQ(c,\lambda,e_1,e_2,e_3).
+\]
+In $K_0[u,v,z]$ one has
+\begin{equation}
+ \det(M_s)=(u-v)F_8,
+\label{eq:determinant-factorization}
+\end{equation}
+where $F_8$ is homogeneous of degree eight and $u-v\nmid F_8$.
+\end{proposition}
+

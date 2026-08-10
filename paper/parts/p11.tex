@@ -1,0 +1,168 @@
+\begin{proof}
+For a fixed section, the residual zero-cycle has only finitely many
+degree-three subcycles, so $\Psi$ has finite fibres.  In the basis used for
+\eqref{eq:determinant-factorization}, put
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+Since $Y=w^3$ on $C$, direct substitution gives
+\begin{equation}
+ s_0+s_1=h,\qquad s_2=wh.
+\label{eq:structural-pencil}
+\end{equation}
+The zero divisor of $h\in H^0(C,2\kappa)$ is
+$D_x+D_{-x}$.  Indeed, it contains $D_x$, and the residual degree-three
+divisor has Abel class $-x$ and is unique on the generic $h^0=1$ locus.
+Equation \eqref{eq:structural-pencil} identifies the line $u=v$ with
+\[
+ \PP\bigl(h\cdot H^0(C,\kappa)\bigr)
+ =\PP H^0(C,3\kappa-D_x-D_{-x}).
+\]
+ Its members have divisor $D_x+D_{-x}+D_\kappa$ with
+ $D_\kappa\in|\kappa|$.  For a general member of this pencil,
+ $\pi_*D_{-x}$ and $\pi_*D_\kappa$ are reduced, disjoint line sections of the
+ plane cubic $E$.  A
+ degree-three subcycle using two points from the first section and one from
+ the second cannot itself be a line section: a line through the first two
+ points is the first line and cannot contain the third point.  The same
+ argument applies with the roles reversed.  Hence the only degree-three
+ subcycles whose pushforward is a line section are the two complete triples.
+ Their Abel classes are $-x$ and $0$.
+
+ The exceptional parameters of the structural pencil form a finite set.  If
+ an incidence-curve component mapped dominantly to $u=v$, its generic point
+ would contradict the preceding paragraph; if it mapped to one parameter, it
+ would contradict the finiteness of the fibres of $\Psi$.  Thus $u=v$ gives no
+ nonexceptional curve component.
+
+ The same two-line argument shows that, over
+ $\mathscr G$ the only Prym degree-three subcycles of the six residual zeros
+are the two complete line sections.  By
+\cref{prop:abel-incidence,cor:two-admissible-branches}, these give exactly
+the two displayed admissible branches.
+
+By the uniqueness of the $g^1_3$, the only points where an Abel inverse in
+the definition of $\Psi$ is not unique are $y=0$ and $y=-x$.  Thus the
+indeterminacy of $\Psi$ is contained in these two exceptional points.  By
+\eqref{eq:determinant-factorization}, every nonexceptional curve component
+therefore maps to the residual octic.  Its image is one-dimensional because
+$\Psi$ has finite fibres, and hence is dense because $\mathscr R$ is
+geometrically integral.  It must meet the dense open $\mathscr G$.  An
+irreducible curve cannot contain both disjoint admissible branches as open
+subsets, so their closures are exactly the two nonexceptional components.
+Here $\CC(T)=\CC(\cM)$ from \eqref{eq:chart-function-field} identifies the
+two geometric generic fibres.
+\end{proof}
+
+\begin{proposition}[The geometric generic pair fibre]
+\label[proposition]{prop:generic-pair-fibre}
+The scheme $C_{\bar\xi}$ is reduced, and
+$C_{\bar\xi}^{\mathrm{ne}}$ has exactly two geometrically integral
+irreducible components $A_{\bar\xi}$ and
+$B_{\bar\xi}$.  They are exchanged by $y\mapsto-x-y$, and both descend to
+$k(\xi)$.
+\end{proposition}
+
+\begin{proof}
+By
+\cref{lem:residual-octic-integral,prop:ordering-cover,%
+lem:admissible-nonempty,prop:abel-incidence,%
+cor:two-admissible-branches,lem:boundary-exhaustion},
+the nonexceptional geometric generic fibre has exactly two geometrically
+integral components, exchanged by the incidence involution.  Since
+$\Stab_P(X)=\{0\}$ and $x$ is generic, the integral Cartier divisors $X$ and
+$-x-X$ are distinct.  Their local equations form a regular sequence in the
+smooth threefold $P$, so $C_{\bar\xi}$ is a pure local complete intersection
+curve.  It is therefore Cohen--Macaulay and has no embedded associated
+points.  The two dense admissible branches show that it is reduced at every
+generic point.  Hence $C_{\bar\xi}$ is reduced.
+
+It remains to descend the two labels.  Let $\tau$
+be the order-three deck transformation.  On $P$ one has
+\[
+ 1+\tau+\tau^2=0,
+\]
+and $\tau(X)=X$.  Therefore
+\[
+ y_+(x)=\tau x\in C_x,
+ \qquad s_+(x)=(x,\tau x)
+\]
+defines a rational section of the pair-incidence family; the associated
+ordered pair is $(\tau x,\tau^2x)$.  This section meets the smooth locus of the projection of the pair-incidence
+family to the $x$-coordinate on a nonempty open.  If it did not, then for
+general $x$ the tangent hyperplanes to $X$ at $\tau x$ and $\tau^2x$ would
+coincide, so their Gauss covectors would be equal.  By $\tau$-equivariance,
+that common covector would be fixed projectively by $\tau$.  The general
+Gauss image would then lie in the projective fixed locus of $\tau$, contrary
+to the dominance in \eqref{eq:gauss-degree}.  Explicitly,
+\[
+ T_0^*P=
+ \left\langle\frac{dx}{w(w^3+c)}\right\rangle
+ \oplus
+ \left\langle
+   \frac{dx}{w^2(w^3+c)},
+   \frac{x\,dx}{w^2(w^3+c)}
+ \right\rangle,
+\]
+and the two summands have distinct $\tau$-eigenvalues.  The projective fixed
+locus is a point union a line, a proper subset of $\PP^2$.
+
+Over $k(\xi)$, the generic value of $y_+$ is a smooth rational point and
+lies on exactly one geometric component.  Galois therefore fixes the
+component containing $y_+$ and, since there are exactly two components,
+also fixes the other.  This proves descent.
+\end{proof}
+
+\section{Spreading the generic splitting}\label{sec:spreading}
+
+Define the relative pair-incidence scheme
+\[
+ \cI=\{(x,y)\in\cM\times_{\cB}\cX:-x-y\in\cX\},
+\]
+with the scheme structure induced by the two theta equations, and let
+$q:\cI\to\cM$ be the first projection.  The equations $y=0$ and $y=-x$
+define two sections of $q$.  Let $\cI^{\mathrm{ne}}$ denote their
+complement.
+
+\begin{theorem}[Uniform pair splitting]
+\label{thm:uniform-pair-splitting}
+There are a nonempty open subscheme $\cM^\circ\subset\cM$ and closed
+subschemes $\cA_1,\cA_2\subset\cI|_{\cM^\circ}$ with the following
+properties.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Each $\cA_i\to\cM^\circ$ is flat, and every geometric fibre is a
+      geometrically integral curve.
+\item Every geometric fibre of $q|_{\cM^\circ}$ is reduced, and
+\[
+ \cI^{\mathrm{ne}}|_{\cM^\circ}
+ = (\cA_1\cup\cA_2)\cap\cI^{\mathrm{ne}}
+\]
+      scheme-theoretically.
+\item The two fibre curves are distinct at every geometric point of
+      $\cM^\circ$, and the involution
+      $(x,y)\mapsto(x,-x-y)$ exchanges $\cA_1$ and $\cA_2$.
+\end{enumerate}
+The image
+\[
+ \cB^\circ=\operatorname{im}(\cM^\circ\to\cB)
+\]
+is a nonempty Zariski-open subset.  For every $b\in\cB^\circ(\CC)$, the
+fibre
+\[
+ U_b=\cM^\circ\times_{\cB}\{b\}
+\]
+is a nonempty dense connected open subset of $(X_b)_{\reg}$.  For every
+$x\in U_b(\CC)$, the curves $(\cA_1)_x$ and $(\cA_2)_x$ are exactly the two
+nonexceptional irreducible components of $C_x$.
+\end{theorem}
+
+\begin{proof}
+Throughout the proof the schemes may be restricted to a smaller nonempty
+open of $\cM$ without changing notation; the final open is denoted
+$\cM^\circ$.
+By \cref{prop:generic-pair-fibre}, the geometric generic fibre of
+$q:\cI\to\cM$ is reduced and has exactly two geometrically integral
+components, both defined over $k(\cM)$.  Let
+$\cA_1,\cA_2\subset\cI$ be their closures.  The involution exchanges them
+because it exchanges their generic fibres.
+

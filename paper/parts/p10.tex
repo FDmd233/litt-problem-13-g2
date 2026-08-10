@@ -1,0 +1,172 @@
+\begin{lemma}[Nonemptiness of the admissible locus]
+\label[lemma]{lem:admissible-nonempty}
+The open subscheme $\mathscr G$ of \cref{def:admissible-locus} is nonempty in
+characteristic zero.  It is dense in $\mathscr R_T$, dominates $T$, and its
+geometric generic fibre is a nonempty dense open of the geometric generic
+residual curve.
+\end{lemma}
+
+\begin{proof}
+A convenient characteristic-$13$ specialization on the normalized chart is
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),
+ \qquad
+ (u:v:z)=(3:5:1).
+\]
+In the shifted coordinates $Y=y-c$, the elliptic equation is
+\[
+ Y^2+2Y=x^3-6x^2+x+5
+ \qquad(\bmod 13),
+\]
+equivalently, after the translation $x\mapsto x+2$,
+\[
+ y^2=x^3+2x+5.
+\]
+The cubic on the right has discriminant $8$, and the branch cubic cut out
+by $Y=0$ has discriminant $4$.  The selected fixed divisor is defined by
+\[
+ p(w)=w^3-w^2-2,
+\]
+whose discriminant is $1$.  Thus both the curve and the branch divisor are
+smooth and $D$ is reduced.
+
+At the displayed section, the residual conic has coefficient vector
+\[
+ (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
+\]
+and factors as
+\[
+ Q_s
+ =5+x+7Y+7x^2+2Y^2
+ =5(1+9x+Y)(1+12x+3Y).
+\]
+The fixed norm line is $Y=x$.  The discriminants of the three line sections
+of $E$ are, respectively,
+\[
+ 4,\qquad3,\qquad5,
+\]
+so all three intersections are transverse.  The two residual lines meet at
+$(12,8)$; their intersections with $Y=x$ are $(9,9)$ and $(6,6)$.  None of
+these three points lies on $E$, so the three degree-three line sections are
+pairwise disjoint.  Each residual line avoids the branch divisor $Y=0$.
+
+We also check the only canonical-model point needed in this specialization.
+Since $\mathbf F_{13}$ contains the cube roots of unity and $2,3$ are
+invertible, the four canonical forms from \cref{prop:theta-resolution}
+remain regular.  The nine quadratic representatives other than
+$X_0X_2-X_1^2$ split into the three deck-transformation eigenspaces
+\[
+ \langle1,x,Y,x^2\rangle,\qquad
+ \langle w,xw,wY\rangle,\qquad
+ \langle w^2,xw^2\rangle.
+\]
+At a point above $O$ their pole orders are, respectively,
+$(0,2,3,4)$, $(1,3,4)$, and $(2,4)$.  Thus they are linearly independent,
+and the unique canonical quadric is again
+$X_0X_2-X_1^2=0$.  It has rank three and one ruling, so $|\kappa|$ is the
+unique $g^1_3$.  In these coordinates a member of the pencil is cut out by
+$a+bw$, and
+\[
+ \Nm_\pi(a+bw)=a^3+b^3Y.
+\]
+Thus its norm line has no $x$-term, whereas each of the three lines above has
+a nonzero $x$-coefficient.  Their
+degree-three inverse images are therefore not linearly equivalent to
+$\kappa$ and hence lie in the $h^0=1$ Abel locus.  The local norm calculation
+of \cref{lem:norm-fibre} is valid here for the same reason: $2$ and $3$ are
+invertible.  At a residual point the cover is
+\'etale and the residual line is transverse to $E$; hence the norm of $s$
+has vanishing order one.  The three nonnegative vanishing orders of $s$ on
+the three sheets sum to one, so exactly one sheet contains a simple zero.
+This verifies all conditions in \cref{def:admissible-locus}.
+
+For the passage to characteristic zero, enlarge the localization
+$R_0=\mathbf Z[1/N]$ from \cref{lem:residual-octic-integral}, without
+inverting $13$, so that the chart and all admissibility conditions spread
+out.  Work on the affine chart $v\ne0$.  The coordinate ring $A_0$ of a
+suitable affine open in the spread of $T_{\QQ}$ is a localization of
+\[
+ R_0[c,c^{-1},m,m^{-1},e_1,e_2,e_3]
+\]
+and hence is a unique factorization domain.  With
+$U_0=u/v$ and $Z_0=z/v$, clear denominators in $F_8(U_0,1,Z_0)$ and divide
+by its content.  The resulting primitive polynomial
+$f\in A_0[U_0,Z_0]$ is irreducible over $\operatorname{Frac}(A_0)$ by
+\cref{lem:residual-octic-integral,lem:normalized-function-field}; Gauss's
+lemma makes it irreducible in $A_0[U_0,Z_0]$.  Thus
+\[
+ \mathscr Y=\operatorname{Spec}A_0[U_0,Z_0]/(f)
+\]
+is integral.  Since $R_0$ injects into this domain, its coordinate ring is
+torsion-free as an $R_0$-module; over the localization $R_0$ of $\mathbf Z$
+this is equivalent to flatness.  Hence $\mathscr Y$ is $R_0$-flat.
+
+Admissibility defines an open subscheme of $\mathscr Y$ containing the displayed point over
+$\mathbf F_{13}$.  It therefore contains a principal
+open $D(g)$ with $g\ne0$.  Since $\mathscr Y$ is integral, $D(g)$ contains
+its generic point.  In particular its generic fibre in characteristic zero is nonempty.  The
+generic residual curve dominates the generic point of $T_{\QQ}$, and this
+remains true after passing to the principal open.  After base change to
+$\CC$ it lies in
+$\mathscr G$.  Hence $\mathscr G$ is nonempty, dense in $\mathscr R_T$, and
+dominates $T$; its geometric generic fibre is a nonempty open of a
+geometrically integral curve and is therefore dense.
+\end{proof}
+
+\begin{corollary}[The two admissible branches]
+\label[corollary]{cor:two-admissible-branches}
+After replacing $\mathscr G$ by a dense open subset, there is an isomorphism
+over $\mathscr G$
+\[
+ \cI_T^{\mathrm{adm}}\simeq\mathscr G\sqcup\mathscr G.
+\]
+The incidence involution exchanges the two copies.  On a geometric generic
+fibre over $T$, each copy is a dense open of a geometrically integral curve.
+\end{corollary}
+
+\begin{proof}
+By \cref{prop:ordering-cover,lem:normalized-function-field}, the finite
+\'etale factor-ordering cover has two rational sections over $\CC$ at the
+generic point of $\mathscr G$.  On the principal-minor chart, after fixing
+$\varrho\in\CC$ with $\varrho^2=-3$, they are given by
+$s=\pm A_{\mathrm c}/(\varrho B_{\mathrm c})$ for the intrinsic coordinate
+$s^2=\Delta$.
+They extend to two disjoint sections after shrinking $\mathscr G$, so
+$\operatorname{Ord}_{\mathrm{fac},\mathscr G}
+ \simeq\mathscr G\sqcup\mathscr G$.
+Apply \cref{prop:abel-incidence}.  The final assertion follows from
+\cref{lem:residual-octic-integral,lem:admissible-nonempty}.
+\end{proof}
+
+\subsection{Boundary exhaustion and global labels}
+
+Let $\xi$ be the generic point of the integral scheme $\cM$, and let
+$\bar\xi$ be a geometric generic point.  For a geometric point $x$ of
+$\cM$, define the pair fibre scheme-theoretically by
+\[
+ C_x=X\cap(-x-X)\subset P,
+ \qquad C_x^{\mathrm{ne}}=C_x\setminus\{0,-x\}.
+\]
+Over $\bar\xi$, the unique effective divisors representing $x,y,-x-y$
+satisfy
+\begin{equation}
+ D_x+D_y+D_{-x-y}=\operatorname{div}(s_y)
+\label{eq:pair-zero-divisor}
+\end{equation}
+for a projective section $[s_y]\in\PP H^0(C,3\kappa-D_x)$.  This defines a
+rational map
+\[
+ \Psi:C_x\dashrightarrow\PP H^0(C,3\kappa-D_x).
+\]
+\begin{lemma}[Boundary exhaustion]
+\label[lemma]{lem:boundary-exhaustion}
+ The rational map $\Psi$ has finite fibres wherever it is defined.  The
+ determinant component $u=v$ gives no nonexceptional incidence-curve
+ component; its generic divisor data give only the Abel classes $y=0,-x$.
+ Every irreducible curve component of
+$C_{\bar\xi}^{\mathrm{ne}}$ dominates the residual octic $\mathscr R$, meets
+its admissible open, and is the closure of one of the two branches in
+\cref{cor:two-admissible-branches}.  In particular,
+$C_{\bar\xi}^{\mathrm{ne}}$ has exactly two irreducible components.
+\end{lemma}
+

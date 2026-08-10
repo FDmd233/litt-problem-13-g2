@@ -1,0 +1,179 @@
+The zero over $B_i$ is selected scheme-theoretically as follows.  \'Etale-locally on
+$B_i$, split $U_i=B_i\sqcup B_i\sqcup B_i$ and trivialize the restriction
+of $3\kappa$, using the induced trivialization of its norm line.  If
+$a_1,a_2,a_3\in\mathcal O_{B_i}$ are the three values of $s$, compatibility
+of the finite locally free norm with base change gives
+\begin{equation}
+ a_1a_2a_3=\Nm_\pi(s)|_{B_i}=0
+\label{eq:split-norm-zero}
+\end{equation}
+as an equality in the structure sheaf, not merely at geometric points.
+The collision exclusions imply that locally two values, say $a_2,a_3$, are
+units.  Equation~\eqref{eq:split-norm-zero} then forces $a_1=0$, also in
+nilpotent directions.
+Consequently
+\[
+ Z_i=Z(s)\times_{E_T}B_i\subset U_i
+\]
+is locally exactly one open-and-closed sheet of $U_i/B_i$.  Thus
+$Z_i\to B_i$ is finite \'etale of degree one and hence is an isomorphism.
+
+Let $t$ be a local equation for $B_i$ in $E_T$.  Since $B_i$ occurs with
+multiplicity one in the norm divisor and the other norm factors are
+disjoint from it, $\Nm_\pi(s)=t u$ with $u$ a unit along $B_i$.  \'Etale-locally
+on a neighbourhood of $B_i$ in the complement of the branch divisor, split
+the cover $C_T\to E_T$.  On the selected sheet the other two values of $s$
+remain units, so the same local product formula shows that the selected
+value is $t$ times a unit.
+The zero is therefore simple.  The image $D_i\subset C_T$ of $Z_i$ is
+finite \'etale of degree three over $T'$; as a finite \'etale multisection of
+the smooth relative curve $C_T/T'$, it is a relative effective Cartier
+divisor.
+
+The pairwise disjoint divisors $D,D_1,D_2$ lie in $Z(s)$ and have total
+relative degree nine, equal to $\deg(3\kappa)$.  After dividing by their
+Cartier equations, the residual section has degree zero and is nonvanishing
+on every geometric fibre.  Nakayama's lemma makes it a trivialization, so
+there is no vertical or nilpotent residual contribution and
+\begin{equation}
+ Z(s)=D+D_1+D_2
+\label{eq:relative-zero-sum}
+\end{equation}
+as relative Cartier divisors.  Conversely, an ordered divisor datum
+determines the unique projective section $[s]$ with zero divisor
+$D+D_1+D_2$, and taking its norm recovers the ordered line sections $B_i$
+and hence the ordered factors $\ell_i$.  Thus these assignments are inverse
+already at the divisor level.
+
+It remains to compare this divisor construction with the relative Abel
+incidence.  Let
+\[
+ \alpha:C_T^{(3)}\longrightarrow\operatorname{Pic}^3(C_T/T)
+\]
+be the relative Abel map and let
+$\mathcal F=\Nm^{-1}(\eta^3)\subset\operatorname{Pic}^3(C_T/T)$.  The norm fibre is
+the cartesian base change
+\[
+ N_T=C_T^{(3)}\times_{\operatorname{Pic}^3(C_T/T)}\mathcal F.
+\]
+Let $W_3^{(1)}\subset\operatorname{Pic}^3(C_T/T)$ be the open on which $h^0=1$
+and the pushforward of a Poincar\'e bundle is locally free of rank one and
+commutes with base change.  The standard
+projective-bundle description of the Abel map and cohomology and base change
+then identify its source with the projectivization of that rank-one bundle.
+Thus the map is an isomorphism and remains so after arbitrary base change.
+Fibrewise, this is the $h^0=1$ case of Riemann--Kempf
+\cite{Kempf1973}:
+\[
+ \alpha^{-1}(W_3^{(1)})\xrightarrow{\sim}W_3^{(1)}.
+\]
+Base changing this isomorphism by
+$\mathcal F\to\operatorname{Pic}^3(C_T/T)$ and
+translating by $\kappa^{-1}$ gives
+\[
+ N_T^{(1)}\xrightarrow{\sim}X_T^{(1)}.
+\]
+Here, by definition, $X_T^{(1)}$ is the open part of the theta section
+represented by line bundles with $h^0=1$.
+Restrict both sides to the inverse images of
+$X_T^{(1)}\cap X_{T,\mathrm{sm}/T}$, as imposed above.  Thus the divisor
+construction descends to the relative smooth Abel incidence.
+
+Zero schemes, fibre products, finite locally free norms, and the cartesian
+Abel construction all commute with arbitrary base change.  Hence both
+composites preserve the universal zero schemes and are the identity as
+morphisms.  The use of $C_T^{(3)}\simeq\operatorname{Hilb}^3(C_T/T)$ is only
+representability; no normalization of the ordering cover or of pair fibres
+is involved.
+\end{proof}
+
+Let $x_T:T\to\cM$ be the point represented by the universal divisor $D$,
+so that $x_T=[\mathcal O(D)\otimes\kappa^{-1}]$.  Define
+\[
+ \cI_T^\dagger=
+ \{y\in X_T^{(1)}\cap X_{T,\mathrm{sm}/T}:
+       -x_T-y\in X_T^{(1)}\cap X_{T,\mathrm{sm}/T}\}.
+\]
+The two relative Abel inverses give universal divisors $D_1,D_2$ on
+$C_T\times_T\cI_T^\dagger$.  Their Abel classes satisfy
+\[
+ [\mathcal O(D+D_1+D_2)\otimes\kappa^{-3}]=0
+ \quad\text{in }\operatorname{Pic}^0(C_T/T).
+\]
+Thus $\mathcal O(D_1+D_2)$ and $\mathcal O(3\kappa-D)$ differ only by a line
+bundle pulled back from the base.  Their divisor sections determine a unique
+projective relative section
+\[
+ \vartheta:\cI_T^\dagger\longrightarrow
+ \PP_T\bigl(p_*\mathcal O_{C_T}(3\kappa-D)\bigr).
+\]
+Taking norms shows that $\vartheta$ factors through $\mathscr R_T$.  Set
+\[
+ \cI_T^{\mathrm{adm}}=\vartheta^{-1}(\mathscr G).
+\]
+
+\begin{proposition}[Abel-incidence identification]
+\label[proposition]{prop:abel-incidence}
+There is an isomorphism over $\mathscr G$
+\begin{equation}
+ \Phi:\operatorname{Ord}_{\mathrm{fac},\mathscr G}
+       \xrightarrow{\sim}\cI_T^{\mathrm{adm}},
+ \qquad
+ ([s],\ell_1,\ell_2)\longmapsto
+ [\mathcal O(D_1)\otimes\kappa^{-1}].
+\label{eq:abel-incidence-isomorphism}
+\end{equation}
+Interchanging $\ell_1$ and $\ell_2$ corresponds to the involution
+$y\mapsto-x_T-y$.  The isomorphism commutes with arbitrary base change.
+\end{proposition}
+
+\begin{proof}
+On $\operatorname{Ord}_{\mathrm{fac},\mathscr G}$, put
+\[
+ y_i=[\mathcal O(D_i)\otimes\kappa^{-1}]\in P_T.
+\]
+The divisor equality \eqref{eq:relative-zero-sum} gives
+\begin{equation}
+ x_T+y_1+y_2
+  =[\mathcal O(D+D_1+D_2)\otimes\kappa^{-3}]=0.
+\label{eq:abel-class-sum}
+\end{equation}
+Hence $y_2=-x_T-y_1$, and the ordered-zero construction of
+\cref{lem:scheme-abel-inverse} defines the morphism $\Phi$.  The defining
+conditions of $\mathscr G$ show that it lands in
+$\cI_T^{\mathrm{adm}}$.
+
+Conversely, let $y$ be a $W$-point of $\cI_T^{\mathrm{adm}}$, write
+$p_W:C_T\times_T W\to W$ for the projection, put
+$y_1=y$ and $y_2=-x_T-y$, and let $D_1,D_2$ be their relative Abel inverse
+divisors.  Reading \eqref{eq:abel-class-sum} from right to left gives
+\[
+ \mathcal O(D_1+D_2)
+ \simeq\mathcal O(3\kappa-D)\otimes p_W^*\mathcal N
+\]
+for a line bundle $\mathcal N$ on $W$.  The divisor section therefore gives
+a unique projective section $[s]$ with
+$\operatorname{div}(s)=D+D_1+D_2$; the factor pulled back from $W$ does not
+affect this projective point.  Since $y_i\in P_T$,
+\[
+ \Nm_\pi\mathcal O(D_i)=\Nm_\pi(\kappa)=\eta^3.
+\]
+Thus the effective divisor $\pi_*D_i$ on $E_T$ is cut out by a unique
+projective line $\ell_i$.  Multiplicativity of the finite locally free norm
+gives, up to a
+unit from $W$,
+\[
+ \Nm_\pi(s)=\ell_D\ell_1\ell_2,
+ \qquad Q_s=\ell_1\ell_2,
+\]
+where $\ell_D$ is the fixed norm line of $D$.  Admissibility makes the two
+residual factors distinct and orders them by the ordered pair $(D_1,D_2)$.
+This constructs the inverse of \eqref{eq:abel-incidence-isomorphism}.
+
+The relative Abel inverse on the $h^0=1$ locus, formation of zero divisors,
+and finite locally free norms commute with arbitrary base change.  The two
+composites preserve the universal Cartier divisors and hence are the identity
+as morphisms.  Swapping $D_1,D_2$ gives $y_1\leftrightarrow y_2$, which is
+the stated incidence involution.
+\end{proof}
+

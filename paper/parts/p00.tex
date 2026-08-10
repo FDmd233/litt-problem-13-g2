@@ -1,0 +1,192 @@
+\documentclass[10pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CC}{\mathbf C}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\GGm}{\mathbf G_m}
+\newcommand{\IC}{\operatorname{IC}}
+\newcommand{\Nm}{\operatorname{Nm}}
+\newcommand{\Alt}{\operatorname{Alt}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Sing}{\operatorname{Sing}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\exc}{\mathrm{exc}}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+\newcommand{\bo}{\boxtimes}
+
+\title[A realization of $G_2$ for Litt Problem No. 13]
+      {A Realization of $G_2$ for Litt Problem No. 13}
+\author{OpenAI}
+\date{Revised August 10, 2026}
+
+\hypersetup{
+  pdftitle={A Realization of G2 for Litt Problem No. 13},
+  pdfauthor={OpenAI}
+}
+
+\subjclass[2020]{14K12, 14H40, 18M25, 20G41}
+\keywords{abelian variety, cyclic cover, Prym variety, intersection complex,
+convolution, Tannaka group, exceptional group $G_2$}
+
+\begin{document}
+\raggedbottom
+
+\begin{abstract}
+Starting from the cyclic triple covers
+\[
+  C:\quad w^3=y-c,\qquad c\ne0,
+\]
+of elliptic curves $y^2=x^3+Ax+B$, we construct a family of complex abelian
+threefolds whose Prym polarization has type $(1,1,3)$.  The restricted
+centred theta divisor $X$ is a normal symmetric surface with a unique simple
+elliptic singularity of type $\wt E_7$, and $\chi(\IC_X)=7$.  For general
+parameters the pair-incidence curve $X\cap(-x-X)$ has exactly two
+nonexceptional components.  Their top cohomology produces an unshifted
+summand $\IC_X\subset\Alt^2(\IC_X)$ in the convolution category.  On the
+other hand, a generic unitary twist has Hodge multiplicities $(2,3,2)$.
+Together these constraints leave only the standard seven-dimensional
+representation of $G_2$, and the argument also excludes an extra disconnected
+component of the Tannaka group.  Thus the full convolution Tannaka group is
+$G_2$, giving the $G_2$ case of Litt Problem No.~13.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Let $A$ be a complex abelian variety.  After negligible objects are
+quotiented out, convolution turns the relevant constructible complexes on
+$A$ into a neutral Tannakian category.  Thus an integral subvariety
+$Z\subset A$ with $\chi(\IC_Z)\ne0$ determines a Tannaka group
+$G(\IC_Z)$ and a faithful module of dimension $\chi(\IC_Z)$; see
+\cite{KraemerWeissauer2015}.  Litt Problem No.~13 asks whether the four
+exceptional simple types
+\[
+  G_2,\qquad E_7,\qquad E_8,\qquad F_4
+\]
+can occur in this manner \cite{Litt13}.  We treat the $G_2$ case and make no
+claim about the other three.  One feature of the construction is worth
+stressing at the outset: the theta surface is singular.  Consequently the
+exclusion results for smooth subvarieties in \cite{KLM2026} do not apply to
+this example.
+
+The construction is defined over a rational parameter space.  Put
+\[
+ \Delta_E=4A^3+27B^2,
+ \qquad
+ \Delta_{\mathrm{br}}=4A^3+27(B-c^2)^2,
+\]
+and let
+\[
+ \cB_{\QQ}=\operatorname{Spec}
+ \QQ[A,B,c,c^{-1},\Delta_E^{-1},\Delta_{\mathrm{br}}^{-1}],
+ \qquad
+ \cB=\cB_{\QQ}\times_{\QQ}\CC.
+\]
+For $b=(A,B,c)\in\cB(\CC)$, let
+\[
+ E_b:\ y^2=x^3+Ax+B,
+ \qquad
+ C_b:\ w^3=y-c.
+\]
+Here $C_b$ denotes the smooth projective cyclic cover defined by the section
+$y-c\in H^0(E_b,\mathcal O_{E_b}(3O))$; the displayed equation is its
+affine chart.  The reduced branch divisor makes this cover connected.  Let
+\[
+ \pi_b:C_b\longrightarrow E_b,
+ \qquad (x,y,w)\longmapsto(x,y)
+\]
+be the cyclic triple cover.  The condition $\Delta_{\mathrm{br}}\ne0$
+means that the line $y=c$ meets $E_b$ in three distinct points; these are
+precisely the branch points of $\pi_b$.  Write $O\in E_b$ for the point at
+infinity and set
+\[
+ \kappa_b=\pi_b^*\mathcal O_{E_b}(O),
+ \qquad
+ P_b=\ker(\Nm_{\pi_b})^0.
+\]
+The centred theta divisor on $J(C_b)$ restricts to the divisor
+\[
+ X_b=\{M\in P_b:h^0(C_b,\kappa_b\otimes M)>0\}.
+\]
+Write $\cP\to\cB$ and $\cX\subset\cP$ for the resulting relative Prym and
+relative theta section.
+
+\begin{theorem}[Main theorem]\label{thm:main}
+There is a nonempty Zariski-open subset $\cB^\circ\subset\cB$ such that for
+every $b\in\cB^\circ(\CC)$ the following hold.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $P_b$ is an abelian threefold, and the polarization induced by the
+      centred theta divisor has type $(1,1,3)$.
+\item $X_b\subset P_b$ is an integral normal symmetric ample Cartier divisor
+      with a unique singular point at the origin; this singularity is simple
+      elliptic of type $\wt E_7$.
+\item $\chi(\IC_{X_b})=7$, and there is an isomorphism of a reductive
+      group with its faithful representation
+\[
+  \bigl(G(\IC_{X_b}),\omega(\IC_{X_b})\bigr)\simeq(G_2,V_7),
+\]
+      where $V_7$ is the standard seven-dimensional representation of
+      $G_2$.  In particular, the full convolution Tannaka group is connected and equal to
+      $G_2$.
+\end{enumerate}
+Moreover, $\cX\subset\cP$ is a symmetric relatively ample effective Cartier
+divisor, flat over $\cB$, with geometrically integral fibres.
+\end{theorem}
+
+\paragraph{Proof outline.}
+Fix $b\in\cB(\CC)$ and write $(P,X)=(P_b,X_b)$.  The proof has a geometric
+part and a Tannakian part, with the pair-incidence calculation linking the
+two.  The norm fibre in $C^{(3)}$ is birational to $X$ and has one
+$\wt E_6$ singularity.  Blowing up that point and contracting the strict
+transform of the trigonal pencil gives the minimal resolution
+$\rho:S\to X$; its exceptional locus is an elliptic curve of
+self-intersection $-2$.  Adjunction, the local geometric genus, and Noether's
+formula give
+\[
+ K_S^2=16,\qquad \chi(\mathcal O_S)=2,\qquad e(S)=8,
+\]
+while the theta group yields $p_g(S)=5$ and $q(S)=4$.  The semismall
+decomposition then gives $\chi(\IC_X)=7$, and the unique singular point
+forces $\Stab_P(X)=\{0\}$.  A generic unitary twist of the same resolution
+has Hodge multiplicities $(2,3,2)$.
+

@@ -1,0 +1,179 @@
+The pullback $\pi^*:J(E)\to J(C)$ is injective.  Indeed, if
+$\alpha\in\operatorname{Pic}^0(E)$ and $\pi^*\alpha\simeq\mathcal O_C$, then
+\[
+ 1=h^0(C,\pi^*\alpha)
+  =h^0(E,\alpha)+h^0(E,\alpha\eta^{-1})
+   +h^0(E,\alpha\eta^{-2}),
+\]
+and the last two terms vanish; hence $\alpha=\mathcal O_E$.  By duality,
+$\ker(\Nm_\pi)$ is connected.  Thus set
+\[
+ P=\ker(\Nm_\pi).
+\]
+It has dimension three.  If $\tau(w)=\zeta_3w$, then
+$\pi^*\Nm_\pi=1+\tau+\tau^2$ on $J(C)$.  Consequently
+$\operatorname{Im}(1-\tau)\subset P$.  The $\tau$-invariant part of
+$H^0(C,\Omega_C^1)$ is $\pi^*H^0(E,\Omega_E^1)$ and has dimension one, so
+$\operatorname{Im}(1-\tau)$ has dimension three.  Hence
+\begin{equation}
+ P=\operatorname{Im}(1-\tau)=\ker(\Nm_\pi).
+\label{eq:prym-conventions}
+\end{equation}
+The same argument works in the relative family.  Indeed
+$\Nm_\pi\circ\pi^*=[3]$ on the relative elliptic Jacobian, so the norm map
+is surjective; its kernel is smooth, and the fibrewise injectivity of
+$\pi^*$ proved above makes every kernel fibre connected.  Thus
+$\cP=\ker(\Nm_\pi)\to\cB$ is an abelian scheme of relative dimension
+three.
+
+Use the theta characteristic $\kappa$ to centre the theta divisor on
+$J(C)=\operatorname{Pic}^0(C)$:
+\[
+ \Theta_\kappa=\{M\in J(C):h^0(C,\kappa\otimes M)>0\}.
+\]
+Let $L=\mathcal O_{J(C)}(\Theta_\kappa)|_P$.  The type of the restricted
+polarization can be read off directly.  Under the principal polarizations of
+the two Jacobians, $\pi^*$ and $\Nm_\pi$ are dual homomorphisms; hence the
+orthogonal complement of $P$ in $J(C)$ is $\pi^*J(E)$
+\cite[Section~12.3]{BirkenhakeLange2004}.  Therefore
+\[
+ \ker(\varphi_L)=P\cap\pi^*J(E).
+\]
+Since $\pi^*$ is injective and $\Nm_\pi\circ\pi^*=[3]$ on $J(E)$,
+\[
+ P\cap\pi^*J(E)=\pi^*J(E)[3].
+\]
+This group has order $9$.  If the polarization type is
+$(d_1,d_2,d_3)$ with $d_1\mid d_2\mid d_3$, then
+$|\ker(\varphi_L)|=(d_1d_2d_3)^2$; hence $d_1d_2d_3=3$ and necessarily
+\begin{equation}
+ \operatorname{type}(L)=(1,1,3),
+ \qquad L^3=3!\,d_1d_2d_3=18.
+\label{eq:prym-polarization}
+\end{equation}
+Scheme-theoretically,
+\[
+ X=\Theta_\kappa\cap P
+  =\{M\in P:h^0(C,\kappa\otimes M)>0\}.
+\]
+The theta divisor is preserved as a closed subscheme by the Serre-duality
+involution $L'\mapsto K_C\otimes(L')^{-1}$ on $\operatorname{Pic}^3(C)$.
+Since $\kappa^2=K_C$, this involution is $M\mapsto M^{-1}$ in centred
+coordinates.  Relative Serre duality preserves the determinantal ideal of
+theta, so after restriction to $P$ one obtains
+\begin{equation}
+ X=-X
+\label{eq:symmetry}
+\end{equation}
+as closed subschemes.  The centre will be seen to be unique in
+\eqref{eq:stabilizer}.
+
+\subsection{The norm fibre and the resolution}
+
+Let
+\[
+ n:C^{(3)}\longrightarrow\operatorname{Pic}^3(E),
+ \qquad D\longmapsto\mathcal O_E(\pi_*D),
+\]
+and put
+\[
+ N=n^{-1}(\eta^3),
+ \qquad
+ a:N\longrightarrow X,
+ \qquad
+ D\longmapsto\mathcal O_C(D)\otimes\kappa^{-1}.
+\]
+For the centred Abel map $D\mapsto\mathcal O_C(D)\otimes\kappa^{-1}$ one has
+scheme-theoretically
+\[
+ N=C^{(3)}\times_{J(C)}P.
+\]
+Thus $a$ is its base change to $P$.  The map $a$ is surjective: if $M\in X$,
+a nonzero section of $\kappa\otimes M$ has an effective divisor $D$ of
+degree three, and
+\[
+ \Nm_\pi\mathcal O_C(D)
+ =\Nm_\pi(\kappa\otimes M)=\eta^3.
+\]
+The finite morphism $C^{(3)}\to E^{(3)}$ induced by $\pi$ restricts to a
+finite surjection
+\[
+ N\longrightarrow|\eta^3|\simeq\PP^2.
+\]
+Hence $\dim N=2$, so the restriction of the centred theta section to $P$ is
+nonzero.  Therefore $X\in|L|$ is an effective Cartier divisor, and it is
+ample.
+
+Let $\Gamma=|\kappa|\simeq\PP^1$ and put
+\[
+ D_0=r_1+r_2+r_3\in\Gamma.
+\]
+
+\begin{lemma}[The norm fibre]\label[lemma]{lem:norm-fibre}
+The surface $N$ has the unique singular point $D_0$, and the germ $(N,D_0)$
+is a simple elliptic singularity of type $\wt E_6$.  If
+$\beta:\widehat N\to N$ is the blowup of $D_0$, then $\widehat N$ is smooth,
+its exceptional curve $E_0$ is elliptic with $E_0^2=-3$, and the strict
+transform $\widetilde\Gamma$ is a $(-1)$-curve meeting $E_0$ transversely in
+one point.  Contracting $\widetilde\Gamma$ gives a smooth surface $S$ and a
+proper morphism
+\[
+ \rho:S\longrightarrow X.
+\]
+The image $E_{\exc}$ of $E_0$ satisfies $E_{\exc}^2=-2$ and maps to the
+origin of $X$.
+\end{lemma}
+
+\begin{proof}
+Because the three branch points are distinct, a neighbourhood of $D_0$ in
+$C^{(3)}$ is the product of neighbourhoods of the $r_i$.  Choose additive
+analytic coordinates $t_i$ on $E$ at $b_i$ so that the Abel map
+$E^{(3)}\to\operatorname{Pic}^3(E)$ is, after translation, given by
+$t_1+t_2+t_3$.  After rescaling local parameters $z_i$ at $r_i$, the cover
+has $t_i=z_i^3$.  Hence the norm fibre has the analytic equation
+\[
+ z_1^3+z_2^3+z_3^3=0.
+\]
+Thus $(N,D_0)$ is the affine cone over a smooth plane cubic, hence a simple
+elliptic singularity of type $\wt E_6$.
+
+We next locate the remaining critical points of the norm map.  This is a
+local calculation on the symmetric cube, and it is useful to separate the
+possible multiplicity patterns.  A divisor containing an unramified point
+has a tangent direction on which $d\pi$ is nonzero, so it cannot be critical.
+Near a ramification point the map is $z\mapsto z^3$.  If two points collide,
+then in the elementary symmetric coordinates $e_1=z_1+z_2$ and
+$e_2=z_1z_2$ one has
+\[
+ z_1^3+z_2^3=e_1^3-3e_1e_2,
+\]
+which has no linear term at the double ramification cycle.  If three points
+collide, however,
+\[
+ z_1^3+z_2^3+z_3^3=e_1^3-3e_1e_2+3e_3,
+\]
+and the $3e_3$ term makes the differential nonzero.  Thus, apart from the
+cycle $D_0=r_1+r_2+r_3$, the only possible critical cycles are
+$2r_i+r_j$ with $i\ne j$.  Membership in the norm fibre would then force
+\[
+ 2b_i+b_j\sim3O.
+\]
+If $k$ is the third index, \eqref{eq:branch-sum} gives
+$b_i+b_j+b_k\sim3O$, hence $b_i=b_k$, contradicting the fact that the branch
+points are distinct.  Therefore $D_0$ is the only singular point of $N$.
+
+Blowing up the vertex of the cubic cone gives a smooth surface $\widehat N$
+with exceptional elliptic curve $E_0$ and $E_0^2=-3$.  The pencil
+$\Gamma=|\kappa|$ has multiplicity one at the vertex.  If $t$ is a local
+parameter on the pencil at $D_0$, then each ramification coordinate has an
+expansion
+\[
+ z_i=\lambda_i t+O(t^2),
+\]
+with not all $\lambda_i$ zero.  Because $\Gamma\subset N$, the tangent
+direction $[\lambda_1:\lambda_2:\lambda_3]$ lies on the exceptional cubic
+$\lambda_1^3+\lambda_2^3+\lambda_3^3=0$.  This is the unique tangent
+direction of $\Gamma$ at the vertex; the multiplicity-one statement then
+shows that its strict transform meets $E_0$ in one reduced point,
+transversely.
+
