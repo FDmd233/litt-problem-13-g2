@@ -1,0 +1,98 @@
+name: Rebuild paper release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: startsWith(github.event.head_commit.message, 'rebuild paper release assets')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends latexmk lmodern patch poppler-utils texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-science
+
+      - name: Apply audited manuscript revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat paper/parts/p*.tex > /tmp/original.tex
+          echo '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' | base64 -d | gzip -d > /tmp/manuscript.patch
+          cp /tmp/original.tex /tmp/revised.tex
+          patch --silent /tmp/revised.tex /tmp/manuscript.patch
+          echo '7dc7e1be4516898e420ecb36591c154f2045caf90a8fbacfe20bf6f9778aa1f5  /tmp/revised.tex' | sha256sum -c -
+          cp /tmp/revised.tex Litt_Problem_13_G2_complete.tex
+          python3 - <<'PY_SPLIT'
+          from pathlib import Path
+          source = Path('/tmp/revised.tex').read_text()
+          lines = source.splitlines(keepends=True)
+          counts = [190, 160, 195, 204, 182, 166, 247, 224, 151, 179, 172, 168, 167, 170, 187, 207, 164]
+          assert sum(counts) == len(lines)
+          start = 0
+          out = Path('paper/parts')
+          for i, count in enumerate(counts):
+              (out / f'p{i:02d}.tex').write_text(''.join(lines[start:start+count]))
+              start += count
+          assert ''.join((out / f'p{i:02d}.tex').read_text() for i in range(17)) == source
+          PY_SPLIT
+          python3 - <<'PY_README'
+          from pathlib import Path
+          p = Path('README.md')
+          text = p.read_text()
+          old = '- [LaTeX source](paper/main.tex)'
+          new = '- [Complete LaTeX source](Litt_Problem_13_G2_complete.tex)\n- [Split LaTeX source](paper/main.tex)'
+          if old in text:
+              text = text.replace(old, new)
+          elif '[Complete LaTeX source](Litt_Problem_13_G2_complete.tex)' not in text:
+              raise SystemExit('README source link not found')
+          p.write_text(text)
+          PY_README
+          test -z "$(grep -nEi 'GPT|artificial intelligence|language model' Litt_Problem_13_G2_complete.tex || true)"
+          openai=$(grep -nEi 'OpenAI' Litt_Problem_13_G2_complete.tex || true)
+          echo "$openai" | grep -Eq '^58:.*\\author\{OpenAI\}$'
+          echo "$openai" | grep -Eq '^63:.*pdfauthor=\{OpenAI\}$'
+          test "$(printf '%s\n' "$openai" | sed '/^$/d' | wc -l)" -eq 2
+
+      - name: Compile and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          latexmk -pdf -interaction=nonstopmode -halt-on-error Litt_Problem_13_G2_complete.tex
+          pdfinfo Litt_Problem_13_G2_complete.pdf | grep '^Pages:[[:space:]]*38$'
+          ! grep -Eq 'LaTeX Warning|Undefined control sequence|LaTeX Error|Fatal error|Overfull \hbox' Litt_Problem_13_G2_complete.log
+          make paper
+          pdfinfo output/pdf/Litt_Problem_13_G2.pdf | grep '^Pages:[[:space:]]*38$'
+          sha256sum -c SHA256SUMS.txt
+          ! grep -Eq 'LaTeX Warning|Undefined control sequence|LaTeX Error|Fatal error|Overfull \hbox' paper/main.log
+          cat paper/parts/p*.tex > /tmp/recombined.tex
+          cmp -s /tmp/recombined.tex Litt_Problem_13_G2_complete.tex
+          rm -f Litt_Problem_13_G2_complete.aux Litt_Problem_13_G2_complete.fdb_latexmk Litt_Problem_13_G2_complete.fls Litt_Problem_13_G2_complete.log Litt_Problem_13_G2_complete.out Litt_Problem_13_G2_complete.pdf
+
+      - name: Commit manuscript and release files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .github/workflows/rebuild-paper-release.yml
+          git add -A paper/parts Litt_Problem_13_G2_complete.tex README.md output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt .github/workflows/rebuild-paper-release.yml
+          git commit -m 'revise manuscript and refresh release'
+          git push origin HEAD:main
+          git tag -f v1.3.0
+          git push --force origin refs/tags/v1.3.0
+
+      - name: Replace release assets and notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.3.0 output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt --clobber
+          gh release edit v1.3.0 --notes 'Version 1.3.0 of the manuscript. Includes the compiled PDF and SHA256 checksum.'
