@@ -35,18 +35,35 @@ L_1&x^3+4x^2+x+6&3\\
 L_2&x^3+4x^2+2x-6&5.
 \end{array}
 \]
-Hence all three intersections with $E$ are transverse.  The residual lines
-avoid the branch divisor: $L_1\cap\{Y=0\}$ has $x=10$ and the elliptic
-residual is $12\ne0$, while $L_2\cap\{Y=0\}$ has $x=1$ and residual
-$1\ne0$.  Their pairwise intersections are
+Hence all three intersections with $E$ are transverse.  To keep the sign
+convention fixed, set
+\[
+ \mathcal R(x,Y)=x^3-6x^2+x+5-(Y^2+2Y),
+\]
+so that $E=V(\mathcal R)$.  The residual lines meet the branch line at
+\[
+ L_1\cap\{Y=0\}=(10,0),\qquad
+ L_2\cap\{Y=0\}=(1,0),
+\]
+and
+\[
+ \mathcal R(10,0)=12,\qquad \mathcal R(1,0)=1.
+\]
+Their pairwise intersections are
 \[
  L_1\cap L_2=(12,8),\qquad
  L_0\cap L_1=(9,9),\qquad
  L_0\cap L_2=(6,6),
 \]
-and substitution in the elliptic equation gives residuals $5,11,11$,
-respectively.  Thus no two of the three degree-three line sections meet on
-$E$.
+with
+\[
+ \mathcal R(12,8)=8,\qquad
+ \mathcal R(9,9)=2,\qquad
+ \mathcal R(6,6)=2.
+\]
+All five values are nonzero in $\mathbf F_{13}$.  Thus the residual line
+sections avoid the branch divisor, and the three degree-three line sections
+are pairwise disjoint on $E$.
 
 The two residual line sections are therefore finite \emph{\'etale} away from
 the branch locus and occur with multiplicity one in the norm divisor.  The

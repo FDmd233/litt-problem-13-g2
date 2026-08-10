@@ -43,9 +43,24 @@ the two displayed admissible branches.
 
 By the uniqueness of the $g^1_3$, the only points where an Abel inverse in
 the definition of $\Psi$ is not unique are $y=0$ and $y=-x$.  Thus the
-indeterminacy of $\Psi$ is contained in these two exceptional points.  By
-\eqref{eq:determinant-factorization}, every nonexceptional curve component
-therefore maps to the residual octic.  Its image is one-dimensional because
+indeterminacy of $\Psi$ is contained in these two exceptional points.
+
+Where $\Psi$ is defined, \eqref{eq:pair-zero-divisor} and multiplicativity
+of the finite locally free norm give, up to a nonzero scalar,
+\[
+ \Nm_\pi(s_y)=\ell_{D_x}\ell_{D_y}\ell_{D_{-x-y}}.
+\]
+After division by the fixed line $\ell_{D_x}$, the residual conic is the
+product $Q_{s_y}=\ell_{D_y}\ell_{D_{-x-y}}$.  Hence
+$\operatorname{rank}M_{s_y}\le2$ and $\det M_{s_y}=0$.  The image of
+$\Psi$ is therefore contained in
+\[
+ V(\det M_s)=V(u-v)\cup V(F_8).
+\]
+The preceding paragraph excludes $V(u-v)$ as the image of a
+nonexceptional curve component.  Consequently every nonexceptional curve
+component maps to the residual octic $V(F_8)$.  Its image is one-dimensional
+because
 $\Psi$ has finite fibres, and hence is dense because $\mathscr R$ is
 geometrically integral.  It must meet the dense open $\mathscr G$.  An
 irreducible curve cannot contain both disjoint admissible branches as open
@@ -110,7 +125,7 @@ locus is a point union a line, a proper subset of $\PP^2$.
 Over $k(\xi)$, the generic value of $y_+$ is a smooth rational point and
 lies on exactly one geometric component.  Galois therefore fixes the
 component containing $y_+$ and, since there are exactly two components,
-also fixes the other.  This proves descent.
+also fixes the other.  Both components therefore descend to $k(\xi)$.
 \end{proof}
 
 \section{Spreading the generic splitting}\label{sec:spreading}

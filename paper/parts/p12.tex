@@ -165,3 +165,26 @@ particular,
 \]
 \end{lemma}
 
+\begin{proof}
+The sum map $m|_{X\times X}:X\times X\to P$ is surjective because two
+translates of the ample divisor $X$ always meet.  Moreover,
+\[
+ m\bigl((\{0\}\times X)\cup(X\times\{0\})\bigr)=X.
+\]
+Hence, for $t\notin X$, the fibre lies entirely in
+$X_{\reg}\times X_{\reg}$.  Generic smoothness for the restricted sum map
+therefore gives smoothness of the general fibre.  Since $t\notin X$ and
+$\Stab_P(X)=\{0\}$, the translate $t-X$ does not contain $X$; its restriction
+to the integral Cohen--Macaulay surface $X$ is therefore an effective ample
+Cartier divisor.  Hartshorne's connectedness theorem, applied on $X$, shows
+that this divisor, namely $X\cap(t-X)$, is connected
+\cite[Corollary~III.7.9]{Hartshorne1977}.
+The involution $p\mapsto t-p$ preserves its complex orientation and hence
+acts by $+1$ on its one-dimensional top cohomology.  Therefore
+\begin{equation}
+ \cH^{-2}(K*K)_-=0
+ \quad\text{on a dense open subset of }P.
+\label{eq:generic-alt-vanishing}
+\end{equation}
+\end{proof}
+

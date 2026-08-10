@@ -1,3 +1,48 @@
+\begin{lemma}[Relative ordered-zero construction]
+\label[lemma]{lem:scheme-abel-inverse}
+Put
+\[
+ \operatorname{Ord}_{\mathrm{fac},\mathscr G}
+ =\operatorname{Ord}_{\mathrm{fac}}
+   \times_{\mathscr R_T^{(2)}}\mathscr G.
+\]
+Let
+$\operatorname{Ord}_{\mathrm{div}}$ be the functor over $\mathscr G$ whose
+$W$-points are ordered pairs of relative effective Cartier divisors
+$(D_1,D_2)$ of degree three on $C_W/W$ such that
+\[
+ \operatorname{div}(s_W)=D_W+D_1+D_2
+\]
+and the unordered pair $\{\pi_*D_1,\pi_*D_2\}$ is the unordered pair of line
+sections of $E_W$ defined by the two components of $Q_{s_W}$.  This functor is
+represented by a finite \'etale double cover of $\mathscr G$.
+The assignment $Q_s=\ell_1\ell_2\mapsto(D_1,D_2)$ is an isomorphism of finite
+\'etale double covers
+\[
+ \operatorname{Ord}_{\mathrm{fac},\mathscr G}
+ \xrightarrow{\sim}\operatorname{Ord}_{\mathrm{div}}.
+\]
+It commutes with arbitrary base change, including nonreduced base change.
+Moreover, each $D_i$ is a relative effective Cartier divisor of degree three,
+and $[\mathcal O(D_i)\otimes\kappa^{-1}]$ lies in $\cX_{\mathrm{sm}/\cB}$.
+\end{lemma}
+
+\begin{proof}
+For the forward construction put
+$T'=\operatorname{Ord}_{\mathrm{fac},\mathscr G}$ and write
+$Q_s=\ell_1\ell_2$ in its universal ordering.  By definition of
+$\mathscr G$, none of the tangency, branch, collision, multiple-zero, or Abel
+speciality loci excluded in \cref{def:admissible-locus} occurs.  For the
+remainder of the forward construction, every object with a subscript $T$ is
+pulled back to $T'$; this base change is suppressed from the notation.
+The line $\ell_i$ then
+cuts out a relative finite \'etale divisor $B_i\subset E_T$ of degree three.
+Moreover
+\[
+ U_i=C_T\times_{E_T}B_i\longrightarrow B_i
+\]
+is finite \'etale of degree three, because $B_i$ avoids the branch divisor.
+
 The zero over $B_i$ is selected scheme-theoretically as follows.  \'Etale-locally on
 $B_i$, split $U_i=B_i\sqcup B_i\sqcup B_i$ and trivialize the restriction
 of $3\kappa$, using the induced trivialization of its norm line.  If
@@ -142,38 +187,4 @@ Hence $y_2=-x_T-y_1$, and the ordered-zero construction of
 \cref{lem:scheme-abel-inverse} defines the morphism $\Phi$.  The defining
 conditions of $\mathscr G$ show that it lands in
 $\cI_T^{\mathrm{adm}}$.
-
-Conversely, let $y$ be a $W$-point of $\cI_T^{\mathrm{adm}}$, write
-$p_W:C_T\times_T W\to W$ for the projection, put
-$y_1=y$ and $y_2=-x_T-y$, and let $D_1,D_2$ be their relative Abel inverse
-divisors.  Reading \eqref{eq:abel-class-sum} from right to left gives
-\[
- \mathcal O(D_1+D_2)
- \simeq\mathcal O(3\kappa-D)\otimes p_W^*\mathcal N
-\]
-for a line bundle $\mathcal N$ on $W$.  The divisor section therefore gives
-a unique projective section $[s]$ with
-$\operatorname{div}(s)=D+D_1+D_2$; the factor pulled back from $W$ does not
-affect this projective point.  Since $y_i\in P_T$,
-\[
- \Nm_\pi\mathcal O(D_i)=\Nm_\pi(\kappa)=\eta^3.
-\]
-Thus the effective divisor $\pi_*D_i$ on $E_T$ is cut out by a unique
-projective line $\ell_i$.  Multiplicativity of the finite locally free norm
-gives, up to a
-unit from $W$,
-\[
- \Nm_\pi(s)=\ell_D\ell_1\ell_2,
- \qquad Q_s=\ell_1\ell_2,
-\]
-where $\ell_D$ is the fixed norm line of $D$.  Admissibility makes the two
-residual factors distinct and orders them by the ordered pair $(D_1,D_2)$.
-This constructs the inverse of \eqref{eq:abel-incidence-isomorphism}.
-
-The relative Abel inverse on the $h^0=1$ locus, formation of zero divisors,
-and finite locally free norms commute with arbitrary base change.  The two
-composites preserve the universal Cartier divisors and hence are the identity
-as morphisms.  Swapping $D_1,D_2$ gives $y_1\leftrightarrow y_2$, which is
-the stated incidence involution.
-\end{proof}
 

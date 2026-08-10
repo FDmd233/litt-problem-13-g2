@@ -1,3 +1,37 @@
+Conversely, let $y$ be a $W$-point of $\cI_T^{\mathrm{adm}}$, write
+$p_W:C_T\times_T W\to W$ for the projection, put
+$y_1=y$ and $y_2=-x_T-y$, and let $D_1,D_2$ be their relative Abel inverse
+divisors.  Reading \eqref{eq:abel-class-sum} from right to left gives
+\[
+ \mathcal O(D_1+D_2)
+ \simeq\mathcal O(3\kappa-D)\otimes p_W^*\mathcal N
+\]
+for a line bundle $\mathcal N$ on $W$.  The divisor section therefore gives
+a unique projective section $[s]$ with
+$\operatorname{div}(s)=D+D_1+D_2$; the factor pulled back from $W$ does not
+affect this projective point.  Since $y_i\in P_T$,
+\[
+ \Nm_\pi\mathcal O(D_i)=\Nm_\pi(\kappa)=\eta^3.
+\]
+Thus the effective divisor $\pi_*D_i$ on $E_T$ is cut out by a unique
+projective line $\ell_i$.  Multiplicativity of the finite locally free norm
+gives, up to a
+unit from $W$,
+\[
+ \Nm_\pi(s)=\ell_D\ell_1\ell_2,
+ \qquad Q_s=\ell_1\ell_2,
+\]
+where $\ell_D$ is the fixed norm line of $D$.  Admissibility makes the two
+residual factors distinct and orders them by the ordered pair $(D_1,D_2)$.
+This constructs the inverse of \eqref{eq:abel-incidence-isomorphism}.
+
+The relative Abel inverse on the $h^0=1$ locus, formation of zero divisors,
+and finite locally free norms commute with arbitrary base change.  The two
+composites preserve the universal Cartier divisors and hence are the identity
+as morphisms.  Swapping $D_1,D_2$ gives $y_1\leftrightarrow y_2$, which is
+the stated incidence involution.
+\end{proof}
+
 \begin{lemma}[Nonemptiness of the admissible locus]
 \label[lemma]{lem:admissible-nonempty}
 The open subscheme $\mathscr G$ of \cref{def:admissible-locus} is nonempty in
@@ -101,14 +135,13 @@ is integral.  Since $R_0$ injects into this domain, its coordinate ring is
 torsion-free as an $R_0$-module; over the localization $R_0$ of $\mathbf Z$
 this is equivalent to flatness.  Hence $\mathscr Y$ is $R_0$-flat.
 
-Admissibility defines an open subscheme of $\mathscr Y$ containing the displayed point over
-$\mathbf F_{13}$.  It therefore contains a principal
+Admissibility defines an open subscheme of $\mathscr Y$ containing the
+displayed point over $\mathbf F_{13}$.  It therefore contains a principal
 open $D(g)$ with $g\ne0$.  Since $\mathscr Y$ is integral, $D(g)$ contains
-its generic point.  In particular its generic fibre in characteristic zero is nonempty.  The
-generic residual curve dominates the generic point of $T_{\QQ}$, and this
-remains true after passing to the principal open.  After base change to
-$\CC$ it lies in
-$\mathscr G$.  Hence $\mathscr G$ is nonempty, dense in $\mathscr R_T$, and
+the generic point of $\mathscr Y$; in particular, its characteristic-zero
+generic fibre is nonempty.  The generic residual curve dominates the generic
+point of $T_{\QQ}$, and this remains true on $D(g)$.  After base change to
+$\CC$, this open lies in $\mathscr G$.  Hence $\mathscr G$ is nonempty, dense in $\mathscr R_T$, and
 dominates $T$; its geometric generic fibre is a nonempty open of a
 geometrically integral curve and is therefore dense.
 \end{proof}
@@ -134,7 +167,7 @@ $s^2=\Delta$.
 They extend to two disjoint sections after shrinking $\mathscr G$, so
 $\operatorname{Ord}_{\mathrm{fac},\mathscr G}
  \simeq\mathscr G\sqcup\mathscr G$.
-Apply \cref{prop:abel-incidence}.  The final assertion follows from
+Apply \cref{prop:abel-incidence}.  The last assertion follows from
 \cref{lem:residual-octic-integral,lem:admissible-nonempty}.
 \end{proof}
 

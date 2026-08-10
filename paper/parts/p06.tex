@@ -1,29 +1,3 @@
-The fibrewise assertions proved above for
-$b\in\cB(\CC)$ extend to all geometric fibres without an implicit
-genericity step.  The locus of $b\in\cB$ for which $X_b$ is geometrically
-integral is open for this proper flat family
-\cite[IV$_3$, Th\'eor\`eme~12.2.4\textup{(viii)}]{EGA4}; it contains every
-closed point by \cref{prop:theta-resolution}, hence equals $\cB$ because
-$\cB$ is Jacobson.  Likewise, the nonsmooth locus of
-$(\cX\setminus0)\to\cB$ is closed and would contain a closed point if
-nonempty, while smoothness along the zero section would be an open condition
-and would again contain a closed point if it occurred anywhere.  Thus every
-geometric fibre is integral with singular locus exactly the origin, and the
-relative smooth locus is
-\[
- \cM=(\cX/\cB)_{\mathrm{sm}}=\cX\setminus0.
-\]
-The morphism $\cM\to\cB$ is smooth and surjective with geometrically
-integral fibres.  Since $\cB$ is integral, $\cM$ is integral.
-
-Let $\cN$ be the relative norm fibre in $\cC^{(3)}$.  Every Abel class on
-$\cM$ has $h^0=1$, and the relative Abel map identifies
-$\cN\times_{\cX}\cM$ with $\cM$.  The universal divisor on the relative
-symmetric cube therefore gives a universal effective divisor of degree three
-over $\cM$.
-
-\subsection{A dominant normalized chart}
-
 \begin{lemma}[Dominant normalized chart]\label[lemma]{lem:dominant-chart}
 There is a nonempty open subscheme
 \[
@@ -162,7 +136,7 @@ If $q_0=m/e_1$, then
  \qquad q_0^3=\Lambda^{-1}.
 \label{eq:cubic-chart-field}
 \end{equation}
-This is the required normalized description.
+This gives the normalized description used below.
 \end{proof}
 
 \subsection{The norm conic}
@@ -182,8 +156,8 @@ the kernel has the following basis:
  \qquad
  s_2=(x-e_3)w-e_1Y+e_2w^2.
 \]
-We spell out the basis argument because it will be used in the norm
-calculation.  On $D$ we have $x=Y=w^3$ and
+For later use in the norm calculation, the basis argument is included.  On
+$D$ we have $x=Y=w^3$ and
 $p(w)=w^3-e_1w^2+e_2w-e_3=0$, so all three sections vanish on $D$.  Moreover
 $\deg(3\kappa-D)=6$ and $K_C=2\kappa$, hence Riemann--Roch gives
 \[
@@ -230,18 +204,4 @@ Let
  q_{02}/2&q_{12}/2&q_{22}
  \end{pmatrix}.
 \]
-
-\begin{proposition}[Determinant factorization]
-\label[proposition]{prop:determinant-factorization}
-Put
-\[
- K_0=\QQ(c,\lambda,e_1,e_2,e_3).
-\]
-In $K_0[u,v,z]$ one has
-\begin{equation}
- \det(M_s)=(u-v)F_8,
-\label{eq:determinant-factorization}
-\end{equation}
-where $F_8$ is homogeneous of degree eight and $u-v\nmid F_8$.
-\end{proposition}
 

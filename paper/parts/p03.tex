@@ -1,36 +1,3 @@
-Let $a_C:C^{(3)}\to J(C)$ be the Abel--Jacobi map and let $\Theta_C$ be the
-principal theta divisor.  If $X_{p_0}\subset C^{(d)}$ denotes the divisor of
-cycles containing a fixed point $p_0$, Macdonald's canonical-class formula is
-\cite{Macdonald1962}
-\[
- K_{C^{(d)}}\equiv a_d^*\Theta_C+(g-d-1)X_{p_0}.
-\]
-For $g(C)=4$ and $d=3=g-1$ the second term vanishes, hence
-\[
- K_{C^{(3)}}\equiv a_C^*\Theta_C.
-\]
-Since $N$ is a fibre of $n:C^{(3)}\to\operatorname{Pic}^3(E)$, its normal
-line bundle is trivial.  Adjunction therefore gives
-\[
- K_N\equiv a^*L.
-\]
-The map $a$ contracts $\Gamma$, so $K_N\cdot\Gamma=0$.  The cubic cone has
-discrepancy $-1$, hence
-\[
- K_{\widehat N}=\beta^*K_N-E_0.
-\]
-Since $E_0\cdot\widetilde\Gamma=1$, one has
-$K_{\widehat N}\cdot\widetilde\Gamma=-1$.  Adjunction on
-$\widetilde\Gamma\simeq\PP^1$ then gives
-$\widetilde\Gamma^2=-1$.  Contracting it produces a smooth surface $S$ and
-\[
- E_{\exc}^2=E_0^2+(E_0\cdot\widetilde\Gamma)^2=-2.
-\]
-The composite $\widehat N\to N\to X$ is constant on
-$\widetilde\Gamma$, hence factors through $\rho:S\to X$.  The curve
-$E_{\exc}$ maps to the origin.
-\end{proof}
-
 \begin{proposition}[The theta surface and its resolution]
 \label[proposition]{prop:theta-resolution}
 The theta section $X\subset P$ is an integral normal symmetric ample Cartier
@@ -93,11 +60,16 @@ $\mathfrak m_{P,0}^2$.  Thus $X$ is singular at the origin, and
 \label{eq:singular-locus}
 \end{equation}
 The Cartier divisor $X$ is generically reduced and Cohen--Macaulay, hence
-reduced.  It is connected because it is ample.  If it were reducible, two
-components would meet in positive dimension, and their intersection would
-lie in $\Sing(X)$; therefore $X$ is integral.  Being Cohen--Macaulay it
-satisfies $S_2$, while \eqref{eq:singular-locus} gives regularity in
-codimension one.  Serre's criterion makes $X$ normal.
+reduced.  Since $L$ is ample, $X$ is connected.  Suppose that $X$ were
+reducible.  Two irreducible components joined by an edge in the incidence
+graph must then meet.  Both have dimension two in the smooth threefold $P$,
+so every nonempty intersection of two distinct components has dimension at
+least one.  At such a point the local ring of $X$ has at least two minimal
+primes and is therefore not regular.  Hence the intersection is contained in
+$\Sing(X)=\{0\}$, contradicting its positive dimension.  Thus $X$ is
+integral.  Being Cohen--Macaulay, it satisfies $S_2$, while
+\eqref{eq:singular-locus} gives regularity in codimension one.  Serre's
+criterion makes $X$ normal.
 
 The uniqueness of the $g^1_3$ shows that the Abel map is an isomorphism away
 from $\Gamma$.  Hence $\rho$ is a resolution whose only exceptional curve is

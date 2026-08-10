@@ -1,43 +1,3 @@
-Put $\mu(z)=h(z,z^{-1})$.  We need the antidiagonal cocharacter in the
-common derived group, not merely in the Hodge group; the determinant gives a
-short way to see this.  Since $\GGm$ is connected,
-$\mu(\GGm)\subset G_H^0$.  By \cref{prop:hodge-vector},
-\[
- \det\mu(z)=z^{(-2)\cdot2+0\cdot3+2\cdot2}=1.
-\]
-The determinant is trivial on the semisimple group $G^*$ and therefore
-descends to a character
-\[
- \overline{\det}:G_H^0/G^*\longrightarrow\GGm.
-\]
-The quotient $G_H^0/G^*$ is the image of $Z_H^0$.  On $Z_H^0$ the
-determinant is $c\mapsto c^7$; since the faithful scalar action embeds
-$Z_H^0$ into $\GGm$, the induced character $\overline{\det}$ has finite
-kernel.  Hence the image of the connected group $\GGm$ under $\mu$ in
-$G_H^0/G^*$ is both connected and finite, and is therefore trivial.
-Consequently
-\[
- \mu(\GGm)\subset G^*,
-\]
-the common Hodge and perverse derived group.  Its weights on $V$ are
-\begin{equation}
- -2,0,2\quad\text{with multiplicities }2,3,2.
-\label{eq:hodge-weights}
-\end{equation}
-
-Applying the fibre functor to \cref{prop:alt-support} gives
-\begin{equation}
- \operatorname{Hom}_G(V,\Lambda^2V)\ne0.
-\label{eq:hom-exterior}
-\end{equation}
-
-\begin{proposition}[Connected Tannaka group]\label[proposition]{prop:connected-g2}
-There is an isomorphism of pairs
-\[
- (G^0,V|_{G^0})\simeq(G_2,V_7).
-\]
-\end{proposition}
-
 \begin{proof}
 By \eqref{eq:orthogonal} and \eqref{eq:connected-irreducible}, the connected
 centre of $G^0$ acts by orthogonal scalars and is therefore trivial.  Thus
@@ -45,31 +5,53 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-We prefer to make the short highest-weight list explicit rather than leave
-the classification implicit in the tables of
-\cite{Dynkin1957,FultonHarris1991}.  After passage to the simply connected
-cover, the simple modules of dimension seven are
+For completeness, the seven-dimensional possibilities can be read directly
+from the Weyl dimension formula (compare the standard tables in
+\cite{Dynkin1957,FultonHarris1991}).  If a dominant highest weight contains
+a fundamental weight $\omega_i$, its Weyl dimension is at least that of
+$V_{\omega_i}$, and it increases strictly after adding a nonzero dominant
+weight.  The only cases requiring inspection are therefore the small-rank
+types.  They give
 \[
 \begin{array}{c|c|c}
-\text{type}&\text{highest weight}&\text{self-dual}\\ \hline
-A_1&6\omega_1&\text{yes}\\
-A_6&\omega_1,\ \omega_6&\text{no; the two are dual}\\
-B_3&\omega_1&\text{yes}\\
-G_2&\omega_1&\text{yes}.
+\text{type}&\text{highest weight}&\text{dimension}\\ \hline
+A_1&6\omega_1&7\\
+A_6&\omega_1,\ \omega_6&7\\
+B_3&\omega_1&7\\
+G_2&\omega_1&7.
 \end{array}
 \]
-No other simple type has an irreducible module of dimension seven.  The
-orthogonal self-duality of $V$ excludes type $A_6$.  In type $A_1$, the
-central element $-I\in \mathrm{SL}_2$ acts trivially on $\Sym^6(\CC^2)$, so the
-faithful image is $\mathrm{PGL}_2$; in type $B_3$, the seven-dimensional vector
-representation has faithful image $\mathrm{SO}_7$.  Thus the remaining possibilities
-are $\mathrm{PGL}_2$ on $\Sym^6(\CC^2)$, $\mathrm{SO}_7$ on its standard module, and $G_2$ on
+Here is the short exclusion of the remaining types.  For $A_r$ the
+fundamental dimensions are $\binom{r+1}{i}$.  The only ranks below $A_6$
+that could conceivably contribute dimension seven are $A_2,A_3,A_4,A_5$.
+The Weyl formula gives, respectively, the dimensions below the next jump as
+$3,3,6,6$ (then $8$), $4,4,6$ (then $10$), $5,5$ (then $10$), and $6,6$
+(then $15$).  Thus none has a seven-dimensional simple module.  For
+$r\ge7$ even the standard $A_r$-module has dimension at least $8$.
+For $C_2$ the fundamental dimensions are $4,5$ and the next irreducible
+dimension is $10$; for $C_3$ they are $6,14,14$ and
+$\dim V_{2\omega_1}=21$; for $C_r$ with $r\ge4$ the standard module
+already has dimension at least $8$.  In type $B_r$, $r\ge4$, the vector
+module has dimension at least $9$, and in type $D_r$, $r\ge4$, it has
+dimension at least $8$; the spin modules do not produce dimension $7$.
+Finally, the smallest nontrivial irreducible dimensions of
+$F_4,E_6,E_7,E_8$ are $26,27,56,248$, whereas $G_2$ has its
+seven-dimensional fundamental module.  This leaves exactly the four cases
+in the table.
+
+The orthogonal self-duality of $V$ excludes type $A_6$.  In type $A_1$, the
+central element $-I\in\mathrm{SL}_2$ acts trivially on $\Sym^6(\CC^2)$,
+so the faithful image is $\mathrm{PGL}_2$; in type $B_3$, the
+seven-dimensional vector representation has faithful image $\mathrm{SO}_7$.
+The remaining possibilities are therefore $\mathrm{PGL}_2$ on
+$\Sym^6(\CC^2)$, $\mathrm{SO}_7$ on its standard module, and $G_2$ on
 $V_7$.  For $\mathrm{SO}_7$, the exterior
 square of the standard module is the irreducible adjoint module, so
 $\operatorname{Hom}_{\mathrm{SO}_7}(V,\Lambda^2V)=0$, contrary to
-\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $\mathrm{PGL}_2$, the
-weights on $\Sym^6(\CC^2)$ are seven distinct numbers.  For a primitive
-cocharacter they are
+\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $\mathrm{PGL}_2$, the weights on
+$\Sym^6(\CC^2)$ are seven distinct numbers.  With the primitive
+cocharacter of the adjoint torus (so that the usual $\mathrm{SL}_2$ weights
+are divided by two), they are
 \[
  -3,-2,-1,0,1,2,3,
 \]
@@ -126,10 +108,17 @@ follows.
 
 \section{Exact norm identities and arithmetic specializations}\label{app:exact-norm}
 
-This appendix contains the algebra used in \cref{sec:pair-splitting}.  We
-keep the full residual octic out of the main text, but display every identity
-that is used later: the normalized conic coefficients, the square-class
-identity, and the two finite-field specializations.
+This appendix isolates the finite algebra used in
+\cref{sec:pair-splitting}.  The full residual octic is omitted because it
+plays no independent conceptual role, but every algebraic assertion used in
+the proof is displayed here.  Each step is either an identity in a specified
+polynomial ring or a finite calculation in $\mathbf F_{13}$ using the
+reduction relation written out below.  Consequently every algebraic input to
+\cref{sec:pair-splitting} can be checked from the displayed formulas; no
+unrecorded computation is used.
+The four items recorded are the normalized conic coefficients, the
+square-class identity, geometric integrality of the residual octic, and an
+admissible specialization.
 
 \subsection*{A.1. Normalized conic coefficients}
 On the normalized chart $e_1=v=1$ the shifted curve is

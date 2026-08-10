@@ -109,12 +109,14 @@ coefficients of $z$ in \eqref{eq:appendix-determinant-expansion} gives
 16\lambda^2L_cf_1&=2R_0R_1+6\Delta N_0N_1,\\
 16\lambda^2L_cf_0&=R_0^2+3\Delta N_0^2.
 \end{align*}
-These seven equalities are precisely the coefficient expansion of
+These seven equalities are exactly the coefficients of $z^6,\ldots,z^0$
+in the identity
 \begin{equation}
  16\lambda^2L_c\,\widetilde F(z)=R(z)^2+3\Delta N(z)^2.
 \label{eq:appendix-primitive-square-identity}
 \end{equation}
-This is the coefficientwise form of the square-class identity.
+They constitute the complete verification of
+\eqref{eq:appendix-primitive-square-identity} in the stated polynomial ring.
 
 Since $\ell=L_c/(4\lambda^2)$, define
 \[
@@ -179,19 +181,21 @@ with
 a(v)&=5v^6+3v^5-3v^4-v^3-v^2-6v-2,\\
 b(v)&=-5v^7+6v^6-5v^5+3v^4+2v^3-4v^2-2v-4.
 \end{align*}
-Hence $\gcd(h,v^{13^4}-v)=1$.  To conclude, recall the elementary
-factor-degree argument: every monic irreducible factor of
-$v^{13^8}-v$ over $\mathbf F_{13}$ has degree dividing $8$, while the
-factors of $v^{13^4}-v$ are exactly those whose degrees divide $4$.
-Since the divisors of $8$ are $1,2,4,8$, every irreducible factor of $h$
-therefore has degree $8$.  As $\deg h=8$, the polynomial $h$ itself is
-irreducible.
+Hence $\gcd(h,v^{13^4}-v)=1$.  Recall that
+$X^{q^n}-X$ is the product, without repetition, of the monic irreducible
+polynomials over $\mathbf F_q$ whose degrees divide $n$.  Since $r_8=v$,
+every irreducible factor of $h$ has degree dividing $8$; the displayed
+B\'ezout identity excludes degrees dividing $4$.  The only divisors of $8$
+are $1,2,4,8$, so every irreducible factor of $h$ has degree $8$.  Because
+$\deg h=8$, the polynomial $h$ is irreducible.
 
 If $H$ factored, the constant nonzero leading $v$-coefficient would force
 each positive-$v$-degree factor to retain its $v$-degree after $u=4$, which
 would factor $h$; a $v$-degree-zero factor would be a unit.  Thus $H$ is
-irreducible.  Since $H$ has total degree eight, its homogenization is
-$4F_8$ at this specialization, so the projective special fibre is
+irreducible.  Its homogenization is the specialized form $4F_8$.  Because
+$H$ contains a nonzero $v^8$ term, $z$ does not divide that homogenization;
+therefore any nontrivial homogeneous factorization would dehomogenize to a
+nontrivial factorization of $H$.  The projective special fibre is thus
 irreducible.  Finally
 \[
  H(1,6)=0,

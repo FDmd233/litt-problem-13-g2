@@ -71,22 +71,22 @@ convolution, Tannaka group, exceptional group $G_2$}
 \raggedbottom
 
 \begin{abstract}
-We construct a family of complex abelian threefolds from cyclic triple covers
+A family of complex abelian threefolds is constructed from cyclic triple covers
 \[
   C:\quad w^3=y-c,\qquad c\ne0,
 \]
 of elliptic curves $y^2=x^3+Ax+B$.  The induced Prym polarization has type
-$(1,1,3)$.  Its centred theta section $X$ is a normal symmetric surface with
+$(1,1,3)$.  The centred theta section $X$ is a normal symmetric surface with
 a unique simple elliptic singularity of type $\wt E_7$, and
 $\chi(\IC_X)=7$.  For general parameters, the pair-incidence curve
 $X\cap(-x-X)$ has exactly two nonexceptional components.  Their top
-cohomology yields an unshifted summand $\IC_X\subset\Alt^2(\IC_X)$ in the
+cohomology gives an unshifted summand $\IC_X\subset\Alt^2(\IC_X)$ in the
 convolution category, while a generic unitary twist has Hodge multiplicities
-$(2,3,2)$.  These two inputs determine the Tannaka pair: the connected group
-is $G_2$ on its standard seven-dimensional representation, and the same
-exterior-square morphism rules out the only possible disconnected extension.
-Thus the full convolution Tannaka group is $G_2$, realizing the $G_2$ case of
-Litt Problem No.~13.
+$(2,3,2)$.  Together these facts determine the Tannaka pair: the connected
+group is $G_2$ on its standard seven-dimensional representation, and the
+same exterior-square morphism excludes the only possible disconnected
+extension.  The full convolution Tannaka group is therefore $G_2$, realizing
+the $G_2$ case of Litt Problem No.~13.
 \end{abstract}
 
 \maketitle
@@ -98,15 +98,15 @@ quotiented out, convolution turns the relevant constructible complexes on
 $A$ into a neutral Tannakian category.  Thus an integral subvariety
 $Z\subset A$ with $\chi(\IC_Z)\ne0$ determines a Tannaka group
 $G(\IC_Z)$ and a faithful module of dimension $\chi(\IC_Z)$; see
-\cite{KraemerWeissauer2015}.  Litt Problem No.~13 asks whether the four
+\cite[Proposition~3.1 and Definition~3.2]{JKLM2025}.  Litt Problem No.~13 asks whether the four
 exceptional simple types
 \[
   G_2,\qquad E_7,\qquad E_8,\qquad F_4
 \]
-can occur in this manner \cite{Litt13}.  We treat the $G_2$ case and make no
-claim about the other three.  The construction necessarily uses a singular
-theta surface; this point matters because the exclusion results for smooth
-subvarieties in \cite{KLM2026} do not apply here.
+can occur in this manner \cite{Litt13}.  Only the $G_2$ case is considered
+here; no claim is made about the other three.  The construction necessarily
+uses a singular theta surface, so the exclusion results for smooth
+subvarieties in \cite{KLM2026} do not apply.
 
 The construction is defined over a rational parameter space.  Put
 \[
@@ -188,8 +188,8 @@ decomposition then gives $\chi(\IC_X)=7$, and the unique singular point
 forces $\Stab_P(X)=\{0\}$.  A generic unitary twist of the same resolution
 has Hodge multiplicities $(2,3,2)$.
 
-The point where most of the geometry enters is the generic pair-incidence
-fibre.  For a geometric generic point $x$ of
+The geometric core of the argument is the generic pair-incidence fibre.
+For a geometric generic point $x$ of
 $\cM=(\cX/\cB)_{\mathrm{sm}}$, let $D_x$ be its unique effective divisor of
 degree three.  The cyclic norm of a section of $H^0(C,3\kappa-D_x)$ is the
 fixed norm line times a conic.  Its determinant has a structural linear
@@ -222,7 +222,7 @@ out the seven-dimensional $\mathrm{PGL}_2$ module, and the same morphism exclude
 only possible disconnected extension of $G_2$.  Thus $G=G_2$.
 
 \paragraph{Organization.}
-For ease of reference, the proof has the following dependency chain.
+The proof is organized by the following dependency chain.
 \begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
 \item \cref{prop:theta-resolution,lem:surface-invariants,cor:theta-ic,lem:conormal-degree}
       establish the geometry of the theta section and $\chi(\IC_X)=7$.
@@ -487,7 +487,7 @@ has $t_i=z_i^3$.  Hence the norm fibre has the analytic equation
 Thus $(N,D_0)$ is the affine cone over a smooth plane cubic, hence a simple
 elliptic singularity of type $\wt E_6$.
 
-We next locate the remaining critical points of the norm map by separating
+It remains to locate the other critical points of the norm map.  Separate
 the possible multiplicity patterns on the symmetric cube.  A divisor
 containing an unramified point
 has a tangent direction on which $d\pi$ is nonzero, so it cannot be critical.
@@ -513,8 +513,8 @@ $b_i+b_j+b_k\sim3O$, hence $b_i=b_k$, contradicting the fact that the branch
 points are distinct.  Therefore $D_0$ is the only singular point of $N$.
 
 Blowing up the vertex of the cubic cone gives a smooth surface $\widehat N$
-with exceptional elliptic curve $E_0$ and $E_0^2=-3$.  We now verify the
-local behaviour of the pencil $\Gamma=|\kappa|$ at the vertex.  Projection
+with exceptional elliptic curve $E_0$ and $E_0^2=-3$.  The local behaviour
+of the pencil $\Gamma=|\kappa|$ at the vertex is as follows.  Projection
 formula gives
 \[
  \pi_*\kappa\simeq\eta\oplus\mathcal O_E\oplus\eta^{-1}.
@@ -638,11 +638,16 @@ $\mathfrak m_{P,0}^2$.  Thus $X$ is singular at the origin, and
 \label{eq:singular-locus}
 \end{equation}
 The Cartier divisor $X$ is generically reduced and Cohen--Macaulay, hence
-reduced.  It is connected because it is ample.  If it were reducible, two
-components would meet in positive dimension, and their intersection would
-lie in $\Sing(X)$; therefore $X$ is integral.  Being Cohen--Macaulay it
-satisfies $S_2$, while \eqref{eq:singular-locus} gives regularity in
-codimension one.  Serre's criterion makes $X$ normal.
+reduced.  Since $L$ is ample, $X$ is connected.  Suppose that $X$ were
+reducible.  Two irreducible components joined by an edge in the incidence
+graph must then meet.  Both have dimension two in the smooth threefold $P$,
+so every nonempty intersection of two distinct components has dimension at
+least one.  At such a point the local ring of $X$ has at least two minimal
+primes and is therefore not regular.  Hence the intersection is contained in
+$\Sing(X)=\{0\}$, contradicting its positive dimension.  Thus $X$ is
+integral.  Being Cohen--Macaulay, it satisfies $S_2$, while
+\eqref{eq:singular-locus} gives regularity in codimension one.  Serre's
+criterion makes $X$ normal.
 
 The uniqueness of the $g^1_3$ shows that the Abel map is an isomorphism away
 from $\Gamma$.  Hence $\rho$ is a resolution whose only exceptional curve is
@@ -926,8 +931,7 @@ The stated Betti and Hodge numbers now follow from $e(S)=8$.
 
 Let $j:S\xrightarrow{\rho}X\hookrightarrow P$.  A unitary rank-one character
 of $\pi_1(P)$ determines a unitary local system $\mathcal L_\alpha$ and a
-holomorphic line bundle $\alpha\in\operatorname{Pic}^0(P)$.  We use the
-same symbol $\alpha$ for the latter.
+holomorphic line bundle $\alpha\in\operatorname{Pic}^0(P)$.  The same symbol $\alpha$ will also denote the latter.
 
 For $\alpha\ne\mathcal O_P$, the standard vanishing for a nontrivial
 line bundle in $\operatorname{Pic}^0(P)$ and the divisor sequence give
@@ -1259,7 +1263,7 @@ If $q_0=m/e_1$, then
  \qquad q_0^3=\Lambda^{-1}.
 \label{eq:cubic-chart-field}
 \end{equation}
-This is the required normalized description.
+This gives the normalized description used below.
 \end{proof}
 
 \subsection{The norm conic}
@@ -1279,8 +1283,8 @@ the kernel has the following basis:
  \qquad
  s_2=(x-e_3)w-e_1Y+e_2w^2.
 \]
-We spell out the basis argument because it will be used in the norm
-calculation.  On $D$ we have $x=Y=w^3$ and
+For later use in the norm calculation, the basis argument is included.  On
+$D$ we have $x=Y=w^3$ and
 $p(w)=w^3-e_1w^2+e_2w-e_3=0$, so all three sections vanish on $D$.  Moreover
 $\deg(3\kappa-D)=6$ and $K_C=2\kappa$, hence Riemann--Roch gives
 \[
@@ -1442,6 +1446,17 @@ positive-$v$-degree factor would retain its degree after $u=4$, while a
 $v$-degree-zero factor would itself be a unit.  Both possibilities contradict
 the irreducibility of $h$.  Hence $H$ is irreducible.
 
+Let $F_{8,\mathrm{sp}}(u,v,z)$ denote the homogeneous specialization of
+$F_8$.  Its dehomogenization at $z=1$ is $H/4$, and the nonzero $v^8$ term
+shows that $z\nmid F_{8,\mathrm{sp}}$.  If
+$F_{8,\mathrm{sp}}=AB$ were a nontrivial homogeneous factorization, then
+neither $A(u,v,1)$ nor $B(u,v,1)$ could be a unit: a positive-degree
+homogeneous polynomial whose dehomogenization is constant is a scalar
+multiple of a power of $z$, which would force $z$ to divide
+$F_{8,\mathrm{sp}}$.  Setting $z=1$ would therefore give a nontrivial
+factorization of $H$, a contradiction.  Thus the projective special fibre is
+irreducible.
+
 The affine curve $H=0$ contains the rational point $(u,v)=(1,6)$, where
 \[
  (\partial H/\partial u,\partial H/\partial v)=(2,0).
@@ -1568,9 +1583,10 @@ $\CC$.
 
 \begin{proof}
 Appendix~\ref{app:exact-norm} gives $F$, $\Delta$, $A_{\mathrm c}$, and
-$B_{\mathrm c}$ in the present coordinates.  The seven coefficient
-identities in Section~A.2 combine to give
-\eqref{eq:norm-square-identity}.
+$B_{\mathrm c}$ in the present coordinates.  Section~A.2 proves
+\eqref{eq:norm-square-identity} coefficient by coefficient in the polynomial
+ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}][z]$; the seven displayed
+equalities there are the entire algebraic verification.
 The normalized residual curve is geometrically integral by
 \cref{lem:normalized-function-field}, so $F$ is irreducible and $L$ is a
 field.  The leading terms in A.2 give $\deg A_{\mathrm c}=3$ and
@@ -1999,14 +2015,13 @@ is integral.  Since $R_0$ injects into this domain, its coordinate ring is
 torsion-free as an $R_0$-module; over the localization $R_0$ of $\mathbf Z$
 this is equivalent to flatness.  Hence $\mathscr Y$ is $R_0$-flat.
 
-Admissibility defines an open subscheme of $\mathscr Y$ containing the displayed point over
-$\mathbf F_{13}$.  It therefore contains a principal
+Admissibility defines an open subscheme of $\mathscr Y$ containing the
+displayed point over $\mathbf F_{13}$.  It therefore contains a principal
 open $D(g)$ with $g\ne0$.  Since $\mathscr Y$ is integral, $D(g)$ contains
-its generic point.  In particular its generic fibre in characteristic zero is nonempty.  The
-generic residual curve dominates the generic point of $T_{\QQ}$, and this
-remains true after passing to the principal open.  After base change to
-$\CC$ it lies in
-$\mathscr G$.  Hence $\mathscr G$ is nonempty, dense in $\mathscr R_T$, and
+the generic point of $\mathscr Y$; in particular, its characteristic-zero
+generic fibre is nonempty.  The generic residual curve dominates the generic
+point of $T_{\QQ}$, and this remains true on $D(g)$.  After base change to
+$\CC$, this open lies in $\mathscr G$.  Hence $\mathscr G$ is nonempty, dense in $\mathscr R_T$, and
 dominates $T$; its geometric generic fibre is a nonempty open of a
 geometrically integral curve and is therefore dense.
 \end{proof}
@@ -2032,7 +2047,7 @@ $s^2=\Delta$.
 They extend to two disjoint sections after shrinking $\mathscr G$, so
 $\operatorname{Ord}_{\mathrm{fac},\mathscr G}
  \simeq\mathscr G\sqcup\mathscr G$.
-Apply \cref{prop:abel-incidence}.  The final assertion follows from
+Apply \cref{prop:abel-incidence}.  The last assertion follows from
 \cref{lem:residual-octic-integral,lem:admissible-nonempty}.
 \end{proof}
 
@@ -2113,9 +2128,24 @@ the two displayed admissible branches.
 
 By the uniqueness of the $g^1_3$, the only points where an Abel inverse in
 the definition of $\Psi$ is not unique are $y=0$ and $y=-x$.  Thus the
-indeterminacy of $\Psi$ is contained in these two exceptional points.  By
-\eqref{eq:determinant-factorization}, every nonexceptional curve component
-therefore maps to the residual octic.  Its image is one-dimensional because
+indeterminacy of $\Psi$ is contained in these two exceptional points.
+
+Where $\Psi$ is defined, \eqref{eq:pair-zero-divisor} and multiplicativity
+of the finite locally free norm give, up to a nonzero scalar,
+\[
+ \Nm_\pi(s_y)=\ell_{D_x}\ell_{D_y}\ell_{D_{-x-y}}.
+\]
+After division by the fixed line $\ell_{D_x}$, the residual conic is the
+product $Q_{s_y}=\ell_{D_y}\ell_{D_{-x-y}}$.  Hence
+$\operatorname{rank}M_{s_y}\le2$ and $\det M_{s_y}=0$.  The image of
+$\Psi$ is therefore contained in
+\[
+ V(\det M_s)=V(u-v)\cup V(F_8).
+\]
+The preceding paragraph excludes $V(u-v)$ as the image of a
+nonexceptional curve component.  Consequently every nonexceptional curve
+component maps to the residual octic $V(F_8)$.  Its image is one-dimensional
+because
 $\Psi$ has finite fibres, and hence is dense because $\mathscr R$ is
 geometrically integral.  It must meet the dense open $\mathscr G$.  An
 irreducible curve cannot contain both disjoint admissible branches as open
@@ -2180,7 +2210,7 @@ locus is a point union a line, a proper subset of $\PP^2$.
 Over $k(\xi)$, the generic value of $y_+$ is a smooth rational point and
 lies on exactly one geometric component.  Galois therefore fixes the
 component containing $y_+$ and, since there are exactly two components,
-also fixes the other.  This proves descent.
+also fixes the other.  Both components therefore descend to $k(\xi)$.
 \end{proof}
 
 \section{Spreading the generic splitting}\label{sec:spreading}
@@ -2536,7 +2566,9 @@ By \eqref{eq:chi-seven}, $\dim V=7$.  The self-duality
 \eqref{eq:self-duality} gives a perfect evaluation pairing
 $K*K\to\delta_0$.  The chosen symmetry
 is centred at the origin, so no translated skyscraper occurs, and
-$\dim X=2$ makes the pairing symmetric.  Therefore the full group embeds
+$\dim X=2$ makes the pairing symmetric.  Equivalently, the nondegenerate
+self-duality on the odd-dimensional space $V$ cannot be alternating, so its
+bilinear form is necessarily symmetric.  Therefore the full group embeds
 faithfully as
 \begin{equation}
  G\hookrightarrow \mathrm{O}(V).
@@ -2620,31 +2652,53 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-We prefer to make the short highest-weight list explicit rather than leave
-the classification implicit in the tables of
-\cite{Dynkin1957,FultonHarris1991}.  After passage to the simply connected
-cover, the simple modules of dimension seven are
+For completeness, the seven-dimensional possibilities can be read directly
+from the Weyl dimension formula (compare the standard tables in
+\cite{Dynkin1957,FultonHarris1991}).  If a dominant highest weight contains
+a fundamental weight $\omega_i$, its Weyl dimension is at least that of
+$V_{\omega_i}$, and it increases strictly after adding a nonzero dominant
+weight.  The only cases requiring inspection are therefore the small-rank
+types.  They give
 \[
 \begin{array}{c|c|c}
-\text{type}&\text{highest weight}&\text{self-dual}\\ \hline
-A_1&6\omega_1&\text{yes}\\
-A_6&\omega_1,\ \omega_6&\text{no; the two are dual}\\
-B_3&\omega_1&\text{yes}\\
-G_2&\omega_1&\text{yes}.
+\text{type}&\text{highest weight}&\text{dimension}\\ \hline
+A_1&6\omega_1&7\\
+A_6&\omega_1,\ \omega_6&7\\
+B_3&\omega_1&7\\
+G_2&\omega_1&7.
 \end{array}
 \]
-No other simple type has an irreducible module of dimension seven.  The
-orthogonal self-duality of $V$ excludes type $A_6$.  In type $A_1$, the
-central element $-I\in \mathrm{SL}_2$ acts trivially on $\Sym^6(\CC^2)$, so the
-faithful image is $\mathrm{PGL}_2$; in type $B_3$, the seven-dimensional vector
-representation has faithful image $\mathrm{SO}_7$.  Thus the remaining possibilities
-are $\mathrm{PGL}_2$ on $\Sym^6(\CC^2)$, $\mathrm{SO}_7$ on its standard module, and $G_2$ on
+Here is the short exclusion of the remaining types.  For $A_r$ the
+fundamental dimensions are $\binom{r+1}{i}$.  The only ranks below $A_6$
+that could conceivably contribute dimension seven are $A_2,A_3,A_4,A_5$.
+The Weyl formula gives, respectively, the dimensions below the next jump as
+$3,3,6,6$ (then $8$), $4,4,6$ (then $10$), $5,5$ (then $10$), and $6,6$
+(then $15$).  Thus none has a seven-dimensional simple module.  For
+$r\ge7$ even the standard $A_r$-module has dimension at least $8$.
+For $C_2$ the fundamental dimensions are $4,5$ and the next irreducible
+dimension is $10$; for $C_3$ they are $6,14,14$ and
+$\dim V_{2\omega_1}=21$; for $C_r$ with $r\ge4$ the standard module
+already has dimension at least $8$.  In type $B_r$, $r\ge4$, the vector
+module has dimension at least $9$, and in type $D_r$, $r\ge4$, it has
+dimension at least $8$; the spin modules do not produce dimension $7$.
+Finally, the smallest nontrivial irreducible dimensions of
+$F_4,E_6,E_7,E_8$ are $26,27,56,248$, whereas $G_2$ has its
+seven-dimensional fundamental module.  This leaves exactly the four cases
+in the table.
+
+The orthogonal self-duality of $V$ excludes type $A_6$.  In type $A_1$, the
+central element $-I\in\mathrm{SL}_2$ acts trivially on $\Sym^6(\CC^2)$,
+so the faithful image is $\mathrm{PGL}_2$; in type $B_3$, the
+seven-dimensional vector representation has faithful image $\mathrm{SO}_7$.
+The remaining possibilities are therefore $\mathrm{PGL}_2$ on
+$\Sym^6(\CC^2)$, $\mathrm{SO}_7$ on its standard module, and $G_2$ on
 $V_7$.  For $\mathrm{SO}_7$, the exterior
 square of the standard module is the irreducible adjoint module, so
 $\operatorname{Hom}_{\mathrm{SO}_7}(V,\Lambda^2V)=0$, contrary to
-\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $\mathrm{PGL}_2$, the
-weights on $\Sym^6(\CC^2)$ are seven distinct numbers.  For a primitive
-cocharacter they are
+\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $\mathrm{PGL}_2$, the weights on
+$\Sym^6(\CC^2)$ are seven distinct numbers.  With the primitive
+cocharacter of the adjoint torus (so that the usual $\mathrm{SL}_2$ weights
+are divided by two), they are
 \[
  -3,-2,-1,0,1,2,3,
 \]
@@ -2701,10 +2755,17 @@ follows.
 
 \section{Exact norm identities and arithmetic specializations}\label{app:exact-norm}
 
-This appendix contains the algebra used in \cref{sec:pair-splitting}.  We
-keep the full residual octic out of the main text, but display every identity
-that is used later: the normalized conic coefficients, the square-class
-identity, and the two finite-field specializations.
+This appendix isolates the finite algebra used in
+\cref{sec:pair-splitting}.  The full residual octic is omitted because it
+plays no independent conceptual role, but every algebraic assertion used in
+the proof is displayed here.  Each step is either an identity in a specified
+polynomial ring or a finite calculation in $\mathbf F_{13}$ using the
+reduction relation written out below.  Consequently every algebraic input to
+\cref{sec:pair-splitting} can be checked from the displayed formulas; no
+unrecorded computation is used.
+The four items recorded are the normalized conic coefficients, the
+square-class identity, geometric integrality of the residual octic, and an
+admissible specialization.
 
 \subsection*{A.1. Normalized conic coefficients}
 On the normalized chart $e_1=v=1$ the shifted curve is
@@ -2871,12 +2932,14 @@ coefficients of $z$ in \eqref{eq:appendix-determinant-expansion} gives
 16\lambda^2L_cf_1&=2R_0R_1+6\Delta N_0N_1,\\
 16\lambda^2L_cf_0&=R_0^2+3\Delta N_0^2.
 \end{align*}
-These seven equalities are precisely the coefficient expansion of
+These seven equalities are exactly the coefficients of $z^6,\ldots,z^0$
+in the identity
 \begin{equation}
  16\lambda^2L_c\,\widetilde F(z)=R(z)^2+3\Delta N(z)^2.
 \label{eq:appendix-primitive-square-identity}
 \end{equation}
-This is the coefficientwise form of the square-class identity.
+They constitute the complete verification of
+\eqref{eq:appendix-primitive-square-identity} in the stated polynomial ring.
 
 Since $\ell=L_c/(4\lambda^2)$, define
 \[
@@ -2941,19 +3004,21 @@ with
 a(v)&=5v^6+3v^5-3v^4-v^3-v^2-6v-2,\\
 b(v)&=-5v^7+6v^6-5v^5+3v^4+2v^3-4v^2-2v-4.
 \end{align*}
-Hence $\gcd(h,v^{13^4}-v)=1$.  To conclude, recall the elementary
-factor-degree argument: every monic irreducible factor of
-$v^{13^8}-v$ over $\mathbf F_{13}$ has degree dividing $8$, while the
-factors of $v^{13^4}-v$ are exactly those whose degrees divide $4$.
-Since the divisors of $8$ are $1,2,4,8$, every irreducible factor of $h$
-therefore has degree $8$.  As $\deg h=8$, the polynomial $h$ itself is
-irreducible.
+Hence $\gcd(h,v^{13^4}-v)=1$.  Recall that
+$X^{q^n}-X$ is the product, without repetition, of the monic irreducible
+polynomials over $\mathbf F_q$ whose degrees divide $n$.  Since $r_8=v$,
+every irreducible factor of $h$ has degree dividing $8$; the displayed
+B\'ezout identity excludes degrees dividing $4$.  The only divisors of $8$
+are $1,2,4,8$, so every irreducible factor of $h$ has degree $8$.  Because
+$\deg h=8$, the polynomial $h$ is irreducible.
 
 If $H$ factored, the constant nonzero leading $v$-coefficient would force
 each positive-$v$-degree factor to retain its $v$-degree after $u=4$, which
 would factor $h$; a $v$-degree-zero factor would be a unit.  Thus $H$ is
-irreducible.  Since $H$ has total degree eight, its homogenization is
-$4F_8$ at this specialization, so the projective special fibre is
+irreducible.  Its homogenization is the specialized form $4F_8$.  Because
+$H$ contains a nonzero $v^8$ term, $z$ does not divide that homogenization;
+therefore any nontrivial homogeneous factorization would dehomogenize to a
+nontrivial factorization of $H$.  The projective special fibre is thus
 irreducible.  Finally
 \[
  H(1,6)=0,
@@ -3004,18 +3069,35 @@ L_1&x^3+4x^2+x+6&3\\
 L_2&x^3+4x^2+2x-6&5.
 \end{array}
 \]
-Hence all three intersections with $E$ are transverse.  The residual lines
-avoid the branch divisor: $L_1\cap\{Y=0\}$ has $x=10$ and the elliptic
-residual is $12\ne0$, while $L_2\cap\{Y=0\}$ has $x=1$ and residual
-$1\ne0$.  Their pairwise intersections are
+Hence all three intersections with $E$ are transverse.  To keep the sign
+convention fixed, set
+\[
+ \mathcal R(x,Y)=x^3-6x^2+x+5-(Y^2+2Y),
+\]
+so that $E=V(\mathcal R)$.  The residual lines meet the branch line at
+\[
+ L_1\cap\{Y=0\}=(10,0),\qquad
+ L_2\cap\{Y=0\}=(1,0),
+\]
+and
+\[
+ \mathcal R(10,0)=12,\qquad \mathcal R(1,0)=1.
+\]
+Their pairwise intersections are
 \[
  L_1\cap L_2=(12,8),\qquad
  L_0\cap L_1=(9,9),\qquad
  L_0\cap L_2=(6,6),
 \]
-and substitution in the elliptic equation gives residuals $5,11,11$,
-respectively.  Thus no two of the three degree-three line sections meet on
-$E$.
+with
+\[
+ \mathcal R(12,8)=8,\qquad
+ \mathcal R(9,9)=2,\qquad
+ \mathcal R(6,6)=2.
+\]
+All five values are nonzero in $\mathbf F_{13}$.  Thus the residual line
+sections avoid the branch divisor, and the three degree-three line sections
+are pairwise disjoint on $E$.
 
 The two residual line sections are therefore finite \emph{\'etale} away from
 the branch locus and occur with multiplicity one in the norm divisor.  The

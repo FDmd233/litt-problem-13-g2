@@ -1,26 +1,3 @@
-\begin{proof}
-The sum map $m|_{X\times X}:X\times X\to P$ is surjective because two
-translates of the ample divisor $X$ always meet.  Moreover,
-\[
- m\bigl((\{0\}\times X)\cup(X\times\{0\})\bigr)=X.
-\]
-Hence, for $t\notin X$, the fibre lies entirely in
-$X_{\reg}\times X_{\reg}$.  Generic smoothness for the restricted sum map
-therefore gives smoothness of the general fibre.  Since $t\notin X$ and
-$\Stab_P(X)=\{0\}$, the translate $t-X$ does not contain $X$; its restriction
-to the integral Cohen--Macaulay surface $X$ is therefore an effective ample
-Cartier divisor.  Hartshorne's connectedness theorem, applied on $X$, shows
-that this divisor, namely $X\cap(t-X)$, is connected
-\cite[Corollary~III.7.9]{Hartshorne1977}.
-The involution $p\mapsto t-p$ preserves its complex orientation and hence
-acts by $+1$ on its one-dimensional top cohomology.  Therefore
-\begin{equation}
- \cH^{-2}(K*K)_-=0
- \quad\text{on a dense open subset of }P.
-\label{eq:generic-alt-vanishing}
-\end{equation}
-\end{proof}
-
 \begin{lemma}[Extraction of the divisor-supported summand]
 \label[lemma]{lem:extract-ic}
 In the decomposition-theorem splitting of $(K*K)_-$, the constant rank-one
@@ -131,7 +108,9 @@ By \eqref{eq:chi-seven}, $\dim V=7$.  The self-duality
 \eqref{eq:self-duality} gives a perfect evaluation pairing
 $K*K\to\delta_0$.  The chosen symmetry
 is centred at the origin, so no translated skyscraper occurs, and
-$\dim X=2$ makes the pairing symmetric.  Therefore the full group embeds
+$\dim X=2$ makes the pairing symmetric.  Equivalently, the nondegenerate
+self-duality on the odd-dimensional space $V$ cannot be alternating, so its
+bilinear form is necessarily symmetric.  Therefore the full group embeds
 faithfully as
 \begin{equation}
  G\hookrightarrow \mathrm{O}(V).
@@ -167,4 +146,44 @@ Since $G_P^0\subset G_H^0$, equation
 Thus the connected centre $Z_H^0$ acts by scalar matrices.  As $G_H^0$ is
 reductive, multiplication $Z_H^0\times G^*\to G_H^0$ is surjective with
 finite kernel.
+
+Put $\mu(z)=h(z,z^{-1})$.  We need the antidiagonal cocharacter in the
+common derived group, not merely in the Hodge group; the determinant gives a
+short way to see this.  Since $\GGm$ is connected,
+$\mu(\GGm)\subset G_H^0$.  By \cref{prop:hodge-vector},
+\[
+ \det\mu(z)=z^{(-2)\cdot2+0\cdot3+2\cdot2}=1.
+\]
+The determinant is trivial on the semisimple group $G^*$ and therefore
+descends to a character
+\[
+ \overline{\det}:G_H^0/G^*\longrightarrow\GGm.
+\]
+The quotient $G_H^0/G^*$ is the image of $Z_H^0$.  On $Z_H^0$ the
+determinant is $c\mapsto c^7$; since the faithful scalar action embeds
+$Z_H^0$ into $\GGm$, the induced character $\overline{\det}$ has finite
+kernel.  Hence the image of the connected group $\GGm$ under $\mu$ in
+$G_H^0/G^*$ is both connected and finite, and is therefore trivial.
+Consequently
+\[
+ \mu(\GGm)\subset G^*,
+\]
+the common Hodge and perverse derived group.  Its weights on $V$ are
+\begin{equation}
+ -2,0,2\quad\text{with multiplicities }2,3,2.
+\label{eq:hodge-weights}
+\end{equation}
+
+Applying the fibre functor to \cref{prop:alt-support} gives
+\begin{equation}
+ \operatorname{Hom}_G(V,\Lambda^2V)\ne0.
+\label{eq:hom-exterior}
+\end{equation}
+
+\begin{proposition}[Connected Tannaka group]\label[proposition]{prop:connected-g2}
+There is an isomorphism of pairs
+\[
+ (G^0,V|_{G^0})\simeq(G_2,V_7).
+\]
+\end{proposition}
 

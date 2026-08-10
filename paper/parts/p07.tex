@@ -1,3 +1,17 @@
+\begin{proposition}[Determinant factorization]
+\label[proposition]{prop:determinant-factorization}
+Put
+\[
+ K_0=\QQ(c,\lambda,e_1,e_2,e_3).
+\]
+In $K_0[u,v,z]$ one has
+\begin{equation}
+ \det(M_s)=(u-v)F_8,
+\label{eq:determinant-factorization}
+\end{equation}
+where $F_8$ is homogeneous of degree eight and $u-v\nmid F_8$.
+\end{proposition}
+
 \begin{proof}
 Each coefficient $q_{ij}$ is homogeneous of degree three in $(u,v,z)$, so
 $\det(M_s)$ is homogeneous of degree nine.  The structural factor can be
@@ -98,6 +112,17 @@ positive-$v$-degree factor would retain its degree after $u=4$, while a
 $v$-degree-zero factor would itself be a unit.  Both possibilities contradict
 the irreducibility of $h$.  Hence $H$ is irreducible.
 
+Let $F_{8,\mathrm{sp}}(u,v,z)$ denote the homogeneous specialization of
+$F_8$.  Its dehomogenization at $z=1$ is $H/4$, and the nonzero $v^8$ term
+shows that $z\nmid F_{8,\mathrm{sp}}$.  If
+$F_{8,\mathrm{sp}}=AB$ were a nontrivial homogeneous factorization, then
+neither $A(u,v,1)$ nor $B(u,v,1)$ could be a unit: a positive-degree
+homogeneous polynomial whose dehomogenization is constant is a scalar
+multiple of a power of $z$, which would force $z$ to divide
+$F_{8,\mathrm{sp}}$.  Setting $z=1$ would therefore give a nontrivial
+factorization of $H$, a contradiction.  Thus the projective special fibre is
+irreducible.
+
 The affine curve $H=0$ contains the rational point $(u,v)=(1,6)$, where
 \[
  (\partial H/\partial u,\partial H/\partial v)=(2,0).
@@ -154,71 +179,4 @@ The curve $\mathscr R_{\mathrm n}$ is geometrically integral.  After base
 change to $\CC$, the factor-ordering cover on the full chart is the pullback
 of the normalized one through these field extensions.
 \end{lemma}
-
-\begin{proof}
-The scaling in \cref{lem:dominant-chart}, together with
-\eqref{eq:section-scaling}, identifies the locus $e_1v\ne0$ birationally with
-$\GGm\times\mathscr R_{\mathrm n}$.  This gives the first equality in
-\eqref{eq:residual-function-fields}.  The chart $v\ne0$ is dense because
-$\mathscr R$ is a geometrically integral octic.  Geometric integrality of
-$\mathscr R_{\mathrm n}$ follows by faithfully flat descent from
-\cref{lem:residual-octic-integral}.  The second equality is
-\eqref{eq:cubic-chart-field}.  Formation of the two line factors of a
-rank-two conic commutes with field extension, which proves the last assertion.
-\end{proof}
-
-\begin{proposition}[Cyclotomic ordering cover]
-\label[proposition]{prop:ordering-cover}
-On the normalized chart $e_1=v=1$, rename
-\[
- (\delta,\Lambda,E_2,E_3,U,\zeta)
- \quad\text{as}\quad
- (c,\lambda,e_2,e_3,u,z)
-\]
-and put
-\[
- K_1=\QQ(c,\lambda,e_2,e_3,u).
-\]
-Let
-\[
- \widetilde F(z)=F_8(u,1,z),
- \qquad
- \ell=\operatorname{lc}_z(\widetilde F),
- \qquad
- F=\ell^{-1}\widetilde F.
-\]
-Then $\deg_z\widetilde F=6$, so $\ell\ne0$ and $F$ is monic of degree six.  If
-\[
- \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
-\]
-there are polynomials $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
-$\deg A_{\mathrm c}=3$ and $\deg B_{\mathrm c}\le2$ such that
-\begin{equation}
- F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
-\label{eq:norm-square-identity}
-\end{equation}
-If
-\[
- L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
-\]
-then
-\begin{equation}
- [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
- \qquad
- L(\sqrt\Delta)=L(\sqrt{-3}).
-\label{eq:cyclotomic-square-class}
-\end{equation}
-There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
-locus for which the intrinsic factor-ordering cover is
-\begin{equation}
- \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
- \simeq
- \mathscr R_{\mathrm n}^\circ\times_{\QQ}
- \operatorname{Spec}\QQ(\sqrt{-3}).
-\label{eq:cyclotomic-ordering-cover}
-\end{equation}
-The same statement holds after pullback to a dense normal open of
-$\mathscr R_{T_{\QQ}}$.  In particular, the ordering cover splits over
-$\CC$.
-\end{proposition}
 

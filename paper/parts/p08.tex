@@ -1,8 +1,76 @@
 \begin{proof}
+The scaling in \cref{lem:dominant-chart}, together with
+\eqref{eq:section-scaling}, identifies the locus $e_1v\ne0$ birationally with
+$\GGm\times\mathscr R_{\mathrm n}$.  This gives the first equality in
+\eqref{eq:residual-function-fields}.  The chart $v\ne0$ is dense because
+$\mathscr R$ is a geometrically integral octic.  Geometric integrality of
+$\mathscr R_{\mathrm n}$ follows by faithfully flat descent from
+\cref{lem:residual-octic-integral}.  The second equality is
+\eqref{eq:cubic-chart-field}.  Formation of the two line factors of a
+rank-two conic commutes with field extension, which proves the last assertion.
+\end{proof}
+
+\begin{proposition}[Cyclotomic ordering cover]
+\label[proposition]{prop:ordering-cover}
+On the normalized chart $e_1=v=1$, rename
+\[
+ (\delta,\Lambda,E_2,E_3,U,\zeta)
+ \quad\text{as}\quad
+ (c,\lambda,e_2,e_3,u,z)
+\]
+and put
+\[
+ K_1=\QQ(c,\lambda,e_2,e_3,u).
+\]
+Let
+\[
+ \widetilde F(z)=F_8(u,1,z),
+ \qquad
+ \ell=\operatorname{lc}_z(\widetilde F),
+ \qquad
+ F=\ell^{-1}\widetilde F.
+\]
+Then $\deg_z\widetilde F=6$, so $\ell\ne0$ and $F$ is monic of degree six.  If
+\[
+ \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
+\]
+there are polynomials $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
+$\deg A_{\mathrm c}=3$ and $\deg B_{\mathrm c}\le2$ such that
+\begin{equation}
+ F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
+\label{eq:norm-square-identity}
+\end{equation}
+If
+\[
+ L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
+\]
+then
+\begin{equation}
+ [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
+ \qquad
+ L(\sqrt\Delta)=L(\sqrt{-3}).
+\label{eq:cyclotomic-square-class}
+\end{equation}
+There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
+locus for which the intrinsic factor-ordering cover is
+\begin{equation}
+ \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
+ \simeq
+ \mathscr R_{\mathrm n}^\circ\times_{\QQ}
+ \operatorname{Spec}\QQ(\sqrt{-3}).
+\label{eq:cyclotomic-ordering-cover}
+\end{equation}
+The same statement holds after pullback to a dense normal open of
+$\mathscr R_{T_{\QQ}}$.  In particular, the ordering cover splits over
+$\CC$.
+\end{proposition}
+
+\begin{proof}
 Appendix~\ref{app:exact-norm} gives $F$, $\Delta$, $A_{\mathrm c}$, and
-$B_{\mathrm c}$ in the present coordinates.  The seven coefficient
-identities in Section~A.2 combine to give
-\eqref{eq:norm-square-identity}.
+$B_{\mathrm c}$ in the present coordinates.  Section~A.2 proves
+\eqref{eq:norm-square-identity} coefficient by coefficient in the polynomial
+ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}][z]$; the seven displayed
+equalities there are the entire algebraic verification.
 The normalized residual curve is geometrically integral by
 \cref{lem:normalized-function-field}, so $F$ is irreducible and $L$ is a
 field.  The leading terms in A.2 give $\deg A_{\mathrm c}=3$ and
@@ -103,49 +171,4 @@ $\ell_1$ and $\ell_2$.  Its image is open because the finite \'etale cover is
 open, and invariance makes it the full inverse image of that image.  This
 defines $\mathscr G$.
 \end{definition}
-
-\begin{lemma}[Relative ordered-zero construction]
-\label[lemma]{lem:scheme-abel-inverse}
-Put
-\[
- \operatorname{Ord}_{\mathrm{fac},\mathscr G}
- =\operatorname{Ord}_{\mathrm{fac}}
-   \times_{\mathscr R_T^{(2)}}\mathscr G.
-\]
-Let
-$\operatorname{Ord}_{\mathrm{div}}$ be the functor over $\mathscr G$ whose
-$W$-points are ordered pairs of relative effective Cartier divisors
-$(D_1,D_2)$ of degree three on $C_W/W$ such that
-\[
- \operatorname{div}(s_W)=D_W+D_1+D_2
-\]
-and the unordered pair $\{\pi_*D_1,\pi_*D_2\}$ is the unordered pair of line
-sections of $E_W$ defined by the two components of $Q_{s_W}$.  This functor is
-represented by a finite \'etale double cover of $\mathscr G$.
-The assignment $Q_s=\ell_1\ell_2\mapsto(D_1,D_2)$ is an isomorphism of finite
-\'etale double covers
-\[
- \operatorname{Ord}_{\mathrm{fac},\mathscr G}
- \xrightarrow{\sim}\operatorname{Ord}_{\mathrm{div}}.
-\]
-It commutes with arbitrary base change, including nonreduced base change.
-Moreover, each $D_i$ is a relative effective Cartier divisor of degree three,
-and $[\mathcal O(D_i)\otimes\kappa^{-1}]$ lies in $\cX_{\mathrm{sm}/\cB}$.
-\end{lemma}
-
-\begin{proof}
-For the forward construction put
-$T'=\operatorname{Ord}_{\mathrm{fac},\mathscr G}$ and write
-$Q_s=\ell_1\ell_2$ in its universal ordering.  By definition of
-$\mathscr G$, none of the tangency, branch, collision, multiple-zero, or Abel
-speciality loci excluded in \cref{def:admissible-locus} occurs.  For the
-remainder of the forward construction, every object with a subscript $T$ is
-pulled back to $T'$; this base change is suppressed from the notation.
-The line $\ell_i$ then
-cuts out a relative finite \'etale divisor $B_i\subset E_T$ of degree three.
-Moreover
-\[
- U_i=C_T\times_{E_T}B_i\longrightarrow B_i
-\]
-is finite \'etale of degree three, because $B_i$ avoids the branch divisor.
 
