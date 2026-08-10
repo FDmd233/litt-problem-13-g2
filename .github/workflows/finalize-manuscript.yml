@@ -1,0 +1,142 @@
+name: Finalize manuscript revision
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-manuscript.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event.head_commit.message == 'stage final manuscript revision'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX and validation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk lmodern patch poppler-utils \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended texlive-science
+
+      - name: Apply audited manuscript revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object Litt_Problem_13_G2_complete.tex)" = "db7651af899b0f7b6a1ea247ee40324d96b4d52d"
+          gh api "repos/${GITHUB_REPOSITORY}/git/blobs/a3d93f8a3a1d9d8556a7a878eae0cd054334b431" --jq .content \
+            | tr -d '\n' | base64 -d > /tmp/manuscript.patch.gz
+          gzip -dc /tmp/manuscript.patch.gz > /tmp/manuscript.patch
+          git apply --check /tmp/manuscript.patch
+          git apply /tmp/manuscript.patch
+          test "$(git hash-object Litt_Problem_13_G2_complete.tex)" = "46b626d87e8a3d00591b3ed7b4ebae93342cb670"
+
+      - name: Regenerate the seventeen source parts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path('Litt_Problem_13_G2_complete.tex').read_text().splitlines(keepends=True)
+          bounds = [0, 190, 378, 578, 754, 935, 1127, 1334, 1516, 1690, 1880, 2085, 2268, 2458, 2647, 2823, 3034, 3215]
+          assert len(src) == bounds[-1], (len(src), bounds[-1])
+          out = Path('paper/parts')
+          out.mkdir(parents=True, exist_ok=True)
+          for j, (a, b) in enumerate(zip(bounds, bounds[1:])):
+              (out / f'p{j:02d}.tex').write_text(''.join(src[a:b]))
+          Path('paper/main.tex').write_text(''.join(f'\\input{{parts/p{i:02d}.tex}}\n' for i in range(17)))
+          PY
+          cat paper/parts/p*.tex | cmp -s - Litt_Problem_13_G2_complete.tex
+
+      - name: Run static manuscript checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          s = Path('Litt_Problem_13_G2_complete.tex').read_text()
+          cleaned = []
+          for line in s.splitlines():
+              m = re.search(r'(?<!\\)%', line)
+              cleaned.append(line if m is None else line[:m.start()])
+          t = '\n'.join(cleaned)
+          labels = re.findall(r'\\label(?:\[[^\]]*\])?\{([^}]+)\}', t)
+          refs = []
+          for m in re.finditer(r'\\(?:ref|eqref|cref|Cref)\{([^}]+)\}', t):
+              refs.extend(x.strip() for x in m.group(1).split(','))
+          assert len(labels) == len(set(labels)), 'duplicate labels'
+          assert not (set(refs) - set(labels)), sorted(set(refs) - set(labels))
+          bib = set(re.findall(r'\\bibitem\{([^}]+)\}', t))
+          cites = []
+          for m in re.finditer(r'\\cite(?:\[[^\]]*\])?\{([^}]+)\}', t):
+              cites.extend(x.strip() for x in m.group(1).split(','))
+          assert not (set(cites) - bib), sorted(set(cites) - bib)
+          openai = [i for i, line in enumerate(s.splitlines(), 1) if 'OpenAI' in line]
+          assert openai == [58, 63], openai
+          banned = re.compile(r'ChatGPT|language model|AI-generated|SageMath|Magma|Mathematica|Maple|computer algebra', re.I)
+          assert not banned.search(s), banned.search(s)
+          PY
+
+      - name: Compile and compare both source layouts
+        shell: bash
+        run: |
+          set -euo pipefail
+          latexmk -pdf -interaction=nonstopmode -halt-on-error Litt_Problem_13_G2_complete.tex
+          if grep -Eq 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined|Overfull \\hbox' Litt_Problem_13_G2_complete.log; then
+            grep -En 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined|Overfull \\hbox' Litt_Problem_13_G2_complete.log
+            exit 1
+          fi
+          pdftotext Litt_Problem_13_G2_complete.pdf /tmp/complete.txt
+          cd paper
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+          if grep -Eq 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined|Overfull \\hbox' main.log; then
+            grep -En 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply defined|Overfull \\hbox' main.log
+            exit 1
+          fi
+          pdftotext main.pdf /tmp/split.txt
+          cmp -s /tmp/complete.txt /tmp/split.txt
+
+      - name: Refresh project PDF and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/pdf
+          cp paper/main.pdf output/pdf/Litt_Problem_13_G2.pdf
+          sha256sum output/pdf/Litt_Problem_13_G2.pdf > SHA256SUMS.txt
+
+      - name: Commit synchronized manuscript
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/finalize-manuscript.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Litt_Problem_13_G2_complete.tex paper/main.tex paper/parts output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt -A .github
+          git diff --cached --check
+          git commit -m 'refine manuscript proof and presentation'
+          git push origin HEAD:main
+
+      - name: Replace v1.3.0 release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git tag -f v1.3.0 HEAD
+          git push origin refs/tags/v1.3.0 --force
+          gh release upload v1.3.0 \
+            output/pdf/Litt_Problem_13_G2.pdf \
+            SHA256SUMS.txt \
+            --clobber
