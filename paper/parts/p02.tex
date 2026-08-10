@@ -137,9 +137,9 @@ has $t_i=z_i^3$.  Hence the norm fibre has the analytic equation
 Thus $(N,D_0)$ is the affine cone over a smooth plane cubic, hence a simple
 elliptic singularity of type $\wt E_6$.
 
-We next locate the remaining critical points of the norm map.  This is a
-local calculation on the symmetric cube, and it is useful to separate the
-possible multiplicity patterns.  A divisor containing an unramified point
+We next locate the remaining critical points of the norm map by separating
+the possible multiplicity patterns on the symmetric cube.  A divisor
+containing an unramified point
 has a tangent direction on which $d\pi$ is nonzero, so it cannot be critical.
 Near a ramification point the map is $z\mapsto z^3$.  If two points collide,
 then in the elementary symmetric coordinates $e_1=z_1+z_2$ and
@@ -163,17 +163,33 @@ $b_i+b_j+b_k\sim3O$, hence $b_i=b_k$, contradicting the fact that the branch
 points are distinct.  Therefore $D_0$ is the only singular point of $N$.
 
 Blowing up the vertex of the cubic cone gives a smooth surface $\widehat N$
-with exceptional elliptic curve $E_0$ and $E_0^2=-3$.  The pencil
-$\Gamma=|\kappa|$ has multiplicity one at the vertex.  If $t$ is a local
-parameter on the pencil at $D_0$, then each ramification coordinate has an
-expansion
+with exceptional elliptic curve $E_0$ and $E_0^2=-3$.  We now verify the
+local behaviour of the pencil $\Gamma=|\kappa|$ at the vertex.  Projection
+formula gives
 \[
- z_i=\lambda_i t+O(t^2),
+ \pi_*\kappa\simeq\eta\oplus\mathcal O_E\oplus\eta^{-1}.
 \]
-with not all $\lambda_i$ zero.  Because $\Gamma\subset N$, the tangent
-direction $[\lambda_1:\lambda_2:\lambda_3]$ lies on the exceptional cubic
-$\lambda_1^3+\lambda_2^3+\lambda_3^3=0$.  This is the unique tangent
-direction of $\Gamma$ at the vertex; the multiplicity-one statement then
-shows that its strict transform meets $E_0$ in one reduced point,
-transversely.
+The two sections of $\kappa$ may therefore be chosen as follows: the section
+coming from the $\mathcal O_E$-summand is represented by $w$ and has zero
+divisor $D_0$, while a generator of $H^0(E,\eta)$ pulls back to a section
+that is nonzero at each $r_i$, since none of the branch points $b_i$ is $O$.  Let $t$ be the affine parameter of the pencil
+centred at the member $D_0$.  In a local trivialization of $\kappa$ at
+$r_i$, the moving section has equation
+\[
+ w+t u_i=0,\qquad u_i(r_i)\ne0.
+\]
+Since $w$ is a local parameter at the totally ramified point $r_i$, after
+rescaling $z_i$ this gives
+\[
+ z_i(t)=-u_i(r_i)t+O(t^2).
+\]
+Thus $\Gamma\to N$ has a nonzero tangent vector at $D_0$ and hence
+multiplicity one there.  Because $\Gamma\subset N$, its tangent direction
+lies on the exceptional cubic
+\[
+ \lambda_1^3+\lambda_2^3+\lambda_3^3=0,
+ \qquad \lambda_i=-u_i(r_i),
+\]
+and the displayed expansion shows that the strict transform of $\Gamma$
+meets $E_0$ in one reduced point, transversely.
 

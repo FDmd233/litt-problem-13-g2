@@ -1,21 +1,36 @@
-The factor $u-v$ in \cref{prop:determinant-factorization} was proved there
-geometrically.  Its multiplicity is one.  Indeed, at
-$(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ over $\mathbf F_{13}$, restrict to
-$(u,v,z)=(1+t,1,1)$.  The preceding formulas give
+For the simple-factor assertion in
+\cref{prop:determinant-factorization}, specialize in characteristic zero to
+\[
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),
+ \qquad (u,v,z)=(1+t,1,1).
+\]
+Then \eqref{eq:appendix-shifted-curve} becomes
+\[
+ Y^2+2Y=x^3-6x^2+14x-8,
+\]
+and
+\[
+ \alpha=(1+t)(x-Y)-2,\qquad \beta=x-2,\qquad \gamma=-1.
+\]
+The preceding formulas give
 \[
 \begin{array}{lll}
-q_{00}=t+2,&q_{01}=6t^2-t,&q_{02}=-6t^2-6t+2,\\
-q_{11}=-t^3-3t^2-3t,&q_{12}=2t^3+6t^2+3t,&q_{22}=-t^3-3t^2-3t.
+q_{00}=2-12t,&q_{01}=6t(t+2),&q_{02}=-2(3t^2+3t-1),\\
+q_{11}=-t(t^2+3t+3),&q_{12}=t(2t^2+6t+3),&
+q_{22}=-t(t^2+3t+3).
 \end{array}
 \]
-A $3\times3$ determinant now gives
+The division by the fixed line is exact already in $\QQ[t,x,Y]$:
+\begin{align*}
+ \Nm(s)-(Y-x)Q_s
+  =-(Y+1)\bigl(Y^2+2Y-x^3+6x^2-14x+8\bigr).
+\end{align*}
+Substitution into \eqref{eq:appendix-determinant-expansion} gives
 \begin{equation}
- 4\det M_{1+t,1,1}=-4t^4-5t^3+t^2-t
- =t(-4t^3-5t^2+t-1).
+ 4\det M_{1+t,1,1}=2t(24t^3+56t^2+33t+6).
 \label{eq:appendix-simple-structural-factor}
 \end{equation}
-The second factor is $-1$ at $t=0$, so the structural factor is simple and
-$4F_8(1,1,1)=12\ne0$ in $\mathbf F_{13}$.
+In particular, $4F_8(1,1,1)=12\ne0$ in $\QQ$.
 
 \subsection*{A.2. The square-class identity}
 Keep the normalized chart $e_1=v=1$ and put
@@ -82,9 +97,9 @@ Let
  \qquad
  \widetilde F(z)=\sum_{k=0}^6 f_kz^k.
 \]
-The remaining identity can be checked without any omitted expansion.  In the
-ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}]$, collecting the seven
-powers of $z$ in \eqref{eq:appendix-determinant-expansion} gives
+In the ring
+$\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}]$, equating the seven
+coefficients of $z$ in \eqref{eq:appendix-determinant-expansion} gives
 \begin{align*}
 16\lambda^2L_cf_6&=4L_c^2,\\
 16\lambda^2L_cf_5&=4L_cR_2,\\
@@ -99,8 +114,7 @@ These seven equalities are precisely the coefficient expansion of
  16\lambda^2L_c\,\widetilde F(z)=R(z)^2+3\Delta N(z)^2.
 \label{eq:appendix-primitive-square-identity}
 \end{equation}
-Thus every algebraic equality used in the square-class step is displayed in
-the paper.
+This is the coefficientwise form of the square-class identity.
 
 Since $\ell=L_c/(4\lambda^2)$, define
 \[
@@ -117,7 +131,8 @@ the displayed leading terms that $\deg A_{\mathrm c}=3$ and
 $\deg B_{\mathrm c}\le2$.
 
 \subsection*{A.3. Geometric integrality of the residual octic}
-At the same characteristic-$13$ specialization, put
+For this argument, specialize to characteristic $13$ at
+$(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ and put
 $H(u,v)=4F_8(u,v,1)$.  Expanding
 \eqref{eq:appendix-determinant-expansion} gives
 \begin{align*}
@@ -132,7 +147,7 @@ Its leading coefficient in $v$ is $-6=7\in\mathbf F_{13}^\times$, and
  \qquad
  h(v)=v^8-3v^7-2v^6+3v^5+4v^4+4v^3-3v^2-5v-2.
 \]
-The irreducibility check can be kept short while remaining exact.  In
+Irreducibility follows from the standard factor-degree criterion.  In
 $\mathbf F_{13}[v]/(h)$ all powers are reduced by the single relation
 \begin{equation}
  v^8=3v^7+2v^6-3v^5-4v^4-4v^3+3v^2+5v+2.
@@ -183,10 +198,10 @@ irreducible.  Finally
  \qquad
  (\partial_uH,\partial_vH)(1,6)=(2,0).
 \]
-Thus it has a smooth $\mathbf F_{13}$-point.  An irreducible projective curve
-over a finite field that is not geometrically irreducible has
-Frobenius-transitive geometric components, and every rational point lies on
-all of them; such a point is singular.  Hence the special octic is
-geometrically integral.  This is the finite-field input in
-\cref{lem:residual-octic-integral}.
+Thus it has a smooth $\mathbf F_{13}$-point.  The field $\mathbf F_{13}$ is
+perfect, so this irreducible curve is geometrically reduced.  If it were not
+geometrically irreducible, Frobenius would act transitively on its geometric
+components; a rational point would then lie on every component and would be
+singular.  Hence the special octic is geometrically integral.  This is the
+finite-field input in \cref{lem:residual-octic-integral}.
 

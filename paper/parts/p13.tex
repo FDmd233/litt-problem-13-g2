@@ -73,7 +73,7 @@ also contributes to ordinary degree $-2$ there, contradicting
 \eqref{eq:generic-alt-vanishing}.  Thus no full-support summand contributes
 to the rank-one line on $U^+$.
 
-For reference, the degree bookkeeping is
+The two relevant shifts are summarized by
 \[
 \begin{array}{c|c|c}
 \text{full-support summand}&\text{general point of }P&\text{general point of }X\\ \hline
@@ -88,11 +88,17 @@ X$.
 The local system $\mathcal V$ has rank one because its contribution to
 \eqref{eq:principal-alt-rank} has rank one.  Replace $U^+$ by
 $U^+\cap X_{\mathcal V}$.  Its restriction there is the constant local
-system found in \cref{lem:split-fibre-top}.  The inclusion
-$U^+\hookrightarrow X_{\mathcal V}$ induces a surjection on fundamental
-groups because both are smooth irreducible complex varieties and $U^+$ is a
-nonempty Zariski-open subset.  The monodromy of $\mathcal V$ is therefore
-trivial, so the summand is $\IC_X$ itself.
+system found in \cref{lem:split-fibre-top}.  The complement
+$X_{\mathcal V}\setminus U^+$ is a proper complex algebraic subset and
+therefore has real codimension at least two.  Every loop in the smooth
+variety $X_{\mathcal V}$ can be perturbed off this complement, so the
+inclusion induces a surjection
+\[
+ \pi_1(U^+)\twoheadrightarrow\pi_1(X_{\mathcal V}).
+\]
+The monodromy representation of $\mathcal V$ is trivial on the source and
+hence on $\pi_1(X_{\mathcal V})$.  Thus $\mathcal V$ is trivial and the
+summand is $\IC_X$ itself.
 \end{proof}
 
 \begin{proposition}[Alternating support detector]
@@ -128,7 +134,7 @@ is centred at the origin, so no translated skyscraper occurs, and
 $\dim X=2$ makes the pairing symmetric.  Therefore the full group embeds
 faithfully as
 \begin{equation}
- G\hookrightarrow O(V).
+ G\hookrightarrow \mathrm{O}(V).
 \label{eq:orthogonal}
 \end{equation}
 

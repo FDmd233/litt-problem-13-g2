@@ -45,7 +45,7 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-For convenience, we record the short highest-weight list rather than leave
+We prefer to make the short highest-weight list explicit rather than leave
 the classification implicit in the tables of
 \cite{Dynkin1957,FultonHarris1991}.  After passage to the simply connected
 cover, the simple modules of dimension seven are
@@ -58,12 +58,16 @@ B_3&\omega_1&\text{yes}\\
 G_2&\omega_1&\text{yes}.
 \end{array}
 \]
-No other simple type has an irreducible module of dimension seven.
-Faithfulness therefore leaves exactly $PGL_2$ on $\Sym^6(\CC^2)$, $SO_7$
-on its standard module, and $G_2$ on $V_7$.  For $SO_7$, the exterior
+No other simple type has an irreducible module of dimension seven.  The
+orthogonal self-duality of $V$ excludes type $A_6$.  In type $A_1$, the
+central element $-I\in \mathrm{SL}_2$ acts trivially on $\Sym^6(\CC^2)$, so the
+faithful image is $\mathrm{PGL}_2$; in type $B_3$, the seven-dimensional vector
+representation has faithful image $\mathrm{SO}_7$.  Thus the remaining possibilities
+are $\mathrm{PGL}_2$ on $\Sym^6(\CC^2)$, $\mathrm{SO}_7$ on its standard module, and $G_2$ on
+$V_7$.  For $\mathrm{SO}_7$, the exterior
 square of the standard module is the irreducible adjoint module, so
-$\operatorname{Hom}_{SO_7}(V,\Lambda^2V)=0$, contrary to
-\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $PGL_2$, the
+$\operatorname{Hom}_{\mathrm{SO}_7}(V,\Lambda^2V)=0$, contrary to
+\eqref{eq:hom-exterior}.  For a nontrivial cocharacter of $\mathrm{PGL}_2$, the
 weights on $\Sym^6(\CC^2)$ are seven distinct numbers.  For a primitive
 cocharacter they are
 \[
@@ -85,15 +89,15 @@ only its identity component.
 
 \begin{proof}
 By \cref{prop:connected-g2}, $G^0\simeq G_2$ on $V_7$.  Since
-$G^0\mathrel{\triangleleft}G\subset O(V)$,
+$G^0\mathrel{\triangleleft}G\subset \mathrm{O}(V)$,
 \[
- G\subset N_{O(V)}(G_2)=G_2\times\{\pm I\}.
+ G\subset N_{\mathrm{O}(V)}(G_2)=G_2\times\{\pm I\}.
 \]
 Indeed, conjugation gives a homomorphism from the normalizer to
 $\operatorname{Aut}(G_2)$.  Since $\operatorname{Out}(G_2)=1$, multiplication
 by a suitable element of $G_2$ puts every normalizing element in the
 centralizer.  Schur's lemma makes that centralizer scalar, and its intersection
-with $O(V)$ is $\{\pm I\}$.  If $G\ne G^0$, choose
+with $\mathrm{O}(V)$ is $\{\pm I\}$.  If $G\ne G^0$, choose
 $g\in G\cap(-G_2)$ and write $g=(-I)h$ with $h\in G_2=G^0$.  Then
 $-I=gh^{-1}\in G$.  But $-I$ acts by $-1$ on $V$ and by $+1$ on
 $\Lambda^2V$, contradicting \eqref{eq:hom-exterior}.  Hence $G=G^0=G_2$.
@@ -122,11 +126,10 @@ follows.
 
 \section{Exact norm identities and arithmetic specializations}\label{app:exact-norm}
 
-This appendix records the algebra used in \cref{sec:pair-splitting}.
-Rather than expand the residual octic over the full parameter space, we give
-the coefficient formulas and the finite identities at the points where they
-enter the proof.  These formulas determine each calculation uniquely and make
-the required coefficient checks local and finite.
+This appendix contains the algebra used in \cref{sec:pair-splitting}.  We
+keep the full residual octic out of the main text, but display every identity
+that is used later: the normalized conic coefficients, the square-class
+identity, and the two finite-field specializations.
 
 \subsection*{A.1. Normalized conic coefficients}
 On the normalized chart $e_1=v=1$ the shifted curve is
@@ -166,8 +169,7 @@ and
  +6\lambda uz-3\lambda u\\
 &-\lambda z^3+3\lambda z^2-3\lambda z+\lambda+z^3.
 \end{align*}
-These six coefficients determine $M_s$ and hence $F_8$ without any omitted
-choice.  In particular, for
+These six coefficients determine $M_s$ and hence $F_8$.  In particular, for
 \[
  M_s=\begin{pmatrix}
  q_{00}&q_{01}/2&q_{02}/2\\

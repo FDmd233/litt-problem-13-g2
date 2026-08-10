@@ -18,33 +18,38 @@ Write $\operatorname{div}(h)=D+D'$.  Then
 \[
  [\mathcal O_C(D')\otimes\kappa^{-1}]=-x,
  \qquad
- \Nm\mathcal O_C(D')=\eta^3.
+ \Nm_\pi\mathcal O_C(D')=\eta^3.
 \]
 Thus $\pi_*D'$ is a line section of $E$, and the norm of $h$ is, up to a
 nonzero scalar, the product of the fixed norm line $Y-x$ and this second
 line.  Moreover
 \[
- \Nm(u+zw)=u^3+z^3Y.
+ \Nm_\pi(u+zw)=u^3+z^3Y.
 \]
 After dividing by the fixed line, $Q_s$ is therefore a product of two lines
 whenever $u=v$.  Its symmetric matrix has rank at most two, and
 $\det(M_s)$ vanishes identically on $u=v$.  Thus $u-v$ divides the
 determinant, and the quotient is homogeneous of degree eight.
 
-It remains to check that the structural factor is simple.  Normalize
-$e_1=1$ by \cref{lem:dominant-chart} and specialize
+It remains to show that this factor is simple.  Divisibility of $F_8$ by the
+monic linear form $u-v$ is equivalent to the identity
+$F_8(v,v,z)=0$ over $K_0$, so one specialization in characteristic zero at
+which $F_8(v,v,z)$ is nonzero suffices.  Set
 \[
- (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)
+ (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),
+ \qquad (u,v,z)=(1+t,1,1).
 \]
-modulo $13$.  On the line $(u,v,z)=(1+t,1,1)$, the six displayed conic
-coefficients give the exact identity
-\eqref{eq:appendix-simple-structural-factor}.  Its second factor is nonzero
-at $t=0$, or equivalently
+The normalized curve is
 \[
- 4F_8(1,1,1)=12\ne0\quad\text{in }\mathbf F_{13}.
+ Y^2+2Y=x^3-6x^2+14x-8.
 \]
-Hence $u-v$ occurs with multiplicity one.  The scaling of
-\cref{lem:dominant-chart} carries the conclusion back to $K_0$.
+The six conic coefficients and the exact division by $Y-x$ are written in
+Appendix~A.1.  Substitution into the determinant gives
+\begin{equation}
+ 4\det M_{1+t,1,1}=2t(24t^3+56t^2+33t+6).
+\label{eq:characteristic-zero-simple-factor}
+\end{equation}
+Hence $4F_8(1,1,1)=12\ne0$ in $\QQ$, so $u-v\nmid F_8$.
 \end{proof}
 
 \begin{lemma}[Geometric integrality of the residual octic]
@@ -97,10 +102,11 @@ The affine curve $H=0$ contains the rational point $(u,v)=(1,6)$, where
 \[
  (\partial H/\partial u,\partial H/\partial v)=(2,0).
 \]
-Thus the point is smooth.  If the irreducible projective octic were not
-geometrically irreducible, Frobenius would permute its geometric components
-transitively, and a rational point would lie on all of them; it would then be
-singular.  The special fibre is therefore geometrically integral.
+Thus the point is smooth.  Since $\mathbf F_{13}$ is perfect, the irreducible
+special fibre is geometrically reduced.  If it were not geometrically
+irreducible, Frobenius would permute its geometric components transitively.
+A rational point would then lie on every component and could not be a smooth
+point.  The special fibre is therefore geometrically integral.
 
 Spread the coefficients over a localization $R_0=\mathbf Z[1/N]$ with
 $13\nmid N$, and choose an affine open
@@ -181,7 +187,7 @@ Let
  \qquad
  F=\ell^{-1}\widetilde F.
 \]
-Then $F$ is monic of degree six.  If
+Then $\deg_z\widetilde F=6$, so $\ell\ne0$ and $F$ is monic of degree six.  If
 \[
  \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
 \]

@@ -14,7 +14,8 @@ From this cover we obtain a polarized Prym threefold and a theta surface $X$. Fo
 ## Manuscript
 
 - [PDF](output/pdf/Litt_Problem_13_G2.pdf)
-- [LaTeX source](paper/main.tex)
+- [Complete LaTeX source](Litt_Problem_13_G2_complete.tex)
+- [Split LaTeX source](paper/main.tex)
 
 ## Verification in the manuscript
 
