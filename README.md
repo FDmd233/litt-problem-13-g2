@@ -1,18 +1,35 @@
 # A Realization of G2 for Litt Problem No. 13
 
-This repository contains the final stable manuscript for the $G_2$ case of Litt Problem No. 13. The construction starts from the shifted cyclic triple cover
+This repository contains the manuscript for the $G_2$ realization in Litt Problem No. 13. The construction starts from an elliptic curve and a shifted cyclic triple cover
 
-\[
-w^3=y-c,\qquad c\ne 0,
-\]
+$$
+E:\ y^2=x^3+Ax+B,
+\qquad
+C:\ w^3=y-c,
+\quad c\neq 0.
+$$
 
-of an elliptic curve $y^2=x^3+Ax+B$, and identifies the full convolution Tannaka group of the resulting theta surface with $G_2$ on its seven-dimensional standard representation.
+From this cover we obtain a polarized Prym threefold and a theta surface $X$. For general parameters, the intersection cohomology object $\mathrm{IC}_X$ has Euler characteristic $7$, and its full convolution Tannaka group is $G_2$ acting through the seven-dimensional standard representation.
 
 ## Manuscript
 
 - [PDF](output/pdf/Litt_Problem_13_G2.pdf)
 - [LaTeX source](paper/main.tex)
 
-## Status
+## Verification in the manuscript
 
-Final stable revision, August 10, 2026. The finite algebra used in the pair-incidence argument is written explicitly in Appendix A; no auxiliary proof-verification code is required.
+The finite algebra used in the pair-incidence argument is written explicitly in Appendix A. The proof does not rely on auxiliary verification code.
+
+## Build
+
+With a standard LaTeX installation including `latexmk`, run:
+
+```bash
+make
+```
+
+The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`, and its SHA256 checksum to `SHA256SUMS.txt`.
+
+## Release
+
+Current release: [`v1.3.0`](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0)
