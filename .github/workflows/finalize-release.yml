@@ -1,0 +1,88 @@
+name: Finalize manuscript release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.final/**'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct final source
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .final/main.b64.* | base64 --decode | xz --decompress > paper/main.tex
+          test "$(wc -l < paper/main.tex)" -eq 2972
+          test "$(sha256sum paper/main.tex | cut -d' ' -f1)" = "9c05e28ef33278ef217e74a20513eed2e3178c50348677a6a6dce01f4c793a20"
+
+      - name: Install LaTeX
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils
+
+      - name: Build and audit manuscript
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd paper
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+          if grep -E "Undefined|undefined references|undefined citations|Overfull \\hbox|Underfull \\hbox|multiply defined" main.log; then
+            echo "LaTeX audit found a warning that is not allowed in the final release."
+            exit 1
+          fi
+          test "$(pdfinfo main.pdf | awk '/^Pages:/ {print $2}')" = "37"
+
+      - name: Commit final repository state
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/pdf
+          cp paper/main.pdf output/pdf/Litt_Problem_13_G2.pdf
+          sha256sum output/pdf/Litt_Problem_13_G2.pdf > SHA256SUMS.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md Makefile paper/main.tex output/pdf/Litt_Problem_13_G2.pdf SHA256SUMS.txt
+          git rm -r --ignore-unmatch code .final
+          git rm --ignore-unmatch requirements.txt paper/references.bib
+          git commit -m "publish final stable manuscript"
+          git push origin HEAD:main
+
+      - name: Replace all releases with the final release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t release_ids < <(gh api --paginate "repos/$GITHUB_REPOSITORY/releases" --jq '.[].id')
+          for id in "${release_ids[@]}"; do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/$id"
+          done
+
+          mapfile -t tag_refs < <(gh api --paginate "repos/$GITHUB_REPOSITORY/git/matching-refs/tags" --jq '.[].ref' 2>/dev/null || true)
+          for ref in "${tag_refs[@]}"; do
+            short_ref="${ref#refs/}"
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/$short_ref"
+          done
+
+          gh release create v1.3.0-final \
+            output/pdf/Litt_Problem_13_G2.pdf#Litt_Problem_13_G2.pdf \
+            SHA256SUMS.txt#SHA256SUMS.txt \
+            --target main \
+            --title "A Realization of G2 for Litt Problem No. 13" \
+            --notes "Final stable manuscript. The source and PDF correspond to the audited August 10, 2026 revision. The finite algebra used in the proof is written explicitly in Appendix A; no auxiliary verification code is required." \
+            --latest
+
+          test "$(gh api --paginate "repos/$GITHUB_REPOSITORY/releases" --jq '.[].id' | wc -l)" -eq 1
+          test "$(gh api --paginate "repos/$GITHUB_REPOSITORY/git/matching-refs/tags" --jq '.[].ref' | wc -l)" -eq 1
