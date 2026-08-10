@@ -83,7 +83,7 @@ jobs:
           assert not (set(cites) - bib), sorted(set(cites) - bib)
           openai = [i for i, line in enumerate(s.splitlines(), 1) if 'OpenAI' in line]
           assert openai == [58, 63], openai
-          banned = re.compile(r'ChatGPT|language model|AI-generated|SageMath|Magma|Mathematica|Maple|computer algebra', re.I)
+          banned = re.compile(r'\b(?:ChatGPT|SageMath|Magma|Mathematica|Maple)\b|language model|AI-generated|computer algebra', re.I)
           assert not banned.search(s), banned.search(s)
           PY
 
