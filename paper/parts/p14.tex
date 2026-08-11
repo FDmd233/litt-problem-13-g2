@@ -5,12 +5,16 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-The seven-dimensional possibilities follow directly from the Weyl dimension formula (compare the standard tables in
-\cite{Dynkin1957,FultonHarris1991}).  If a dominant highest weight contains
-a fundamental weight $\omega_i$, its Weyl dimension is at least that of
-$V_{\omega_i}$, and it increases strictly after adding a nonzero dominant
-weight.  The only cases requiring inspection are therefore the small-rank
-types.  They give
+For a dominant weight $\lambda$, the Weyl dimension formula is
+\[
+ \dim V_\lambda=
+ \prod_{\alpha>0}
+ \frac{\langle\lambda+\rho,\alpha^\vee\rangle}
+      {\langle\rho,\alpha^\vee\rangle}
+\]
+(compare \cite[Lecture~24]{FultonHarris1991}).  It is strictly increasing when a nonzero
+dominant weight is added.  Applying it to the fundamental weights of each
+simple type gives the following complete seven-dimensional list:
 \[
 \begin{array}{c|c|c}
 \text{type}&\text{highest weight}&\text{dimension}\\ \hline
@@ -20,7 +24,7 @@ B_3&\omega_1&7\\
 G_2&\omega_1&7.
 \end{array}
 \]
-Here is the short exclusion of the remaining types.  For $A_r$ the
+The remaining types are excluded as follows.  For $A_r$ the
 fundamental dimensions are $\binom{r+1}{i}$.  The only ranks below $A_6$
 that could conceivably contribute dimension seven are $A_2,A_3,A_4,A_5$.
 The Weyl formula gives, respectively, the dimensions below the next jump as
@@ -107,16 +111,15 @@ follows.
 
 \section{Explicit algebraic and arithmetic checks}\label{app:exact-norm}
 
-This appendix records the explicit calculations that remain useful in
-\cref{sec:pair-splitting}.  The splitting of the factor-ordering cover is
-proved intrinsically in \cref{lem:off-curve-norm,prop:ordering-cover} and
-requires no large coefficient expansion.  What remains here is deliberately
-limited to the normalized conic coefficients used for the simple structural
-factor, the finite-field irreducibility check for the residual octic, and one
-admissible specialization.  Every finite-field reduction used below is
-written out explicitly.
+We record the exact calculations used in \cref{sec:pair-splitting}.  The
+intrinsic argument of \cref{lem:off-curve-norm,prop:ordering-cover} proves the
+splitting of the factor-ordering cover without a coefficient expansion.  The
+calculations below give the normalized conic coefficients, the finite-field
+irreducibility certificate for the residual octic, and one admissible
+specialization.  Every finite-field reduction used in the proof is displayed.
 
-\subsection*{A.1. Normalized conic coefficients}
+\subsection{Normalized conic coefficients}
+\label{app:normalized-conic}
 On the normalized chart $e_1=v=1$ the shifted curve is
 \begin{equation}
  Y^2+2cY
@@ -169,4 +172,3 @@ the only determinant expansion used below is
  -q_{22}q_{01}^2+q_{01}q_{02}q_{12}.
 \label{eq:appendix-determinant-expansion}
 \end{equation}
-

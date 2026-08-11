@@ -1,15 +1,8 @@
 \begin{proof}
-For a fixed section, the residual zero-cycle has only finitely many
-degree-three subcycles, so $\Psi$ has finite fibres.  In the basis used for
-\eqref{eq:determinant-factorization}, put
-\[
- h=x-e_1w^2+e_2w-e_3.
-\]
-Since $Y=w^3$ on $C$, direct substitution gives
-\begin{equation}
- s_0+s_1=h,\qquad s_2=wh.
-\label{eq:structural-pencil}
-\end{equation}
+For a fixed section, its effective zero divisor on the smooth curve $C$ has
+only finitely many effective degree-three subdivisors, so $\Psi$ has finite
+fibres.  Recall $h$ and the identities in
+\eqref{eq:structural-pencil}.
 The zero divisor of $h\in H^0(C,2\kappa)$ is
 $D_x+D_{-x}$.  Indeed, it contains $D_x$, and the residual degree-three
 divisor has Abel class $-x$ and is unique on the generic $h^0=1$ locus.
@@ -29,7 +22,9 @@ Equation \eqref{eq:structural-pencil} identifies the line $u=v$ with
  subcycles whose pushforward is a line section are the two complete triples.
  Their Abel classes are $-x$ and $0$.
 
- The exceptional parameters of the structural pencil form a finite set.  If
+ Reducedness, transversality, and disjointness fail on proper closed subsets
+ of this projective line, so the exceptional parameters of the structural
+ pencil form a finite set.  If
  an incidence-curve component mapped dominantly to $u=v$, its generic point
  would contradict the preceding paragraph; if it mapped to one parameter, it
  would contradict the finiteness of the fibres of $\Psi$.  Thus $u=v$ gives no
@@ -59,12 +54,17 @@ $\Psi$ is therefore contained in
 \]
 The preceding paragraph excludes $V(u-v)$ as the image of a
 nonexceptional curve component.  Consequently every nonexceptional curve
-component maps to the residual octic $V(F_8)$.  Its image is one-dimensional
-because
-$\Psi$ has finite fibres, and hence is dense because $\mathscr R$ is
-geometrically integral.  It must meet the dense open $\mathscr G$.  An
-irreducible curve cannot contain both disjoint admissible branches as open
-subsets, so their closures are exactly the two nonexceptional components.
+component maps to the residual octic $V(F_8)$.  Let $Z$ be such a component.
+Its image is one-dimensional because $\Psi|_Z$ has finite fibres, and hence
+is dense because $\mathscr R$ is geometrically integral.  Thus
+$Z\cap\Psi^{-1}(\mathscr G)$ is a dense open subset of $Z$.  Over
+$\mathscr G$, \cref{prop:abel-incidence,cor:two-admissible-branches}
+identify the incidence scheme with the disjoint union of two irreducible
+branches.  The irreducibility of $Z$ places its dense open in exactly one of
+them, and dimensional equality then makes it dense in that branch.  Hence
+$Z$ is the closure of one of the two admissible branches.  Conversely, each
+branch closure is an irreducible component.  These are therefore exactly the
+two nonexceptional components.
 Here $\CC(T)=\CC(\cM)$ from \eqref{eq:chart-function-field} identifies the
 two geometric generic fibres.
 \end{proof}
@@ -106,8 +106,11 @@ defines a rational section of the pair-incidence family; the associated
 ordered pair is $(\tau x,\tau^2x)$.  This section meets the smooth locus of the projection of the pair-incidence
 family to the $x$-coordinate on a nonempty open.  If it did not, then for
 general $x$ the tangent hyperplanes to $X$ at $\tau x$ and $\tau^2x$ would
-coincide, so their Gauss covectors would be equal.  By $\tau$-equivariance,
-that common covector would be fixed projectively by $\tau$.  The general
+coincide, so their Gauss covectors would be equal.  The equivariance identity
+\[
+ \gamma_X(\tau x)=\tau\cdot\gamma_X(x)
+\]
+then makes that common covector projectively fixed by $\tau$.  The general
 Gauss image would then lie in the projective fixed locus of $\tau$, contrary
 to the dominance in \eqref{eq:gauss-degree}.  Explicitly,
 \[
@@ -180,4 +183,3 @@ $q:\cI\to\cM$ is reduced and has exactly two geometrically integral
 components, both defined over $k(\cM)$.  Let
 $\cA_1,\cA_2\subset\cI$ be their closures.  The involution exchanges them
 because it exchanges their generic fibres.
-

@@ -44,75 +44,17 @@ residual curve.
 For nonemptiness, use the following characteristic-$13$ point of the
 normalized chart:
 \[
- (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),
+ (c,m,e_1,e_2,e_3)=(1,1,1,0,2),\qquad \lambda=m^{-3}=1,
  \qquad
  (u:v:z)=(3:5:1).
 \]
-In the shifted coordinates $Y=y-c$, the elliptic equation is
-\[
- Y^2+2Y=x^3-6x^2+x+5
- \qquad(\bmod 13),
-\]
-equivalently, after the translation $x\mapsto x+2$,
-\[
- y^2=x^3+2x+5.
-\]
-The cubic on the right has discriminant $8$, and the branch cubic cut out
-by $Y=0$ has discriminant $4$.  The selected fixed divisor is defined by
-\[
- p(w)=w^3-w^2-2,
-\]
-whose discriminant is $1$.  Thus both the curve and the branch divisor are
-smooth and $D$ is reduced.
-
-At the displayed section, the residual conic has coefficient vector
-\[
- (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
-\]
-and factors as
-\[
- Q_s
- =5+x+7Y+7x^2+2Y^2
- =5(1+9x+Y)(1+12x+3Y).
-\]
-The fixed norm line is $Y=x$.  The discriminants of the three line sections
-of $E$ are, respectively,
-\[
- 4,\qquad3,\qquad5,
-\]
-so all three intersections are transverse.  The two residual lines meet at
-$(12,8)$; their intersections with $Y=x$ are $(9,9)$ and $(6,6)$.  None of
-these three points lies on $E$, so the three degree-three line sections are
-pairwise disjoint.  Each residual line avoids the branch divisor $Y=0$.
-
-The canonical-model condition at this point follows from the same four forms
-used in \cref{prop:theta-resolution}.  Since $\mathbf F_{13}$ contains the
-cube roots of unity and $2,3$ are invertible, these forms remain regular.  The nine quadratic representatives other than
-$X_0X_2-X_1^2$ split into the three deck-transformation eigenspaces
-\[
- \langle1,x,Y,x^2\rangle,\qquad
- \langle w,xw,wY\rangle,\qquad
- \langle w^2,xw^2\rangle.
-\]
-At a point above $O$ their pole orders are, respectively,
-$(0,2,3,4)$, $(1,3,4)$, and $(2,4)$.  Thus they are linearly independent,
-and the unique canonical quadric is again
-$X_0X_2-X_1^2=0$.  It has rank three and one ruling, so $|\kappa|$ is the
-unique $g^1_3$.  In these coordinates a member of the pencil is cut out by
-$a+bw$, and
-\[
- \Nm_\pi(a+bw)=a^3+b^3Y.
-\]
-Thus its norm line has no $x$-term, whereas each of the three lines above has
-a nonzero $x$-coefficient.  Their
-degree-three inverse images are therefore not linearly equivalent to
-$\kappa$ and hence lie in the $h^0=1$ Abel locus.  The local norm calculation
-of \cref{lem:norm-fibre} is valid here for the same reason: $2$ and $3$ are
-invertible.  At a residual point the cover is
-\'etale and the residual line is transverse to $E$; hence the norm of $s$
-has vanishing order one.  The three nonnegative vanishing orders of $s$ on
-the three sheets sum to one, so exactly one sheet contains a simple zero.
-This verifies all conditions in \cref{def:admissible-locus}.
+Direct substitution verifies all four conditions of
+\cref{def:admissible-locus}: the fixed divisor is reduced; the three norm
+lines cut transverse, pairwise disjoint sections away from the branch
+divisor; each residual point lifts to one simple zero; and both residual
+divisors lie in the smooth $h^0=1$ Abel locus.  Every coefficient,
+discriminant, intersection point, and nonvanishing test in this substitution
+is displayed in \cref{app:admissible-specialization}.
 
 For the passage to characteristic zero, enlarge the localization
 $R_0=\mathbf Z[1/N]$ from \cref{lem:residual-octic-integral}, without
@@ -199,4 +141,3 @@ its admissible open, and is the closure of one of the two branches in
 \cref{cor:two-admissible-branches}.  In particular,
 $C_{\bar\xi}^{\mathrm{ne}}$ has exactly two irreducible components.
 \end{lemma}
-

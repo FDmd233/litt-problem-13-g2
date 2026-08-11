@@ -1,4 +1,5 @@
-\subsection*{A.3. An admissible specialization}
+\subsection{An admissible specialization}
+\label{app:admissible-specialization}
 For \cref{lem:admissible-nonempty} use
 \[
  (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),\qquad (u:v:z)=(3:5:1)
@@ -13,11 +14,21 @@ out by
  p(w)=w^3-w^2-2,
  \qquad \operatorname{disc}(p)=1,
 \]
-so it is reduced.  The residual conic has coefficient vector
+so it is reduced.  On the normalized chart,
 \[
- (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
+ (U,Z)=(u/v,z/v)=(3/5,1/5)=(11,8)
+ \quad\text{in }\mathbf F_{13}^2.
 \]
-and factors as
+Consequently
+\[
+ \bigl(q_{ij}^{\mathrm{hom}}(3,5,1)\bigr)_{ij}
+ =\left.5^3\bigl(q_{ij}(U,1,Z)\bigr)_{ij}
+   \right|_{(U,Z)=(11,8)}
+ =(5,1,7,7,0,2),
+\]
+where the entries are ordered as
+$q_{00},q_{01},q_{02},q_{11},q_{12},q_{22}$.  The residual conic therefore
+factors as
 \[
  5+x+7Y+7x^2+2Y^2
  =5(1+9x+Y)(1+12x+3Y).
@@ -110,10 +121,6 @@ Jean-Paul Brasselet, D\~ung Tr\'ang L\^e, and Jos\'e Seade,
 Mark Andrea A. de Cataldo and Luca Migliorini,
 \emph{The hard Lefschetz theorem and the topology of semismall maps}, Ann. Sci. \`Ecole Norm. Sup. (4) \textbf{35} (2002), no.~5, 759--772.
 
-\bibitem{Dynkin1957}
-E.~B. Dynkin,
-\emph{Semisimple subalgebras of semisimple Lie algebras}, Amer. Math. Soc. Transl. Ser.~2 \textbf{6} (1957), 111--244.
-
 \bibitem{FraneckiKapranov2000}
 J. Franecki and M. Kapranov,
 \emph{The Gauss map and a noncompact Riemann--Roch formula for constructible sheaves on semiabelian varieties}, Duke Math. J. \textbf{104} (2000), no.~1, 171--180.
@@ -140,7 +147,8 @@ Masaki Kashiwara,
 
 \bibitem{Kempf1973}
 George Kempf,
-\emph{On the geometry of a theorem of Riemann}, Ann.\ of Math. (2) \textbf{98} (1973), no.~1, 178--185.
+\emph{On the geometry of a theorem of Riemann}, Ann.\ of Math. (2) \textbf{98} (1973), no.~1, 178--185,
+\newblock \url{https://doi.org/10.2307/1970910}.
 
 \bibitem{KLM2026}
 Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
@@ -160,15 +168,17 @@ Daniel Litt,
 
 \bibitem{Macdonald1962}
 I.~G. Macdonald,
-\emph{Symmetric products of an algebraic curve}, Topology \textbf{1} (1962), 319--343.
+\emph{Symmetric products of an algebraic curve}, Topology \textbf{1} (1962), 319--343,
+\newblock \url{https://doi.org/10.1016/0040-9383(62)90019-8}.
 
 \bibitem{Pinkham1977}
 Henry C. Pinkham,
-\emph{Simple elliptic singularities, del Pezzo surfaces and Cremona transformations}, Several Complex Variables, Proc. Sympos. Pure Math., vol.~30, American Mathematical Society, Providence, RI, 1977, pp.~69--71.
+\emph{Simple elliptic singularities, del Pezzo surfaces and Cremona transformations}, in \emph{Several complex variables}, Proc. Sympos. Pure Math., vol.~30, Part~1, American Mathematical Society, Providence, RI, 1977, pp.~69--71.
 
 \bibitem{Saito1988}
 Morihiko Saito,
-\emph{Modules de Hodge polarisables}, Publ. Res. Inst. Math. Sci. \textbf{24} (1988), no.~6, 849--995.
+\emph{Modules de Hodge polarisables}, Publ. Res. Inst. Math. Sci. \textbf{24} (1988), no.~6, 849--995,
+\newblock \url{https://doi.org/10.2977/PRIMS/1195173930}.
 
 \bibitem{stacks-project}
 The Stacks Project Authors,
@@ -177,5 +187,3 @@ The Stacks Project Authors,
 \end{thebibliography}
 
 \end{document}
-
-

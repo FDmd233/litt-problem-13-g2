@@ -32,10 +32,21 @@ Substitution into \eqref{eq:appendix-determinant-expansion} gives
 \end{equation}
 In particular, $4F_8(1,1,1)=12\ne0$ in $\QQ$.
 
-\subsection*{A.2. Geometric integrality of the residual octic}
+\subsection{Geometric integrality of the residual octic}
+\label{app:residual-octic-certificate}
 For this argument, specialize to characteristic $13$ at
 $(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ and put
-$H(u,v)=4F_8(u,v,1)$.  Expanding
+$H(u,v)=4F_8(u,v,1)$.  To make the passage from the normalized formulas
+explicit, set
+\[
+ q_{ij}^{\mathrm{hom}}(u,v,z)
+   =v^3q_{ij}(u/v,1,z/v),\qquad
+ H(u,v)=
+ \left.\frac{4\det M^{\mathrm{hom}}}{u-v}\right|_{z=1}.
+\]
+Here $M^{\mathrm{hom}}$ is the symmetric matrix of
+\eqref{eq:appendix-determinant-expansion} formed from the
+$q_{ij}^{\mathrm{hom}}$.  Expanding
 \eqref{eq:appendix-determinant-expansion} gives
 \begin{align*}
 H(u,v)={}&6u^3v^5-u^3v^4+6u^3v^3-u^3v^2-u^3v
@@ -55,8 +66,10 @@ $\mathbf F_{13}[v]/(h)$ all powers are reduced by the single relation
  v^8=3v^7+2v^6-3v^5-4v^4-4v^3+3v^2+5v+2.
 \label{eq:appendix-h-reduction}
 \end{equation}
-Put $r_j\equiv v^{13^j}\pmod h$, taking the representative of degree
-at most seven.  Repeated use of \eqref{eq:appendix-h-reduction} gives
+Starting with $r_0=v$, define $r_{j+1}$ to be the degree-at-most-seven
+remainder of $r_j^{13}$ upon division by $h$.  Equivalently,
+$r_j\equiv v^{13^j}\pmod h$.  Reduction by
+\eqref{eq:appendix-h-reduction} gives
 \begin{align*}
 r_0={}&v,\\
 r_1={}&-v^7+2v^6+6v^5-v^4+6v^3-2v^2-2v-6,\\
@@ -108,4 +121,3 @@ geometrically irreducible, Frobenius would act transitively on its geometric
 components; a rational point would then lie on every component and would be
 singular.  Hence the special octic is geometrically integral.  This is the
 finite-field input in \cref{lem:residual-octic-integral}.
-

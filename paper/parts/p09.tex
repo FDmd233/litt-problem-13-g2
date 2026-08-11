@@ -54,8 +54,9 @@ of the finite locally free norm with base change gives
 \end{equation}
 as an equality in the structure sheaf, not merely at geometric points.
 The collision exclusions imply that locally two values, say $a_2,a_3$, are
-units.  Equation~\eqref{eq:split-norm-zero} then forces $a_1=0$, also in
-nilpotent directions.
+nonzero on every geometric fibre.  Their vanishing loci are therefore empty,
+so they are units in the corresponding structure sheaf.  Equation
+\eqref{eq:split-norm-zero} then forces $a_1=0$, also in nilpotent directions.
 Consequently
 \[
  Z_i=Z(s)\times_{E_T}B_i\subset U_i
@@ -133,7 +134,21 @@ is involved.
 \end{proof}
 
 Let $x_T:T\to\cM$ be the point represented by the universal divisor $D$,
-so that $x_T=[\mathcal O(D)\otimes\kappa^{-1}]$.  Define
+so that $x_T=[\mathcal O(D)\otimes\kappa^{-1}]$.  Put
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+In the basis used for \eqref{eq:determinant-factorization}, direct
+substitution gives
+\begin{equation}
+ s_0+s_1=h,\qquad s_2=wh.
+\label{eq:structural-pencil}
+\end{equation}
+The divisor of $h$ is $D+D_{-x_T}$: it contains $D$, and its residual
+degree-three divisor has Abel class $-x_T$ and is unique on the $h^0=1$
+locus.
+
+Define
 \[
  \cI_T^\dagger=
  \{y\in X_T^{(1)}\cap X_{T,\mathrm{sm}/T}:
@@ -152,7 +167,20 @@ projective relative section
  \vartheta:\cI_T^\dagger\longrightarrow
  \PP_T\bigl(p_*\mathcal O_{C_T}(3\kappa-D)\bigr).
 \]
-Taking norms shows that $\vartheta$ factors through $\mathscr R_T$.  Set
+The factorization through the residual octic holds scheme-theoretically.
+Indeed, on the hyperplane $u=v$, \eqref{eq:structural-pencil} gives
+\[
+ s=h(u+zw),\qquad
+ \operatorname{div}(s)=D+D_{-x_T}+D_\kappa
+ \quad(D_\kappa\in|\kappa|).
+\]
+The two residual Abel classes are therefore $-x_T$ and $0$.  This cannot
+occur on $\cI_T^\dagger$, where both residual classes lie in
+$X_T^{(1)}\cap X_{T,\mathrm{sm}/T}$.  Hence the pullback of $u-v=0$ is
+empty, and the pullback of $u-v$ is a unit in a local trivialization of the
+tautological line bundle.  Taking norms gives $(u-v)F_8=0$, so $F_8=0$ on
+$\cI_T^\dagger$, including nilpotent directions.  Thus $\vartheta$ factors
+through $\mathscr R_T$.  Set
 \[
  \cI_T^{\mathrm{adm}}=\vartheta^{-1}(\mathscr G).
 \]
@@ -187,4 +215,3 @@ Hence $y_2=-x_T-y_1$, and the ordered-zero construction of
 \cref{lem:scheme-abel-inverse} defines the morphism $\Phi$.  The defining
 conditions of $\mathscr G$ show that it lands in
 $\cI_T^{\mathrm{adm}}$.
-

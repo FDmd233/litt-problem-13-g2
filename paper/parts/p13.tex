@@ -9,7 +9,8 @@ $P$, or from a summand with any other support.
 \begin{proof}
 The complex $(K*K)_-$ is a direct summand of the projective direct image of
 a pure polarizable Hodge module.  By the decomposition theorem and
-semisimplicity \cite{BBD1982,Saito1988}, it is a direct sum of shifted simple
+semisimplicity \cite[Th\'eor\`eme~6.2.5]{BBD1982} and
+\cite[Th\'eor\`eme~5.3.1]{Saito1988}, it is a direct sum of shifted simple
 intersection complexes.  A summand with proper support containing the
 generic point of $U^+$ must have support $X$.  Such a simple summand has the
 form $\IC_X(\mathcal V)[r]$, where $\mathcal V$ is an irreducible local
@@ -18,11 +19,17 @@ restriction to $U^+\cap X_{\mathcal V}$ is $\mathcal V[2+r]$, so contribution
 to ordinary degree $-2$ forces $r=0$.
 
 A full-support summand cannot account for the line in
-\eqref{eq:principal-alt-rank}.  Choose a general point $a\in U^+$ that lies
-on no singular stratum of any full-support simple summand except the divisor
-stratum $X_{\reg}$.  A small analytic neighbourhood of $a$ is stratified
-homeomorphic to a product of a ball in $X_{\reg}$ with a normal disk
-$\Delta$ to $X$.  Hence a full-support simple perverse summand is locally
+\eqref{eq:principal-alt-rank}.  Only finitely many simple summands occur.
+Choose $a\in U^+$ in the two-dimensional stratum of a common Whitney
+stratification subordinate to $X$ and to all these summands.  Normal
+nonsingularity along this stratum identifies a sufficiently small
+stratified analytic neighbourhood with
+\[
+ (B^2\times\Delta,B^2\times\{0\}),
+\]
+where $B^2\subset X_{\reg}$ is a ball and $\Delta$ is a normal disk.
+Intermediate extension commutes with this external product.  Hence a
+full-support simple perverse summand is locally
 \[
  \mathcal L[2]\boxtimes j_{\Delta,!*}\mathcal W[1],
  \qquad j_\Delta:\Delta^*\hookrightarrow\Delta,
@@ -63,15 +70,17 @@ a different irreducible divisor cannot contain the nonempty open $U^+\subset
 X$.
 
 The local system $\mathcal V$ has rank one because its contribution to
-\eqref{eq:principal-alt-rank} has rank one.  Replace $U^+$ by
-$U^+\cap X_{\mathcal V}$.  Its restriction there is the constant local
-system found in \cref{lem:split-fibre-top}.  The complement
-$X_{\mathcal V}\setminus U^+$ is a proper complex algebraic subset and
-therefore has real codimension at least two.  Every loop in the smooth
-variety $X_{\mathcal V}$ can be perturbed off this complement, so the
-inclusion induces a surjection
+\eqref{eq:principal-alt-rank} has rank one.  All preceding shrinkings may be
+made Zariski open.  Thus $U^+\cap X_{\mathcal V}$ is a nonempty Zariski-open
+subset of the smooth irreducible variety $X_{\mathcal V}$ and is connected.
+Its restriction there is the constant local system found in
+\cref{lem:split-fibre-top}.  The complement in $X_{\mathcal V}$ has complex
+codimension at least one.  By general position, every loop in
+$X_{\mathcal V}$ is homotopic to one avoiding this complement, so inclusion
+induces a surjection
 \[
- \pi_1(U^+)\twoheadrightarrow\pi_1(X_{\mathcal V}).
+ \pi_1(U^+\cap X_{\mathcal V})\twoheadrightarrow
+ \pi_1(X_{\mathcal V}).
 \]
 The monodromy representation of $\mathcal V$ is trivial on the source and
 hence on $\pi_1(X_{\mathcal V})$.  Thus $\mathcal V$ is trivial and the
@@ -117,7 +126,7 @@ faithfully as
 \label{eq:orthogonal}
 \end{equation}
 
-The simple perverse sheaf $K$ is primitive in the sense of
+The simple perverse sheaf $K$ is nondivisible in the sense of
 \cite[Section~3.3]{JKLM2025}: if $t_a^*K\simeq K$, then $X+a=X$, and
 \eqref{eq:stabilizer} gives $a=0$.  By
 \cite[Proposition~3.3(2)]{JKLM2025},
@@ -187,4 +196,3 @@ There is an isomorphism of pairs
  (G^0,V|_{G^0})\simeq(G_2,V_7).
 \]
 \end{proposition}
-

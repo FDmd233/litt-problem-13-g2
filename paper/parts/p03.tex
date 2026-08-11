@@ -42,9 +42,13 @@ single quadric,
 \[
  X_0X_2-X_1^2=0,
 \]
-which has rank three and one ruling.  By geometric Riemann--Roch, every
-$g^1_3$ on a nonhyperelliptic genus-four curve determines a ruling of the
-canonical quadric.  Hence $\kappa$ is the unique $g^1_3$ on $C$.
+which has rank three and one ruling.  Every degree-three line bundle $A$
+with $h^0(C,A)\ge2$ is base-point-free: otherwise, for a base point $p$,
+the degree-two line bundle $A(-p)$ would have at least two sections and
+would define a $g^1_2$, contrary to nonhyperellipticity.  Geometric
+Riemann--Roch therefore identifies every $g^1_3$ with a ruling of the
+canonical quadric.  Its unique ruling is the one cut out by $|\kappa|$, so
+$\kappa$ is the unique $g^1_3$ on $C$.
 Riemann--Kempf \cite{Kempf1973} shows that the Abel map is an isomorphism
 over the locus $h^0=1$.  The corresponding points of $N$ are smooth by the
 critical-point calculation above, and $|\kappa|$ is the only
@@ -60,7 +64,9 @@ $\mathfrak m_{P,0}^2$.  Thus $X$ is singular at the origin, and
 \label{eq:singular-locus}
 \end{equation}
 The Cartier divisor $X$ is generically reduced and Cohen--Macaulay, hence
-reduced.  Since $L$ is ample, $X$ is connected.  Suppose that $X$ were
+reduced.  The divisor sequence, together with Kodaira vanishing and Serre
+duality for $L^{-1}$, gives $H^0(X,\mathcal O_X)=\CC$; thus $X$ is
+connected.  Suppose that $X$ were
 reducible.  Two irreducible components joined by an edge in the incidence
 graph must then meet.  Both have dimension two in the smooth threefold $P$,
 so every nonempty intersection of two distinct components has dimension at
@@ -71,11 +77,22 @@ integral.  Being Cohen--Macaulay, it satisfies $S_2$, while
 \eqref{eq:singular-locus} gives regularity in codimension one.  Serre's
 criterion makes $X$ normal.
 
-The uniqueness of the $g^1_3$ shows that the Abel map is an isomorphism away
-from $\Gamma$.  Hence $\rho$ is a resolution whose only exceptional curve is
-$E_{\exc}$.  Since this curve is elliptic with self-intersection $-2$, the
-resolution is minimal and the simple-elliptic classification identifies the
-germ with type $\wt E_7$ \cite{Laufer1977,Pinkham1977}.
+The uniqueness of the $g^1_3$ shows that every $M\ne0$ in $X$ satisfies
+$h^0(C,\kappa\otimes M)=1$, whereas the Abel fibre over $0$ is precisely
+$\Gamma=|\kappa|$.  Base change of the Abel map therefore gives an
+isomorphism
+\[
+ N\setminus\Gamma\xrightarrow{\sim}X\setminus\{0\}.
+\]
+The surface $N$ is reduced: it is smooth away from $D_0$, and its germ at
+$D_0$ is the integral cubic cone.  It is also a Cartier divisor in the
+smooth variety $C^{(3)}$, hence is pure of dimension two; no irreducible
+component can be contained in the curve $\Gamma$.  The displayed integral
+dense open then shows that $N$ is integral.  Consequently $\rho$ is a
+proper birational resolution whose only exceptional curve is $E_{\exc}$.
+Since this curve is elliptic with self-intersection $-2$, the resolution is
+minimal and the simple-elliptic classification identifies the germ with
+type $\wt E_7$ \cite{Laufer1977,Pinkham1977}.
 \end{proof}
 
 \begin{lemma}[Surface invariants]\label[lemma]{lem:surface-invariants}
@@ -173,4 +190,3 @@ The characteristic cycle and conormal Gauss degree are
 \]
 In particular, the conormal Gauss map is dominant.
 \end{lemma}
-

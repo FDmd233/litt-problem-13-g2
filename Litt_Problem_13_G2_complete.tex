@@ -309,8 +309,8 @@ Tannakian quotient.
 
 \section{The shifted cyclic theta section}
 
-Until \cref{sec:spreading}, fix $b=(A,B,c)\in\cB(\CC)$ and suppress it from
-notation.  Thus
+Until the beginning of \cref{sec:pair-splitting}, fix
+$b=(A,B,c)\in\cB(\CC)$ and suppress it from the notation.  Thus
 \[
  E:y^2=f_3(x),\qquad C:w^3=y-c,
 \]
@@ -376,7 +376,6 @@ is surjective; its kernel is smooth, and the fibrewise injectivity of
 $\pi^*$ proved above makes every kernel fibre connected.  Thus
 $\cP=\ker(\Nm_\pi)\to\cB$ is an abelian scheme of relative dimension
 three.
-
 Use the theta characteristic $\kappa$ to centre the theta divisor on
 $J(C)=\operatorname{Pic}^0(C)$:
 \[
@@ -561,7 +560,10 @@ line bundle is trivial.  Adjunction therefore gives
  K_N\equiv a^*L.
 \]
 The map $a$ contracts $\Gamma$, so $K_N\cdot\Gamma=0$.  The cubic cone has
-discrepancy $-1$, hence
+discrepancy $-1$.  Here $N$ is a Cartier divisor in the smooth variety
+$C^{(3)}$, hence is Gorenstein.  The numerical equivalence above is used
+only for intersection numbers, while the local cubic-cone equation gives
+the divisor identity
 \[
  K_{\widehat N}=\beta^*K_N-E_0.
 \]
@@ -576,7 +578,6 @@ The composite $\widehat N\to N\to X$ is constant on
 $\widetilde\Gamma$, hence factors through $\rho:S\to X$.  The curve
 $E_{\exc}$ maps to the origin.
 \end{proof}
-
 \begin{proposition}[The theta surface and its resolution]
 \label[proposition]{prop:theta-resolution}
 The theta section $X\subset P$ is an integral normal symmetric ample Cartier
@@ -621,9 +622,13 @@ single quadric,
 \[
  X_0X_2-X_1^2=0,
 \]
-which has rank three and one ruling.  By geometric Riemann--Roch, every
-$g^1_3$ on a nonhyperelliptic genus-four curve determines a ruling of the
-canonical quadric.  Hence $\kappa$ is the unique $g^1_3$ on $C$.
+which has rank three and one ruling.  Every degree-three line bundle $A$
+with $h^0(C,A)\ge2$ is base-point-free: otherwise, for a base point $p$,
+the degree-two line bundle $A(-p)$ would have at least two sections and
+would define a $g^1_2$, contrary to nonhyperellipticity.  Geometric
+Riemann--Roch therefore identifies every $g^1_3$ with a ruling of the
+canonical quadric.  Its unique ruling is the one cut out by $|\kappa|$, so
+$\kappa$ is the unique $g^1_3$ on $C$.
 Riemann--Kempf \cite{Kempf1973} shows that the Abel map is an isomorphism
 over the locus $h^0=1$.  The corresponding points of $N$ are smooth by the
 critical-point calculation above, and $|\kappa|$ is the only
@@ -639,7 +644,9 @@ $\mathfrak m_{P,0}^2$.  Thus $X$ is singular at the origin, and
 \label{eq:singular-locus}
 \end{equation}
 The Cartier divisor $X$ is generically reduced and Cohen--Macaulay, hence
-reduced.  Since $L$ is ample, $X$ is connected.  Suppose that $X$ were
+reduced.  The divisor sequence, together with Kodaira vanishing and Serre
+duality for $L^{-1}$, gives $H^0(X,\mathcal O_X)=\CC$; thus $X$ is
+connected.  Suppose that $X$ were
 reducible.  Two irreducible components joined by an edge in the incidence
 graph must then meet.  Both have dimension two in the smooth threefold $P$,
 so every nonempty intersection of two distinct components has dimension at
@@ -650,11 +657,22 @@ integral.  Being Cohen--Macaulay, it satisfies $S_2$, while
 \eqref{eq:singular-locus} gives regularity in codimension one.  Serre's
 criterion makes $X$ normal.
 
-The uniqueness of the $g^1_3$ shows that the Abel map is an isomorphism away
-from $\Gamma$.  Hence $\rho$ is a resolution whose only exceptional curve is
-$E_{\exc}$.  Since this curve is elliptic with self-intersection $-2$, the
-resolution is minimal and the simple-elliptic classification identifies the
-germ with type $\wt E_7$ \cite{Laufer1977,Pinkham1977}.
+The uniqueness of the $g^1_3$ shows that every $M\ne0$ in $X$ satisfies
+$h^0(C,\kappa\otimes M)=1$, whereas the Abel fibre over $0$ is precisely
+$\Gamma=|\kappa|$.  Base change of the Abel map therefore gives an
+isomorphism
+\[
+ N\setminus\Gamma\xrightarrow{\sim}X\setminus\{0\}.
+\]
+The surface $N$ is reduced: it is smooth away from $D_0$, and its germ at
+$D_0$ is the integral cubic cone.  It is also a Cartier divisor in the
+smooth variety $C^{(3)}$, hence is pure of dimension two; no irreducible
+component can be contained in the curve $\Gamma$.  The displayed integral
+dense open then shows that $N$ is integral.  Consequently $\rho$ is a
+proper birational resolution whose only exceptional curve is $E_{\exc}$.
+Since this curve is elliptic with self-intersection $-2$, the resolution is
+minimal and the simple-elliptic classification identifies the germ with
+type $\wt E_7$ \cite{Laufer1977,Pinkham1977}.
 \end{proof}
 
 \begin{lemma}[Surface invariants]\label[lemma]{lem:surface-invariants}
@@ -752,18 +770,20 @@ The characteristic cycle and conormal Gauss degree are
 \]
 In particular, the conormal Gauss map is dominant.
 \end{lemma}
-
 \begin{proof}
-The sectional calculation follows directly from the
-standard analytic form of a $\wt E_7$ simple-elliptic germ,
+The local Euler obstruction is invariant under analytic isomorphism, so it
+may be computed in the standard hypersurface embedding of a $\wt E_7$
+simple-elliptic germ,
 \[
  z^2+f_4(x,y)=0,
 \]
 where $f_4$ is a square-free binary quartic
-\cite{Laufer1977,Pinkham1977}.  On a general hyperplane $z=ax+by$, the
-quadratic term has rank one and the restriction of $f_4$ to its null line is
-nonzero.  The analytic splitting lemma therefore reduces the plane-curve
-germ to $s^2+t^4=0$, namely type $A_3$, whose Milnor number is $3$.
+\cite{Laufer1977,Pinkham1977}.  In these coordinates take a general linear
+form $\ell=z-ax-by$.  On $\ell=0$ the quadratic term $(ax+by)^2$ has rank
+one, and square-freeness makes the restriction of $f_4$ to its null line
+nonzero for general $(a:b)$.  The analytic splitting lemma therefore
+reduces the plane-curve germ to $s^2+t^4=0$, namely type $A_3$, whose Milnor
+number is $3$.
 The Lefschetz formula for the local Euler obstruction
 \cite[Theorem~3.1]{BrasseletLeSeade2000} identifies $\operatorname{Eu}_X(0)$
 with the Euler characteristic of this generic linear Milnor fibre.  Hence
@@ -839,7 +859,8 @@ Schr\"odinger representation; see, for example,
 \cite[Chapter~6]{BirkenhakeLange2004}.  For $a\in K(L)$ choose a lift of
 translation by $a$ to the theta group.  The corresponding translate of $s$
 vanishes at the origin, because its value there is a nonzero scalar multiple
-of $s(a)$ and \eqref{eq:kernel-on-theta} gives $s(a)=0$.  The orbit of the
+of $s(\pm a)$, depending on the action convention; both values vanish by
+\eqref{eq:symmetry} and \eqref{eq:kernel-on-theta}.  The orbit of the
 nonzero vector $s$ spans $H^0(P,L)$ by irreducibility.  Hence
 \begin{equation}
  t(0)=0\qquad\text{for every }t\in H^0(P,L).
@@ -934,6 +955,12 @@ Let $j:S\xrightarrow{\rho}X\hookrightarrow P$.  A unitary rank-one character
 of $\pi_1(P)$ determines a unitary local system $\mathcal L_\alpha$ and a
 holomorphic line bundle $\alpha\in\operatorname{Pic}^0(P)$.  The same symbol $\alpha$ will also denote the latter.
 
+From this point, $\IC_X^H$ also denotes its scalar extension to a polarizable
+complex Hodge module.  A unitary rank-one local system underlies a unique
+polarizable complex variation of Hodge structure of weight zero and type
+$(0,0)$.  Thus twisting by $\mathcal L_\alpha$ is defined for polarizable
+complex Hodge modules, and its cohomology has a functorial complex Hodge
+decomposition \cite[Sections~2.1 and~2.5]{KLM2026}.
 For $\alpha\ne\mathcal O_P$, the standard vanishing for a nontrivial
 line bundle in $\operatorname{Pic}^0(P)$ and the divisor sequence give
 \[
@@ -964,22 +991,24 @@ on which
 \label{eq:twisted-outer-hodge}
 \end{equation}
 
-Perverse generic vanishing gives a nonempty Zariski-open subset of the Betti
-character torus on which
+Let $U_{\mathrm{GV}}$ be the nonempty Zariski-open subset of the Betti
+character torus supplied by perverse generic vanishing, on which
 \[
  H^k(P,Rj_*\QQ_S[2]\otimes\mathcal L_\alpha)=0\qquad(k\ne0).
 \]
 The compact unitary character torus is Zariski dense in the Betti character
-torus, and its unitary-character identification with
-$\operatorname{Pic}^0(P)$ is a real-analytic isomorphism.  The restriction of
-each of the two nonempty Zariski-open loci to the unitary torus is therefore
-a dense Euclidean open subset: a proper complex algebraic subset cannot
-contain a Euclidean open subset of this totally real Zariski-dense torus.
-Their intersection is consequently a nonempty Euclidean open subset
-$\Omega$ of the unitary character torus.
+torus, so its intersection with $U_{\mathrm{GV}}$ is dense and Euclidean
+open.  The unitary-character correspondence
+\[
+ \operatorname{Char}_{\mathrm u}(P)\xrightarrow{\sim}
+ \operatorname{Pic}^0(P)
+\]
+is a real-analytic isomorphism; the inverse image of the dense Zariski-open
+set $W$ is therefore also dense and Euclidean open.  Their intersection is a
+nonempty Euclidean open subset $\Omega$ of the unitary character torus.
 
 \begin{proposition}[Generic-twist Hodge vector]\label[proposition]{prop:hodge-vector}
-For every $\alpha\in\Omega$, the Hodge structure
+For every $\alpha\in\Omega$, the complex Hodge decomposition on
 $H^0(P,\IC_X^H\otimes\mathcal L_\alpha)$ has Hodge numbers
 \[
  (h^{2,0},h^{1,1},h^{0,2})=(2,3,2).
@@ -1031,8 +1060,8 @@ For every $\alpha\in\Omega$, the functor
 \]
 on the semisimple tensor category generated by the image of $K=\IC_X$ in
 $\overline{\operatorname{Perv}}(P)$ is a fibre functor.  In particular the
-Hodge decomposition of \cref{prop:hodge-vector} defines the Hodge
-cocharacter on the same Tannakian category.
+value $\omega_\alpha(K)$ is the underlying vector space of the twisted Hodge
+decomposition in \cref{prop:hodge-vector}.
 \end{lemma}
 
 \begin{proof}
@@ -1073,8 +1102,8 @@ Equation \eqref{eq:tensor-twist-kunneth}, by naturality and passage to direct
 summands, supplies the tensor constraint for $\omega_\alpha$; exactness and
 faithfulness follow from semisimplicity and the equality
 $\dim H^0(P,Q\otimes\mathcal L_\alpha)=\chi(Q)>0$ for every nonzero simple
-object in the quotient.  This agrees with the generic-twist fibre-functor
-formalism of \cite[Section~3.1, Proposition~3.1]{KLM2026}.
+object in the quotient.  This is the generic-twist fibre-functor
+construction of \cite[Section~3.1, Proposition~3.1]{KLM2026}.
 \end{proof}
 
 
@@ -1100,16 +1129,15 @@ $\cX\subset\cP$ is a symmetric relative effective Cartier divisor; the
 defining section is a nonzerodivisor on every fibre of the smooth morphism
 $\cP\to\cB$, so $\cX\to\cB$ is flat.
 
-The fibrewise assertions proved above for
-$b\in\cB(\CC)$ extend to all geometric fibres without an implicit
-genericity step.  The locus of $b\in\cB$ for which $X_b$ is geometrically
+We next verify these assertions over every geometric point of $\cB$.  The
+locus of $b\in\cB$ for which $X_b$ is geometrically
 integral is open for this proper flat family
 \cite[IV$_3$, Th\'eor\`eme~12.2.4\textup{(viii)}]{EGA4}; it contains every
 closed point by \cref{prop:theta-resolution}, hence equals $\cB$ because
 $\cB$ is Jacobson.  Likewise, the nonsmooth locus of
-$(\cX\setminus0)\to\cB$ is closed and would contain a closed point if
-nonempty, while smoothness along the zero section would be an open condition
-and would again contain a closed point if it occurred anywhere.  Thus every
+$(\cX\setminus0)\to\cB$ is closed; if nonempty, it would contain a closed
+point.  The inverse image of the relative smooth locus along the zero section
+is open in $\cB$ and has no closed point, so it is empty.  Thus every
 geometric fibre is integral with singular locus exactly the origin, and the
 relative smooth locus is
 \[
@@ -1119,13 +1147,16 @@ The morphism $\cM\to\cB$ is smooth and surjective with geometrically
 integral fibres.  Since $\cB$ is integral, $\cM$ is integral.
 
 Let $\cN$ be the relative norm fibre in $\cC^{(3)}$.  Every Abel class on
-$\cM$ has $h^0=1$, and the relative Abel map identifies
-$\cN\times_{\cX}\cM$ with $\cM$.  The universal divisor on the relative
-symmetric cube therefore gives a universal effective divisor of degree three
-over $\cM$.
+$\cM$ has $h^0=1$.  On this locus, after choosing a relative Poincar\'e bundle
+\emph{\'etale}-locally, cohomology and base change make its
+pushforward locally free of rank one, and the relative Abel map is the
+projectivization of that line bundle.  These local isomorphisms descend and
+are compatible with arbitrary base change.  Hence
+$\cN\times_{\cX}\cM\simeq\cM$, and the universal divisor on the relative
+symmetric cube gives a universal effective divisor of degree three over
+$\cM$.
 
 \subsection{A dominant normalized chart}
-
 \begin{lemma}[Dominant normalized chart]\label[lemma]{lem:dominant-chart}
 There is a nonempty open subscheme
 \[
@@ -1641,7 +1672,9 @@ Write $L_j=a_jx+b_j$ for $j=1,2$.  Since $q=-v/z$,
 \[
  a_j=u-v\omega^j,
 \]
-and
+and neither $a_1$ nor $a_2$ vanishes at the generic point of the
+irreducible degree-eight curve $\mathscr R_{\CC}$.  Shrink once so that
+$a_1a_2\ne0$.  Then
 \[
  b_j=-(u-v\omega^j)q^3
      +v(1-\omega^j)
@@ -1661,7 +1694,7 @@ R={}&e_1uv^2z+2e_1v^3z-2e_2uvz^2-e_2v^2z^2\\
 The polynomial $R$ is nonzero and homogeneous of degree four in $(u,v,z)$.
 Since $F_8$ is irreducible of degree eight, $R$ does not vanish at the
 generic point of $\mathscr R_{\CC}$.  After one further shrinking, the two
-roots in \eqref{eq:restriction-two-conjugates} are therefore distinct.
+affine roots in \eqref{eq:restriction-two-conjugates} are therefore distinct.
 
 A rank-two conic has a unique singular point, namely the projectivized
 one-dimensional kernel of $M_s$; this point is $L$-rational.  Each of the
@@ -1732,7 +1765,6 @@ $\ell_1$ and $\ell_2$.  Its image is open because the finite \'etale cover is
 open, and invariance makes it the full inverse image of that image.  This
 defines $\mathscr G$.
 \end{definition}
-
 \begin{lemma}[Relative ordered-zero construction]
 \label[lemma]{lem:scheme-abel-inverse}
 Put
@@ -1789,8 +1821,9 @@ of the finite locally free norm with base change gives
 \end{equation}
 as an equality in the structure sheaf, not merely at geometric points.
 The collision exclusions imply that locally two values, say $a_2,a_3$, are
-units.  Equation~\eqref{eq:split-norm-zero} then forces $a_1=0$, also in
-nilpotent directions.
+nonzero on every geometric fibre.  Their vanishing loci are therefore empty,
+so they are units in the corresponding structure sheaf.  Equation
+\eqref{eq:split-norm-zero} then forces $a_1=0$, also in nilpotent directions.
 Consequently
 \[
  Z_i=Z(s)\times_{E_T}B_i\subset U_i
@@ -1868,7 +1901,21 @@ is involved.
 \end{proof}
 
 Let $x_T:T\to\cM$ be the point represented by the universal divisor $D$,
-so that $x_T=[\mathcal O(D)\otimes\kappa^{-1}]$.  Define
+so that $x_T=[\mathcal O(D)\otimes\kappa^{-1}]$.  Put
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+In the basis used for \eqref{eq:determinant-factorization}, direct
+substitution gives
+\begin{equation}
+ s_0+s_1=h,\qquad s_2=wh.
+\label{eq:structural-pencil}
+\end{equation}
+The divisor of $h$ is $D+D_{-x_T}$: it contains $D$, and its residual
+degree-three divisor has Abel class $-x_T$ and is unique on the $h^0=1$
+locus.
+
+Define
 \[
  \cI_T^\dagger=
  \{y\in X_T^{(1)}\cap X_{T,\mathrm{sm}/T}:
@@ -1887,7 +1934,20 @@ projective relative section
  \vartheta:\cI_T^\dagger\longrightarrow
  \PP_T\bigl(p_*\mathcal O_{C_T}(3\kappa-D)\bigr).
 \]
-Taking norms shows that $\vartheta$ factors through $\mathscr R_T$.  Set
+The factorization through the residual octic holds scheme-theoretically.
+Indeed, on the hyperplane $u=v$, \eqref{eq:structural-pencil} gives
+\[
+ s=h(u+zw),\qquad
+ \operatorname{div}(s)=D+D_{-x_T}+D_\kappa
+ \quad(D_\kappa\in|\kappa|).
+\]
+The two residual Abel classes are therefore $-x_T$ and $0$.  This cannot
+occur on $\cI_T^\dagger$, where both residual classes lie in
+$X_T^{(1)}\cap X_{T,\mathrm{sm}/T}$.  Hence the pullback of $u-v=0$ is
+empty, and the pullback of $u-v$ is a unit in a local trivialization of the
+tautological line bundle.  Taking norms gives $(u-v)F_8=0$, so $F_8=0$ on
+$\cI_T^\dagger$, including nilpotent directions.  Thus $\vartheta$ factors
+through $\mathscr R_T$.  Set
 \[
  \cI_T^{\mathrm{adm}}=\vartheta^{-1}(\mathscr G).
 \]
@@ -1922,7 +1982,6 @@ Hence $y_2=-x_T-y_1$, and the ordered-zero construction of
 \cref{lem:scheme-abel-inverse} defines the morphism $\Phi$.  The defining
 conditions of $\mathscr G$ show that it lands in
 $\cI_T^{\mathrm{adm}}$.
-
 Conversely, let $y$ be a $W$-point of $\cI_T^{\mathrm{adm}}$, write
 $p_W:C_T\times_T W\to W$ for the projection, put
 $y_1=y$ and $y_2=-x_T-y$, and let $D_1,D_2$ be their relative Abel inverse
@@ -1969,75 +2028,17 @@ residual curve.
 For nonemptiness, use the following characteristic-$13$ point of the
 normalized chart:
 \[
- (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),
+ (c,m,e_1,e_2,e_3)=(1,1,1,0,2),\qquad \lambda=m^{-3}=1,
  \qquad
  (u:v:z)=(3:5:1).
 \]
-In the shifted coordinates $Y=y-c$, the elliptic equation is
-\[
- Y^2+2Y=x^3-6x^2+x+5
- \qquad(\bmod 13),
-\]
-equivalently, after the translation $x\mapsto x+2$,
-\[
- y^2=x^3+2x+5.
-\]
-The cubic on the right has discriminant $8$, and the branch cubic cut out
-by $Y=0$ has discriminant $4$.  The selected fixed divisor is defined by
-\[
- p(w)=w^3-w^2-2,
-\]
-whose discriminant is $1$.  Thus both the curve and the branch divisor are
-smooth and $D$ is reduced.
-
-At the displayed section, the residual conic has coefficient vector
-\[
- (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
-\]
-and factors as
-\[
- Q_s
- =5+x+7Y+7x^2+2Y^2
- =5(1+9x+Y)(1+12x+3Y).
-\]
-The fixed norm line is $Y=x$.  The discriminants of the three line sections
-of $E$ are, respectively,
-\[
- 4,\qquad3,\qquad5,
-\]
-so all three intersections are transverse.  The two residual lines meet at
-$(12,8)$; their intersections with $Y=x$ are $(9,9)$ and $(6,6)$.  None of
-these three points lies on $E$, so the three degree-three line sections are
-pairwise disjoint.  Each residual line avoids the branch divisor $Y=0$.
-
-The canonical-model condition at this point follows from the same four forms
-used in \cref{prop:theta-resolution}.  Since $\mathbf F_{13}$ contains the
-cube roots of unity and $2,3$ are invertible, these forms remain regular.  The nine quadratic representatives other than
-$X_0X_2-X_1^2$ split into the three deck-transformation eigenspaces
-\[
- \langle1,x,Y,x^2\rangle,\qquad
- \langle w,xw,wY\rangle,\qquad
- \langle w^2,xw^2\rangle.
-\]
-At a point above $O$ their pole orders are, respectively,
-$(0,2,3,4)$, $(1,3,4)$, and $(2,4)$.  Thus they are linearly independent,
-and the unique canonical quadric is again
-$X_0X_2-X_1^2=0$.  It has rank three and one ruling, so $|\kappa|$ is the
-unique $g^1_3$.  In these coordinates a member of the pencil is cut out by
-$a+bw$, and
-\[
- \Nm_\pi(a+bw)=a^3+b^3Y.
-\]
-Thus its norm line has no $x$-term, whereas each of the three lines above has
-a nonzero $x$-coefficient.  Their
-degree-three inverse images are therefore not linearly equivalent to
-$\kappa$ and hence lie in the $h^0=1$ Abel locus.  The local norm calculation
-of \cref{lem:norm-fibre} is valid here for the same reason: $2$ and $3$ are
-invertible.  At a residual point the cover is
-\'etale and the residual line is transverse to $E$; hence the norm of $s$
-has vanishing order one.  The three nonnegative vanishing orders of $s$ on
-the three sheets sum to one, so exactly one sheet contains a simple zero.
-This verifies all conditions in \cref{def:admissible-locus}.
+Direct substitution verifies all four conditions of
+\cref{def:admissible-locus}: the fixed divisor is reduced; the three norm
+lines cut transverse, pairwise disjoint sections away from the branch
+divisor; each residual point lifts to one simple zero; and both residual
+divisors lie in the smooth $h^0=1$ Abel locus.  Every coefficient,
+discriminant, intersection point, and nonvanishing test in this substitution
+is displayed in \cref{app:admissible-specialization}.
 
 For the passage to characteristic zero, enlarge the localization
 $R_0=\mathbf Z[1/N]$ from \cref{lem:residual-octic-integral}, without
@@ -2124,19 +2125,11 @@ its admissible open, and is the closure of one of the two branches in
 \cref{cor:two-admissible-branches}.  In particular,
 $C_{\bar\xi}^{\mathrm{ne}}$ has exactly two irreducible components.
 \end{lemma}
-
 \begin{proof}
-For a fixed section, the residual zero-cycle has only finitely many
-degree-three subcycles, so $\Psi$ has finite fibres.  In the basis used for
-\eqref{eq:determinant-factorization}, put
-\[
- h=x-e_1w^2+e_2w-e_3.
-\]
-Since $Y=w^3$ on $C$, direct substitution gives
-\begin{equation}
- s_0+s_1=h,\qquad s_2=wh.
-\label{eq:structural-pencil}
-\end{equation}
+For a fixed section, its effective zero divisor on the smooth curve $C$ has
+only finitely many effective degree-three subdivisors, so $\Psi$ has finite
+fibres.  Recall $h$ and the identities in
+\eqref{eq:structural-pencil}.
 The zero divisor of $h\in H^0(C,2\kappa)$ is
 $D_x+D_{-x}$.  Indeed, it contains $D_x$, and the residual degree-three
 divisor has Abel class $-x$ and is unique on the generic $h^0=1$ locus.
@@ -2156,7 +2149,9 @@ Equation \eqref{eq:structural-pencil} identifies the line $u=v$ with
  subcycles whose pushforward is a line section are the two complete triples.
  Their Abel classes are $-x$ and $0$.
 
- The exceptional parameters of the structural pencil form a finite set.  If
+ Reducedness, transversality, and disjointness fail on proper closed subsets
+ of this projective line, so the exceptional parameters of the structural
+ pencil form a finite set.  If
  an incidence-curve component mapped dominantly to $u=v$, its generic point
  would contradict the preceding paragraph; if it mapped to one parameter, it
  would contradict the finiteness of the fibres of $\Psi$.  Thus $u=v$ gives no
@@ -2186,12 +2181,17 @@ $\Psi$ is therefore contained in
 \]
 The preceding paragraph excludes $V(u-v)$ as the image of a
 nonexceptional curve component.  Consequently every nonexceptional curve
-component maps to the residual octic $V(F_8)$.  Its image is one-dimensional
-because
-$\Psi$ has finite fibres, and hence is dense because $\mathscr R$ is
-geometrically integral.  It must meet the dense open $\mathscr G$.  An
-irreducible curve cannot contain both disjoint admissible branches as open
-subsets, so their closures are exactly the two nonexceptional components.
+component maps to the residual octic $V(F_8)$.  Let $Z$ be such a component.
+Its image is one-dimensional because $\Psi|_Z$ has finite fibres, and hence
+is dense because $\mathscr R$ is geometrically integral.  Thus
+$Z\cap\Psi^{-1}(\mathscr G)$ is a dense open subset of $Z$.  Over
+$\mathscr G$, \cref{prop:abel-incidence,cor:two-admissible-branches}
+identify the incidence scheme with the disjoint union of two irreducible
+branches.  The irreducibility of $Z$ places its dense open in exactly one of
+them, and dimensional equality then makes it dense in that branch.  Hence
+$Z$ is the closure of one of the two admissible branches.  Conversely, each
+branch closure is an irreducible component.  These are therefore exactly the
+two nonexceptional components.
 Here $\CC(T)=\CC(\cM)$ from \eqref{eq:chart-function-field} identifies the
 two geometric generic fibres.
 \end{proof}
@@ -2233,8 +2233,11 @@ defines a rational section of the pair-incidence family; the associated
 ordered pair is $(\tau x,\tau^2x)$.  This section meets the smooth locus of the projection of the pair-incidence
 family to the $x$-coordinate on a nonempty open.  If it did not, then for
 general $x$ the tangent hyperplanes to $X$ at $\tau x$ and $\tau^2x$ would
-coincide, so their Gauss covectors would be equal.  By $\tau$-equivariance,
-that common covector would be fixed projectively by $\tau$.  The general
+coincide, so their Gauss covectors would be equal.  The equivariance identity
+\[
+ \gamma_X(\tau x)=\tau\cdot\gamma_X(x)
+\]
+then makes that common covector projectively fixed by $\tau$.  The general
 Gauss image would then lie in the projective fixed locus of $\tau$, contrary
 to the dominance in \eqref{eq:gauss-degree}.  Explicitly,
 \[
@@ -2307,7 +2310,6 @@ $q:\cI\to\cM$ is reduced and has exactly two geometrically integral
 components, both defined over $k(\cM)$.  Let
 $\cA_1,\cA_2\subset\cI$ be their closures.  The involution exchanges them
 because it exchanges their generic fibres.
-
 The morphism $q$ is projective and of finite presentation.  Apply generic
 flatness to $q$ and to $\cA_i\to\cM$.  Geometric reducedness of the fibres of
 $q$ and geometric integrality of the fibres of each $\cA_i$ then hold after
@@ -2329,7 +2331,9 @@ $\cI^{\mathrm{ne}}$.  The geometric generic fibre is reduced and consists
 exactly of the two generic components, so $\mathcal J$ vanishes there.  The
 image of $\operatorname{Supp}(\mathcal J)$ in the noetherian integral scheme
 $\cM$ is constructible by Chevalley's theorem and does not contain its generic
-point.  Its closure is therefore proper.  Remove this closure.  Then
+point.  A dense constructible subset of an irreducible noetherian scheme
+contains the generic point, so this image is not dense and its closure is
+proper.  Remove this closure.  Then
 $\mathcal J=0$, and
 \[
  \cI^{\mathrm{ne}}=\cA\cap\cI^{\mathrm{ne}}
@@ -2404,7 +2408,12 @@ $E_{\exc}$ must have the other entry over $t$.  Thus there are no further
 top-dimensional components.  The involution $\sigma$ exchanges
 $(\cA_1)_x$ with $(\cA_2)_x$ and $C_{1,t}$ with $C_{2,t}$.
 
-Proper base change identifies
+The shifts are fixed by the identity
+\[
+ \widetilde K*\widetilde K
+ \simeq R\widetilde m_*\QQ_{S\times S}[4].
+\]
+Proper base change therefore identifies
 \[
  \cH^{-2}(\widetilde K*\widetilde K)_t=H^2(F_t,\QQ).
 \]
@@ -2428,10 +2437,11 @@ Expand the decomposition $\widetilde K=K\oplus\delta_0$:
       \oplus(\delta_0*\delta_0).
 \]
 At $t\ne0$, the last term has zero stalk.  The two middle terms are both
-canonically $K$, and transposition exchanges them.  Since $t$ is a smooth
-point of the surface $X$, their anti-invariant stalk in degree $-2$ is the
-line generated by $[C_{1,t}]-[C_{2,t}]$.  Taking dimensions in this direct
-sum decomposition gives
+canonically $K$, and the commutativity constraint exchanges them.  Their
+anti-invariant part is therefore canonically one copy of $K$.  Since $t$ is
+a smooth point of the surface $X$, its degree-$-2$ stalk is the line
+generated by $[C_{1,t}]-[C_{2,t}]$.  Taking dimensions in this direct-sum
+decomposition gives
 \begin{equation}
  \dim\cH^{-2}(K*K)_{-,t}=1.
 \label{eq:principal-alt-rank}
@@ -2497,7 +2507,6 @@ acts by $+1$ on its one-dimensional top cohomology.  Therefore
 \label{eq:generic-alt-vanishing}
 \end{equation}
 \end{proof}
-
 \begin{lemma}[Extraction of the divisor-supported summand]
 \label[lemma]{lem:extract-ic}
 In the decomposition-theorem splitting of $(K*K)_-$, the constant rank-one
@@ -2509,7 +2518,8 @@ $P$, or from a summand with any other support.
 \begin{proof}
 The complex $(K*K)_-$ is a direct summand of the projective direct image of
 a pure polarizable Hodge module.  By the decomposition theorem and
-semisimplicity \cite{BBD1982,Saito1988}, it is a direct sum of shifted simple
+semisimplicity \cite[Th\'eor\`eme~6.2.5]{BBD1982} and
+\cite[Th\'eor\`eme~5.3.1]{Saito1988}, it is a direct sum of shifted simple
 intersection complexes.  A summand with proper support containing the
 generic point of $U^+$ must have support $X$.  Such a simple summand has the
 form $\IC_X(\mathcal V)[r]$, where $\mathcal V$ is an irreducible local
@@ -2518,11 +2528,17 @@ restriction to $U^+\cap X_{\mathcal V}$ is $\mathcal V[2+r]$, so contribution
 to ordinary degree $-2$ forces $r=0$.
 
 A full-support summand cannot account for the line in
-\eqref{eq:principal-alt-rank}.  Choose a general point $a\in U^+$ that lies
-on no singular stratum of any full-support simple summand except the divisor
-stratum $X_{\reg}$.  A small analytic neighbourhood of $a$ is stratified
-homeomorphic to a product of a ball in $X_{\reg}$ with a normal disk
-$\Delta$ to $X$.  Hence a full-support simple perverse summand is locally
+\eqref{eq:principal-alt-rank}.  Only finitely many simple summands occur.
+Choose $a\in U^+$ in the two-dimensional stratum of a common Whitney
+stratification subordinate to $X$ and to all these summands.  Normal
+nonsingularity along this stratum identifies a sufficiently small
+stratified analytic neighbourhood with
+\[
+ (B^2\times\Delta,B^2\times\{0\}),
+\]
+where $B^2\subset X_{\reg}$ is a ball and $\Delta$ is a normal disk.
+Intermediate extension commutes with this external product.  Hence a
+full-support simple perverse summand is locally
 \[
  \mathcal L[2]\boxtimes j_{\Delta,!*}\mathcal W[1],
  \qquad j_\Delta:\Delta^*\hookrightarrow\Delta,
@@ -2563,15 +2579,17 @@ a different irreducible divisor cannot contain the nonempty open $U^+\subset
 X$.
 
 The local system $\mathcal V$ has rank one because its contribution to
-\eqref{eq:principal-alt-rank} has rank one.  Replace $U^+$ by
-$U^+\cap X_{\mathcal V}$.  Its restriction there is the constant local
-system found in \cref{lem:split-fibre-top}.  The complement
-$X_{\mathcal V}\setminus U^+$ is a proper complex algebraic subset and
-therefore has real codimension at least two.  Every loop in the smooth
-variety $X_{\mathcal V}$ can be perturbed off this complement, so the
-inclusion induces a surjection
+\eqref{eq:principal-alt-rank} has rank one.  All preceding shrinkings may be
+made Zariski open.  Thus $U^+\cap X_{\mathcal V}$ is a nonempty Zariski-open
+subset of the smooth irreducible variety $X_{\mathcal V}$ and is connected.
+Its restriction there is the constant local system found in
+\cref{lem:split-fibre-top}.  The complement in $X_{\mathcal V}$ has complex
+codimension at least one.  By general position, every loop in
+$X_{\mathcal V}$ is homotopic to one avoiding this complement, so inclusion
+induces a surjection
 \[
- \pi_1(U^+)\twoheadrightarrow\pi_1(X_{\mathcal V}).
+ \pi_1(U^+\cap X_{\mathcal V})\twoheadrightarrow
+ \pi_1(X_{\mathcal V}).
 \]
 The monodromy representation of $\mathcal V$ is trivial on the source and
 hence on $\pi_1(X_{\mathcal V})$.  Thus $\mathcal V$ is trivial and the
@@ -2617,7 +2635,7 @@ faithfully as
 \label{eq:orthogonal}
 \end{equation}
 
-The simple perverse sheaf $K$ is primitive in the sense of
+The simple perverse sheaf $K$ is nondivisible in the sense of
 \cite[Section~3.3]{JKLM2025}: if $t_a^*K\simeq K$, then $X+a=X$, and
 \eqref{eq:stabilizer} gives $a=0$.  By
 \cite[Proposition~3.3(2)]{JKLM2025},
@@ -2687,7 +2705,6 @@ There is an isomorphism of pairs
  (G^0,V|_{G^0})\simeq(G_2,V_7).
 \]
 \end{proposition}
-
 \begin{proof}
 By \eqref{eq:orthogonal} and \eqref{eq:connected-irreducible}, the connected
 centre of $G^0$ acts by orthogonal scalars and is therefore trivial.  Thus
@@ -2695,12 +2712,16 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-The seven-dimensional possibilities follow directly from the Weyl dimension formula (compare the standard tables in
-\cite{Dynkin1957,FultonHarris1991}).  If a dominant highest weight contains
-a fundamental weight $\omega_i$, its Weyl dimension is at least that of
-$V_{\omega_i}$, and it increases strictly after adding a nonzero dominant
-weight.  The only cases requiring inspection are therefore the small-rank
-types.  They give
+For a dominant weight $\lambda$, the Weyl dimension formula is
+\[
+ \dim V_\lambda=
+ \prod_{\alpha>0}
+ \frac{\langle\lambda+\rho,\alpha^\vee\rangle}
+      {\langle\rho,\alpha^\vee\rangle}
+\]
+(compare \cite[Lecture~24]{FultonHarris1991}).  It is strictly increasing when a nonzero
+dominant weight is added.  Applying it to the fundamental weights of each
+simple type gives the following complete seven-dimensional list:
 \[
 \begin{array}{c|c|c}
 \text{type}&\text{highest weight}&\text{dimension}\\ \hline
@@ -2710,7 +2731,7 @@ B_3&\omega_1&7\\
 G_2&\omega_1&7.
 \end{array}
 \]
-Here is the short exclusion of the remaining types.  For $A_r$ the
+The remaining types are excluded as follows.  For $A_r$ the
 fundamental dimensions are $\binom{r+1}{i}$.  The only ranks below $A_6$
 that could conceivably contribute dimension seven are $A_2,A_3,A_4,A_5$.
 The Weyl formula gives, respectively, the dimensions below the next jump as
@@ -2797,16 +2818,15 @@ follows.
 
 \section{Explicit algebraic and arithmetic checks}\label{app:exact-norm}
 
-This appendix records the explicit calculations that remain useful in
-\cref{sec:pair-splitting}.  The splitting of the factor-ordering cover is
-proved intrinsically in \cref{lem:off-curve-norm,prop:ordering-cover} and
-requires no large coefficient expansion.  What remains here is deliberately
-limited to the normalized conic coefficients used for the simple structural
-factor, the finite-field irreducibility check for the residual octic, and one
-admissible specialization.  Every finite-field reduction used below is
-written out explicitly.
+We record the exact calculations used in \cref{sec:pair-splitting}.  The
+intrinsic argument of \cref{lem:off-curve-norm,prop:ordering-cover} proves the
+splitting of the factor-ordering cover without a coefficient expansion.  The
+calculations below give the normalized conic coefficients, the finite-field
+irreducibility certificate for the residual octic, and one admissible
+specialization.  Every finite-field reduction used in the proof is displayed.
 
-\subsection*{A.1. Normalized conic coefficients}
+\subsection{Normalized conic coefficients}
+\label{app:normalized-conic}
 On the normalized chart $e_1=v=1$ the shifted curve is
 \begin{equation}
  Y^2+2cY
@@ -2859,7 +2879,6 @@ the only determinant expansion used below is
  -q_{22}q_{01}^2+q_{01}q_{02}q_{12}.
 \label{eq:appendix-determinant-expansion}
 \end{equation}
-
 For the simple-factor assertion in
 \cref{prop:determinant-factorization}, specialize in characteristic zero to
 \[
@@ -2894,10 +2913,21 @@ Substitution into \eqref{eq:appendix-determinant-expansion} gives
 \end{equation}
 In particular, $4F_8(1,1,1)=12\ne0$ in $\QQ$.
 
-\subsection*{A.2. Geometric integrality of the residual octic}
+\subsection{Geometric integrality of the residual octic}
+\label{app:residual-octic-certificate}
 For this argument, specialize to characteristic $13$ at
 $(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ and put
-$H(u,v)=4F_8(u,v,1)$.  Expanding
+$H(u,v)=4F_8(u,v,1)$.  To make the passage from the normalized formulas
+explicit, set
+\[
+ q_{ij}^{\mathrm{hom}}(u,v,z)
+   =v^3q_{ij}(u/v,1,z/v),\qquad
+ H(u,v)=
+ \left.\frac{4\det M^{\mathrm{hom}}}{u-v}\right|_{z=1}.
+\]
+Here $M^{\mathrm{hom}}$ is the symmetric matrix of
+\eqref{eq:appendix-determinant-expansion} formed from the
+$q_{ij}^{\mathrm{hom}}$.  Expanding
 \eqref{eq:appendix-determinant-expansion} gives
 \begin{align*}
 H(u,v)={}&6u^3v^5-u^3v^4+6u^3v^3-u^3v^2-u^3v
@@ -2917,8 +2947,10 @@ $\mathbf F_{13}[v]/(h)$ all powers are reduced by the single relation
  v^8=3v^7+2v^6-3v^5-4v^4-4v^3+3v^2+5v+2.
 \label{eq:appendix-h-reduction}
 \end{equation}
-Put $r_j\equiv v^{13^j}\pmod h$, taking the representative of degree
-at most seven.  Repeated use of \eqref{eq:appendix-h-reduction} gives
+Starting with $r_0=v$, define $r_{j+1}$ to be the degree-at-most-seven
+remainder of $r_j^{13}$ upon division by $h$.  Equivalently,
+$r_j\equiv v^{13^j}\pmod h$.  Reduction by
+\eqref{eq:appendix-h-reduction} gives
 \begin{align*}
 r_0={}&v,\\
 r_1={}&-v^7+2v^6+6v^5-v^4+6v^3-2v^2-2v-6,\\
@@ -2970,8 +3002,8 @@ geometrically irreducible, Frobenius would act transitively on its geometric
 components; a rational point would then lie on every component and would be
 singular.  Hence the special octic is geometrically integral.  This is the
 finite-field input in \cref{lem:residual-octic-integral}.
-
-\subsection*{A.3. An admissible specialization}
+\subsection{An admissible specialization}
+\label{app:admissible-specialization}
 For \cref{lem:admissible-nonempty} use
 \[
  (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),\qquad (u:v:z)=(3:5:1)
@@ -2986,11 +3018,21 @@ out by
  p(w)=w^3-w^2-2,
  \qquad \operatorname{disc}(p)=1,
 \]
-so it is reduced.  The residual conic has coefficient vector
+so it is reduced.  On the normalized chart,
 \[
- (q_{00},q_{01},q_{02},q_{11},q_{12},q_{22})=(5,1,7,7,0,2)
+ (U,Z)=(u/v,z/v)=(3/5,1/5)=(11,8)
+ \quad\text{in }\mathbf F_{13}^2.
 \]
-and factors as
+Consequently
+\[
+ \bigl(q_{ij}^{\mathrm{hom}}(3,5,1)\bigr)_{ij}
+ =\left.5^3\bigl(q_{ij}(U,1,Z)\bigr)_{ij}
+   \right|_{(U,Z)=(11,8)}
+ =(5,1,7,7,0,2),
+\]
+where the entries are ordered as
+$q_{00},q_{01},q_{02},q_{11},q_{12},q_{22}$.  The residual conic therefore
+factors as
 \[
  5+x+7Y+7x^2+2Y^2
  =5(1+9x+Y)(1+12x+3Y).
@@ -3083,10 +3125,6 @@ Jean-Paul Brasselet, D\~ung Tr\'ang L\^e, and Jos\'e Seade,
 Mark Andrea A. de Cataldo and Luca Migliorini,
 \emph{The hard Lefschetz theorem and the topology of semismall maps}, Ann. Sci. \`Ecole Norm. Sup. (4) \textbf{35} (2002), no.~5, 759--772.
 
-\bibitem{Dynkin1957}
-E.~B. Dynkin,
-\emph{Semisimple subalgebras of semisimple Lie algebras}, Amer. Math. Soc. Transl. Ser.~2 \textbf{6} (1957), 111--244.
-
 \bibitem{FraneckiKapranov2000}
 J. Franecki and M. Kapranov,
 \emph{The Gauss map and a noncompact Riemann--Roch formula for constructible sheaves on semiabelian varieties}, Duke Math. J. \textbf{104} (2000), no.~1, 171--180.
@@ -3113,7 +3151,8 @@ Masaki Kashiwara,
 
 \bibitem{Kempf1973}
 George Kempf,
-\emph{On the geometry of a theorem of Riemann}, Ann.\ of Math. (2) \textbf{98} (1973), no.~1, 178--185.
+\emph{On the geometry of a theorem of Riemann}, Ann.\ of Math. (2) \textbf{98} (1973), no.~1, 178--185,
+\newblock \url{https://doi.org/10.2307/1970910}.
 
 \bibitem{KLM2026}
 Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
@@ -3133,15 +3172,17 @@ Daniel Litt,
 
 \bibitem{Macdonald1962}
 I.~G. Macdonald,
-\emph{Symmetric products of an algebraic curve}, Topology \textbf{1} (1962), 319--343.
+\emph{Symmetric products of an algebraic curve}, Topology \textbf{1} (1962), 319--343,
+\newblock \url{https://doi.org/10.1016/0040-9383(62)90019-8}.
 
 \bibitem{Pinkham1977}
 Henry C. Pinkham,
-\emph{Simple elliptic singularities, del Pezzo surfaces and Cremona transformations}, Several Complex Variables, Proc. Sympos. Pure Math., vol.~30, American Mathematical Society, Providence, RI, 1977, pp.~69--71.
+\emph{Simple elliptic singularities, del Pezzo surfaces and Cremona transformations}, in \emph{Several complex variables}, Proc. Sympos. Pure Math., vol.~30, Part~1, American Mathematical Society, Providence, RI, 1977, pp.~69--71.
 
 \bibitem{Saito1988}
 Morihiko Saito,
-\emph{Modules de Hodge polarisables}, Publ. Res. Inst. Math. Sci. \textbf{24} (1988), no.~6, 849--995.
+\emph{Modules de Hodge polarisables}, Publ. Res. Inst. Math. Sci. \textbf{24} (1988), no.~6, 849--995,
+\newblock \url{https://doi.org/10.2977/PRIMS/1195173930}.
 
 \bibitem{stacks-project}
 The Stacks Project Authors,
@@ -3150,5 +3191,3 @@ The Stacks Project Authors,
 \end{thebibliography}
 
 \end{document}
-
-

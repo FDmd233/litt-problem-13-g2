@@ -1,14 +1,17 @@
 \begin{proof}
-The sectional calculation follows directly from the
-standard analytic form of a $\wt E_7$ simple-elliptic germ,
+The local Euler obstruction is invariant under analytic isomorphism, so it
+may be computed in the standard hypersurface embedding of a $\wt E_7$
+simple-elliptic germ,
 \[
  z^2+f_4(x,y)=0,
 \]
 where $f_4$ is a square-free binary quartic
-\cite{Laufer1977,Pinkham1977}.  On a general hyperplane $z=ax+by$, the
-quadratic term has rank one and the restriction of $f_4$ to its null line is
-nonzero.  The analytic splitting lemma therefore reduces the plane-curve
-germ to $s^2+t^4=0$, namely type $A_3$, whose Milnor number is $3$.
+\cite{Laufer1977,Pinkham1977}.  In these coordinates take a general linear
+form $\ell=z-ax-by$.  On $\ell=0$ the quadratic term $(ax+by)^2$ has rank
+one, and square-freeness makes the restriction of $f_4$ to its null line
+nonzero for general $(a:b)$.  The analytic splitting lemma therefore
+reduces the plane-curve germ to $s^2+t^4=0$, namely type $A_3$, whose Milnor
+number is $3$.
 The Lefschetz formula for the local Euler obstruction
 \cite[Theorem~3.1]{BrasseletLeSeade2000} identifies $\operatorname{Eu}_X(0)$
 with the Euler characteristic of this generic linear Milnor fibre.  Hence
@@ -84,7 +87,8 @@ Schr\"odinger representation; see, for example,
 \cite[Chapter~6]{BirkenhakeLange2004}.  For $a\in K(L)$ choose a lift of
 translation by $a$ to the theta group.  The corresponding translate of $s$
 vanishes at the origin, because its value there is a nonzero scalar multiple
-of $s(a)$ and \eqref{eq:kernel-on-theta} gives $s(a)=0$.  The orbit of the
+of $s(\pm a)$, depending on the action convention; both values vanish by
+\eqref{eq:symmetry} and \eqref{eq:kernel-on-theta}.  The orbit of the
 nonzero vector $s$ spans $H^0(P,L)$ by irreducibility.  Hence
 \begin{equation}
  t(0)=0\qquad\text{for every }t\in H^0(P,L).
@@ -179,3 +183,9 @@ Let $j:S\xrightarrow{\rho}X\hookrightarrow P$.  A unitary rank-one character
 of $\pi_1(P)$ determines a unitary local system $\mathcal L_\alpha$ and a
 holomorphic line bundle $\alpha\in\operatorname{Pic}^0(P)$.  The same symbol $\alpha$ will also denote the latter.
 
+From this point, $\IC_X^H$ also denotes its scalar extension to a polarizable
+complex Hodge module.  A unitary rank-one local system underlies a unique
+polarizable complex variation of Hodge structure of weight zero and type
+$(0,0)$.  Thus twisting by $\mathcal L_\alpha$ is defined for polarizable
+complex Hodge modules, and its cohomology has a functorial complex Hodge
+decomposition \cite[Sections~2.1 and~2.5]{KLM2026}.

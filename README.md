@@ -17,9 +17,9 @@ From this cover one obtains a polarized Prym threefold and a theta surface $X$. 
 - [Complete LaTeX source](Litt_Problem_13_G2_complete.tex)
 - [Split LaTeX source](paper/main.tex)
 
-## Verification in the manuscript
+## Self-contained checks
 
-The pair-incidence splitting is proved intrinsically in Section 4 from the cyclic cubic norm. Appendix A records the remaining exact characteristic-zero and finite-field checks used for the residual octic and the admissible specialization. The proof does not rely on auxiliary verification code.
+The pair-incidence splitting is proved intrinsically in Section 4 from the cyclic cubic norm. Appendix A records the remaining exact characteristic-zero and finite-field checks used for the residual octic and the admissible specialization, including every reduction, remainder, and Bézout identity needed to check them by hand.
 
 ## Build
 
