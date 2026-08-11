@@ -56,7 +56,7 @@
 \title[A realization of $G_2$ for Litt Problem No. 13]
       {A Realization of $G_2$ for Litt Problem No. 13}
 \author{OpenAI}
-\date{Revised August 10, 2026}
+\date{Revised August 11, 2026}
 
 \hypersetup{
   pdftitle={A Realization of G2 for Litt Problem No. 13},
@@ -193,11 +193,12 @@ For a geometric generic point $x$ of
 $\cM=(\cX/\cB)_{\mathrm{sm}}$, let $D_x$ be its unique effective divisor of
 degree three.  The cyclic norm of a section of $H^0(C,3\kappa-D_x)$ is the
 fixed norm line times a conic.  Its determinant has a structural linear
-factor and a geometrically integral residual octic.  On that octic an exact
-square-class identity identifies the ordering cover of the two line factors
-with the constant quadratic cover $\QQ(\sqrt{-3})/\QQ$.  Hence over $\CC$
-there are two branches.  The scheme-theoretic Abel inverse converts them into
-the two nonexceptional components of
+factor and a geometrically integral residual octic.  The factor-ordering
+cover on that octic is split directly by the cubic norm: after restricting
+to the line $Y=(-v/z)^3$, the residual conic is the product of the two
+nontrivial cubic conjugates of the section.  This gives two rationally
+labelled factors over $\CC$.  The scheme-theoretic Abel inverse converts
+them into the two nonexceptional components of
 \[
  C_x=\{y\in X:-x-y\in X\},
 \]
@@ -794,8 +795,8 @@ Thus
 
 \subsection{The irregularity and the generic-twist Hodge vector}
 
-The exceptional elliptic curve contributes to $H^1(S)$.  We compute this
-contribution before considering twists.
+The exceptional elliptic curve contributes to $H^1(S)$.  Its contribution is
+determined before introducing the generic twist.
 
 \begin{proposition}[Irregularity of the resolution]
 \label[proposition]{prop:resolution-irregularity}
@@ -1283,8 +1284,7 @@ the kernel has the following basis:
  \qquad
  s_2=(x-e_3)w-e_1Y+e_2w^2.
 \]
-For later use in the norm calculation, the basis argument is included.  On
-$D$ we have $x=Y=w^3$ and
+For later use in the norm calculation, the basis argument is included.  On $D$ one has $x=Y=w^3$ and
 $p(w)=w^3-e_1w^2+e_2w-e_3=0$, so all three sections vanish on $D$.  Moreover
 $\deg(3\kappa-D)=6$ and $K_C=2\kappa$, hence Riemann--Roch gives
 \[
@@ -1431,7 +1431,7 @@ with constant leading coefficient $7$.  At $u=4$ its monic slice is
        &-3v^2-5v-2\in\mathbf F_{13}[v].
  \end{aligned}
 \]
-Appendix~A.3 records the Frobenius reductions
+Appendix~A.2 records the Frobenius reductions
 \[
  v^{13^8}\equiv v\pmod h,
  \qquad
@@ -1526,113 +1526,158 @@ $\mathscr R_{\mathrm n}$ follows by faithfully flat descent from
 rank-two conic commutes with field extension, which proves the last assertion.
 \end{proof}
 
-\begin{proposition}[Cyclotomic ordering cover]
+\begin{lemma}[Off-curve norm identity]
+\label[lemma]{lem:off-curve-norm}
+With
+\[
+ P_D(x)=x^3-\Sigma_1x^2+\Sigma_2x-e_3^3
+\]
+and
+\[
+ F_E(x,Y)=(Y+c)^2-(x+c)^2-\lambda P_D(x),
+\]
+the cyclic norm satisfies the polynomial identity
+\begin{equation}
+ \Nm(s)=(Y-x)Q_s-\frac{v^3+z^3Y}{\lambda}F_E(x,Y).
+\label{eq:off-curve-norm}
+\end{equation}
+In particular, no coefficient identity for the residual octic is needed to
+recover the two residual line factors.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ R=\lambda\Nm(s)+(v^3+z^3Y)F_E(x,Y).
+\]
+The only term of ordinary degree four in $\lambda\Nm(s)$ is
+$\lambda z^3x^3Y$, coming from $\lambda\beta^3Y$; it is cancelled by the
+term $-\lambda z^3x^3Y$ in $(v^3+z^3Y)F_E$.  Hence $R$ has ordinary degree
+at most three in $x,Y$.
+
+On the line $Y=x$ one has $s_0=0$, $s_1=h$, and $s_2=wh$, where
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+Since $w^3=x$ on that line, $h=p(w)$ and
+\[
+ \Nm(h)=\operatorname{Res}_W(W^3-x,p(W))=P_D(x).
+\]
+It follows that
+\[
+ \Nm(s)|_{Y=x}=(v^3+z^3x)P_D(x),
+ \qquad
+ F_E(x,x)=-\lambda P_D(x).
+\]
+Thus $R|_{Y=x}=0$, so $Y-x$ divides $R$.  The quotient
+$R/(\lambda(Y-x))$ has degree at most two and, on $E=V(F_E)$, restricts to
+$\Nm(s)/(Y-x)$.  By the uniqueness of the six-term expression defining
+$Q_s$, this quotient is $Q_s$.  Equation \eqref{eq:off-curve-norm} follows.
+\end{proof}
+
+\begin{proposition}[Cubic-norm splitting of the ordering cover]
 \label[proposition]{prop:ordering-cover}
-On the normalized chart $e_1=v=1$, rename
-\[
- (\delta,\Lambda,E_2,E_3,U,\zeta)
- \quad\text{as}\quad
- (c,\lambda,e_2,e_3,u,z)
-\]
-and put
-\[
- K_1=\QQ(c,\lambda,e_2,e_3,u).
-\]
-Let
-\[
- \widetilde F(z)=F_8(u,1,z),
- \qquad
- \ell=\operatorname{lc}_z(\widetilde F),
- \qquad
- F=\ell^{-1}\widetilde F.
-\]
-Then $\deg_z\widetilde F=6$, so $\ell\ne0$ and $F$ is monic of degree six.  If
-\[
- \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
-\]
-there are polynomials $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
-$\deg A_{\mathrm c}=3$ and $\deg B_{\mathrm c}\le2$ such that
+After base change to $\CC$, there is a dense normal open
+$\mathscr R_{\CC}^\circ$ of the rank-two locus of the residual octic such
+that the intrinsic factor-ordering cover is split:
 \begin{equation}
- F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
-\label{eq:norm-square-identity}
-\end{equation}
-If
-\[
- L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
-\]
-then
-\begin{equation}
- [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
- \qquad
- L(\sqrt\Delta)=L(\sqrt{-3}).
-\label{eq:cyclotomic-square-class}
-\end{equation}
-There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
-locus for which the intrinsic factor-ordering cover is
-\begin{equation}
- \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
+ \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\CC}^\circ}
  \simeq
- \mathscr R_{\mathrm n}^\circ\times_{\QQ}
- \operatorname{Spec}\QQ(\sqrt{-3}).
-\label{eq:cyclotomic-ordering-cover}
+ \mathscr R_{\CC}^\circ\sqcup\mathscr R_{\CC}^\circ.
+\label{eq:split-ordering-cover}
 \end{equation}
-The same statement holds after pullback to a dense normal open of
-$\mathscr R_{T_{\QQ}}$.  In particular, the ordering cover splits over
-$\CC$.
+The same conclusion holds after pullback to a dense normal open of
+$\mathscr R_T$.
 \end{proposition}
 
 \begin{proof}
-Appendix~\ref{app:exact-norm} gives $F$, $\Delta$, $A_{\mathrm c}$, and
-$B_{\mathrm c}$ in the present coordinates.  Section~A.2 proves
-\eqref{eq:norm-square-identity} coefficient by coefficient in the polynomial
-ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}][z]$; the seven displayed
-equalities there are the entire algebraic verification.
-The normalized residual curve is geometrically integral by
-\cref{lem:normalized-function-field}, so $F$ is irreducible and $L$ is a
-field.  The leading terms in A.2 give $\deg A_{\mathrm c}=3$ and
-$\deg B_{\mathrm c}=2$ generically.  Reducing
-\eqref{eq:norm-square-identity} modulo $F$ gives
+Let $L=k(\mathscr R_{\CC})$ and let $[u:v:z]$ be the generic section
+parameter.  Geometric integrality of $\mathscr R$ allows restriction to the
+dense chart
 \[
- -3\Delta=(A_{\mathrm c}/B_{\mathrm c})^2\ne0
+ vz(u-v)\ne0.
 \]
-in $L$, proving \eqref{eq:cyclotomic-square-class} and showing that the
-generic conic has rank exactly two.
-
-For a rank-two symmetric $3\times3$ matrix $M$, one has
-$\operatorname{adj}(M)=c_0aa^t$ for a nonzero vector $a$.  Hence the ratio
-of any two nonzero principal cofactors is a square, so the square class of a
-nonzero principal minor is intrinsic.  To see directly that this is the
-ordering character, restrict the conic to the coordinate line $Y=0$.
-If the two factors have coefficient rows $(a_0,a_1)$ and $(b_0,b_1)$ in
-$(1,x)$, the resulting binary quadratic has discriminant
-$(a_0b_1-a_1b_0)^2$; changing the sign of its square root interchanges the
-two factors.  Thus the intrinsic quadratic algebra is obtained by
-adjoining a square root of $\Delta$.  After shrinking to a normal open on
-which $\Delta$ and $B_{\mathrm c}$ are units,
-write $\varrho^2=-3$.  The maps
+The generic residual conic has rank two.  Indeed, if its symmetric matrix
+had rank at most one at the generic point, then its adjugate would vanish.
+The differential formula
 \[
- s\longmapsto\frac{A_{\mathrm c}}{\varrho B_{\mathrm c}},
+ d(\det M_s)=\operatorname{tr}(\operatorname{adj}(M_s)\,dM_s)
+\]
+would then make every first derivative of $\det M_s$ vanish there.  Since
+\[
+ \det M_s=(u-v)F_8
+\]
+and $u-v\ne0$ in $L$, all first derivatives of $F_8$ would vanish at the
+generic point.  This is impossible for the geometrically integral plane
+curve $F_8=0$ in characteristic zero.
+
+Put
+\[
+ q=-\frac vz,\qquad Y_*=q^3,
+\]
+and choose a primitive cube root of unity $\omega\in\CC$.  On the line
+$Y=Y_*$ the cubic algebra $w^3=Y_*$ splits, and
+\[
+ \Nm(s)(x,Y_*)=\prod_{j=0}^2 L_j(x),
  \qquad
- \varrho\longmapsto\frac{A_{\mathrm c}}{B_{\mathrm c}s}
+ L_j(x)=s(x,\omega^jq)\in L[x].
 \]
-give inverse isomorphisms between the intrinsic algebra
-$\mathcal O[s]/(s^2-\Delta)$ and the constant algebra
-$\mathcal O[\varrho]/(\varrho^2+3)$.  This proves
-\eqref{eq:cyclotomic-ordering-cover}.  The field extensions in
-\eqref{eq:residual-function-fields} preserve the construction, and over
-$\CC$ the constant quadratic cover is split.
+The identities $s_0+s_1=h$ and $s_2=wh$ give
+\[
+ s=(u+zw)s_0+(v+zw)s_1.
+\]
+For $w=q$ the second coefficient vanishes, so
+\[
+ L_0(x)=(u-v)(x-Y_*).
+\]
+At $Y=Y_*$ the correction term in \eqref{eq:off-curve-norm} vanishes.
+Cancelling $x-Y_*$ therefore gives
+\begin{equation}
+ Q_s(x,Y_*)=-(u-v)L_1(x)L_2(x).
+\label{eq:restriction-two-conjugates}
+\end{equation}
+
+Write $L_j=a_jx+b_j$ for $j=1,2$.  Since $q=-v/z$,
+\[
+ a_j=u-v\omega^j,
+\]
+and
+\[
+ b_j=-(u-v\omega^j)q^3
+     +v(1-\omega^j)
+       \bigl(q^3-e_1\omega^{2j}q^2+e_2\omega^jq-e_3\bigr).
+\]
+Using only $\omega^2+\omega+1=0$, these two linear forms give
+\begin{equation}
+ a_1b_2-a_2b_1
+ =-\frac{v(2\omega+1)}{z^3}\,R(u,v,z),
+\label{eq:conjugate-root-separation}
+\end{equation}
+where
+\begin{align*}
+R={}&e_1uv^2z+2e_1v^3z-2e_2uvz^2-e_2v^2z^2\\
+ &+e_3uz^3-e_3vz^3+uv^3-v^4.
+\end{align*}
+The polynomial $R$ is nonzero and homogeneous of degree four in $(u,v,z)$.
+Since $F_8$ is irreducible of degree eight, $R$ does not vanish at the
+generic point of $\mathscr R_{\CC}$.  After one further shrinking, the two
+roots in \eqref{eq:restriction-two-conjugates} are therefore distinct.
+
+A rank-two conic has a unique singular point, namely the projectivized
+one-dimensional kernel of $M_s$; this point is $L$-rational.  Each of the
+two factor lines is determined by that singular point and its intersection
+with the $L$-rational line $Y=Y_*$.  Equation
+\eqref{eq:restriction-two-conjugates}, together with
+\eqref{eq:conjugate-root-separation}, shows that both intersection points
+are $L$-rational and distinct.  Hence both factor lines are individually
+defined over $L$.
+
+The factor-ordering cover thus has two rational sections over the generic
+point.  Because it is finite \emph{\'etale} on the rank-two locus, the two
+sections extend after shrinking to a dense normal open, proving
+\eqref{eq:split-ordering-cover}.  Pullback along $\mathscr R_T\to\mathscr R$
+preserves this splitting.
 \end{proof}
-
-\begin{remark}[Arithmetic fibres]
-The quadratic field $\QQ(\sqrt{-3})=\QQ(\zeta_3)$ explains the term
-``cyclotomic.''  After spreading the rank-two open over a suitable
-$\mathbf Z[1/N]$ with $6\mid N$, the two line factors at an
-$\mathbf F_q$-point are
-individually defined over $\mathbf F_q$ precisely when $-3$ is a square in
-$\mathbf F_q$, equivalently when $q\equiv1\pmod3$.  If $q\equiv2\pmod3$,
-they are exchanged by Frobenius and become defined over $\mathbf F_{q^2}$.
-\end{remark}
-
 
 \subsection{The scheme-theoretic Abel inverse}
 
@@ -2038,13 +2083,10 @@ fibre over $T$, each copy is a dense open of a geometrically integral curve.
 \end{corollary}
 
 \begin{proof}
-By \cref{prop:ordering-cover,lem:normalized-function-field}, the finite
+By \cref{prop:ordering-cover}, the finite
 \'etale factor-ordering cover has two rational sections over $\CC$ at the
-generic point of $\mathscr G$.  On the principal-minor chart, after fixing
-$\varrho\in\CC$ with $\varrho^2=-3$, they are given by
-$s=\pm A_{\mathrm c}/(\varrho B_{\mathrm c})$ for the intrinsic coordinate
-$s^2=\Delta$.
-They extend to two disjoint sections after shrinking $\mathscr G$, so
+generic point of $\mathscr G$.  They extend to two disjoint sections after
+shrinking $\mathscr G$, so
 $\operatorname{Ord}_{\mathrm{fac},\mathscr G}
  \simeq\mathscr G\sqcup\mathscr G$.
 Apply \cref{prop:abel-incidence}.  The last assertion follows from
@@ -2575,9 +2617,10 @@ faithfully as
 \label{eq:orthogonal}
 \end{equation}
 
-The simple perverse sheaf $K$ is nondivisible: a translation fixing it must
-fix its support, and \eqref{eq:stabilizer} then makes the translation zero.
-By \cite[Proposition~3.3]{JKLM2025},
+The simple perverse sheaf $K$ is primitive in the sense of
+\cite[Section~3.3]{JKLM2025}: if $t_a^*K\simeq K$, then $X+a=X$, and
+\eqref{eq:stabilizer} gives $a=0$.  By
+\cite[Proposition~3.3(2)]{JKLM2025},
 \begin{equation}
  V|_{G^0}\quad\text{is irreducible}.
 \label{eq:connected-irreducible}
@@ -2605,9 +2648,9 @@ Thus the connected centre $Z_H^0$ acts by scalar matrices.  As $G_H^0$ is
 reductive, multiplication $Z_H^0\times G^*\to G_H^0$ is surjective with
 finite kernel.
 
-Put $\mu(z)=h(z,z^{-1})$.  We need the antidiagonal cocharacter in the
-common derived group, not merely in the Hodge group; the determinant gives a
-short way to see this.  Since $\GGm$ is connected,
+Put $\mu(z)=h(z,z^{-1})$.  The antidiagonal cocharacter must lie in the
+common derived group rather than merely in the Hodge group.  This follows from
+the determinant.  Since $\GGm$ is connected,
 $\mu(\GGm)\subset G_H^0$.  By \cref{prop:hodge-vector},
 \[
  \det\mu(z)=z^{(-2)\cdot2+0\cdot3+2\cdot2}=1.
@@ -2652,8 +2695,7 @@ $G^0$ is semisimple.  An irreducible representation of a product of
 semisimple groups is an external tensor product.  Since $7$ is prime and the
 action is faithful, $G^0$ has one simple factor.
 
-For completeness, the seven-dimensional possibilities can be read directly
-from the Weyl dimension formula (compare the standard tables in
+The seven-dimensional possibilities follow directly from the Weyl dimension formula (compare the standard tables in
 \cite{Dynkin1957,FultonHarris1991}).  If a dominant highest weight contains
 a fundamental weight $\omega_i$, its Weyl dimension is at least that of
 $V_{\omega_i}$, and it increases strictly after adding a nonzero dominant
@@ -2753,19 +2795,16 @@ follows.
 
 \appendix
 
-\section{Exact norm identities and arithmetic specializations}\label{app:exact-norm}
+\section{Explicit algebraic and arithmetic checks}\label{app:exact-norm}
 
-This appendix isolates the finite algebra used in
-\cref{sec:pair-splitting}.  The full residual octic is omitted because it
-plays no independent conceptual role, but every algebraic assertion used in
-the proof is displayed here.  Each step is either an identity in a specified
-polynomial ring or a finite calculation in $\mathbf F_{13}$ using the
-reduction relation written out below.  Consequently every algebraic input to
-\cref{sec:pair-splitting} can be checked from the displayed formulas; no
-unrecorded computation is used.
-The four items recorded are the normalized conic coefficients, the
-square-class identity, geometric integrality of the residual octic, and an
-admissible specialization.
+This appendix records the explicit calculations that remain useful in
+\cref{sec:pair-splitting}.  The splitting of the factor-ordering cover is
+proved intrinsically in \cref{lem:off-curve-norm,prop:ordering-cover} and
+requires no large coefficient expansion.  What remains here is deliberately
+limited to the normalized conic coefficients used for the simple structural
+factor, the finite-field irreducibility check for the residual octic, and one
+admissible specialization.  Every finite-field reduction used below is
+written out explicitly.
 
 \subsection*{A.1. Normalized conic coefficients}
 On the normalized chart $e_1=v=1$ the shifted curve is
@@ -2855,107 +2894,7 @@ Substitution into \eqref{eq:appendix-determinant-expansion} gives
 \end{equation}
 In particular, $4F_8(1,1,1)=12\ne0$ in $\QQ$.
 
-\subsection*{A.2. The square-class identity}
-Keep the normalized chart $e_1=v=1$ and put
-\[
- r=u-1,\qquad d=\lambda-1,\qquad m=2c+e_2^3\lambda.
-\]
-Let $\widetilde F(z)=F_8(u,1,z)$, let
-$\ell=\operatorname{lc}_z(\widetilde F)$, and set
-$L_c=4\lambda^2\ell$.  Expanding
-\eqref{eq:appendix-determinant-expansion} with the six coefficients in A.1
-and collecting first in $d$ gives the following compact expression:
-\begin{align}
-L_c={}&3d^2e_3^2(3e_2^2r^2+3e_2r+1)\notag\\
-&+3de_3(6e_2^2e_3r^2+3e_2e_3r-2e_2mr^2-3e_2mr-mr-2m)\notag\\
-&+9e_2^2e_3^2r^2-6e_2e_3mr^2-9e_2e_3mr
-  +m^2r^2+3m^2r+3m^2.
-\label{eq:appendix-Lc-compact}
-\end{align}
-Define $N(z)=N_2z^2+N_1z+N_0$ by
-\begin{align*}
-N_2={}&-e_2(d+1)(6de_2e_3r+3de_3+6e_2e_3r-2mr-3m),\\
-N_1={}&-(d+1)(3de_2^2e_3r^2-3de_2e_3r-3de_3
- +3e_2^2e_3r^2-3e_2e_3r+mr+3m),\\
-N_0={}&r(d+1)(3de_2e_3r+2de_3+3e_2e_3r-m).
-\end{align*}
-Finally put
-\[
- R(z)=2L_cz^3+R_2z^2+R_1z+R_0,
-\]
-where
-\begin{align*}
-R_2=3e_2\bigl[{}&d^2e_3(6e_2e_3r^3+3e_2+3e_3r^2-1)\\
-&+d(12e_2e_3^2r^3+3e_2e_3-3e_2m+3e_3^2r^2
-      -2e_3mr^3-3e_3mr^2+m)\\
-&+6e_2e_3^2r^3-3e_2m-2e_3mr^3-3e_3mr^2\bigr],
-\end{align*}
-\begin{align*}
-R_1=3\bigl[{}&d^2e_3(6e_2^3r^3+9e_2^3r^2+3e_2^2e_3r^4
- +3e_2^2r^2+15e_2^2r\\
-&\hspace{5.3em}-3e_2e_3r^3-3e_2r+3e_2-3e_3r^2-1)\\
-&+d(12e_2^3e_3r^3+18e_2^3e_3r^2+6e_2^2e_3^2r^4
- +3e_2^2e_3r^2+24e_2^2e_3r\\
-&\hspace{3em}-2e_2^2mr^3-6e_2^2mr^2-6e_2^2mr
- -6e_2e_3^2r^3-3e_2e_3r+3e_2e_3\\
-&\hspace{3em}-3e_2mr-3e_2m-3e_3^2r^2+e_3mr^3+3e_3mr^2+mr+m)\\
-&+6e_2^3e_3r^3+9e_2^3e_3r^2+3e_2^2e_3^2r^4\\
-&\hspace{3em}+9e_2^2e_3r-2e_2^2mr^3-6e_2^2mr^2-6e_2^2mr\\
-&\hspace{3em}-3e_2e_3^2r^3-3e_2mr-3e_2m+e_3mr^3+3e_3mr^2\bigr],
-\end{align*}
-and
-\begin{align*}
-R_0={}&-3d^2e_3(6e_2^2r^3+3e_2^2r^2+3e_2e_3r^4
- +7e_2r^2+6e_2r+2e_3r^3+2r+2)\\
-&+d(-36e_2^2e_3r^3-18e_2^2e_3r^2-18e_2e_3^2r^4
- -21e_2e_3r^2-18e_2e_3r\\
-&\hspace{3em}+6e_2mr^3+12e_2mr^2+9e_2mr-6e_3^2r^3\\
-&\hspace{3em}+3e_3mr^3+4mr^2+9mr+6m)\\
-&-3r(6e_2^2e_3r^2+3e_2^2e_3r\\
-&\hspace{3em}+3e_2e_3^2r^3-2e_2mr^2-4e_2mr-3e_2m-e_3mr^2).
-\end{align*}
-Let
-\[
- \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
- \qquad
- \widetilde F(z)=\sum_{k=0}^6 f_kz^k.
-\]
-In the ring
-$\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}]$, equating the seven
-coefficients of $z$ in \eqref{eq:appendix-determinant-expansion} gives
-\begin{align*}
-16\lambda^2L_cf_6&=4L_c^2,\\
-16\lambda^2L_cf_5&=4L_cR_2,\\
-16\lambda^2L_cf_4&=R_2^2+4L_cR_1+3\Delta N_2^2,\\
-16\lambda^2L_cf_3&=2R_1R_2+4L_cR_0+6\Delta N_1N_2,\\
-16\lambda^2L_cf_2&=R_1^2+2R_0R_2+3\Delta(N_1^2+2N_0N_2),\\
-16\lambda^2L_cf_1&=2R_0R_1+6\Delta N_0N_1,\\
-16\lambda^2L_cf_0&=R_0^2+3\Delta N_0^2.
-\end{align*}
-These seven equalities are exactly the coefficients of $z^6,\ldots,z^0$
-in the identity
-\begin{equation}
- 16\lambda^2L_c\,\widetilde F(z)=R(z)^2+3\Delta N(z)^2.
-\label{eq:appendix-primitive-square-identity}
-\end{equation}
-They constitute the complete verification of
-\eqref{eq:appendix-primitive-square-identity} in the stated polynomial ring.
-
-Since $\ell=L_c/(4\lambda^2)$, define
-\[
- A_{\mathrm c}=\frac{R}{2L_c},\qquad
- B_{\mathrm c}=\frac{N}{2L_c}.
-\]
-Dividing \eqref{eq:appendix-primitive-square-identity} by $4L_c^2$ gives
-\begin{equation}
- \ell^{-1}\widetilde F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2,
-\label{eq:appendix-square-class-check}
-\end{equation}
-which is exactly \eqref{eq:norm-square-identity}.  Notice also directly from
-the displayed leading terms that $\deg A_{\mathrm c}=3$ and
-$\deg B_{\mathrm c}\le2$.
-
-\subsection*{A.3. Geometric integrality of the residual octic}
+\subsection*{A.2. Geometric integrality of the residual octic}
 For this argument, specialize to characteristic $13$ at
 $(c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2)$ and put
 $H(u,v)=4F_8(u,v,1)$.  Expanding
@@ -3032,7 +2971,7 @@ components; a rational point would then lie on every component and would be
 singular.  Hence the special octic is geometrically integral.  This is the
 finite-field input in \cref{lem:residual-octic-integral}.
 
-\subsection*{A.4. An admissible specialization}
+\subsection*{A.3. An admissible specialization}
 For \cref{lem:admissible-nonempty} use
 \[
  (c,\lambda,e_1,e_2,e_3)=(1,1,1,0,2),\qquad (u:v:z)=(3:5:1)
@@ -3166,7 +3105,7 @@ Robin Hartshorne,
 
 \bibitem{JKLM2025}
 Ariyan Javanpeykar, Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
-\emph{The monodromy of families of subvarieties on abelian varieties}, Duke Math. J. \textbf{174} (2025), no.~6, 1045--1149.
+\emph{The monodromy of families of subvarieties on abelian varieties}, Duke Math. J. \textbf{174} (2025), no.~6, 1045--1149,\newblock \url{https://doi.org/10.1215/00127094-2024-0053}.
 
 \bibitem{Kashiwara1985}
 Masaki Kashiwara,
@@ -3178,7 +3117,7 @@ George Kempf,
 
 \bibitem{KLM2026}
 Thomas Kr\"amer, Christian Lehn, and Marco Maculan,
-\emph{Exceptional Tannaka groups only arise from cubic threefolds}, J. Reine Angew. Math. \textbf{830} (2026), 51--99.
+\emph{Exceptional Tannaka groups only arise from cubic threefolds}, J. Reine Angew. Math. \textbf{830} (2026), 51--99,\newblock \url{https://doi.org/10.1515/crelle-2025-0073}.
 
 \bibitem{KraemerWeissauer2015}
 Thomas Kr\"amer and Rainer Weissauer,
@@ -3190,7 +3129,7 @@ Henry B. Laufer,
 
 \bibitem{Litt13}
 Daniel Litt,
-\emph{Problem no.~13}, Problems I Like, \url{https://www.problemsilike.com/13}, accessed August 10, 2026.
+\emph{Problem no.~13}, Problems I Like, \url{https://www.problemsilike.com/13}, accessed August 11, 2026.
 
 \bibitem{Macdonald1962}
 I.~G. Macdonald,
@@ -3206,7 +3145,7 @@ Morihiko Saito,
 
 \bibitem{stacks-project}
 The Stacks Project Authors,
-\emph{Stacks Project}, \url{https://stacks.math.columbia.edu}, accessed August 10, 2026.
+\emph{Stacks Project}, \url{https://stacks.math.columbia.edu}, accessed August 11, 2026.
 
 \end{thebibliography}
 
