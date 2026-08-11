@@ -9,7 +9,7 @@ C:\ w^3=y-c,
 \quad c\neq 0.
 $$
 
-From this cover we obtain a polarized Prym threefold and a theta surface $X$. For general parameters, the intersection cohomology object $\mathrm{IC}_X$ has Euler characteristic $7$, and its full convolution Tannaka group is $G_2$ acting through the seven-dimensional standard representation.
+From this cover one obtains a polarized Prym threefold and a theta surface $X$. For general parameters, the intersection cohomology object $\mathrm{IC}_X$ has Euler characteristic $7$, and its full convolution Tannaka group is $G_2$ acting through the seven-dimensional standard representation.
 
 ## Manuscript
 
@@ -19,7 +19,7 @@ From this cover we obtain a polarized Prym threefold and a theta surface $X$. Fo
 
 ## Verification in the manuscript
 
-The finite algebra used in the pair-incidence argument is written explicitly in Appendix A. The proof does not rely on auxiliary verification code.
+The pair-incidence splitting is proved intrinsically in Section 4 from the cyclic cubic norm. Appendix A records the remaining exact characteristic-zero and finite-field checks used for the residual octic and the admissible specialization. The proof does not rely on auxiliary verification code.
 
 ## Build
 

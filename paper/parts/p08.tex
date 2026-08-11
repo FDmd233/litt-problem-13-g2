@@ -10,113 +10,158 @@ $\mathscr R_{\mathrm n}$ follows by faithfully flat descent from
 rank-two conic commutes with field extension, which proves the last assertion.
 \end{proof}
 
-\begin{proposition}[Cyclotomic ordering cover]
+\begin{lemma}[Off-curve norm identity]
+\label[lemma]{lem:off-curve-norm}
+With
+\[
+ P_D(x)=x^3-\Sigma_1x^2+\Sigma_2x-e_3^3
+\]
+and
+\[
+ F_E(x,Y)=(Y+c)^2-(x+c)^2-\lambda P_D(x),
+\]
+the cyclic norm satisfies the polynomial identity
+\begin{equation}
+ \Nm(s)=(Y-x)Q_s-\frac{v^3+z^3Y}{\lambda}F_E(x,Y).
+\label{eq:off-curve-norm}
+\end{equation}
+In particular, no coefficient identity for the residual octic is needed to
+recover the two residual line factors.
+\end{lemma}
+
+\begin{proof}
+Put
+\[
+ R=\lambda\Nm(s)+(v^3+z^3Y)F_E(x,Y).
+\]
+The only term of ordinary degree four in $\lambda\Nm(s)$ is
+$\lambda z^3x^3Y$, coming from $\lambda\beta^3Y$; it is cancelled by the
+term $-\lambda z^3x^3Y$ in $(v^3+z^3Y)F_E$.  Hence $R$ has ordinary degree
+at most three in $x,Y$.
+
+On the line $Y=x$ one has $s_0=0$, $s_1=h$, and $s_2=wh$, where
+\[
+ h=x-e_1w^2+e_2w-e_3.
+\]
+Since $w^3=x$ on that line, $h=p(w)$ and
+\[
+ \Nm(h)=\operatorname{Res}_W(W^3-x,p(W))=P_D(x).
+\]
+It follows that
+\[
+ \Nm(s)|_{Y=x}=(v^3+z^3x)P_D(x),
+ \qquad
+ F_E(x,x)=-\lambda P_D(x).
+\]
+Thus $R|_{Y=x}=0$, so $Y-x$ divides $R$.  The quotient
+$R/(\lambda(Y-x))$ has degree at most two and, on $E=V(F_E)$, restricts to
+$\Nm(s)/(Y-x)$.  By the uniqueness of the six-term expression defining
+$Q_s$, this quotient is $Q_s$.  Equation \eqref{eq:off-curve-norm} follows.
+\end{proof}
+
+\begin{proposition}[Cubic-norm splitting of the ordering cover]
 \label[proposition]{prop:ordering-cover}
-On the normalized chart $e_1=v=1$, rename
-\[
- (\delta,\Lambda,E_2,E_3,U,\zeta)
- \quad\text{as}\quad
- (c,\lambda,e_2,e_3,u,z)
-\]
-and put
-\[
- K_1=\QQ(c,\lambda,e_2,e_3,u).
-\]
-Let
-\[
- \widetilde F(z)=F_8(u,1,z),
- \qquad
- \ell=\operatorname{lc}_z(\widetilde F),
- \qquad
- F=\ell^{-1}\widetilde F.
-\]
-Then $\deg_z\widetilde F=6$, so $\ell\ne0$ and $F$ is monic of degree six.  If
-\[
- \Delta=-4\left(q_{00}q_{11}-(q_{01}/2)^2\right),
-\]
-there are polynomials $A_{\mathrm c},B_{\mathrm c}\in K_1[z]$ with
-$\deg A_{\mathrm c}=3$ and $\deg B_{\mathrm c}\le2$ such that
+After base change to $\CC$, there is a dense normal open
+$\mathscr R_{\CC}^\circ$ of the rank-two locus of the residual octic such
+that the intrinsic factor-ordering cover is split:
 \begin{equation}
- F=A_{\mathrm c}^2+3\Delta B_{\mathrm c}^2.
-\label{eq:norm-square-identity}
-\end{equation}
-If
-\[
- L=K_1[z]/(F)=k(\mathscr R_{\mathrm n}),
-\]
-then
-\begin{equation}
- [\Delta]=[-3]\quad\text{in }L^\times/L^{\times2},
- \qquad
- L(\sqrt\Delta)=L(\sqrt{-3}).
-\label{eq:cyclotomic-square-class}
-\end{equation}
-There is a dense normal open $\mathscr R_{\mathrm n}^\circ$ in the rank-two
-locus for which the intrinsic factor-ordering cover is
-\begin{equation}
- \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\mathrm n}^\circ}
+ \operatorname{Ord}_{\mathrm{fac},\mathscr R_{\CC}^\circ}
  \simeq
- \mathscr R_{\mathrm n}^\circ\times_{\QQ}
- \operatorname{Spec}\QQ(\sqrt{-3}).
-\label{eq:cyclotomic-ordering-cover}
+ \mathscr R_{\CC}^\circ\sqcup\mathscr R_{\CC}^\circ.
+\label{eq:split-ordering-cover}
 \end{equation}
-The same statement holds after pullback to a dense normal open of
-$\mathscr R_{T_{\QQ}}$.  In particular, the ordering cover splits over
-$\CC$.
+The same conclusion holds after pullback to a dense normal open of
+$\mathscr R_T$.
 \end{proposition}
 
 \begin{proof}
-Appendix~\ref{app:exact-norm} gives $F$, $\Delta$, $A_{\mathrm c}$, and
-$B_{\mathrm c}$ in the present coordinates.  Section~A.2 proves
-\eqref{eq:norm-square-identity} coefficient by coefficient in the polynomial
-ring $\mathbf Z[c,\lambda,e_2,e_3,u,\lambda^{-1}][z]$; the seven displayed
-equalities there are the entire algebraic verification.
-The normalized residual curve is geometrically integral by
-\cref{lem:normalized-function-field}, so $F$ is irreducible and $L$ is a
-field.  The leading terms in A.2 give $\deg A_{\mathrm c}=3$ and
-$\deg B_{\mathrm c}=2$ generically.  Reducing
-\eqref{eq:norm-square-identity} modulo $F$ gives
+Let $L=k(\mathscr R_{\CC})$ and let $[u:v:z]$ be the generic section
+parameter.  Geometric integrality of $\mathscr R$ allows restriction to the
+dense chart
 \[
- -3\Delta=(A_{\mathrm c}/B_{\mathrm c})^2\ne0
+ vz(u-v)\ne0.
 \]
-in $L$, proving \eqref{eq:cyclotomic-square-class} and showing that the
-generic conic has rank exactly two.
-
-For a rank-two symmetric $3\times3$ matrix $M$, one has
-$\operatorname{adj}(M)=c_0aa^t$ for a nonzero vector $a$.  Hence the ratio
-of any two nonzero principal cofactors is a square, so the square class of a
-nonzero principal minor is intrinsic.  To see directly that this is the
-ordering character, restrict the conic to the coordinate line $Y=0$.
-If the two factors have coefficient rows $(a_0,a_1)$ and $(b_0,b_1)$ in
-$(1,x)$, the resulting binary quadratic has discriminant
-$(a_0b_1-a_1b_0)^2$; changing the sign of its square root interchanges the
-two factors.  Thus the intrinsic quadratic algebra is obtained by
-adjoining a square root of $\Delta$.  After shrinking to a normal open on
-which $\Delta$ and $B_{\mathrm c}$ are units,
-write $\varrho^2=-3$.  The maps
+The generic residual conic has rank two.  Indeed, if its symmetric matrix
+had rank at most one at the generic point, then its adjugate would vanish.
+The differential formula
 \[
- s\longmapsto\frac{A_{\mathrm c}}{\varrho B_{\mathrm c}},
+ d(\det M_s)=\operatorname{tr}(\operatorname{adj}(M_s)\,dM_s)
+\]
+would then make every first derivative of $\det M_s$ vanish there.  Since
+\[
+ \det M_s=(u-v)F_8
+\]
+and $u-v\ne0$ in $L$, all first derivatives of $F_8$ would vanish at the
+generic point.  This is impossible for the geometrically integral plane
+curve $F_8=0$ in characteristic zero.
+
+Put
+\[
+ q=-\frac vz,\qquad Y_*=q^3,
+\]
+and choose a primitive cube root of unity $\omega\in\CC$.  On the line
+$Y=Y_*$ the cubic algebra $w^3=Y_*$ splits, and
+\[
+ \Nm(s)(x,Y_*)=\prod_{j=0}^2 L_j(x),
  \qquad
- \varrho\longmapsto\frac{A_{\mathrm c}}{B_{\mathrm c}s}
+ L_j(x)=s(x,\omega^jq)\in L[x].
 \]
-give inverse isomorphisms between the intrinsic algebra
-$\mathcal O[s]/(s^2-\Delta)$ and the constant algebra
-$\mathcal O[\varrho]/(\varrho^2+3)$.  This proves
-\eqref{eq:cyclotomic-ordering-cover}.  The field extensions in
-\eqref{eq:residual-function-fields} preserve the construction, and over
-$\CC$ the constant quadratic cover is split.
+The identities $s_0+s_1=h$ and $s_2=wh$ give
+\[
+ s=(u+zw)s_0+(v+zw)s_1.
+\]
+For $w=q$ the second coefficient vanishes, so
+\[
+ L_0(x)=(u-v)(x-Y_*).
+\]
+At $Y=Y_*$ the correction term in \eqref{eq:off-curve-norm} vanishes.
+Cancelling $x-Y_*$ therefore gives
+\begin{equation}
+ Q_s(x,Y_*)=-(u-v)L_1(x)L_2(x).
+\label{eq:restriction-two-conjugates}
+\end{equation}
+
+Write $L_j=a_jx+b_j$ for $j=1,2$.  Since $q=-v/z$,
+\[
+ a_j=u-v\omega^j,
+\]
+and
+\[
+ b_j=-(u-v\omega^j)q^3
+     +v(1-\omega^j)
+       \bigl(q^3-e_1\omega^{2j}q^2+e_2\omega^jq-e_3\bigr).
+\]
+Using only $\omega^2+\omega+1=0$, these two linear forms give
+\begin{equation}
+ a_1b_2-a_2b_1
+ =-\frac{v(2\omega+1)}{z^3}\,R(u,v,z),
+\label{eq:conjugate-root-separation}
+\end{equation}
+where
+\begin{align*}
+R={}&e_1uv^2z+2e_1v^3z-2e_2uvz^2-e_2v^2z^2\\
+ &+e_3uz^3-e_3vz^3+uv^3-v^4.
+\end{align*}
+The polynomial $R$ is nonzero and homogeneous of degree four in $(u,v,z)$.
+Since $F_8$ is irreducible of degree eight, $R$ does not vanish at the
+generic point of $\mathscr R_{\CC}$.  After one further shrinking, the two
+roots in \eqref{eq:restriction-two-conjugates} are therefore distinct.
+
+A rank-two conic has a unique singular point, namely the projectivized
+one-dimensional kernel of $M_s$; this point is $L$-rational.  Each of the
+two factor lines is determined by that singular point and its intersection
+with the $L$-rational line $Y=Y_*$.  Equation
+\eqref{eq:restriction-two-conjugates}, together with
+\eqref{eq:conjugate-root-separation}, shows that both intersection points
+are $L$-rational and distinct.  Hence both factor lines are individually
+defined over $L$.
+
+The factor-ordering cover thus has two rational sections over the generic
+point.  Because it is finite \emph{\'etale} on the rank-two locus, the two
+sections extend after shrinking to a dense normal open, proving
+\eqref{eq:split-ordering-cover}.  Pullback along $\mathscr R_T\to\mathscr R$
+preserves this splitting.
 \end{proof}
-
-\begin{remark}[Arithmetic fibres]
-The quadratic field $\QQ(\sqrt{-3})=\QQ(\zeta_3)$ explains the term
-``cyclotomic.''  After spreading the rank-two open over a suitable
-$\mathbf Z[1/N]$ with $6\mid N$, the two line factors at an
-$\mathbf F_q$-point are
-individually defined over $\mathbf F_q$ precisely when $-3$ is a square in
-$\mathbf F_q$, equivalently when $q\equiv1\pmod3$.  If $q\equiv2\pmod3$,
-they are exchanged by Frobenius and become defined over $\mathbf F_{q^2}$.
-\end{remark}
-
 
 \subsection{The scheme-theoretic Abel inverse}
 
