@@ -34,7 +34,3 @@ The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`, and its SHA
 ## Release
 
 Current release: [`v1.3.0`](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0)
-
-## Assistance
-
-AI-assisted tools were used during exploration, checking, and manuscript preparation.
