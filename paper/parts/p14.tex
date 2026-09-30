@@ -88,28 +88,142 @@ $-I=gh^{-1}\in G$.  But $-I$ acts by $-1$ on $V$ and by $+1$ on
 $\Lambda^2V$, contradicting \eqref{eq:hom-exterior}.  Hence $G=G^0=G_2$.
 \end{proof}
 
-\begin{proof}[Proof of \cref{thm:main}]
-Let $\cB^\circ$ be the nonempty open subset obtained in
-\cref{thm:uniform-pair-splitting}.  The relative divisor $\cX\subset\cP$ is
-symmetric, relatively ample, effective Cartier, flat, and has geometrically
-integral fibres by the construction at the beginning of
-\cref{sec:pair-splitting}.
+\section{Specialization and an explicit example}
 
-Fix $b\in\cB^\circ(\CC)$.  The polarization type and the geometric
-properties of $(P_b,X_b)$ follow from \cref{prop:theta-resolution} and the
-construction of $L$.  The locus $\Omega_b$ in \cref{prop:hodge-vector} is
-nonempty; for any $\alpha_b\in\Omega_b$, that proposition gives Hodge
-multiplicities $(2,3,2)$.  The two pair components furnished by
-\cref{thm:uniform-pair-splitting} imply, through \cref{prop:alt-support},
-that $\IC_{X_b}$ is a direct summand of $\Alt^2(\IC_{X_b})$.  Finally,
-\cref{cor:full-g2} identifies the full Tannaka group and tautological module
-with $(G_2,V_7)$.  Since $b$ was arbitrary in $\cB^\circ(\CC)$, the theorem
-follows.
+\begin{proposition}[Specialization of the intersection complex]
+\label{prop:specialization}
+For every $b\in\cB(\CC)$ there is a smooth pointed curve through $b$,
+with generic point in $\cB^\circ$, along which
+\[
+ \psi(\IC_{X_{\bar\eta}})\simeq\IC_{X_b}.
+\]
+Consequently the specialization Tannaka group embeds as a closed subgroup
+of $G_2$, compatibly with the seven-dimensional tautological modules.
+\end{proposition}
+\begin{proof}
+Choose a smooth curve $T\subset\cB$ through $b$ whose generic point lies
+in $\cB^\circ$, and pass to the strict henselization at $b$.
+Let $\cN_T$ be the relative norm fibre in $\cC_T^{(3)}$, and let
+$D_0$ be the section consisting of the three ramification points.
+Set $\wh{\cN}_T=\operatorname{Bl}_{D_0}\cN_T$.
+
+This is a smooth proper family of surfaces.  To check the assertion at
+the centre, label the branch points after an \'etale base change.
+An additive local coordinate on the elliptic curve and cube-root
+coordinates at the ramification points put the relative norm equation
+in the form
+\[
+ z_1^3+z_2^3+z_3^3=0
+\]
+over the base.  Indeed the three elliptic coordinates sum to zero at
+$D_0$, and the local ramification index is three at each point.
+The relative germ is therefore the product of the base with the cone
+over the Fermat plane cubic.  Blowing up its vertex gives a smooth
+family and commutes with passage to fibres.  Away from $D_0$ the norm
+fibres are smooth by \cref{prop:theta-resolution}; the relative norm
+fibre is flat, being an effective Cartier divisor in the smooth
+relative symmetric cube.  Thus it is smooth there as well.
+
+The Abel map gives a projective morphism
+$\wh j:\wh{\cN}_T\to\cP_T$.  On each fibre it is birational onto $X_t$
+and an isomorphism away from zero.  Its exceptional curves are the
+elliptic curve $E_0$ and the strict transform $\wt\Gamma$ of $|\kappa|$.
+As in \cref{prop:theta-resolution}, their intersection matrix is
+\[
+ \begin{pmatrix}-3&1\\1&-1\end{pmatrix},\qquad\det=2.
+\]
+The semismall decomposition consequently gives, on both the geometric
+generic and closed fibres,
+\begin{equation}\label{eq:relative-two-skyscrapers}
+ R\wh j_{t,*}\QQ_{\wh N_t}[2]
+       \simeq\IC_{X_t}\oplus\delta_0^{\oplus2}.
+\end{equation}
+The classes of the two relative exceptional curves supply constant
+skyscraper summands.  Smooth base change for $\wh{\cN}_T\to T$ and
+proper base change for $\wh j$ identify the nearby cycles of the left
+side with the corresponding closed-fibre direct image.
+Nearby cycles are perverse exact and send $\delta_0$ to $\delta_0$.
+Applying them to \eqref{eq:relative-two-skyscrapers} and cancelling the
+two skyscraper summands proves the asserted isomorphism.  Cancellation
+is valid because the closed-fibre direct image is semisimple, so the
+nearby intersection complex is a direct summand of a semisimple object.
+
+For an abelian scheme in characteristic zero, nearby cycles preserve
+convolution, hypercohomology and character twists, and the specialization
+map on fundamental groups is an isomorphism.
+\cite[Lemma~14.1 and Section~14]{KraemerWeissauer2015} therefore gives
+\[
+ G(\IC_{X_b})\hookrightarrow G(\IC_{X_{\bar\eta}}).
+\]
+Here one may spread the curve and construction over a finitely generated
+subfield of $\CC$, use characteristic-zero \'etale nearby cycles, and
+then use comparison with complex sheaves.  Invariance under extension of
+algebraically closed fields
+\cite[Corollary~4.4]{JKLM2025} identifies the generic group with the
+group computed in \cref{cor:full-g2}.  The fibre functors in specialization
+identify their tautological modules.
+\end{proof}
+
+\begin{theorem}[All allowed parameters]\label{thm:all-parameters}
+For every $b\in\cB(\CC)$,
+\[
+ \bigl(G(\IC_{X_b}),\omega(\IC_{X_b})\bigr)\simeq(G_2,V_7).
+\]
+\end{theorem}
+\begin{proof}
+Write $H=G(\IC_{X_b})$.  By \cref{prop:specialization}, $H\subset G_2$
+on $V_7$.  The geometry and Hodge calculation of Section~3 apply to
+every $b\in\cB$.  In particular, the translation stabilizer is trivial,
+$V_7|_{H^0}$ is irreducible, and the antidiagonal Hodge cocharacter has
+weights $-2,0,2$ of multiplicities $2,3,2$ in $[H^0,H^0]$.
+The determinant argument preceding \cref{prop:connected-g2} uses only
+these properties and applies unchanged.
+
+The orthogonal seven-dimensional list in the proof of
+\cref{prop:connected-g2} leaves $\mathrm{PGL}_2$, $\mathrm{SO}_7$ and
+$G_2$ as possibilities for $H^0$.  The Hodge weights exclude
+$\mathrm{PGL}_2$, and $\dim\mathrm{SO}_7=21>14=\dim G_2$ excludes
+$\mathrm{SO}_7\subset G_2$.  Hence $H^0=G_2$, and
+$G_2=H^0\subset H\subset G_2$ proves the assertion.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+The relative construction in \cref{sec:pair-splitting} gives a symmetric
+relatively ample effective Cartier divisor, flat with geometrically
+integral fibres.  The polarization and resolution are those of
+\cref{prop:theta-resolution}; \cref{cor:theta-ic} gives
+$\chi(\IC_{X_b})=7$.  The Tannaka pair is determined by
+\cref{thm:all-parameters}.
+\end{proof}
+
+\begin{corollary}[A rational example]
+The smooth cover
+\[
+ E:y^2=x^3+2,\qquad C:w^3=y-1
+\]
+and its centred Prym theta surface, defined over $\QQ$, realize
+$(G_2,V_7)$ after base change to $\CC$.
+\end{corollary}
+\begin{proof}
+Here $\Delta_E=108$, $\Delta_{\mathrm{br}}=27$, and $c=1$.
+Apply \cref{thm:all-parameters}.
+\end{proof}
+
+\begin{corollary}[Minimal ambient dimension for $V_7$]
+No intersection complex of an integral subvariety in an abelian variety
+of dimension at most two has the Tannaka pair $(G_2,V_7)$.
+\end{corollary}
+\begin{proof}
+A point has Euler characteristic one.  For an integral curve with
+normalization of genus $g$, its perverse intersection complex has Euler
+characteristic $2g-2$, which is even.  A two-dimensional integral
+subvariety of an abelian surface is the whole surface, with Euler
+characteristic zero.  None gives the required dimension seven.
 \end{proof}
 
 \appendix
 
-\section{Explicit algebraic and arithmetic checks}\label{app:exact-norm}
+\section{Exact algebraic computations}\label{app:exact-norm}
 
 We record the exact calculations used in \cref{sec:pair-splitting}.  The
 intrinsic argument of \cref{lem:off-curve-norm,prop:ordering-cover} proves the

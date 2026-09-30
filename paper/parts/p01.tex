@@ -32,23 +32,13 @@ The exterior-square morphism rules out $\mathrm{SO}_7$, the Hodge cocharacter ru
 out the seven-dimensional $\mathrm{PGL}_2$ module, and the same morphism excludes the
 only possible disconnected extension of $G_2$.  Thus $G=G_2$.
 
-\paragraph{Organization.}
-The proof is organized by the following dependency chain.
-\begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
-\item \cref{prop:theta-resolution,lem:surface-invariants,cor:theta-ic,lem:conormal-degree}
-      establish the geometry of the theta section and $\chi(\IC_X)=7$.
-\item \cref{prop:resolution-irregularity,prop:hodge-vector} compute the
-      invariants of the resolution and the generic-twist Hodge
-      multiplicities $(2,3,2)$.
-\item \cref{prop:determinant-factorization,lem:residual-octic-integral,%
-      prop:ordering-cover,prop:abel-incidence,lem:boundary-exhaustion}
-      identify the two generic pair components, and
-      \cref{thm:uniform-pair-splitting} spreads them.
-\item \cref{lem:split-fibre-top,lem:off-theta-vanishing,lem:extract-ic}
-      extract an unshifted $\IC_X$ summand in alternating pair convolution.
-\item \cref{prop:connected-g2,cor:full-g2} identify the connected and full
-      Tannaka groups.
-\end{enumerate}
+This argument first applies on a nonempty open $\cB^\circ$.
+Blowing up the singular section of the relative norm fibre gives a smooth
+proper family resolving every $X_b$.  Its semismall decomposition shows
+that nearby cycles preserve $\IC_{X_b}$.  Specialization embeds each
+remaining Tannaka group into the generic $G_2$; connected irreducibility
+and the same Hodge multiplicities force equality
+(\cref{prop:specialization,thm:all-parameters}).
 
 Unless a rational model or a finite-field reduction is explicitly mentioned,
 the geometric construction is over $\CC$.  Intersection complexes,

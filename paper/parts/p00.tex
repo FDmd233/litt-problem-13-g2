@@ -9,7 +9,7 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage[nameinlink,capitalize,noabbrev]{cleveref}
 
 \numberwithin{equation}{section}
@@ -56,7 +56,7 @@
 \title[A realization of $G_2$ for Litt Problem No. 13]
       {A Realization of $G_2$ for Litt Problem No. 13}
 \author{OpenAI}
-\date{Revised August 11, 2026}
+\date{September 30, 2026}
 
 \hypersetup{
   pdftitle={A Realization of G2 for Litt Problem No. 13},
@@ -82,11 +82,12 @@ $\chi(\IC_X)=7$.  For general parameters, the pair-incidence curve
 $X\cap(-x-X)$ has exactly two nonexceptional components.  Their top
 cohomology gives an unshifted summand $\IC_X\subset\Alt^2(\IC_X)$ in the
 convolution category, while a generic unitary twist has Hodge multiplicities
-$(2,3,2)$.  Together these facts determine the Tannaka pair: the connected
-group is $G_2$ on its standard seven-dimensional representation, and the
-same exterior-square morphism excludes the only possible disconnected
-extension.  The full convolution Tannaka group is therefore $G_2$, realizing
-the $G_2$ case of Litt Problem No.~13.
+$(2,3,2)$.  These facts determine the full Tannaka group as $G_2$ on its
+standard seven-dimensional representation for general parameters.
+A simultaneous resolution and nearby cycles extend this conclusion to
+every parameter for which the elliptic curve and branch divisor are smooth.
+In particular, the construction gives an explicit example defined over
+$\QQ$ and realizes the $G_2$ case of Litt Problem No.~13.
 \end{abstract}
 
 \maketitle
@@ -104,7 +105,7 @@ exceptional simple types
   G_2,\qquad E_7,\qquad E_8,\qquad F_4
 \]
 can occur in this manner \cite{Litt13}.  Only the $G_2$ case is considered
-here; no claim is made about the other three.  The construction necessarily
+here.  The construction
 uses a singular theta surface, so the exclusion results for smooth
 subvarieties in \cite{KLM2026} do not apply.
 
@@ -151,8 +152,7 @@ Write $\cP\to\cB$ and $\cX\subset\cP$ for the resulting relative Prym and
 relative theta section.
 
 \begin{theorem}[Main theorem]\label{thm:main}
-There is a nonempty Zariski-open subset $\cB^\circ\subset\cB$ such that for
-every $b\in\cB^\circ(\CC)$ the following hold.
+For every $b\in\cB(\CC)$ the following hold.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
 \item $P_b$ is an abelian threefold, and the polarization induced by the
       centred theta divisor has type $(1,1,3)$.

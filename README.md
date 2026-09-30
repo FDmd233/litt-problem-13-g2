@@ -11,7 +11,9 @@ C:\quad w^3=y-c,
 \qquad c\ne 0.
 $$
 
-From this cover one obtains a polarized Prym threefold and a theta surface $X$. For general parameters, the intersection-cohomology object $\mathrm{IC}_X$ has Euler characteristic $7$, and its full convolution Tannaka group is $G_2$ acting through the seven-dimensional standard representation.
+For every parameter with $c\ne0$, $4A^3+27B^2\ne0$, and $4A^3+27(B-c^2)^2\ne0$, the cover gives a Prym threefold of polarization type $(1,1,3)$ and a normal theta surface with one simple elliptic singularity. Its intersection complex has Euler characteristic $7$ and full convolution Tannaka pair $(G_2,V_7)$. Section 8 proves the extension from general parameters by a simultaneous resolution and nearby cycles. The example $y^2=x^3+2$, $w^3=y-1$ is defined over $\mathbf Q$.
+
+Manuscript revised September 30, 2026.
 
 ## Manuscript
 
@@ -29,8 +31,12 @@ The pair-incidence splitting is proved intrinsically in Section 4 from the cycli
 make
 ~~~
 
-The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`, and its SHA-256 checksum to `SHA256SUMS.txt`.
+The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`. `SHA256SUMS.txt` records the checksums of the PDF and the complete TeX source. The complete and split sources contain the same manuscript.
 
 ## Release
 
-Current release: [`v1.3.0`](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0)
+Earlier release: [`v1.3.0`](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0). The revised manuscript is on `main`; earlier tags and releases retain their original files.
+
+## Authorship and assistance
+
+The manuscript is signed OpenAI. OpenAI ChatGPT/Codex was used to draft and revise the text, examine the arguments and references, and check the LaTeX compilation. This statement records assistance and does not imply journal review or acceptance.
