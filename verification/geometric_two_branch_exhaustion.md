@@ -15,9 +15,9 @@ let $\mathscr R/K_0$ be the geometrically integral
 plane octic $F_8(u,v,z)=0$, and $L=K_0(\mathscr R)$.
 The conic $Q_s=0$ has symmetric matrix $M_s$
 with
-$
+$$
  \det M_s=(u-v)F_8.
-$
+$$
 For the residual octic, $u-v\ne0$ at its
 generic point. If $\operatorname{rank}M_s\le1$
 there, its adjugate vanishes and therefore
@@ -33,40 +33,40 @@ For the section $s=\alpha+\beta w+\gamma w^2$
 define $L_j(x)=s(x,\omega^j q)$ after
 substituting $Y=Y_*$, $j=0,1,2$.
 The exact identity
-$
+$$
  \operatorname{Nm}(s)
   =(Y-x)Q_s-
      \frac{v^3+z^3Y}{\lambda}F_E(x,Y)
-$
+$$
 holds without imposing any specialization on
 $c,\lambda,e_1,e_2,e_3$.
 Its restriction to $Y=Y_*$ gives
-$
+$$
  Q_s(x,Y_*)=-(u-v)L_1(x)L_2(x),
-$
+$$
 since $L_0(x)=(u-v)(x-Y_*)$.
 The symbolic script reconstructs $Q_s$ by
 exact polynomial division and proves **both**
 identities in the rational function field
-$
+$$
  \mathbb Q(c,\lambda,e_1,e_2,e_3,u,v,z,\omega)/
         (\omega^2+\omega+1).
-$
+$$
 No point over $\mathbb F_{13}$ is substituted.
 
 Write $L_j=a_jx+b_j$. The script also checks
-$
+$$
  a_1b_2-a_2b_1
  =-\frac{v(2\omega+1)}{z^3}\,R(u,v,z),
-$
+$$
 with
-$
+$$
  \begin{aligned}
  R={}&e_1uv^2z+2e_1v^3z
        -2e_2uvz^2-e_2v^2z^2\\
    &+e_3uz^3-e_3vz^3+uv^3-v^4.
  \end{aligned}
-$
+$$
 The polynomial $R$ is homogeneous of
 degree four in $(u,v,z)$, whereas $F_8$
 is irreducible of degree eight, so
@@ -81,20 +81,20 @@ $\operatorname{adj}(M_s)$ gives
 its $L$-rational coordinates.
 Its two intersections with the
 $L$-rational line $Y=Y_*$ are
-$
+$$
  p_j=[-b_j:a_jY_*:a_j]\in\mathbb P^2(L),
  \qquad j=1,2.
-$
+$$
 They are distinct and cannot equal
 $\mathbf s$, since a line through
 the singular point meets a union of
 two lines with multiplicity two.
 The two line components of the conic
 are therefore **explicitly**
-$
+$$
  \ell_j=\overline{\mathbf s\,p_j}
  \quad\text{over }L.
-$
+$$
 This gives two $L$-rational sections of
 the intrinsic factor-ordering double cover.
 The cover is finite étale on the rank-two
@@ -148,10 +148,10 @@ branches, exchanged by the involution.
 
 Fix geometric generic $x\in X_{\mathrm{reg}}$ and
 write
-$
+$$
  C_x=X\cap(-x-X),\quad
  C_x^{ne}=C_x\setminus\{0,-x\}.
-$
+$$
 Every $y\in C_x^{ne}$ has a unique
 degree-three Abel divisor $D_y$,
 and similarly for $-x-y$. Their
@@ -171,11 +171,11 @@ has a one-dimensional image.
 
 **No structural-line component.**
 On the pencil $u=v$, $s=h(u+zw)$ and
-$
+$$
  \operatorname{div}(s)
  =D_x+D_{-x}+D_\kappa,\qquad
  D_\kappa\in|\kappa|.
-$
+$$
 For a general pencil point the two
 residual triples project to **distinct,
 disjoint lines** on the elliptic curve.
@@ -226,9 +226,9 @@ generic pair fibre is reduced.
 Let $\tau$ be the covering automorphism.
 The Prym identity $1+\tau+\tau^2=0$
 gives a $k(x)$-rational section
-$
+$$
  x\longmapsto y_+(x)=\tau x
-$
+$$
 of the pair-incidence family, with
 partner $\tau^2x$.
 If the fibre were singular at this
