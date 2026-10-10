@@ -27,6 +27,8 @@ The pair-incidence splitting is proved intrinsically in Section 4 from the cycli
 
 The [all-parameter specialization verification note](verification/specialization_criterion.md) isolates the semismall nearby-cycles cancellation argument, explains the local smooth simultaneous resolution, and states which other parts of the proof still require independent review.
 
+- [All-parameter factor-ordering identity](verification/verify_generic_factor_ordering.py) verifies the cyclic norm decomposition and distinct rational residual-line intersections **symbolically**, without fixing a characteristic-13 point. The script runs in [GitHub CI](.github/workflows/verify-residual-octic.yml).
+- [Geometric two-branch exhaustion audit](verification/geometric_two_branch_exhaustion.md) checks the rationality of the line factors, scheme-level Abel inverse, boundary component exhaustion, and rational global labels, with its earlier geometric prerequisites explicitly recorded.
 - [Independent exact symbolic audit](verification/verify_residual_octic.py) reconstructs the norm quotient, the determinant factorization and the characteristic-13 residual octic, and verifies an explicit factorization into two transverse, disjoint, unbranched rational line sections. This is a finite specialization test, not a proof of the generic factor-ordering split; the [CI job](.github/workflows/verify-residual-octic.yml) reruns it.
 - [Antisymmetric convolution proof audit](verification/alternating_convolution_audit.md) separately checks the perverse shifts, local-system triviality and divisor-support extraction conditional on the geometric splitting.
 
