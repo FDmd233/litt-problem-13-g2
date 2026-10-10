@@ -23,3 +23,5 @@ jobs:
         run: python -m pip install 'sympy==1.14.0'
       - name: Independently reconstruct residual octic
         run: python verification/verify_residual_octic.py
+      - name: Verify factor-ordering identity in generic parameters
+        run: python verification/verify_generic_factor_ordering.py
