@@ -1,0 +1,25 @@
+name: Independent residual-octic certificate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'verification/verify_residual_octic.py'
+      - '.github/workflows/verify-residual-octic.yml'
+      - 'Litt_Problem_13_G2_complete.tex'
+      - 'paper/parts/**'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-exact-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned symbolic algebra
+        run: python -m pip install 'sympy==1.14.0'
+      - name: Independently reconstruct residual octic
+        run: python verification/verify_residual_octic.py
