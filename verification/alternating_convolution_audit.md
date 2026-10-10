@@ -10,24 +10,24 @@ statement.
 
 Let $P$ be the Prym threefold, $X=-X\subset P$ its integral normal
 theta surface, $\rho:S\to X$ the semismall resolution, and
-$
+$$
 K=IC_X,\qquad \widetilde K=R(j:S\to P)_*\mathbf Q_S[2]
 =K\oplus\delta_0.
-$
+$$
 Let $\sigma$ swap the two factors of $S\times S$.
 
 ## 1. Exact stalk shifts
 
 The convolution is
-$
+$$
 \widetilde K*\widetilde K
  =R\widetilde m_*\mathbf Q_{S\times S}[4].
-$
+$$
 For $t\in X_{\mathrm{reg}}$ on the pair-splitting locus,
-$
+$$
 \mathcal H^{-2}(\widetilde K*\widetilde K)_t
  =H^2(\widetilde m^{-1}(t),\mathbf Q).
-$
+$$
 The four one-dimensional components consist of two genuinely
 nonexceptional curves $A_{1,t},A_{2,t}$ and the structural curves
 $E_{\mathrm{exc}}\times\{s_t\}$,
@@ -37,16 +37,16 @@ Transposition preserves complex orientation. Therefore the
 anti-invariant top cohomology has rank two.
 
 Expanding $\widetilde K=K\oplus\delta_0$ gives
-$
+$$
 (\widetilde K*\widetilde K)_-
 =(K*K)_-\oplus\bigl((K*\delta_0)\oplus
 (\delta_0*K)\bigr)_-,
-$
+$$
 where the second summand is one copy of $K$, concentrated in
 ordinary degree $-2$ over $X_{\mathrm{reg}}$. Consequently
-$
+$$
 \operatorname{rk}\mathcal H^{-2}((K*K)_-)|_{U}=1.
-$
+$$
 The geometric shifts are both even (2), so the commutativity
 constraint does not introduce a Koszul sign.
 
@@ -58,9 +58,9 @@ the translated ample divisor is connected on the integral
 Cohen--Macaulay surface, and generic smoothness applies outside
 the singular points. Its involution $x\mapsto t-x$ preserves
 orientation and acts as the identity on $H^2$. Hence
-$
+$$
 \mathcal H^{-2}((K*K)_-)=0
-$
+$$
 on a nonempty Zariski-open subset of $P\setminus X$.
 
 ## 3. Why the rank-one line cannot be a shifted full-support IC
@@ -70,9 +70,9 @@ $(K*K)_-$ into shifted simple intersection complexes. At a
 general smooth point of the divisor $X$, a full-support perverse
 intersection complex with a local system on its complement is
 locally an external product
-$
+$$
 \mathcal L[2]\boxtimes j_{\!*}\mathcal W[1]
-$
+$$
 for a punctured normal disk and a normal monodromy operator $T$.
 The middle-extension disk stalk has ordinary cohomology only
 in degree $-1$, with value $\ker(T-1)$.
@@ -107,9 +107,9 @@ summand is exactly $IC_X$, not a twisted version.
 After quotienting negligible perverse sheaves, exactness and
 $\chi(K)=7>0$ preserve this summand and yield the genuinely
 representation-theoretic consequence
-$
+$$
 \operatorname{Hom}_{G(K)}\bigl(V,\Lambda^2 V\bigr)\ne0.
-$
+$$
 
 ## Audit boundary
 
