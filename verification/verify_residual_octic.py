@@ -39,3 +39,18 @@ assert any((A[i][i]*A[j][j]-A[i][j]*A[j][i])%13 != 0 for i in range(3) for j in 
 print('PASS exact norm division, structural factor, characteristic-zero specialization')
 print('PASS characteristic-13 octic, irreducible slice, smooth point, rank-2 conic')
 print('Finite specialization only; generic factor-ordering split and Tannaka steps not certified')
+
+# At the F_13 point [u:v:z]=[3:5:1], independently factor the conic.
+Q13=s.Poly(Q.subs({u:3,v:5,z:1})-2*(Y+9*x+1)*(Y+4*x+9),x,Y,modulus=13)
+assert Q13.is_zero, 'Finite-field rank-two conic failed to split'
+lines=[x,-9*x-1,-4*x-9]
+section_polys=[s.Poly(E.subs(Y,l),x,modulus=13) for l in lines]
+branch=s.Poly(E.subs(Y,0),x,modulus=13)
+assert all(s.gcd(g,g.diff()).degree()==0 for g in section_polys)
+assert all(s.gcd(g,branch).degree()==0 for g in section_polys)
+for i in range(3):
+    for j in range(i+1,3):
+        xx=s.solve(lines[i]-lines[j],x)[0]
+        num,den=s.cancel(E.subs({x:xx,Y:lines[i].subs(x,xx)})).as_numer_denom()
+        assert int(den)%13!=0 and int(num)%13!=0
+print('PASS char-13 splitting into two rational lines, disjoint transverse sections')
