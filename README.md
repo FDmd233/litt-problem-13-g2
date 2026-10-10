@@ -25,6 +25,8 @@ Manuscript revised September 30, 2026.
 
 The pair-incidence splitting is proved intrinsically in Section 4 from the cyclic cubic norm. Appendix A records the remaining exact characteristic-zero and finite-field checks for the residual octic and the admissible specialization, including the reductions, remainders, and Bézout identities needed for independent verification.
 
+The [all-parameter specialization verification note](verification/specialization_criterion.md) isolates the semismall nearby-cycles cancellation argument, explains the local smooth simultaneous resolution, and states which other parts of the proof still require independent review.
+
 ## Build
 
 ~~~bash
