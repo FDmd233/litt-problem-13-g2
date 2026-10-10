@@ -1,6 +1,6 @@
 # Independent audit of the geometric two-branch exhaustion
 
-This audit revisits Sections 4--7 of \`Litt_Problem_13_G2_complete.tex\`
+This audit revisits Sections 4--7 of `Litt_Problem_13_G2_complete.tex`
 and separates the **generic algebraic splitting**, the **scheme-level
 incidence conversion**, the **exclusion of boundary components**,
 and the **Galois descent of the two global labels**.
