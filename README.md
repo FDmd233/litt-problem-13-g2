@@ -39,9 +39,13 @@ make
 
 The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`. `SHA256SUMS.txt` records the checksums of the PDF and the complete TeX source. The complete TeX file is authoritative; historical files under `paper/parts/` are not the source for the current proof. [The build workflow](.github/workflows/build-audited-pdf.yml) rebuilds and checks the tracked PDF when the authoritative source changes.
 
-## Release
+## Releases
 
-Earlier release: [`v1.3.0`](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0). The revised manuscript is on `main`; earlier tags and releases retain their original files.
+- [Current corrected release: v2.1.0](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v2.1.0) — snapshot PDF, complete LaTeX source, and portable SHA-256 checksums.
+- [Previous release: v2.0.0](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v2.0.0).
+- [Earlier release: v1.3.0](https://github.com/FDmd233/litt-problem-13-g2/releases/tag/v1.3.0).
+
+The `main`-branch PDF is continuously updated; release tags are fixed historical snapshots.
 
 ## Authorship and assistance
 
