@@ -1,0 +1,71 @@
+name: Publish v2.1.0 corrected manuscript
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'releases/v2.1.0.md'
+      - '.github/workflows/publish-v2.1.0.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-v2.1.0
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative source and built PDF
+        uses: actions/checkout@v4
+      - name: Verify current source and PDF against tracked SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum --check SHA256SUMS.txt
+          test -s "output/pdf/Litt_Problem_13_G2.pdf"
+          test -s "Litt_Problem_13_G2_complete.tex"
+          head -c 5 "output/pdf/Litt_Problem_13_G2.pdf" | grep -Fq '%PDF-'
+      - name: Validate GitHub mathematical notation and stage portable assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          notes = Path("releases/v2.1.0.md").read_text(encoding="utf-8")
+          assert notes.count("```math") == 2, "unexpected number of math fences"
+          assert notes.count("```") == 4, "unclosed mathematical fence"
+          assert "$G_2$" in notes, "missing mathematical group label"
+          assert r"\(" not in notes and r"\)" not in notes, "avoid backslash-parenthesis delimiters"
+          assert "proposed" in notes.lower(), "keep proof status accurate"
+          print("Release notes: validated math fences, delimiters and claim status.")
+          PY
+          mkdir -p release-assets
+          cp "output/pdf/Litt_Problem_13_G2.pdf" release-assets/
+          cp "Litt_Problem_13_G2_complete.tex" release-assets/
+          awk '{p=$2; sub("^output/pdf/", "", p); print $1 "  " p}' SHA256SUMS.txt > release-assets/SHA256SUMS.txt
+          (cd release-assets && sha256sum --check SHA256SUMS.txt)
+      - name: Create or repair v2.1.0 release with immutable snapshot assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if gh release view v2.1.0 >/dev/null 2>&1; then
+            gh release edit v2.1.0 --title 'v2.1.0 — G2 proof corrections (2026-10-21)' --notes-file releases/v2.1.0.md --latest
+            gh release upload v2.1.0 release-assets/Litt_Problem_13_G2.pdf release-assets/Litt_Problem_13_G2_complete.tex release-assets/SHA256SUMS.txt --clobber
+          else
+            gh release create v2.1.0 release-assets/Litt_Problem_13_G2.pdf release-assets/Litt_Problem_13_G2_complete.tex release-assets/SHA256SUMS.txt \
+              --target "$GITHUB_SHA" --title 'v2.1.0 — G2 proof corrections (2026-10-21)' --notes-file releases/v2.1.0.md --latest
+          fi
+      - name: Verify published release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh release view v2.1.0 --json tagName,isLatest,assets --jq '{tag: .tagName, latest: .isLatest, assets: [.assets[].name]}'
+          gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'Litt_Problem_13_G2.pdf'
+          gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'Litt_Problem_13_G2_complete.tex'
+          gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'SHA256SUMS.txt'
