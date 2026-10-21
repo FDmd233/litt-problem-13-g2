@@ -65,7 +65,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh release view v2.1.0 --json tagName,isLatest,assets --jq '{tag: .tagName, latest: .isLatest, assets: [.assets[].name]}'
+          gh release view v2.1.0 --json tagName,assets --jq '{tag: .tagName, assets: [.assets[].name]}'
           gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'Litt_Problem_13_G2.pdf'
           gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'Litt_Problem_13_G2_complete.tex'
           gh release view v2.1.0 --json assets --jq '.assets[].name' | grep -Fx 'SHA256SUMS.txt'
