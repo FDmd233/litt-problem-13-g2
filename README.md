@@ -13,13 +13,13 @@ $$
 
 For every parameter with $c\ne0$, $4A^3+27B^2\ne0$, and $4A^3+27(B-c^2)^2\ne0$, the cover gives a Prym threefold of polarization type $(1,1,3)$ and a normal theta surface with one simple elliptic singularity. Its intersection complex has Euler characteristic $7$ and full convolution Tannaka pair $(G_2,V_7)$. Section 8 proves the extension from general parameters by a simultaneous resolution and nearby cycles. The example $y^2=x^3+2$, $w^3=y-1$ is defined over $\mathbf Q$.
 
-Manuscript revised September 30, 2026.
+Manuscript source corrected October 21, 2026 (structural-pencil argument). Formal external verification of the entire proof is pending.
 
 ## Manuscript
 
 - [PDF](output/pdf/Litt_Problem_13_G2.pdf)
 - [Complete LaTeX source](Litt_Problem_13_G2_complete.tex)
-- [Split LaTeX source](paper/main.tex)
+- [Legacy split LaTeX source](paper/main.tex) (not the authoritative revision; do not use for the current proof)
 
 ## Exact checks
 
@@ -38,7 +38,7 @@ The [all-parameter specialization verification note](verification/specialization
 make
 ~~~
 
-The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`. `SHA256SUMS.txt` records the checksums of the PDF and the complete TeX source. The complete and split sources contain the same manuscript.
+The resulting PDF is written to `output/pdf/Litt_Problem_13_G2.pdf`. `SHA256SUMS.txt` records the checksums of the PDF and the complete TeX source. The complete TeX file is authoritative; the legacy split source may lag behind its proof corrections. After a source revision, the tracked PDF and checksums must be rebuilt with `make` and recommitted before citing them as current.
 
 ## Release
 
