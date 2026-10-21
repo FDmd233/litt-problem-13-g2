@@ -56,7 +56,7 @@
 \title[A realization of $G_2$ for Litt Problem No. 13]
       {A Realization of $G_2$ for Litt Problem No. 13}
 \author{OpenAI}
-\date{September 30, 2026}
+\date{October 21, 2026}
 
 \hypersetup{
   pdftitle={A Realization of G2 for Litt Problem No. 13},
@@ -1739,6 +1739,7 @@ Let $\mathscr G\subset\mathscr R_T^{(2)}$ be the open locus on which the
 following conditions hold after pullback to
 $\operatorname{Ord}_{\mathrm{fac}}$:
 \begin{enumerate}[label=\textup{(\roman*)}]
+\item $u-v\ne0$, excluding the structural determinant component;
 \item the fixed divisor $D$ is reduced;
 \item the fixed norm line and the two lines $\ell_i=0$ meet $E$ transversely,
       their degree-three line sections are pairwise disjoint, and the residual
@@ -1926,22 +1927,30 @@ projective relative section
  \vartheta:\cI_T^\dagger\longrightarrow
  \PP_T\bigl(p_*\mathcal O_{C_T}(3\kappa-D)\bigr).
 \]
-The factorization through the residual octic holds scheme-theoretically.
-Indeed, on the hyperplane $u=v$, \eqref{eq:structural-pencil} gives
+The structural determinant line requires separate treatment:
+on $u=v$ the identity \eqref{eq:structural-pencil} gives
 \[
  s=h(u+zw),\qquad
- \operatorname{div}(s)=D+D_{-x_T}+D_\kappa
- \quad(D_\kappa\in|\kappa|).
+ \operatorname{div}(s)=D+D_{-x_T}+D_\kappa,\quad
+ D_\kappa\in|\kappa|.
 \]
-The two residual Abel classes are therefore $-x_T$ and $0$.  This cannot
-occur on $\cI_T^\dagger$, where both residual classes lie in
-$X_T^{(1)}\cap X_{T,\mathrm{sm}/T}$.  Hence the pullback of $u-v=0$ is
-empty, and the pullback of $u-v$ is a unit in a local trivialization of the
-tautological line bundle.  Taking norms gives $(u-v)F_8=0$, so $F_8=0$ on
-$\cI_T^\dagger$, including nilpotent directions.  Thus $\vartheta$ factors
-through $\mathscr R_T$.  Set
+For a general pencil member the only residual Abel classes
+are $-x_T$ and $0$, but exceptional parameters may admit
+nontrivial repartitions. Thus the structural-line incidence
+need not be empty. Set
 \[
- \cI_T^{\mathrm{adm}}=\vartheta^{-1}(\mathscr G).
+ \cI_{T,\mathrm{res}}^\dagger
+  =\cI_T^\dagger\cap\vartheta^{-1}(u-v\ne0).
+\]
+Two residual norm line sections imply
+$\vartheta^*(\det M_s)=0$ scheme-theoretically.
+Since $\det M_s=(u-v)F_8$, dividing by the invertible
+$u-v$ yields $\vartheta^*F_8=0$ on this residual open,
+including nonreduced test schemes. Thus $\vartheta$ factors
+through $\mathscr R_T$ on this open. Define
+\[
+ \cI_T^{\mathrm{adm}}
+  =\cI_{T,\mathrm{res}}^\dagger\cap\vartheta^{-1}(\mathscr G).
 \]
 
 \begin{proposition}[Abel-incidence identification]
@@ -2249,6 +2258,26 @@ lies on exactly one geometric component.  Galois therefore fixes the
 component containing $y_+$ and, since there are exactly two components,
 also fixes the other.  Both components therefore descend to $k(\xi)$.
 \end{proof}
+
+\begin{remark}[The structural-pencil boundary]\label{rem:structural-pencil-correction}
+The generic boundary argument does not assert that
+the structural-pencil incidence is empty. At geometric generic
+$x$, write $D_{-x}=p_1+p_2+p_3$. A moving trigonal divisor
+$D_\kappa(q)$ is cut out by $w=q$ and has norm the line
+$y=c+q^3$ on $E$. Overlap with $\pi_*D_{-x}$ forces
+$q^3=w(p_i)^3$ for some $i$, giving at most nine finite
+affine parameters; infinity and all further degeneracies
+form a finite set. Elsewhere the two norm triples are
+disjoint, and no mixed three-point subcycle can be a
+line section: two points on one original line already
+determine that line and exclude a third point on the other.
+Thus only the two complete triples, of classes $-x$ and
+$0$, remain. The incidence-to-section map has finite fibres,
+since a fixed degree-nine zero divisor has finitely many
+degree-three subdivisors. Hence no nonexceptional curve
+component can dominate $u=v$ or be contracted to an
+exceptional pencil parameter.
+\end{remark}
 
 \section{Spreading the generic splitting}\label{sec:spreading}
 
